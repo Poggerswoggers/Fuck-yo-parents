@@ -22,7 +22,7 @@ public class SnapCamera : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera zoomCam;
 
     //Camera origin
-    Vector3 cameraOrigin;
+    [SerializeField] Vector3 ZoomcameraOffSet;
     bool camMode;
 
 
@@ -48,10 +48,13 @@ public class SnapCamera : MonoBehaviour
             taggedGameObject = new GameObject[0];
         }
 
-        
 
-        WhenMouseIsMoving();
-        SnapSystem();
+        if (!camMode)
+        {
+            WhenMouseIsMoving();
+            SnapSystem();
+
+        }
 
         /*if (Input.mousePosition != lastMousePosition)
         {
@@ -102,21 +105,23 @@ public class SnapCamera : MonoBehaviour
 
     void SnapSystem()
     {
-        if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0 && camMode == false)
+        if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
         {
             camMode = true;
-            CameraReticle.gameObject.SetActive(false);
             //blackout.SetActive(true);
 
             closestGameObject = GetClosestEnemy(taggedGameObject);
             closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            ZoomToTarget(closestGameObject);
+            ZoomToTarget();
         }
     }
 
-    void ZoomToTarget(Transform target)
+    void ZoomToTarget()
     {
-
+        //zoomCam.m_Lens.OrthographicSize = 1.5f;
+        zoomCam.Priority = 2;
+        zoomCam.Follow = closestGameObject;
+        CameraReticle.position = Vector2.zero;
     }
 
 
@@ -146,7 +151,6 @@ public class SnapCamera : MonoBehaviour
         camMode = false;
         closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
         //blackout.SetActive(false);
-        CameraReticle.gameObject.SetActive(true);
     }
 
 }
