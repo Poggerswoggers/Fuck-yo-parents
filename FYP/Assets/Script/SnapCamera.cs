@@ -8,8 +8,6 @@ public class SnapCamera : MonoBehaviour
     [SerializeField] GameObject Panel;
     public GameObject blackout;
 
-    [SerializeField] Vector3 lastMousePosition;
-
     [SerializeField] Transform CameraReticle;
 
     RaycastHit2D[] contact;
@@ -21,12 +19,16 @@ public class SnapCamera : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera outCam;
     [SerializeField] CinemachineVirtualCamera zoomCam;
 
-    //Camera origin
-    [SerializeField] Vector3 ZoomcameraOffSet;
     bool camMode;
 
 
     public float LerpTime = 1f;
+
+
+    [SerializeField] private Camera cam;
+    [SerializeField] private float zoomSpeed = 20f;
+    [SerializeField] private float minCamSize = 2f;
+    [SerializeField] private float maxCamSize = 5f;
 
     private void Start()
     {
@@ -35,6 +37,7 @@ public class SnapCamera : MonoBehaviour
 
     private void Update()
     {
+        Zoom();
 
         contact = Physics2D.BoxCastAll(CameraReticle.position, new Vector2(2,2), 0, Vector2.zero);
 
@@ -56,6 +59,8 @@ public class SnapCamera : MonoBehaviour
 
         }
 
+
+
         /*if (Input.mousePosition != lastMousePosition)
         {
             lastMousePosition = Input.mousePosition;
@@ -74,6 +79,34 @@ public class SnapCamera : MonoBehaviour
 
 
 
+    }
+
+    public void Zoom()
+    {
+        // Get MouseWheel-Value and calculate new Orthographic-Size
+        // (while using Zoom-Speed-Multiplier)
+        float mouseScrollWheel = Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+        float newZoomLevel = outCam.m_Lens.OrthographicSize - mouseScrollWheel;
+
+        // Get Position before and after zooming
+        Vector3 mouseOnWorld = cam.ScreenToWorldPoint(Input.mousePosition);
+        outCam.m_Lens.OrthographicSize = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
+        Vector3 mouseOnWorld1 = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        Debug.Log(mouseOnWorld + "  " + mouseOnWorld1);
+
+        // Calculate Difference between Positions before and after Zooming
+        Vector3 posDiff = mouseOnWorld - mouseOnWorld1;
+
+        // Add Difference to Camera Position
+        Vector3 camPos = outCam.transform.position;
+        Vector3 targetPos = new Vector3(
+            camPos.x + posDiff.x,
+            camPos.y + posDiff.y,
+            camPos.z);
+
+        // Apply Target-Position to Camera
+        outCam.transform.position = targetPos;
     }
     public void RayToCollider()
     {
@@ -105,7 +138,7 @@ public class SnapCamera : MonoBehaviour
 
     void SnapSystem()
     {
-        if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
+        /*if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
         {
             camMode = true;
             //blackout.SetActive(true);
@@ -113,7 +146,7 @@ public class SnapCamera : MonoBehaviour
             closestGameObject = GetClosestEnemy(taggedGameObject);
             closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
             ZoomToTarget();
-        }
+        }*/
     }
 
     void ZoomToTarget()
