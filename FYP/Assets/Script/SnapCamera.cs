@@ -5,8 +5,15 @@ using UnityEngine;
 
 public class SnapCamera : MonoBehaviour
 {
+
+    //UI stuff
     [SerializeField] GameObject Panel;
+    [SerializeField] float uiDelay;
     public GameObject blackout;
+
+    //
+    [SerializeField] DialogueManager dm;
+
 
     [SerializeField] Transform CameraReticle;
 
@@ -18,26 +25,29 @@ public class SnapCamera : MonoBehaviour
     //Virtual Camera
     [SerializeField] CinemachineVirtualCamera outCam;
     [SerializeField] CinemachineVirtualCamera zoomCam;
+    [SerializeField] GameObject outCamGameObject;
 
     bool camMode;
 
 
     public float LerpTime = 1f;
 
-
+    [Header("Camera Zooming")]
     [SerializeField] private Camera cam;
     [SerializeField] private float zoomSpeed = 20f;
     [SerializeField] private float minCamSize = 2f;
     [SerializeField] private float maxCamSize = 5f;
+    [SerializeField] float newZoomLevel;
+    Vector3 cameraOrigin;
 
     private void Start()
     {
-
+        cameraOrigin = outCamGameObject.transform.position;
     }
 
     private void Update()
     {
-        Zoom();
+        //Zoom();
 
         contact = Physics2D.BoxCastAll(CameraReticle.position, new Vector2(2,2), 0, Vector2.zero);
 
@@ -86,27 +96,34 @@ public class SnapCamera : MonoBehaviour
         // Get MouseWheel-Value and calculate new Orthographic-Size
         // (while using Zoom-Speed-Multiplier)
         float mouseScrollWheel = Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
-        float newZoomLevel = outCam.m_Lens.OrthographicSize - mouseScrollWheel;
+        newZoomLevel = cam.orthographicSize - mouseScrollWheel;
 
-        // Get Position before and after zooming
-        Vector3 mouseOnWorld = cam.ScreenToWorldPoint(Input.mousePosition);
-        outCam.m_Lens.OrthographicSize = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
-        Vector3 mouseOnWorld1 = cam.ScreenToWorldPoint(Input.mousePosition);
+        if(mouseScrollWheel !=0)
+        {
 
-        Debug.Log(mouseOnWorld + "  " + mouseOnWorld1);
+            outCamGameObject.SetActive(false);
 
-        // Calculate Difference between Positions before and after Zooming
-        Vector3 posDiff = mouseOnWorld - mouseOnWorld1;
+            // Get Position before and after zooming
+            Vector3 mouseOnWorld = cam.ScreenToWorldPoint(Input.mousePosition);
+            cam.orthographicSize = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
+            Vector3 mouseOnWorld1 = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        // Add Difference to Camera Position
-        Vector3 camPos = outCam.transform.position;
-        Vector3 targetPos = new Vector3(
-            camPos.x + posDiff.x,
-            camPos.y + posDiff.y,
-            camPos.z);
+            Debug.Log(mouseOnWorld + "  " + mouseOnWorld1);
 
-        // Apply Target-Position to Camera
-        outCam.transform.position = targetPos;
+            // Calculate Difference between Positions before and after Zooming
+            Vector3 posDiff = mouseOnWorld - mouseOnWorld1;
+
+            // Add Difference to Camera Position
+            Vector3 camPos = cam.transform.position;
+            Vector3 targetPos = new Vector3(
+                camPos.x + posDiff.x,
+                camPos.y + posDiff.y,
+                camPos.z);
+
+            // Apply Target-Position to Camera
+            cam.transform.position = targetPos;
+        }
+
     }
     public void RayToCollider()
     {
@@ -138,23 +155,27 @@ public class SnapCamera : MonoBehaviour
 
     void SnapSystem()
     {
-        /*if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
+        if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
         {
             camMode = true;
             //blackout.SetActive(true);
 
             closestGameObject = GetClosestEnemy(taggedGameObject);
             closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            ZoomToTarget();
-        }*/
+            StartCoroutine(ZoomToTarget());
+        }
     }
 
-    void ZoomToTarget()
+    IEnumerator ZoomToTarget()
     {
         //zoomCam.m_Lens.OrthographicSize = 1.5f;
         zoomCam.Priority = 2;
         zoomCam.Follow = closestGameObject;
         CameraReticle.position = Vector2.zero;
+
+        yield return new WaitForSeconds(uiDelay);
+        Panel.SetActive(true);
+        dm.LoadDialogue();
     }
 
 

@@ -10,8 +10,6 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float minCamSize = 2f;
     [SerializeField] private float maxCamSize = 5f;
 
-    public GameObject test;
-
     private void Update()
     {
         Zoom();
@@ -44,7 +42,5 @@ public class CameraZoom : MonoBehaviour
         // Apply Target-Position to Camera
         cam.transform.position = targetPos;
 
-
-        test.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }
