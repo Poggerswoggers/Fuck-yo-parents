@@ -6,17 +6,18 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 { 
+
+    
+    [Header("UI Panel")]
     public GameObject promptBox;
     [SerializeField] float promptBoxYPos;
-
     public GameObject infoBox;
     [SerializeField] float infoBoxXPos;
-
     [SerializeField] float phaseInSpeed;
 
     public void LoadDialogue()
     {
-        LeanTween.moveY(promptBox.GetComponent<RectTransform>(), promptBoxYPos, phaseInSpeed);
+        LeanTween.moveY(promptBox.GetComponent<RectTransform>(), promptBoxYPos, phaseInSpeed).setDelay(0.3f);
         LeanTween.moveX(infoBox.GetComponent<RectTransform>(), infoBoxXPos, phaseInSpeed);
     }
 
