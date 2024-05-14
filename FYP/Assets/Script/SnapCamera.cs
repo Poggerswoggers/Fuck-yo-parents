@@ -162,6 +162,7 @@ public class SnapCamera : MonoBehaviour
 
             closestGameObject = GetClosestEnemy(taggedGameObject);
             closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+
             StartCoroutine(ZoomToTarget());
         }
     }
@@ -175,7 +176,7 @@ public class SnapCamera : MonoBehaviour
 
         yield return new WaitForSeconds(uiDelay);
         Panel.SetActive(true);
-        dm.LoadDialogue();
+        dm.LoadDialooguePanel();
     }
 
 
