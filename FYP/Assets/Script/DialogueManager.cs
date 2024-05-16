@@ -13,6 +13,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextAsset inkStoryJson;
     private Story inkStory;
 
+    //
+    [SerializeField] GridLayoutGroup optionContainer;
+    [SerializeField] Button buttonPrefab;
+
     [SerializeField] TextMeshProUGUI infoTextField;
     [SerializeField] TextMeshProUGUI nameField;
     
@@ -74,8 +78,30 @@ public class DialogueManager : MonoBehaviour
     void DisplayChoices()
     {
         if(inkStory.currentChoices.Count < 0) return;
+        if (optionContainer.GetComponentsInChildren<Button>().Length > 0) return;
+
+        for(int i = 0; i<inkStory.currentChoices.Count; i++)
+        {
+            var choice = inkStory.currentChoices[i];
+            var button = CreateOptionButton(choice.text);
+
+
+        }
         
 
+    }
+
+    Button CreateOptionButton(string text) //Create button with text
+    {
+        //Create the choice button
+        var choiceButton = Instantiate(buttonPrefab);
+        choiceButton.transform.SetParent(optionContainer.transform, false);
+
+
+        var buttonText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+        buttonText.text = text;
+
+        return choiceButton;
     }
     // Start is called before the first frame update
     void Start()
