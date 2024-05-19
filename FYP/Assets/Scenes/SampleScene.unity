@@ -380,6 +380,7 @@ MonoBehaviour:
   buttonPrefab: {fileID: 595000945781610882, guid: 5352d942b1cd9f4438c2b80078c43736, type: 3}
   infoTextField: {fileID: 51902716}
   nameField: {fileID: 0}
+  dialoguePanel: {fileID: 0}
   promptBox: {fileID: 1799099379}
   promptBoxYPos: 50
   infoBox: {fileID: 1622087407}
@@ -468,6 +469,51 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 23251299}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403237815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 403237817}
+  - component: {fileID: 403237816}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &403237816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403237815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585aec58c5e5435479f79af661c58e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelScore: 0
+--- !u!4 &403237817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403237815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2123.576, y: 527.44183, z: -10.498801}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482448183
 GameObject:
@@ -1304,7 +1350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70350b6f01e0efb4ca676040407bd7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 1399157392}
   uiDelay: 0.5
   blackout: {fileID: 0}
   dm: {fileID: 83328070}
@@ -1868,3 +1913,4 @@ SceneRoots:
   - {fileID: 23251299}
   - {fileID: 554565023}
   - {fileID: 83328069}
+  - {fileID: 403237817}

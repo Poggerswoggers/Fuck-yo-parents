@@ -19,8 +19,9 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI infoTextField;
     [SerializeField] TextMeshProUGUI nameField;
-    
+
     [Header("UI Panel")]
+    public GameObject dialoguePanel;
     public GameObject promptBox;
     [SerializeField] float promptBoxYPos;
     public GameObject infoBox;
@@ -58,6 +59,10 @@ public class DialogueManager : MonoBehaviour
 
             displayLineCoroutine = StartCoroutine(DisplayNextLineEffect(infoText));
         }
+        else if(inkStory.currentChoices.Count ==0)
+        {
+            dialoguePanel.SetActive(false);
+        }
     }
 
     IEnumerator DisplayNextLineEffect(string infoText)
@@ -85,7 +90,7 @@ public class DialogueManager : MonoBehaviour
             var choice = inkStory.currentChoices[i];
             var button = CreateOptionButton(choice.text);
 
-
+            button.onClick.AddListener(() => OnPromptClick(choice));
         }
         
 
@@ -99,10 +104,32 @@ public class DialogueManager : MonoBehaviour
 
 
         var buttonText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+
         buttonText.text = text;
 
         return choiceButton;
     }
+
+    public void OnPromptClick(Choice choice)
+    {
+        inkStory.ChooseChoiceIndex(choice.index);
+        RefreshChoiceView();
+        DisplayNewLine();
+
+        UIEvent.Score?.Invoke();
+    }
+
+    void RefreshChoiceView()
+    {
+        if(optionContainer != null)
+        {
+            foreach(var button in optionContainer.GetComponentsInChildren<Button>())
+            {
+                Destroy(button.gameObject);
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,5 +140,14 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
        
+    }
+
+
+    public void backButton()
+    {
+        //Camera.main.orthographicSize = 5f;
+        //camMode = false;
+        //closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        //blackout.SetActive(false);
     }
 }

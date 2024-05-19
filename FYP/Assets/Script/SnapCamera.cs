@@ -7,7 +7,6 @@ public class SnapCamera : MonoBehaviour
 {
 
     //UI stuff
-    [SerializeField] GameObject Panel;
     [SerializeField] float uiDelay;
     public GameObject blackout;
 
@@ -175,7 +174,6 @@ public class SnapCamera : MonoBehaviour
         CameraReticle.position = Vector2.zero;
 
         yield return new WaitForSeconds(uiDelay);
-        Panel.SetActive(true);
         dm.LoadDialooguePanel();
     }
 
@@ -201,7 +199,6 @@ public class SnapCamera : MonoBehaviour
 
     public void backButton()
     {
-        Panel.SetActive(false);
         Camera.main.orthographicSize = 5f;
         camMode = false;
         closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
