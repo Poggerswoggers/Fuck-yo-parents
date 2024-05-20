@@ -172,7 +172,7 @@ public class SnapCamera : MonoBehaviour
             //blackout.SetActive(true);
 
             closestGameObject = GetClosestEnemy(taggedGameObject);
-            closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            //closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
             StartCoroutine(ZoomToTarget());
         }
