@@ -39,8 +39,20 @@ public class SnapCamera : MonoBehaviour
     [SerializeField] float newZoomLevel;
     Vector3 cameraOrigin;
 
+
+    //Boundary Object
+    public Transform boundaryObj;
+
+
+    public Vector2 CalculateBounds()
+    {
+        var bound = boundaryObj.GetComponent<SpriteRenderer>().bounds;
+        return bound.extents;
+    }
+
     private void Start()
     {
+        CalculateBounds();
         cameraOrigin = outCamGameObject.transform.position;
     }
 
