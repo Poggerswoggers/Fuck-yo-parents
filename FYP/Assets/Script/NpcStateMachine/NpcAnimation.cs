@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class NpcAnimation : MonoBehaviour
 {
-
-    public float bounce;
-    public float bounceVel;
+    [Header("Bounce")]
+    [SerializeField] float bounce;
+    [Range(1,2)] [SerializeField] float maxBounce;
+    float bounceVel;
     public float bounceAccel;
     public float bounceDamp;
-    public float hop;
-    public float lastHop;
-    public float flip;
 
+    [Header("Debug")]
+    [SerializeField] float hop;
+    [SerializeField] float lastHop;
+
+
+    float flip;
+
+    //Reference
     Transform spriteTransform;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        flip = transform.localScale.x;
+        
         spriteTransform = transform.GetChild(0);
         rb = GetComponent<Rigidbody2D>();
     }
@@ -26,7 +34,7 @@ public class NpcAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     public void npcAnimation()
@@ -51,7 +59,34 @@ public class NpcAnimation : MonoBehaviour
         spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 0.1f);
         spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.5f, 0);
 
-        if (lastHop < 0.5 && hop >= 0.5f) bounce = 1.2f;
-        if (lastHop > 0.9 && hop <= 0.1f) bounce = 1.2f;
+        if (lastHop < 0.5 && hop >= 0.5f) bounce = maxBounce;
+        if (lastHop > 0.9 && hop <= 0.1f) bounce = maxBounce;
+    }
+
+    public void BounceAnim(float multiplier, float _bounce)
+    {
+        hop += Time.deltaTime * multiplier;
+        if (hop > 1) hop--;
+
+        flip = (rb.velocity.x < 0) ? -0.05f : 0.05f;
+
+        //Sway back and forth
+        float t = hop * Mathf.PI * 2;
+        spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 0.1f);
+        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.5f, 0);
+
+        if (lastHop < 0.5 && hop >= 0.5f) bounce = _bounce;
+        if (lastHop > 0.9 && hop <= 0.1f) bounce = _bounce;
+    }
+
+    public void StopWalkAnim()
+    {
+        spriteTransform.rotation = Quaternion.identity;
+        spriteTransform.localPosition = Vector3.zero;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position - Vector3.left * (Mathf.Sign(spriteTransform.localScale.x) * 4), 3);
     }
 }

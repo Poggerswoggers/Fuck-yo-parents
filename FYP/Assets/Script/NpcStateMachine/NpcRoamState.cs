@@ -14,6 +14,7 @@ public class NpcRoamState : NpcBaseState
 
     //reference
     Rigidbody2D rb;
+    NpcStateManager nSm;
     [SerializeField] SnapCamera sc;
 
     public bool crossBoundX;
@@ -23,6 +24,7 @@ public class NpcRoamState : NpcBaseState
 
     public override void EnterState(NpcStateManager npcSm)
     {
+        nSm = npcSm;
         npcThis = npcSm.transform;
         InitialiseVariable();
         startWalking();
@@ -30,28 +32,17 @@ public class NpcRoamState : NpcBaseState
 
     public override void UpdateState(NpcStateManager npcSm)
     {
+
         if (walkDuration > 0)
         {
-            Roaming();
             walkDuration -= Time.deltaTime;
         }
         else
         {
-            npcSm.SwitchState(npcSm.interactState);
-        }
-
-
-
-        if(isWalking)
-        {           
-            npcSm.npcAnim.WalkAnim();
-        }
-        else
-        {
-
+            isWalking = false;
         }
         npcSm.npcAnim.npcAnimation();
-
+        Roaming();
     }
 
 
@@ -74,9 +65,20 @@ public class NpcRoamState : NpcBaseState
 
     void Roaming()
     {
-        Vector2 targetVel = dir.normalized * speed * Time.deltaTime;
-        //npcThis.Translate(targetVel);
-        rb.velocity = targetVel;
+        if(isWalking)
+        {
+            Vector2 targetVel = dir.normalized * speed * Time.deltaTime;
+            //npcThis.Translate(targetVel);
+            rb.velocity = targetVel;
+
+            nSm.npcAnim.WalkAnim();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+            nSm.npcAnim.StopWalkAnim();
+            nSm.SwitchState(nSm.interactState);
+        }
 
         if (Mathf.Abs(npcThis.position.x) > sc.CalculateBounds().x-borderMargin && !crossBoundX)
         {

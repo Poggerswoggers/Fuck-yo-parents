@@ -29,5 +29,4 @@ public class NpcStateManager: MonoBehaviour
         state.EnterState(this);
         Debug.Log(currentState);
     }
-
 }
