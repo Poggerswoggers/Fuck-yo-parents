@@ -11,24 +11,30 @@ public class NpcAnimation : MonoBehaviour
     public float bounceAccel;
     public float bounceDamp;
 
-    [Header("Debug")]
-    [SerializeField] float hop;
-    [SerializeField] float lastHop;
+    [Header("Wander")]
+    public float wanderTime;
+    
+    //Hops
+    float hop;
+    float lastHop;
 
 
     float flip;
 
     //Reference
+    Transform trans;
     Transform spriteTransform;
     Rigidbody2D rb;
+    SpriteRenderer sR;
 
     // Start is called before the first frame update
     void Start()
     {
+        trans = transform;
         flip = transform.localScale.x;
-        
         spriteTransform = transform.GetChild(0);
         rb = GetComponent<Rigidbody2D>();
+        sR = spriteTransform.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -82,11 +88,27 @@ public class NpcAnimation : MonoBehaviour
     public void StopWalkAnim()
     {
         spriteTransform.rotation = Quaternion.identity;
-        spriteTransform.localPosition = Vector3.zero;
+        spriteTransform.localPosition = Vector3.zero;       
     }
+
+    public void WanderAnim(NpcInteractState state)
+    {
+        StartCoroutine(WanderAnimCo(state));
+    }
+    IEnumerator WanderAnimCo(NpcInteractState state)
+    {
+        spriteTransform.localScale = new Vector3(Mathf.Sign(spriteTransform.localScale.x), 1, 1) * 0.05f;
+        yield return new WaitForSeconds(wanderTime);
+        sR.flipX = false;
+        yield return new WaitForSeconds(wanderTime);
+        sR.flipX = true;
+        yield return new WaitForSeconds(wanderTime);
+        state.BackToRoam();
+    }
+
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position - Vector3.left * (Mathf.Sign(spriteTransform.localScale.x) * 4), 3);
+        Gizmos.DrawWireSphere(trans.position - Vector3.left * (Mathf.Sign(spriteTransform.localScale.x) * 4), 3);
     }
 }

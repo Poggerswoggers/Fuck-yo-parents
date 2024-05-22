@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class NpcInteractState : NpcBaseState
 {
+    bool isWandering;
+    bool isInteracting;
+
     Transform npcThis;
     public float interactRad;
     [SerializeField] Transform target;
 
-    [SerializeField] LayerMask ignoreLayer;
+    [SerializeField] LayerMask npcLayer;
 
     [Header("Bounce")]
     [SerializeField] float yBounce;
@@ -16,31 +19,59 @@ public class NpcInteractState : NpcBaseState
 
     //Reference
     NpcStateManager nSm;
+    Rigidbody2D rb;
     public override void EnterState(NpcStateManager npcSm)
     {
         nSm = npcSm;
         npcThis = npcSm.transform;
+        rb = npcThis.GetComponent<Rigidbody2D>();
         FindInteractTarget();
         
     }
     public override void UpdateState(NpcStateManager npcSm)
     {
-        npcSm.npcAnim.npcAnimation();
-        npcSm.npcAnim.BounceAnim(multiplier, yBounce);
-    }
+        if (!isWandering)
+        {
+            npcSm.npcAnim.npcAnimation();
+            npcSm.npcAnim.BounceAnim(multiplier, yBounce);
+        }
 
+        if (!target) return;
+        MoveToTarget();
+    }
     void FindInteractTarget()
     {
-        Collider2D hit = Physics2D.OverlapCircle(npcThis.position - Vector3.left*(Mathf.Sign(npcThis.localScale.x)*4), interactRad, ignoreLayer);
-        
+        Collider2D hit = Physics2D.OverlapCircle(npcThis.position - Vector3.left*(Mathf.Sign(npcThis.localScale.x)*4), interactRad, npcLayer);
+
         if(hit !=null && hit.transform != npcThis)
         {
             target = hit.transform;
         }
         else
         {
-            //star
+            isWandering = true;
+            npcThis.GetComponent<NpcAnimation>().WanderAnim(this);           
         }
 
-    } 
+    }
+
+    void MoveToTarget()
+    {
+        Vector3 dir = new Vector3(target.position.x-2,target.position.y,0) - npcThis.position;
+
+        if(dir.magnitude > 0.1)
+        {
+            rb.velocity = dir.normalized * nSm.roamState.speed * Time.deltaTime;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
+
+    public void BackToRoam()
+    {
+        isWandering = false;
+        nSm.SwitchState(nSm.roamState);
+    }
 }

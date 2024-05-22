@@ -380,7 +380,7 @@ MonoBehaviour:
   buttonPrefab: {fileID: 595000945781610882, guid: 5352d942b1cd9f4438c2b80078c43736, type: 3}
   infoTextField: {fileID: 51902716}
   nameField: {fileID: 0}
-  dialoguePanel: {fileID: 0}
+  dialoguePanel: {fileID: 1399157392}
   promptBox: {fileID: 1799099379}
   promptBoxYPos: 50
   infoBox: {fileID: 1622087407}
@@ -1071,6 +1071,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &622936443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622936444}
+  - component: {fileID: 622936445}
+  m_Layer: 0
+  m_Name: Naomi Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &622936444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622936443}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1874161589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &622936445
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622936443}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 38.399998, y: 38.399998}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &629057573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629057574}
   - component: {fileID: 629057575}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Naomi Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1422,7 @@ GameObject:
   - component: {fileID: 742303334}
   - component: {fileID: 742303333}
   - component: {fileID: 742303332}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: CameraConfiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1461,6 +1545,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &783165523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783165524}
+  - component: {fileID: 783165525}
+  m_Layer: 0
+  m_Name: Naomi Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783165524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783165523}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1727359466}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &783165525
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783165523}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 2c95338c7100e9a408c500c865967260, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 38.399998, y: 38.399998}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &820888703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820888704}
   - component: {fileID: 820888705}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Naomi Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1558,7 +1726,7 @@ GameObject:
   - component: {fileID: 961592739}
   - component: {fileID: 961592742}
   - component: {fileID: 961592743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jaylen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1657,34 +1825,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcAnim: {fileID: 961592743}
   roamState:
-    rid: 2641615680123699200
+    rid: 2641615680123699208
   interactState:
-    rid: 2641615680123699201
+    rid: 2641615680123699209
   references:
     version: 2
     RefIds:
-    - rid: 2641615680123699200
+    - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        isWalking: 1
+        isWalking: 0
         speed: 0
-        minSpeed: 80
+        minSpeed: 60
         maxSpeed: 100
         dir: {x: 0, y: 0}
-        walkDuration: 3
+        walkDuration: 6
         borderMargin: 0.5
         sc: {fileID: 1304518200}
         crossBoundX: 0
         crossBoundY: 0
-    - rid: 2641615680123699201
+    - rid: 2641615680123699209
       type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
       data:
-        interactRad: 0
+        interactRad: 3
         target: {fileID: 0}
-        ignoreLayer:
+        npcLayer:
           serializedVersion: 2
-          m_Bits: 2147483648
-        yBounce: 1.2
+          m_Bits: 64
+        yBounce: 1.1
         multiplier: 0.9
 --- !u!114 &961592743
 MonoBehaviour:
@@ -1702,8 +1870,7 @@ MonoBehaviour:
   maxBounce: 1.3
   bounceAccel: 0.2
   bounceDamp: 0.7
-  hop: 0
-  lastHop: 0
+  wanderTime: 0.5
 --- !u!1 &1304518199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +2177,164 @@ Transform:
   - {fileID: 251338456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1727359461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727359466}
+  - component: {fileID: 1727359465}
+  - component: {fileID: 1727359464}
+  - component: {fileID: 1727359463}
+  - component: {fileID: 1727359462}
+  m_Layer: 6
+  m_Name: Naomi (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1727359462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727359461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounce: 0
+  maxBounce: 1.3
+  bounceAccel: 0.2
+  bounceDamp: 0.7
+  wanderTime: 0.5
+--- !u!114 &1727359463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727359461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAnim: {fileID: 1727359462}
+  roamState:
+    rid: 2641615680123699208
+  interactState:
+    rid: 2641615680123699209
+  references:
+    version: 2
+    RefIds:
+    - rid: 2641615680123699208
+      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
+      data:
+        isWalking: 0
+        speed: 0
+        minSpeed: 80
+        maxSpeed: 100
+        dir: {x: 0, y: 0}
+        walkDuration: 5
+        borderMargin: 0.5
+        sc: {fileID: 1304518200}
+        crossBoundX: 0
+        crossBoundY: 0
+    - rid: 2641615680123699209
+      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
+      data:
+        interactRad: 3
+        target: {fileID: 0}
+        npcLayer:
+          serializedVersion: 2
+          m_Bits: 64
+        yBounce: 1.1
+        multiplier: 0.9
+--- !u!58 &1727359464
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727359461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!50 &1727359465
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727359461}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!4 &1727359466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727359461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.28, y: 5.37, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 783165524}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799099379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2411,164 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799099379}
   m_CullTransparentMesh: 1
+--- !u!1 &1874161584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874161589}
+  - component: {fileID: 1874161588}
+  - component: {fileID: 1874161587}
+  - component: {fileID: 1874161586}
+  - component: {fileID: 1874161585}
+  m_Layer: 6
+  m_Name: Jaylen (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1874161585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874161584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounce: 0
+  maxBounce: 1.3
+  bounceAccel: 0.2
+  bounceDamp: 0.7
+  wanderTime: 0.5
+--- !u!114 &1874161586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874161584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAnim: {fileID: 1874161585}
+  roamState:
+    rid: 2641615680123699208
+  interactState:
+    rid: 2641615680123699209
+  references:
+    version: 2
+    RefIds:
+    - rid: 2641615680123699208
+      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
+      data:
+        isWalking: 0
+        speed: 0
+        minSpeed: 60
+        maxSpeed: 100
+        dir: {x: 0, y: 0}
+        walkDuration: 6
+        borderMargin: 0.5
+        sc: {fileID: 1304518200}
+        crossBoundX: 0
+        crossBoundY: 0
+    - rid: 2641615680123699209
+      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
+      data:
+        interactRad: 3
+        target: {fileID: 0}
+        npcLayer:
+          serializedVersion: 2
+          m_Bits: 64
+        yBounce: 1.1
+        multiplier: 0.9
+--- !u!58 &1874161587
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874161584}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!50 &1874161588
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874161584}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!4 &1874161589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874161584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.17, y: -3.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 622936444}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921771229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,7 +2772,7 @@ GameObject:
   - component: {fileID: 2079606767}
   - component: {fileID: 2079606766}
   - component: {fileID: 2079606770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Naomi (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2310,34 +2793,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcAnim: {fileID: 2079606770}
   roamState:
-    rid: 2641615680123699200
+    rid: 2641615680123699208
   interactState:
-    rid: 2641615680123699201
+    rid: 2641615680123699209
   references:
     version: 2
     RefIds:
-    - rid: 2641615680123699200
+    - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        isWalking: 1
+        isWalking: 0
         speed: 0
         minSpeed: 80
         maxSpeed: 100
         dir: {x: 0, y: 0}
-        walkDuration: 3
+        walkDuration: 5
         borderMargin: 0.5
         sc: {fileID: 1304518200}
         crossBoundX: 0
         crossBoundY: 0
-    - rid: 2641615680123699201
+    - rid: 2641615680123699209
       type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
       data:
-        interactRad: 0
+        interactRad: 3
         target: {fileID: 0}
-        ignoreLayer:
+        npcLayer:
           serializedVersion: 2
-          m_Bits: 2147483648
-        yBounce: 1.2
+          m_Bits: 64
+        yBounce: 1.1
         multiplier: 0.9
 --- !u!58 &2079606767
 CircleCollider2D:
@@ -2410,7 +2893,7 @@ Transform:
   m_GameObject: {fileID: 2079606765}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.18, y: 1.58, z: 0}
+  m_LocalPosition: {x: -4.78, y: 3.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2433,8 +2916,7 @@ MonoBehaviour:
   maxBounce: 1.3
   bounceAccel: 0.2
   bounceDamp: 0.7
-  hop: 0
-  lastHop: 0
+  wanderTime: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2450,6 +2932,8 @@ SceneRoots:
   - {fileID: 403237817}
   - {fileID: 1700758092}
   - {fileID: 2079606769}
+  - {fileID: 1727359466}
   - {fileID: 961592741}
+  - {fileID: 1874161589}
   - {fileID: 742303334}
   - {fileID: 727759400}

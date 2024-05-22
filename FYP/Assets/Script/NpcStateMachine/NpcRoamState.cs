@@ -9,6 +9,7 @@ public class NpcRoamState : NpcBaseState
     public float minSpeed, maxSpeed;
     public Vector2 dir;
     [SerializeField] float walkDuration;
+    float _walkDur;
 
     public float borderMargin = 0.5f;
 
@@ -24,6 +25,8 @@ public class NpcRoamState : NpcBaseState
 
     public override void EnterState(NpcStateManager npcSm)
     {
+        _walkDur = walkDuration;    
+
         nSm = npcSm;
         npcThis = npcSm.transform;
         InitialiseVariable();
@@ -33,9 +36,9 @@ public class NpcRoamState : NpcBaseState
     public override void UpdateState(NpcStateManager npcSm)
     {
 
-        if (walkDuration > 0)
+        if (_walkDur > 0)
         {
-            walkDuration -= Time.deltaTime;
+            _walkDur -= Time.deltaTime;
         }
         else
         {

@@ -1,5 +1,5 @@
 Hello this is a test question
 *[weed]
-    ->DONE
+    ->END
 *[coke]
-    ->DONE
+    ->END

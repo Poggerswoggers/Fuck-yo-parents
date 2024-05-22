@@ -29,4 +29,9 @@ public class NpcStateManager: MonoBehaviour
         state.EnterState(this);
         Debug.Log(currentState);
     }
+
+    public void blud(IEnumerator coroutineMethod)
+    {
+        StartCoroutine(coroutineMethod);
+    }
 }

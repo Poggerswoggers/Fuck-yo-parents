@@ -110,8 +110,9 @@ public class DialogueManager : MonoBehaviour
         return choiceButton;
     }
 
-    public void OnPromptClick(Choice choice)
+    void OnPromptClick(Choice choice)
     {
+
         inkStory.ChooseChoiceIndex(choice.index);
         RefreshChoiceView();
         DisplayNewLine();
