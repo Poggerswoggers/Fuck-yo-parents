@@ -1277,7 +1277,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -1690,50 +1690,14 @@ GameObject:
   - component: {fileID: 961592741}
   - component: {fileID: 961592740}
   - component: {fileID: 961592739}
-  - component: {fileID: 961592738}
+  - component: {fileID: 961592742}
   m_Layer: 0
   m_Name: Jaylen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &961592738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961592737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roamState:
-    rid: 2641615642270629888
-  references:
-    version: 2
-    RefIds:
-    - rid: 2641615642270629888
-      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
-      data:
-        isWalking: 1
-        speed: 0
-        minSpeed: 500
-        maxSpeed: 800
-        dir: {x: 0, y: 0}
-        sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
-        talkRad: 2
-        bounce: 1
-        bounceVel: 0
-        bounceAccel: 0.2
-        bounceDamp: 0.7
-        hop: 0
-        lastHop: 0
-        flip: 1
+  m_IsActive: 0
 --- !u!58 &961592739
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1812,6 +1776,44 @@ Transform:
   - {fileID: 629057574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &961592742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961592737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAnim: {fileID: 0}
+  roamState:
+    rid: 2104765900345049096
+  interactState:
+    rid: 2104765900345049092
+  references:
+    version: 2
+    RefIds:
+    - rid: 2104765900345049092
+      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
+      data:
+        interactRad: 3
+        target: {fileID: 0}
+    - rid: 2104765900345049096
+      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
+      data:
+        isWalking: 0
+        speed: 0
+        minSpeed: 0
+        maxSpeed: 0
+        dir: {x: 0, y: 0}
+        walkDuration: 0
+        borderMargin: 0.5
+        sc: {fileID: 0}
+        crossBoundX: 0
+        crossBoundY: 0
 --- !u!1 &1304518199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,7 +2014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1700758089
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2396,6 +2398,7 @@ GameObject:
   - component: {fileID: 2079606768}
   - component: {fileID: 2079606767}
   - component: {fileID: 2079606766}
+  - component: {fileID: 2079606770}
   m_Layer: 0
   m_Name: Naomi (1)
   m_TagString: Untagged
@@ -2415,30 +2418,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcAnim: {fileID: 2079606770}
   roamState:
-    rid: 2641615642270629888
+    rid: 2104765900345049095
+  interactState:
+    rid: 2104765900345049092
   references:
     version: 2
     RefIds:
-    - rid: 2641615642270629888
+    - rid: 2104765900345049092
+      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
+      data:
+        interactRad: 3
+        target: {fileID: 0}
+    - rid: 2104765900345049095
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
         isWalking: 1
         speed: 0
-        minSpeed: 500
-        maxSpeed: 800
+        minSpeed: 80
+        maxSpeed: 100
         dir: {x: 0, y: 0}
+        walkDuration: 10
+        borderMargin: 0.5
         sc: {fileID: 1304518200}
         crossBoundX: 0
         crossBoundY: 0
-        talkRad: 2
-        bounce: 1
-        bounceVel: 0
-        bounceAccel: 0.2
-        bounceDamp: 0.7
-        hop: 0
-        lastHop: 0
-        flip: 1
 --- !u!58 &2079606767
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2517,6 +2522,25 @@ Transform:
   - {fileID: 820888704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079606770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079606765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounce: 0
+  bounceVel: 0
+  bounceAccel: 0.2
+  bounceDamp: 0.7
+  hop: 0
+  lastHop: 0
+  flip: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
