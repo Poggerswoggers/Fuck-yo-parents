@@ -7,6 +7,7 @@ public class NpcRoamState : NpcBaseState
     public bool isWalking;
     public float speed;
     public float minSpeed, maxSpeed;
+
     public Vector2 dir;
     [SerializeField] float walkDuration;
     float _walkDur;
@@ -22,6 +23,10 @@ public class NpcRoamState : NpcBaseState
     public bool crossBoundY;
 
     Transform npcThis;
+
+    [Header("Bounce Modifiers")]
+    [SerializeField] float bounce;
+    [SerializeField] float multiplier;
 
     public override void EnterState(NpcStateManager npcSm)
     {
@@ -74,11 +79,11 @@ public class NpcRoamState : NpcBaseState
             //npcThis.Translate(targetVel);
             rb.velocity = targetVel;
 
-            nSm.npcAnim.WalkAnim();
+            nSm.npcAnim.WalkAnim(multiplier, bounce, nSm.hasBounce);
+
         }
         else
         {
-            rb.velocity = Vector2.zero;
             nSm.npcAnim.StopWalkAnim();
             nSm.SwitchState(nSm.interactState);
         }

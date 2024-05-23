@@ -13,7 +13,7 @@ public class NpcInteractState : NpcBaseState
 
     [SerializeField] LayerMask npcLayer;
 
-    [Header("Bounce")]
+    [Header("Bounce Modifier")]
     [SerializeField] float yBounce;
     [SerializeField] float multiplier;
 
@@ -33,7 +33,7 @@ public class NpcInteractState : NpcBaseState
         if (!isWandering)
         {
             npcSm.npcAnim.npcAnimation();
-            npcSm.npcAnim.BounceAnim(multiplier, yBounce);
+            npcSm.npcAnim.WalkAnim(multiplier, yBounce, nSm.hasBounce);
         }
 
         if (!target) return;

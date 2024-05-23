@@ -1,5 +1,7 @@
 Hello this is a test question
 *[weed]
-    ->END
+    hello
+        ->END
 *[coke]
-    ->END
+    this
+        ->END

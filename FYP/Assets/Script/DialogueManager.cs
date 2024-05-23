@@ -28,8 +28,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float infoBoxXPos;
     [SerializeField] float phaseInSpeed;
 
-
+    bool canContinueToNextLine = false;
     private Coroutine displayLineCoroutine;
+
+    void Start()
+    {
+        LoadDialooguePanel();
+    }
 
     //Loads and tweens the dialogue boxes;
     public void LoadDialooguePanel() 
@@ -61,14 +66,14 @@ public class DialogueManager : MonoBehaviour
         }
         else if(inkStory.currentChoices.Count ==0)
         {
-            dialoguePanel.SetActive(false);
+            ExitDialogueMode();
         }
     }
 
     IEnumerator DisplayNextLineEffect(string infoText)
     {
         infoTextField.text = "";
-        //CanContinue
+        canContinueToNextLine = false;
 
         yield return new WaitForSeconds(0.3f);
         foreach (char letter in infoText.ToCharArray())
@@ -76,8 +81,6 @@ public class DialogueManager : MonoBehaviour
             infoTextField.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-
-        DisplayChoices();
     }
 
     void DisplayChoices()
@@ -112,12 +115,13 @@ public class DialogueManager : MonoBehaviour
 
     void OnPromptClick(Choice choice)
     {
-
+        if (!canContinueToNextLine) return;
         inkStory.ChooseChoiceIndex(choice.index);
-        RefreshChoiceView();
         DisplayNewLine();
+        RefreshChoiceView();
 
-        UIEvent.Score?.Invoke();
+
+        //UIEvent.Score?.Invoke();
     }
 
     void RefreshChoiceView()
@@ -131,16 +135,30 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (dialoguePanel.activeInHierarchy && inkStory != null)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (canContinueToNextLine)
+                {
+                    DisplayNewLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    infoTextField.text = inkStory.currentText.Trim(); //Auto fills when mouse button 0 is pressed
+                }
+            }
+            if (infoTextField.text == inkStory.currentText.Trim()) //If the dialoguetext == story line text, display choices
+            {
+                DisplayChoices();
+                canContinueToNextLine = true;
+            }
+        }
     }
 
 
@@ -150,5 +168,10 @@ public class DialogueManager : MonoBehaviour
         //camMode = false;
         //closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
         //blackout.SetActive(false);
+    }
+
+    void ExitDialogueMode()
+    {
+        dialoguePanel.SetActive(false);
     }
 }

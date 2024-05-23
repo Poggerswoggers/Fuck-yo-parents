@@ -8,7 +8,9 @@ public class NpcStateManager: MonoBehaviour
     NpcBaseState currentState;
     [SerializeReference] public NpcRoamState roamState = new NpcRoamState();
     [SerializeReference] public NpcInteractState interactState = new NpcInteractState();
+    public NpcPromptState promptState = new NpcPromptState();
 
+    public bool hasBounce;
 
     private void Start()
     {
@@ -27,7 +29,7 @@ public class NpcStateManager: MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
-        Debug.Log(currentState);
+        Debug.Log(currentState+" :"+gameObject);
     }
 
     public void blud(IEnumerator coroutineMethod)

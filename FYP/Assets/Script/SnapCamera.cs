@@ -11,7 +11,7 @@ public class SnapCamera : MonoBehaviour
     public GameObject blackout;
 
     //
-    [SerializeField] DialogueManager dm;
+    [SerializeField] GameObject dm;
 
 
     [SerializeField] Transform CameraReticle;
@@ -186,7 +186,11 @@ public class SnapCamera : MonoBehaviour
         CameraReticle.position = Vector2.zero;
 
         yield return new WaitForSeconds(uiDelay);
-        dm.LoadDialooguePanel();
+
+        NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
+        nSm.SwitchState(nSm.promptState);
+
+        dm.SetActive(true);
     }
 
 

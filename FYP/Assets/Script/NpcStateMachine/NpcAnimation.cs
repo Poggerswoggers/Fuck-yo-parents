@@ -6,7 +6,6 @@ public class NpcAnimation : MonoBehaviour
 {
     [Header("Bounce")]
     [SerializeField] float bounce;
-    [Range(1,2)] [SerializeField] float maxBounce;
     float bounceVel;
     public float bounceAccel;
     public float bounceDamp;
@@ -19,7 +18,7 @@ public class NpcAnimation : MonoBehaviour
     float lastHop;
 
 
-    float flip;
+    [SerializeField] float flip;
 
     //Reference
     Transform trans;
@@ -48,33 +47,18 @@ public class NpcAnimation : MonoBehaviour
         bounceVel += (1 - bounce) * bounceAccel;
         bounce += bounceVel;
         bounceVel *= bounceDamp;
-        spriteTransform.localScale = new Vector3(bounce * flip, 0.05f / bounce, 0.05f);
+        spriteTransform.localScale = new Vector3(bounce * flip, 1f / bounce, 1f);
 
         lastHop = hop;
     }
 
-    public void WalkAnim()
+    public void WalkAnim(float multiplier, float _bounce, bool hasBounce)
     {
-        hop += Time.deltaTime;
-        if (hop > 1) hop--;
+        flip = (rb.velocity.x < 0) ? -1f : 1f;
 
-        flip = (rb.velocity.x < 0) ? -0.05f : 0.05f;
-
-        //Sway back and forth
-        float t = hop * Mathf.PI * 2;
-        spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 0.1f);
-        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.5f, 0);
-
-        if (lastHop < 0.5 && hop >= 0.5f) bounce = maxBounce;
-        if (lastHop > 0.9 && hop <= 0.1f) bounce = maxBounce;
-    }
-
-    public void BounceAnim(float multiplier, float _bounce)
-    {
+        if (!hasBounce) return;
         hop += Time.deltaTime * multiplier;
         if (hop > 1) hop--;
-
-        flip = (rb.velocity.x < 0) ? -0.05f : 0.05f;
 
         //Sway back and forth
         float t = hop * Mathf.PI * 2;
@@ -87,9 +71,12 @@ public class NpcAnimation : MonoBehaviour
 
     public void StopWalkAnim()
     {
+        rb.velocity = Vector2.zero;
         spriteTransform.rotation = Quaternion.identity;
-        spriteTransform.localPosition = Vector3.zero;       
+        LeanTween.moveLocal(spriteTransform.gameObject, Vector3.zero, 0.2f);
+        spriteTransform.localScale = new Vector3(Mathf.Sign(spriteTransform.localScale.x), 1, 1);
     }
+
 
     public void WanderAnim(NpcInteractState state)
     {
@@ -97,11 +84,10 @@ public class NpcAnimation : MonoBehaviour
     }
     IEnumerator WanderAnimCo(NpcInteractState state)
     {
-        spriteTransform.localScale = new Vector3(Mathf.Sign(spriteTransform.localScale.x), 1, 1) * 0.05f;
         yield return new WaitForSeconds(wanderTime);
-        sR.flipX = false;
+        sR.flipX = !sR.flipX;
         yield return new WaitForSeconds(wanderTime);
-        sR.flipX = true;
+        sR.flipX = !sR.flipX;
         yield return new WaitForSeconds(wanderTime);
         state.BackToRoam();
     }
