@@ -60,7 +60,7 @@ public class SnapCamera : MonoBehaviour
     {
         //Zoom();
 
-        contact = Physics2D.BoxCastAll(CameraReticle.position, new Vector2(2,2), 0, Vector2.zero);
+        contact = Physics2D.BoxCastAll(CameraReticle.position, Vector2.one*2.5f, 0, Vector2.zero);
 
         
         if (contact != null && contact.Length > 0)
@@ -151,7 +151,7 @@ public class SnapCamera : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(CameraReticle.position, new Vector3(2, 2, 0));
+        Gizmos.DrawCube(CameraReticle.position, Vector2.one*2.5f);
     }
     void WhenMouseIsMoving()
     {

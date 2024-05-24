@@ -34,11 +34,13 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         LoadDialooguePanel();
+        
     }
 
     //Loads and tweens the dialogue boxes;
     public void LoadDialooguePanel() 
     {
+        dialoguePanel.SetActive(true);
         LeanTween.moveY(promptBox.GetComponent<RectTransform>(), promptBoxYPos, phaseInSpeed).setDelay(0.3f);
         LeanTween.moveX(infoBox.GetComponent<RectTransform>(), infoBoxXPos, phaseInSpeed);
 
