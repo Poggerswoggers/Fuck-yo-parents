@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class GameBaseState : MonoBehaviour
 {
-    public abstract void EnterState();
-    public abstract void ExitState();
-    public abstract void UpdateState();
+    public abstract void EnterState(GameStateManager gameStateManager);
+    public abstract void ExitState(GameStateManager gameStateManager);
+    public abstract void UpdateState(GameStateManager gameStateManager);
 }

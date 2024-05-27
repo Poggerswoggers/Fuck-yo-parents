@@ -31,8 +31,9 @@ public class NpcRoamState : NpcBaseState
     {
         _walkDur = walkDuration;    
 
-        nSm = npcSm;
-        npcThis = npcSm.transform;
+       nSm = npcSm;
+       npcThis = npcSm.transform;
+
         InitialiseVariable();
         startWalking();
     }

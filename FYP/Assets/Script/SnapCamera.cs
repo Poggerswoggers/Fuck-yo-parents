@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 
-public class SnapCamera : MonoBehaviour
+public class SnapCamera : GameBaseState
 {
     [SerializeField] int snapTries;
 
@@ -11,8 +11,6 @@ public class SnapCamera : MonoBehaviour
     [SerializeField] float uiDelay;
     public GameObject blackout;
 
-    //
-    [SerializeField] DialogueManager dm;
 
 
     [SerializeField] Transform CameraReticle;
@@ -45,32 +43,32 @@ public class SnapCamera : MonoBehaviour
     //Boundary Object
     public Transform boundaryObj;
 
-    NpcBaseState bs;
-
+    //References
+    DialogueManager dm;
+    GameStateManager gSm;
     public Vector2 CalculateBounds()
     {
         var bound = boundaryObj.GetComponent<SpriteRenderer>().bounds;
         return bound.extents;
     }
-
-    private void Start()
+    public override void EnterState(GameStateManager gameStateManager)
     {
+        gSm = gameStateManager;
+        dm = gSm.dialogueStat;
         CalculateBounds();
         cameraOrigin = outCamGameObject.transform.position;
     }
 
-    private void Update()
+    public override void UpdateState(GameStateManager gameStateManager)
     {
-        //Zoom();
-
         contact = Physics2D.BoxCastAll(CameraReticle.position, camSize, 0, Vector2.zero, 0, npcLayer);
 
-        
+
         if (contact != null && contact.Length > 0)
         {
             RayToCollider();
         }
-        if(contact.Length ==0)
+        if (contact.Length == 0)
         {
             taggedGameObject = new GameObject[0];
         }
@@ -82,8 +80,16 @@ public class SnapCamera : MonoBehaviour
             SnapSystem();
 
         }
+    }
+    public override void ExitState(GameStateManager gameStateManager)
+    {
+        
 
+    }
 
+    private void Update()
+    {
+        //Zoom();
 
         /*if (Input.mousePosition != lastMousePosition)
         {
@@ -100,8 +106,6 @@ public class SnapCamera : MonoBehaviour
                 WhenMouseIsntMoving();
             }
         }*/
-
-
 
     }
 
@@ -188,7 +192,7 @@ public class SnapCamera : MonoBehaviour
         zoomCam.Follow = closestGameObject;
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
-        if (nSm.Objective)
+        if (nSm.Objective && snapTries >0)
         {
             UIEvent.Score?.Invoke();
         }
@@ -204,7 +208,8 @@ public class SnapCamera : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         dm.gameObject.SetActive(true);
-        dm.LoadDialooguePanel(this, nSm.DialogueKnotName);
+        dm.dialogueKnotName = nSm.DialogueKnotName;
+        gSm.ChangeStat(dm);
     }
 
 
@@ -237,7 +242,6 @@ public class SnapCamera : MonoBehaviour
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
         nSm.SwitchState(nSm.roamState);
-
     }
 
 }

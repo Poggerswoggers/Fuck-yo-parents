@@ -23,9 +23,10 @@ public class NpcInteractState : NpcBaseState
     public override void EnterState(NpcStateManager npcSm)
     {
         target = null;
-
+ 
         nSm = npcSm;
         npcThis = npcSm.transform;
+        
         rb = npcThis.GetComponent<Rigidbody2D>();
         FindInteractTarget();
 
@@ -44,7 +45,7 @@ public class NpcInteractState : NpcBaseState
     }
     void FindInteractTarget()
     {
-        Collider2D hit = Physics2D.OverlapCircle(npcThis.position - Vector3.left*(Mathf.Sign(npcThis.localScale.x)*4), interactRad, npcLayer);
+        Collider2D hit = Physics2D.OverlapCircle(npcThis.position - Vector3.left*(Mathf.Sign(rb.velocity.x)*4.5f), interactRad, npcLayer);
 
         if(hit !=null && hit.transform != npcThis)
         {
@@ -61,16 +62,18 @@ public class NpcInteractState : NpcBaseState
     void MoveToTarget()
     {
         nSm.isWalking = true;
-        Vector3 dir = new Vector3(target.position.x-2,target.position.y,0) - npcThis.position;
+        Vector3 dir = new Vector3(target.position.x,target.position.y,0) - npcThis.position;
+        Debug.Log(dir);
 
-        if(dir.magnitude > 0.1)
+        if(dir.magnitude > 2)
         {
             rb.velocity = dir.normalized * nSm.roamState.speed * Time.deltaTime;
         }
         else
         {
-            rb.velocity = Vector2.zero;
-            nSm.isWalking = false;
+            //NpcStateManager _nSm = target.GetComponent<NpcStateManager>();
+            //_nSm.SwitchState(_nSm.interactingState);
+            nSm.SwitchState(nSm.interactingState);
 
 
         }
@@ -78,6 +81,7 @@ public class NpcInteractState : NpcBaseState
 
     public void BackToRoam()
     {
+        Debug.Log("back to roam");
         isWandering = false;
         nSm.SwitchState(nSm.roamState);
     }

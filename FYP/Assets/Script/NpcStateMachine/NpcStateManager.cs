@@ -14,7 +14,8 @@ public class NpcStateManager: MonoBehaviour
     NpcBaseState currentState;
     [SerializeReference] public NpcRoamState roamState = new NpcRoamState();
     [SerializeReference] public NpcInteractState interactState = new NpcInteractState();
-    public NpcPromptState promptState = new NpcPromptState();
+    [SerializeReference] public NpcPromptState promptState = new NpcPromptState();
+    [SerializeReference] public NpcInteractingState interactingState = new NpcInteractingState();
 
     private void Start()
     {

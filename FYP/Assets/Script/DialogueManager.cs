@@ -6,7 +6,7 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.SceneManagement;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : GameBaseState
 {
     //Typing Speed
     [SerializeField] float typingSpeed;
@@ -32,9 +32,47 @@ public class DialogueManager : MonoBehaviour
     bool canContinueToNextLine = false;
     private Coroutine displayLineCoroutine;
 
-
+    public string dialogueKnotName;
     //Reference
     SnapCamera sC;
+    GameStateManager gSm;
+
+
+    public override void EnterState(GameStateManager gameStateManager)
+    {
+        gSm = gameStateManager;
+        LoadDialooguePanel(gameStateManager.snapState, dialogueKnotName);
+    }
+
+    public override void UpdateState(GameStateManager gameStateManager)
+    {
+        if (dialoguePanel.activeInHierarchy && inkStory != null)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (canContinueToNextLine)
+                {
+                    DisplayNewLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    infoTextField.text = inkStory.currentText.Trim(); //Auto fills when mouse button 0 is pressed
+                }
+            }
+            if (infoTextField.text == inkStory.currentText.Trim()) //If the dialoguetext == story line text, display choices
+            {
+                DisplayChoices();
+                canContinueToNextLine = true;
+            }
+        }
+    }
+
+    public override void ExitState(GameStateManager gameStateManager)
+    {
+        
+    }
+
 
     //Loads and tweens the dialogue boxes;
     public void LoadDialooguePanel(SnapCamera _sC, string knotName) 
@@ -145,37 +183,12 @@ public class DialogueManager : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-        if (dialoguePanel.activeInHierarchy && inkStory != null)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (canContinueToNextLine)
-                {
-                    DisplayNewLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    infoTextField.text = inkStory.currentText.Trim(); //Auto fills when mouse button 0 is pressed
-                }
-            }
-            if (infoTextField.text == inkStory.currentText.Trim()) //If the dialoguetext == story line text, display choices
-            {
-                DisplayChoices();
-                canContinueToNextLine = true;
-            }
-        }
-    }
-
 
     public void backButton()
     {
-        //Camera.main.orthographicSize = 5f;
-        //camMode = false;
-        //closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
-        //blackout.SetActive(false);
+        sC.BackToOutCam();
+        dialoguePanel.SetActive(false);
+        gSm.ChangeStat(sC);
     }
 
     public void ExitDialogueMode()
