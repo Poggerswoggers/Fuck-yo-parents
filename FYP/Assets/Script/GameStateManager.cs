@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class UIEvent
+public class GameStateManager : MonoBehaviour
 {
-    public static Action Score;
+
+
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SnapCamera : MonoBehaviour
 {
+    [SerializeField] int snapTries;
 
     //UI stuff
     [SerializeField] float uiDelay;
@@ -187,6 +188,15 @@ public class SnapCamera : MonoBehaviour
         zoomCam.Follow = closestGameObject;
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
+        if (nSm.Objective)
+        {
+            UIEvent.Score?.Invoke();
+        }
+        else
+        {
+            snapTries--;
+        }
+
         //bs = nSm.GetCurrentState();
         nSm.SwitchState(nSm.promptState);
 
@@ -194,7 +204,7 @@ public class SnapCamera : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         dm.gameObject.SetActive(true);
-        dm.LoadDialooguePanel(this);
+        dm.LoadDialooguePanel(this, nSm.DialogueKnotName);
     }
 
 

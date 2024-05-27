@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] float levelScore;
 
+    public static ScoreManager Instance { get; private set; }
+
+
     private void OnEnable()
-    { 
+    {
         UIEvent.Score += UpdateScore;
     }
 
@@ -16,8 +20,19 @@ public class ScoreManager : MonoBehaviour
         UIEvent.Score -= UpdateScore;
     }
 
+    private void Awake()
+    {
+        if(Instance!= null && Instance == this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
-    void UpdateScore()
+    public void UpdateScore()
     {
         levelScore += 1;
     }

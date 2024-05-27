@@ -103,10 +103,4 @@ public class NpcAnimation : MonoBehaviour
         yield return new WaitForSeconds(wanderTime);
         state.BackToRoam();
     }
-
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(trans.position - Vector3.left * (Mathf.Sign(spriteTransform.localScale.x) * 4), 3);
-    }
 }

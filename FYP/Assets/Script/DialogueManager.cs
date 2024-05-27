@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
     SnapCamera sC;
 
     //Loads and tweens the dialogue boxes;
-    public void LoadDialooguePanel(SnapCamera _sC) 
+    public void LoadDialooguePanel(SnapCamera _sC, string knotName) 
     {
         sC = _sC;
         dialoguePanel.SetActive(true);
@@ -45,12 +45,13 @@ public class DialogueManager : MonoBehaviour
 
         //just needs leantween reset
 
-        StartStory();
+        StartStory(knotName);
     }
 
-    void StartStory()
+    void StartStory(string knotName)
     {
         inkStory = new Story(inkStoryJson.text);
+        inkStory.ChoosePathString(knotName);
         DisplayNewLine();
     }
 
@@ -58,12 +59,14 @@ public class DialogueManager : MonoBehaviour
     {
         if (inkStory.canContinue)
         {
+            //Debug.Log("Display ran");
             if (displayLineCoroutine != null)
             {
                 StopCoroutine(displayLineCoroutine);
             }
             string infoText = inkStory.Continue();
             infoText = infoText?.Trim();
+            Debug.Log(infoText);
 
             displayLineCoroutine = StartCoroutine(DisplayNextLineEffect(infoText));
         }
@@ -123,8 +126,8 @@ public class DialogueManager : MonoBehaviour
         DisplayNewLine();
         RefreshChoiceView();
 
-
-        //UIEvent.Score?.Invoke();
+        
+        //ScoreManager.Instance.UpdateScore();
     }
 
     void RefreshChoiceView()
