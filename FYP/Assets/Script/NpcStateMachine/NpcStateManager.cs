@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class NpcStateManager: MonoBehaviour
 {
+    public bool hasBounce;
+    public bool isWalking;
+
     public NpcAnimation npcAnim;
+
     NpcBaseState currentState;
     [SerializeReference] public NpcRoamState roamState = new NpcRoamState();
     [SerializeReference] public NpcInteractState interactState = new NpcInteractState();
     public NpcPromptState promptState = new NpcPromptState();
-
-    public bool hasBounce;
 
     private void Start()
     {
@@ -35,5 +37,10 @@ public class NpcStateManager: MonoBehaviour
     public void blud(IEnumerator coroutineMethod)
     {
         StartCoroutine(coroutineMethod);
+    }
+
+    public NpcBaseState GetCurrentState()
+    {
+        return currentState;
     }
 }

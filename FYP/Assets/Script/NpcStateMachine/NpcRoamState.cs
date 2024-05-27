@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NpcRoamState : NpcBaseState
 {
-    public bool isWalking;
     public float speed;
     public float minSpeed, maxSpeed;
 
@@ -47,7 +46,7 @@ public class NpcRoamState : NpcBaseState
         }
         else
         {
-            isWalking = false;
+            nSm.isWalking = false;
         }
         npcSm.npcAnim.npcAnimation();
         Roaming();
@@ -63,7 +62,7 @@ public class NpcRoamState : NpcBaseState
     void startWalking()
     {
 
-        isWalking = true;
+        nSm.isWalking = true;
         float angle = Random.value * Mathf.PI * 2;
         // Calculate walking direction
         dir = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
@@ -73,7 +72,7 @@ public class NpcRoamState : NpcBaseState
 
     void Roaming()
     {
-        if(isWalking)
+        if(nSm.isWalking)
         {
             Vector2 targetVel = dir.normalized * speed * Time.deltaTime;
             //npcThis.Translate(targetVel);
@@ -84,6 +83,7 @@ public class NpcRoamState : NpcBaseState
         }
         else
         {
+            rb.velocity = Vector2.zero;
             nSm.npcAnim.StopWalkAnim();
             nSm.SwitchState(nSm.interactState);
         }
@@ -94,7 +94,7 @@ public class NpcRoamState : NpcBaseState
             //dir = new Vector2(-Mathf.Sign(transform.position.x) * Mathf.Sin(Random.Range(0.1f,1)), Random.insideUnitCircle.y);
             dir = new Vector2(-Mathf.Sign(npcThis.position.x) * Mathf.Sin(Random.Range(0, Mathf.PI / 2)), Random.insideUnitCircle.y);
 
-            walkDuration += 1;
+            _walkDur += 1;
         }
         else if (Mathf.Abs(npcThis.position.x) < sc.CalculateBounds().x)
         {
@@ -106,7 +106,7 @@ public class NpcRoamState : NpcBaseState
             crossBoundY = true;
             dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(npcThis.position.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
 
-            walkDuration += 1;
+            _walkDur += 1;
         }
         else if (Mathf.Abs(npcThis.position.y) < sc.CalculateBounds().y)
         {

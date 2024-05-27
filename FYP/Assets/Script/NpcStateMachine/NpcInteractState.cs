@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NpcInteractState : NpcBaseState
 {
-    bool isWandering;
+    [SerializeField] bool isWandering;
     bool isInteracting;
 
     Transform npcThis;
@@ -22,10 +22,13 @@ public class NpcInteractState : NpcBaseState
     Rigidbody2D rb;
     public override void EnterState(NpcStateManager npcSm)
     {
+        target = null;
+
         nSm = npcSm;
         npcThis = npcSm.transform;
         rb = npcThis.GetComponent<Rigidbody2D>();
         FindInteractTarget();
+
         
     }
     public override void UpdateState(NpcStateManager npcSm)
@@ -57,6 +60,7 @@ public class NpcInteractState : NpcBaseState
 
     void MoveToTarget()
     {
+        nSm.isWalking = true;
         Vector3 dir = new Vector3(target.position.x-2,target.position.y,0) - npcThis.position;
 
         if(dir.magnitude > 0.1)
@@ -66,6 +70,9 @@ public class NpcInteractState : NpcBaseState
         else
         {
             rb.velocity = Vector2.zero;
+            nSm.isWalking = false;
+
+
         }
     }
 

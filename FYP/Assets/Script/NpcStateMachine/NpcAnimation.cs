@@ -25,6 +25,8 @@ public class NpcAnimation : MonoBehaviour
     Transform spriteTransform;
     Rigidbody2D rb;
     SpriteRenderer sR;
+    Animator anim;
+    NpcStateManager nsm;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +36,21 @@ public class NpcAnimation : MonoBehaviour
         spriteTransform = transform.GetChild(0);
         rb = GetComponent<Rigidbody2D>();
         sR = spriteTransform.GetComponent<SpriteRenderer>();
+        nsm = trans.GetComponent<NpcStateManager>();
+
+        if(spriteTransform.GetComponent<Animator>() !=null)
+        {
+            anim = spriteTransform.GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (anim != null)
+        {
+            anim.SetBool("isWalking", nsm.isWalking);
+        }
     }
 
     public void npcAnimation()
@@ -71,10 +82,11 @@ public class NpcAnimation : MonoBehaviour
 
     public void StopWalkAnim()
     {
-        rb.velocity = Vector2.zero;
+        LeanTween.reset();
+        //nsm.isWalking = false;
         spriteTransform.rotation = Quaternion.identity;
         LeanTween.moveLocal(spriteTransform.gameObject, Vector3.zero, 0.2f);
-        spriteTransform.localScale = new Vector3(Mathf.Sign(spriteTransform.localScale.x), 1, 1);
+        LeanTween.scale(spriteTransform.gameObject, new Vector3(Mathf.Sign(spriteTransform.localScale.x), 1, 1), 0.2f);
     }
 
 

@@ -11,11 +11,12 @@ public class SnapCamera : MonoBehaviour
     public GameObject blackout;
 
     //
-    [SerializeField] GameObject dm;
+    [SerializeField] DialogueManager dm;
 
 
     [SerializeField] Transform CameraReticle;
-
+    [SerializeField] Vector2 camSize;
+    public LayerMask npcLayer;
     RaycastHit2D[] contact;
     [SerializeField] GameObject[] taggedGameObject;
     [SerializeField] Transform closestGameObject;
@@ -43,6 +44,7 @@ public class SnapCamera : MonoBehaviour
     //Boundary Object
     public Transform boundaryObj;
 
+    NpcBaseState bs;
 
     public Vector2 CalculateBounds()
     {
@@ -60,7 +62,7 @@ public class SnapCamera : MonoBehaviour
     {
         //Zoom();
 
-        contact = Physics2D.BoxCastAll(CameraReticle.position, Vector2.one*2.5f, 0, Vector2.zero);
+        contact = Physics2D.BoxCastAll(CameraReticle.position, camSize, 0, Vector2.zero, 0, npcLayer);
 
         
         if (contact != null && contact.Length > 0)
@@ -138,7 +140,7 @@ public class SnapCamera : MonoBehaviour
     }
     public void RayToCollider()
     {
-        contact = Physics2D.BoxCastAll(CameraReticle.position, new Vector2(2, 2), 0, Vector2.zero);
+        //contact = Physics2D.BoxCastAll(CameraReticle.position, new Vector2(2, 2), 0, Vector2.zero);
 
         taggedGameObject = new GameObject[contact.Length];
 
@@ -151,7 +153,7 @@ public class SnapCamera : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(CameraReticle.position, Vector2.one*2.5f);
+        Gizmos.DrawCube(CameraReticle.position,camSize);
     }
     void WhenMouseIsMoving()
     {
@@ -183,14 +185,16 @@ public class SnapCamera : MonoBehaviour
         //zoomCam.m_Lens.OrthographicSize = 1.5f;
         zoomCam.Priority = 2;
         zoomCam.Follow = closestGameObject;
-        CameraReticle.position = Vector2.zero;
-
-        yield return new WaitForSeconds(uiDelay);
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
+        //bs = nSm.GetCurrentState();
         nSm.SwitchState(nSm.promptState);
 
-        dm.SetActive(true);
+        LeanTween.move(CameraReticle.gameObject, closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset, 0.5f);
+
+        yield return new WaitForSeconds(0.2f);
+        dm.gameObject.SetActive(true);
+        dm.LoadDialooguePanel(this);
     }
 
 
@@ -213,12 +217,17 @@ public class SnapCamera : MonoBehaviour
         return bestTarget;
     }
 
-    public void backButton()
+    public void BackToOutCam()
     {
-        Camera.main.orthographicSize = 5f;
+        zoomCam.Priority = 1;
+        zoomCam.Follow = null;
         camMode = false;
-        closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        //closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
         //blackout.SetActive(false);
+
+        NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
+        nSm.SwitchState(nSm.roamState);
+
     }
 
 }

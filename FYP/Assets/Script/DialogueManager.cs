@@ -31,18 +31,19 @@ public class DialogueManager : MonoBehaviour
     bool canContinueToNextLine = false;
     private Coroutine displayLineCoroutine;
 
-    void Start()
-    {
-        LoadDialooguePanel();
-        
-    }
+
+    //Reference
+    SnapCamera sC;
 
     //Loads and tweens the dialogue boxes;
-    public void LoadDialooguePanel() 
+    public void LoadDialooguePanel(SnapCamera _sC) 
     {
+        sC = _sC;
         dialoguePanel.SetActive(true);
-        LeanTween.moveY(promptBox.GetComponent<RectTransform>(), promptBoxYPos, phaseInSpeed).setDelay(0.3f);
-        LeanTween.moveX(infoBox.GetComponent<RectTransform>(), infoBoxXPos, phaseInSpeed);
+        //LeanTween.moveY(promptBox.GetComponent<RectTransform>(), promptBoxYPos, phaseInSpeed).setDelay(0.3f);
+        //LeanTween.moveX(infoBox.GetComponent<RectTransform>(), infoBoxXPos, phaseInSpeed);
+
+        //just needs leantween reset
 
         StartStory();
     }
@@ -172,8 +173,9 @@ public class DialogueManager : MonoBehaviour
         //blackout.SetActive(false);
     }
 
-    void ExitDialogueMode()
+    public void ExitDialogueMode()
     {
+        sC.BackToOutCam();
         dialoguePanel.SetActive(false);
     }
 }
