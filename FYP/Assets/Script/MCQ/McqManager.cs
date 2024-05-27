@@ -35,7 +35,14 @@ public class McqManager : MonoBehaviour
             var choice = questionScriptable.answerText[i];
             var button = CreateButtonOption(choice);
 
-            button.onClick.AddListener(() => onPromptClick(0));
+            if(i == questionScriptable.CorrectOption-1)
+            {
+                button.onClick.AddListener(() => onPromptClick(true));
+            }
+            else
+            {
+                button.onClick.AddListener(() => onPromptClick(false));
+            }
         }
 
     }
@@ -51,8 +58,18 @@ public class McqManager : MonoBehaviour
         return choiceButton;
     }
 
-    void onPromptClick(int index)
+    void onPromptClick(bool correctAns)
     {
-        Debug.Log(gameObject + " " + index);
+        Debug.Log(gameObject + " " + correctAns);
+        if(correctAns)
+        {
+            UIEvent.Score?.Invoke();
+        }
+        RefreshChoiceView();
+    }
+
+    void RefreshChoiceView()
+    {
+        //Destroy Panel
     }
 }

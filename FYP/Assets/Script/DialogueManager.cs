@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -73,6 +74,7 @@ public class DialogueManager : MonoBehaviour
         else if(inkStory.currentChoices.Count ==0)
         {
             ExitDialogueMode();
+            SceneManager.LoadScene("MCQ Scene", LoadSceneMode.Additive);
         }
     }
 

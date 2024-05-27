@@ -16,7 +16,7 @@ MonoBehaviour:
   answerText:
   - Yes
   - No
-  CorrectOption: 1
+  CorrectOption: 2
   ExplanationText: Not all commuters with physical disabilities use a wheelchair
     and may use other mobility aids like crutches and walking frames.  Some disabilities
     may not be so easily visible
