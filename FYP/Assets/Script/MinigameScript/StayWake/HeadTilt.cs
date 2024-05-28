@@ -21,8 +21,23 @@ public class HeadTilt : MonoBehaviour
     public int startTorque;
     int[] dir;
 
+    [Header("Sprites")]
+    //HeadReference
+    [SerializeField] Sprite Eyeclosed;
+    [SerializeField] Sprite EyeOpen;
+    bool awake;
+    [SerializeField] float awakeTime;
+    float _awakeTime;
+
+    SpriteRenderer sr;
+
     void Start()
     {
+        _awakeTime = awakeTime;
+        
+        sr = GetComponentInChildren<SpriteRenderer>();
+        sr.sprite = Eyeclosed;
+
         dir = new int[] {-startTorque, startTorque };
         rb = GetComponent<Rigidbody2D>();
         int i = Random.Range(0, dir.Length);
@@ -36,9 +51,20 @@ public class HeadTilt : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             rb.AddTorque(forceAmount * CheckMouseSide());
+            awakeTime = _awakeTime;
+            awake = true;
             Debug.Log("Clicked");
         }
-
+        if (awakeTime > 0 && awake)
+        {
+            sr.sprite = EyeOpen;
+            awakeTime -= Time.deltaTime;
+        }
+        else
+        {
+            awake = false;
+            sr.sprite = Eyeclosed;
+        }
 
         //rb.AddTorque(-Mathf.Sign(transform.rotation.eulerAngles.z) * fallAmount*0.05f);
     }
@@ -46,7 +72,7 @@ public class HeadTilt : MonoBehaviour
     void ApplyFallingBehavior(float rotationZ)
     {
         // Calculate the falling torque based on the rotation angle
-        fallTorque = Mathf.Lerp(0.2f, maxFallingTorque, (Mathf.Abs(rotationZ) - fallThreshold) / (maxLeanAngle - fallThreshold));
+        fallTorque = Mathf.Lerp(minFallingTorque, maxFallingTorque, (Mathf.Abs(rotationZ) - fallThreshold) / (maxLeanAngle - fallThreshold));
         rb.AddTorque(Mathf.Sign(rotationZ) * fallTorque);
     }
 

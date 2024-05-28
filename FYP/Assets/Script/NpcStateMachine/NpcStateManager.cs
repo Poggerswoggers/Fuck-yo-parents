@@ -6,6 +6,7 @@ public class NpcStateManager: MonoBehaviour
 {
     public bool hasBounce;
     public bool isWalking;
+    public bool isBusy;
     public bool Objective;
     public string DialogueKnotName;
 
@@ -34,7 +35,6 @@ public class NpcStateManager: MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
-        Debug.Log(currentState+" :"+gameObject);
     }
 
     public void blud(IEnumerator coroutineMethod)

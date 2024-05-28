@@ -17,6 +17,8 @@ public class NpcAnimation : MonoBehaviour
     float hop;
     float lastHop;
 
+    Vector3 facing;
+
 
     [SerializeField] float flip;
 
@@ -80,6 +82,23 @@ public class NpcAnimation : MonoBehaviour
         if (lastHop > 0.9 && hop <= 0.1f) bounce = _bounce;
     }
 
+    public void BounceAnim(float multiplier, float _bounce, bool hasBounce)
+    {
+        flip = Mathf.Sign(facing.x);  
+
+        if (!hasBounce) return;
+        hop += Time.deltaTime * multiplier;
+        if (hop > 1) hop--;
+
+        //Sway back and forth
+        float t = hop * Mathf.PI * 2;
+        spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 0.1f);
+        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.5f, 0);
+
+        if (lastHop < 0.5 && hop >= 0.5f) bounce = _bounce;
+        if (lastHop > 0.9 && hop <= 0.1f) bounce = _bounce;
+    }
+
     public void StopWalkAnim()
     {
         LeanTween.reset();
@@ -88,7 +107,18 @@ public class NpcAnimation : MonoBehaviour
         LeanTween.moveLocal(spriteTransform.gameObject, Vector3.zero, 0.2f);
         LeanTween.scale(spriteTransform.gameObject, new Vector3(Mathf.Sign(spriteTransform.localScale.x), 1, 1), 0.2f);
     }
-
+    public void faceTarget(Transform target)
+    {
+        if(target.position.x - trans.position.x > 0)
+        {
+            spriteTransform.localScale = Vector3.one;
+        }
+        else
+        {
+            spriteTransform.localScale = new Vector3(-1,1,1);
+        }
+        facing = spriteTransform.localScale;
+    }
 
     public void WanderAnim(NpcInteractState state)
     {
@@ -101,11 +131,11 @@ public class NpcAnimation : MonoBehaviour
         yield return new WaitForSeconds(wanderTime);
         sR.flipX = !sR.flipX;
         yield return new WaitForSeconds(wanderTime);
-        state.BackToRoam();
+        state.BackToRoam(nsm.roamState);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position - Vector3.left * (Mathf.Sign(rb.velocity.x) * 4.5f), 3);
+        Gizmos.DrawWireSphere(transform.position - Vector3.left * (Mathf.Sign(rb.velocity.x) * 4.5f), 2);
     }
 }

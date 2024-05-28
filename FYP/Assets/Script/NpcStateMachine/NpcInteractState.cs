@@ -10,6 +10,8 @@ public class NpcInteractState : NpcBaseState
     Transform npcThis;
     public float interactRad;
     [SerializeField] Transform target;
+    [SerializeField] Vector3 dir;
+    [SerializeField] float chaseDur;
 
     [SerializeField] LayerMask npcLayer;
 
@@ -49,7 +51,11 @@ public class NpcInteractState : NpcBaseState
 
         if(hit !=null && hit.transform != npcThis)
         {
-            target = hit.transform;
+            NpcStateManager targetnSm = hit.GetComponent<NpcStateManager>();
+            if(targetnSm.GetCurrentState() != targetnSm.interactingState)
+            {
+                target = hit.transform;
+            }
         }
         else
         {
@@ -62,27 +68,37 @@ public class NpcInteractState : NpcBaseState
     void MoveToTarget()
     {
         nSm.isWalking = true;
-        Vector3 dir = new Vector3(target.position.x,target.position.y,0) - npcThis.position;
-        Debug.Log(dir);
+        dir = target.position - npcThis.position;
 
-        if(dir.magnitude > 2)
+        if(dir.magnitude > 2.5f)
         {
             rb.velocity = dir.normalized * nSm.roamState.speed * Time.deltaTime;
+            chaseDur -= Time.deltaTime;
         }
         else
         {
-            //NpcStateManager _nSm = target.GetComponent<NpcStateManager>();
-            //_nSm.SwitchState(_nSm.interactingState);
-            nSm.SwitchState(nSm.interactingState);
+            NpcStateManager _nSm = target.GetComponent<NpcStateManager>();
 
+            if(_nSm.GetCurrentState() == _nSm.interactingState)
+            {
+                target = null;
+                _nSm.SwitchState(_nSm.roamState);
+            }
+            else
+            {
+                _nSm.npcAnim.faceTarget(npcThis);
+                nSm.npcAnim.faceTarget(target);
 
+                _nSm.SwitchState(_nSm.interactingState);
+                nSm.SwitchState(nSm.interactingState);
+            }
         }
     }
 
-    public void BackToRoam()
+    public void BackToRoam(NpcBaseState state)
     {
-        Debug.Log("back to roam");
+        if (nSm.isBusy) return;
         isWandering = false;
-        nSm.SwitchState(nSm.roamState);
+        nSm.SwitchState(state);
     }
 }
