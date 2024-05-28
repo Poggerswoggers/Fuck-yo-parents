@@ -5,6 +5,7 @@ using UnityEngine;
 public class NpcInteractState : NpcBaseState
 {
     [SerializeField] bool isWandering;
+    [SerializeField] bool chaseTarget;
     bool isInteracting;
 
     Transform npcThis;
@@ -12,6 +13,7 @@ public class NpcInteractState : NpcBaseState
     [SerializeField] Transform target;
     [SerializeField] Vector3 dir;
     [SerializeField] float chaseDur;
+    float _chaseDur;
 
     [SerializeField] LayerMask npcLayer;
 
@@ -24,16 +26,19 @@ public class NpcInteractState : NpcBaseState
     Rigidbody2D rb;
     public override void EnterState(NpcStateManager npcSm)
     {
-        target = null;
- 
         nSm = npcSm;
         npcThis = npcSm.transform;
         
         rb = npcThis.GetComponent<Rigidbody2D>();
-        FindInteractTarget();
-
-        
+        Initialise();
+        FindInteractTarget();  
     }
+    void Initialise()
+    {
+        target = null;
+        _chaseDur = chaseDur;
+    }
+
     public override void UpdateState(NpcStateManager npcSm)
     {
         if (!isWandering)
@@ -52,9 +57,13 @@ public class NpcInteractState : NpcBaseState
         if(hit !=null && hit.transform != npcThis)
         {
             NpcStateManager targetnSm = hit.GetComponent<NpcStateManager>();
-            if(targetnSm.GetCurrentState() != targetnSm.interactingState)
+            if(targetnSm.GetCurrentState() != targetnSm.interactingState && !targetnSm.interactState.chaseTarget)
             {
                 target = hit.transform;
+            }
+            else
+            {
+                nSm.SwitchState(nSm.roamState);
             }
         }
         else
@@ -68,12 +77,12 @@ public class NpcInteractState : NpcBaseState
     void MoveToTarget()
     {
         nSm.isWalking = true;
+        chaseTarget = true;
         dir = target.position - npcThis.position;
 
         if(dir.magnitude > 2.5f)
         {
             rb.velocity = dir.normalized * nSm.roamState.speed * Time.deltaTime;
-            chaseDur -= Time.deltaTime;
         }
         else
         {
@@ -86,18 +95,30 @@ public class NpcInteractState : NpcBaseState
             }
             else
             {
+                chaseTarget = false;
                 _nSm.npcAnim.faceTarget(npcThis);
                 nSm.npcAnim.faceTarget(target);
+
+                nSm.interactingState.interactDur = Random.Range(5, 10);
+                _nSm.interactingState.interactDur = Random.Range(5, 10);
 
                 _nSm.SwitchState(_nSm.interactingState);
                 nSm.SwitchState(nSm.interactingState);
             }
         }
+
+        if(_chaseDur > 0)
+        {
+            _chaseDur -= Time.deltaTime;
+        }
+        else
+        {
+            nSm.SwitchState(nSm.roamState);
+        }
     }
 
     public void BackToRoam(NpcBaseState state)
     {
-        if (nSm.isBusy) return;
         isWandering = false;
         nSm.SwitchState(state);
     }

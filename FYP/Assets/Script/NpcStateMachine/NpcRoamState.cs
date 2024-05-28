@@ -34,7 +34,6 @@ public class NpcRoamState : NpcBaseState
        nSm = npcSm;
        npcThis = npcSm.transform;
 
-        InitialiseVariable();
         startWalking();
     }
 
@@ -55,14 +54,9 @@ public class NpcRoamState : NpcBaseState
 
 
 
-    void InitialiseVariable()
-    {
-        speed = Random.Range(minSpeed, maxSpeed);
-    }
-
     void startWalking()
     {
-
+        speed = Random.Range(minSpeed, maxSpeed);
         nSm.isWalking = true;
         float angle = Random.value * Mathf.PI * 2;
         // Calculate walking direction
@@ -84,11 +78,22 @@ public class NpcRoamState : NpcBaseState
         }
         else
         {
-            rb.velocity = Vector2.zero;
-            nSm.npcAnim.StopWalkAnim();
-            nSm.SwitchState(nSm.interactState);
+            int odds = Random.Range(0, 2);
+            if(odds == 0)
+            {
+                rb.velocity = Vector2.zero;
+                nSm.npcAnim.StopWalkAnim();
+                nSm.SwitchState(nSm.interactState);
+            }
+            else
+            {
+                _walkDur = walkDuration;
+                startWalking();
+                Debug.Log("Restart Walking");
+            }
         }
-
+           
+       
         if (Mathf.Abs(npcThis.position.x) > sc.CalculateBounds().x-borderMargin && !crossBoundX)
         {
             crossBoundX = true;

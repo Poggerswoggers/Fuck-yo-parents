@@ -82,7 +82,7 @@ public class NpcAnimation : MonoBehaviour
         if (lastHop > 0.9 && hop <= 0.1f) bounce = _bounce;
     }
 
-    public void BounceAnim(float multiplier, float _bounce, bool hasBounce)
+    public void BounceAnim(float multiplier, float _bounce, bool hasBounce, float maxHeight)
     {
         flip = Mathf.Sign(facing.x);  
 
@@ -92,8 +92,8 @@ public class NpcAnimation : MonoBehaviour
 
         //Sway back and forth
         float t = hop * Mathf.PI * 2;
-        spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 0.1f);
-        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.5f, 0);
+        spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 5f);
+        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * maxHeight, 0);
 
         if (lastHop < 0.5 && hop >= 0.5f) bounce = _bounce;
         if (lastHop > 0.9 && hop <= 0.1f) bounce = _bounce;
@@ -118,6 +118,7 @@ public class NpcAnimation : MonoBehaviour
             spriteTransform.localScale = new Vector3(-1,1,1);
         }
         facing = spriteTransform.localScale;
+        Debug.Log(facing+ " "+gameObject.name);
     }
 
     public void WanderAnim(NpcInteractState state)
