@@ -23,16 +23,20 @@ public class DialogueManager : GameBaseState
 
     [Header("UI Panel")]
     public GameObject dialoguePanel;
-    public GameObject promptBox;
+    public RectTransform promptBox;
     [SerializeField] float promptBoxYPos;
-    public GameObject infoBox;
+    public RectTransform infoBox;
     [SerializeField] float infoBoxXPos;
     [SerializeField] float phaseInSpeed;
 
     bool canContinueToNextLine = false;
     private Coroutine displayLineCoroutine;
 
-    public string dialogueKnotName;
+    //Npc data
+    string dialogueKnotName;
+    MCQ questionScriptable;
+    public int correctOption;
+
     //Reference
     SnapCamera sC;
     GameStateManager gSm;
@@ -40,8 +44,9 @@ public class DialogueManager : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
+        //infoTextField.text = "";
         gSm = gameStateManager;
-        LoadDialooguePanel(gameStateManager.snapState, dialogueKnotName);
+        StartCoroutine(LoadDialooguePanel(gameStateManager.snapState, dialogueKnotName));
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
@@ -72,17 +77,22 @@ public class DialogueManager : GameBaseState
     {
         
     }
-
+    public void Initialise(MCQ _questionScriptable, string _knotName)
+    {
+        questionScriptable = _questionScriptable;
+        dialogueKnotName = _knotName;
+    }
 
     //Loads and tweens the dialogue boxes;
-    public void LoadDialooguePanel(SnapCamera _sC, string knotName) 
+    IEnumerator LoadDialooguePanel(SnapCamera _sC, string knotName) 
     {
         sC = _sC;
-        dialoguePanel.SetActive(true);
-        //LeanTween.moveY(promptBox.GetComponent<RectTransform>(), promptBoxYPos, phaseInSpeed).setDelay(0.3f);
-        //LeanTween.moveX(infoBox.GetComponent<RectTransform>(), infoBoxXPos, phaseInSpeed);
 
-        //just needs leantween reset
+        yield return new WaitForSeconds(phaseInSpeed);
+        dialoguePanel.SetActive(true);
+        
+        //LeanTween.moveY(promptBox, promptBoxYPos, phaseInSpeed).setDelay(0.3f);
+        //LeanTween.moveX(infoBox, infoBoxXPos, phaseInSpeed);
 
         StartStory(knotName);
     }
@@ -91,6 +101,7 @@ public class DialogueManager : GameBaseState
     {
         inkStory = new Story(inkStoryJson.text);
         inkStory.ChoosePathString(knotName);
+        //BindExternalFunctions();
         DisplayNewLine();
     }
 
@@ -105,14 +116,21 @@ public class DialogueManager : GameBaseState
             }
             string infoText = inkStory.Continue();
             infoText = infoText?.Trim();
-            Debug.Log(infoText);
+            correctOption = (int)inkStory.variablesState["correctAnswer"];
 
             displayLineCoroutine = StartCoroutine(DisplayNextLineEffect(infoText));
         }
         else if(inkStory.currentChoices.Count ==0)
         {
-            ExitDialogueMode();
-            SceneManager.LoadScene("MCQ Scene", LoadSceneMode.Additive);
+            if(questionScriptable !=null)
+            {
+                LoadQuestions();
+                ExitDialogueMode();
+            }
+            else
+            {
+                backButton();
+            }
         }
     }
 
@@ -139,7 +157,14 @@ public class DialogueManager : GameBaseState
             var choice = inkStory.currentChoices[i];
             var button = CreateOptionButton(choice.text);
 
-            button.onClick.AddListener(() => OnPromptClick(choice));
+            if(i == correctOption-1)
+            {
+                button.onClick.AddListener(() => OnPromptClick(choice, true));
+            }
+            else
+            {
+                button.onClick.AddListener(() => OnPromptClick(choice, false));
+            }
         }
         
 
@@ -159,15 +184,18 @@ public class DialogueManager : GameBaseState
         return choiceButton;
     }
 
-    void OnPromptClick(Choice choice)
+    void OnPromptClick(Choice choice, bool correctPrompt)
     {
         if (!canContinueToNextLine) return;
         inkStory.ChooseChoiceIndex(choice.index);
         DisplayNewLine();
         RefreshChoiceView();
 
-        
-        //ScoreManager.Instance.UpdateScore();
+        Debug.Log(correctPrompt);
+        if (!correctPrompt)
+        {
+            ScoreManager.OnScoreChange?.Invoke(500);
+        }
     }
 
     void RefreshChoiceView()
@@ -186,14 +214,24 @@ public class DialogueManager : GameBaseState
 
     public void backButton()
     {
-        sC.BackToOutCam();
-        dialoguePanel.SetActive(false);
+        RefreshChoiceView();
+        ExitDialogueMode();
         gSm.ChangeStat(sC);
     }
 
-    public void ExitDialogueMode()
+    void ExitDialogueMode()
     {
         sC.BackToOutCam();
         dialoguePanel.SetActive(false);
+    }
+
+    void BindExternalFunctions()
+    {
+        //inkStory.BindExternalFunction("LoadQuestion", (string questionName) => LoadQuestions(questionName));
+    }
+    void LoadQuestions()
+    {
+        gSm.mcqState.questionScriptable = questionScriptable;
+        gSm.ChangeStat(gSm.mcqState);
     }
 }

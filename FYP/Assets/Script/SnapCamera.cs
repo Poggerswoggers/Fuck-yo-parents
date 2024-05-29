@@ -29,7 +29,9 @@ public class SnapCamera : GameBaseState
     bool camMode;
 
 
-    public float LerpTime = 1f;
+    [Header("Timer")]
+    [SerializeField] float timeToFindNpc;
+    float _timeToFindNpc;
 
     [Header("Camera Zooming")]
     [SerializeField] private Camera cam;
@@ -56,6 +58,7 @@ public class SnapCamera : GameBaseState
         gSm = gameStateManager;
         dm = gSm.dialogueStat;
         CalculateBounds();
+        Initialise();
         cameraOrigin = outCamGameObject.transform.position;
     }
 
@@ -80,11 +83,26 @@ public class SnapCamera : GameBaseState
             SnapSystem();
 
         }
+
+        if(_timeToFindNpc>0 && gameStateManager.sM.levelTargets != null)
+        {
+            _timeToFindNpc -= Time.deltaTime;
+        }
+        else
+        {
+            ScoreManager.OnScoreChange?.Invoke(1000);
+            _timeToFindNpc = timeToFindNpc;
+        }
     }
     public override void ExitState(GameStateManager gameStateManager)
     {
         
 
+    }
+
+    void Initialise()
+    {
+        _timeToFindNpc = timeToFindNpc;
     }
 
     private void Update()
@@ -191,24 +209,16 @@ public class SnapCamera : GameBaseState
         zoomCam.Priority = 2;
         zoomCam.Follow = closestGameObject;
 
-        NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
-        if (nSm.Objective && snapTries >0)
-        {
-            UIEvent.Score?.Invoke();
-        }
-        else
-        {
-            snapTries--;
-        }
+        ScoreManager.OnTargetChanged(closestGameObject.transform);
 
+        NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();      
         //bs = nSm.GetCurrentState();
         nSm.SwitchState(nSm.promptState);
-
         LeanTween.move(CameraReticle.gameObject, closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset, 0.5f);
 
         yield return new WaitForSeconds(0.2f);
         dm.gameObject.SetActive(true);
-        dm.dialogueKnotName = nSm.DialogueKnotName;
+        dm.Initialise(nSm.question, nSm.DialogueKnotName);
         gSm.ChangeStat(dm);
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class McqManager : MonoBehaviour
+public class McqManager : GameBaseState
 {
     //UI elements
     public GameObject mcqPanel;
@@ -13,9 +13,9 @@ public class McqManager : MonoBehaviour
     [SerializeField] Button choiceButtonPrefab;
     [SerializeField] GameObject buttonContainer;
 
-    [SerializeField] MCQ questionScriptable;
+    public MCQ questionScriptable;
     int mcqCount;
-    void Start()
+    public override void EnterState(GameStateManager gameStateManager)
     {
         mcqCount = questionScriptable.answerText.Length;
         questionText.text = questionScriptable.questionText;
@@ -63,7 +63,7 @@ public class McqManager : MonoBehaviour
         Debug.Log(gameObject + " " + correctAns);
         if(correctAns)
         {
-            UIEvent.Score?.Invoke();
+            ScoreManager.OnScoreChange?.Invoke(1);
         }
         RefreshChoiceView();
     }
@@ -71,5 +71,15 @@ public class McqManager : MonoBehaviour
     void RefreshChoiceView()
     {
         //Destroy Panel
+    }
+
+    public override void UpdateState(GameStateManager gameStateManager)
+    {
+        
+    }
+
+    public override void ExitState(GameStateManager gameStateManager)
+    {
+        
     }
 }

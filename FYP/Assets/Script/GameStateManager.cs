@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    public ScoreManager sM;
+    
     GameBaseState currentState;
 
+    [Header("Game State")]
     public SnapCamera snapState;
     public DialogueManager dialogueStat;
+    public McqManager mcqState;
 
 
     private void Start()

@@ -6,10 +6,10 @@ public class NpcStateManager: MonoBehaviour
 {
     public bool hasBounce;
     public bool isWalking;
-    public bool Objective;
     public string DialogueKnotName;
 
     public NpcAnimation npcAnim;
+    public MCQ question;
 
     NpcBaseState currentState;
     [SerializeReference] public NpcRoamState roamState = new NpcRoamState();

@@ -2,38 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] float levelScore;
+    public static Action<int> OnScoreChange;
+    public static Action<Transform> OnTargetChanged;
 
-    public static ScoreManager Instance { get; private set; }
+    [SerializeField] int maxScore;
+    [SerializeField] int levelScore;
+    [SerializeField] TextMeshProUGUI scoreText;
 
+    //target Ref
+    public List<Transform> levelTargets;
 
     private void OnEnable()
     {
-        UIEvent.Score += UpdateScore;
+        OnScoreChange += UpdateScore;
+        OnTargetChanged += Updatetargets;
     }
 
     private void OnDisable()
     {
-        UIEvent.Score -= UpdateScore;
+        OnScoreChange -= UpdateScore;
+        OnTargetChanged += Updatetargets;
     }
 
-    private void Awake()
+    private void Start()
     {
-        if(Instance!= null && Instance == this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        UpdateScore(-maxScore);
     }
 
-    public void UpdateScore()
+
+    public void UpdateScore(int points)
+    {       
+        levelScore -= points;
+        scoreText.text = "SCORE:" + levelScore.ToString();
+    }
+
+    public void Updatetargets(Transform target )
     {
-        levelScore += 1;
+        if(levelTargets.Contains(target))
+        {
+            levelTargets.Remove(target);
+        }
     }
 }

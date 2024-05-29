@@ -5,5 +5,6 @@ using System;
 
 public class UIEvent
 {
-    public static Action Score;
+   
+
 }
