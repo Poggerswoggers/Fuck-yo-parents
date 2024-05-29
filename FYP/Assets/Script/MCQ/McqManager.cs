@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class McqManager : GameBaseState
 {
@@ -15,6 +16,7 @@ public class McqManager : GameBaseState
 
     public MCQ questionScriptable;
     int mcqCount;
+
     public override void EnterState(GameStateManager gameStateManager)
     {
         mcqCount = questionScriptable.answerText.Length;
@@ -37,11 +39,11 @@ public class McqManager : GameBaseState
 
             if(i == questionScriptable.CorrectOption-1)
             {
-                button.onClick.AddListener(() => onPromptClick(true));
+                button.onClick.AddListener(() => onPromptClick(true, button));
             }
             else
             {
-                button.onClick.AddListener(() => onPromptClick(false));
+                button.onClick.AddListener(() => onPromptClick(false, button));
             }
         }
 
@@ -58,19 +60,25 @@ public class McqManager : GameBaseState
         return choiceButton;
     }
 
-    void onPromptClick(bool correctAns)
+    void onPromptClick(bool correctAns, Button button)
     {
         Debug.Log(gameObject + " " + correctAns);
         if(correctAns)
         {
-            ScoreManager.OnScoreChange?.Invoke(1);
+            GoToMiniGame();
         }
-        RefreshChoiceView();
+        else
+        {
+            ScoreManager.OnScoreChange?.Invoke(500);
+            Destroy(button.gameObject);
+        }
     }
 
-    void RefreshChoiceView()
+    void GoToMiniGame()
     {
-        //Destroy Panel
+        mcqPanel.SetActive(false);
+        SceneManager.LoadScene("HeadTilt", LoadSceneMode.Additive);
+
     }
 
     public override void UpdateState(GameStateManager gameStateManager)

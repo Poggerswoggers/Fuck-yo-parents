@@ -98,9 +98,9 @@ public class NpcInteractState : NpcBaseState
                 chaseTarget = false;
                 _nSm.npcAnim.faceTarget(npcThis);
                 nSm.npcAnim.faceTarget(target);
-
+                
                 nSm.interactingState.interactDur = Random.Range(5, 10);
-                _nSm.interactingState.interactDur = Random.Range(5, 10);
+                _nSm.interactingState.interactDur = nSm.interactingState.interactDur;
 
                 _nSm.SwitchState(_nSm.interactingState);
                 nSm.SwitchState(nSm.interactingState);

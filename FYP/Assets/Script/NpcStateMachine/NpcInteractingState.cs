@@ -27,6 +27,8 @@ public class NpcInteractingState : NpcBaseState
         nSm.isWalking = false;
 
         Initialise();
+
+        nSm.npcAnim.Chatting(true, interactDur);
     }
     void Initialise()
     {
@@ -46,8 +48,6 @@ public class NpcInteractingState : NpcBaseState
         {
             nSm.SwitchState(nSm.roamState);
         }
-
-
     }
     
 }

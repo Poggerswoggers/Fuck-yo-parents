@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
-using UnityEngine.SceneManagement;
 
 public class DialogueManager : GameBaseState
 {
@@ -157,7 +156,11 @@ public class DialogueManager : GameBaseState
             var choice = inkStory.currentChoices[i];
             var button = CreateOptionButton(choice.text);
 
-            if(i == correctOption-1)
+            if (correctOption == 0)
+            {
+                button.onClick.AddListener(() => OnPromptClick(choice, true));               
+            }
+            else if(i == correctOption-1)
             {
                 button.onClick.AddListener(() => OnPromptClick(choice, true));
             }

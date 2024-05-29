@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SliderTimer : MonoBehaviour
 {
     public Slider timerSlider;
-    [SerializeField] float gameTime;
+    public float gameTime;
+
 
     // Update is called once per frame
 
@@ -17,7 +18,8 @@ public class SliderTimer : MonoBehaviour
 
     void Update()
     {
-        if(gameTime <=0)
+
+        if (gameTime <=0)
         {
             gameTime = 0;
         }
@@ -26,7 +28,5 @@ public class SliderTimer : MonoBehaviour
             gameTime -= Time.deltaTime;
         }
         timerSlider.value = gameTime;
-       
     }
-
 }

@@ -24,8 +24,9 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void StoryMode() {
-        SceneManager.LoadScene("StoryMode");
+    public void StoryMode(string sceneName) {
+        Debug.Log("Click");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void ResetAll() {
@@ -40,5 +41,10 @@ public class SceneLoader : MonoBehaviour
         //PlayerPrefs.DeleteAll();
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         confirmScreen.gameObject.SetActive(false);
+    }
+
+    public void Unload(string SceneToUnload)
+    {
+        SceneManager.UnloadSceneAsync(SceneToUnload);
     }
 }

@@ -22,6 +22,9 @@ public class NpcAnimation : MonoBehaviour
 
     [SerializeField] float flip;
 
+    [Header("Chatting")]
+    public GameObject chatBubblePrefab;
+
     //Reference
     Transform trans;
     Transform spriteTransform;
@@ -75,7 +78,7 @@ public class NpcAnimation : MonoBehaviour
 
         //Sway back and forth
         float t = hop * Mathf.PI * 2;
-        spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 1f);
+        spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 2f);
         spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.5f, 0);
 
         if (lastHop < 0.5 && hop >= 0.5f) bounce = _bounce;
@@ -135,6 +138,16 @@ public class NpcAnimation : MonoBehaviour
         state.BackToRoam(nsm.roamState);
     }
 
+    public void Chatting(bool isChatting, float dur)
+    {
+        StartCoroutine(ChattingCo(isChatting, dur));
+    }
+    IEnumerator ChattingCo(bool isChatting, float dur)
+    {
+        GameObject bubble = Instantiate(chatBubblePrefab, transform.position + Vector3.up*1.5f, Quaternion.identity);
+        yield return new WaitForSeconds(dur);
+        Destroy(bubble);
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position - Vector3.left * (Mathf.Sign(rb.velocity.x) * 4.5f), 2);

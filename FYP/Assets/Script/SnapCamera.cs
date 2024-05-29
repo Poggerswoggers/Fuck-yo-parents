@@ -41,6 +41,12 @@ public class SnapCamera : GameBaseState
     [SerializeField] float newZoomLevel;
     Vector3 cameraOrigin;
 
+    [Header("Camera Pan")]
+    Vector3 origin;
+    Vector3 difference;
+    Vector3 resetCam;
+    [SerializeField] bool drag;
+
 
     //Boundary Object
     public Transform boundaryObj;
@@ -79,6 +85,7 @@ public class SnapCamera : GameBaseState
 
         if (!camMode)
         {
+            CameraPan();
             WhenMouseIsMoving();
             SnapSystem();
 
@@ -203,6 +210,29 @@ public class SnapCamera : GameBaseState
         }
     }
 
+    void CameraPan()
+    {
+        if(Input.GetMouseButton(1))
+        {
+            difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - outCam.transform.position;
+            if(drag == false)
+            {
+                drag = true;
+                origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+        }
+        else
+        {
+            drag = false;
+        }
+        if(drag)
+        {
+            //X pan max
+            float maxX = Mathf.Clamp(origin.x - difference.x, -20, 20);
+            outCam.transform.position = new Vector3(maxX, outCam.transform.position.y, outCam.transform.position.z);
+            
+        }
+    }
     IEnumerator ZoomToTarget()
     {
         //zoomCam.m_Lens.OrthographicSize = 1.5f;

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class HeadTilt : MonoBehaviour
 {
+    public static Action OnGameOver;
+    [SerializeField] GameObject gameOverPanel;
+
 
     public float forceAmount = 10f;
     public float fallAmount = 10f;
@@ -31,40 +35,55 @@ public class HeadTilt : MonoBehaviour
 
     SpriteRenderer sr;
 
+    //Game Time
+    public SliderTimer slider;
+    [SerializeField] float gameTIme;
+
     void Start()
     {
         _awakeTime = awakeTime;
-        
+        slider.gameTime = gameTIme;
+
         sr = GetComponentInChildren<SpriteRenderer>();
         sr.sprite = Eyeclosed;
 
         dir = new int[] {-startTorque, startTorque };
         rb = GetComponent<Rigidbody2D>();
-        int i = Random.Range(0, dir.Length);
+        int i = UnityEngine.Random.Range(0, dir.Length);
         rb.AddTorque(dir[i]);
     }
 
     void Update()
     {
-        
-
-        if (Input.GetMouseButtonDown(0))
+        if(gameTIme<0)
         {
-            rb.AddTorque(forceAmount * CheckMouseSide());
-            awakeTime = _awakeTime;
-            awake = true;
-            Debug.Log("Clicked");
-        }
-        if (awakeTime > 0 && awake)
-        {
-            sr.sprite = EyeOpen;
-            awakeTime -= Time.deltaTime;
+            OnGameOver?.Invoke();
+            rb.bodyType = RigidbodyType2D.Static;
         }
         else
         {
-            awake = false;
-            sr.sprite = Eyeclosed;
-        }
+            gameTIme -= Time.deltaTime;
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                rb.AddTorque(forceAmount * CheckMouseSide());
+                awakeTime = _awakeTime;
+                awake = true;
+                Debug.Log("Clicked");
+
+                minFallingTorque *= 1.02f;
+            }
+            if (awakeTime > 0 && awake)
+            {
+                sr.sprite = EyeOpen;
+                awakeTime -= Time.deltaTime;
+            }
+            else
+            {
+                awake = false;
+                sr.sprite = Eyeclosed;
+            }
+        }       
 
         //rb.AddTorque(-Mathf.Sign(transform.rotation.eulerAngles.z) * fallAmount*0.05f);
     }
@@ -107,5 +126,11 @@ public class HeadTilt : MonoBehaviour
             Debug.Log("Left");
             return -1;
         }
+    }
+
+    public void HitPassenger()
+    {
+        Debug.Log("wdw");
+        rb.AddTorque(forceAmount * Mathf.Sign(rotationZ)*30);
     }
 }
