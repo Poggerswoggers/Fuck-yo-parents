@@ -261,7 +261,7 @@ MonoBehaviour:
       data:
         isWandering: 0
         chaseTarget: 0
-        interactRad: 2
+        interactRad: 3
         target: {fileID: 0}
         dir: {x: 0, y: 0, z: 0}
         chaseDur: 5
@@ -297,4 +297,3 @@ MonoBehaviour:
   wanderTime: 0.5
   flip: 0
   chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
-  chatboxPos: {fileID: 4117391959591453646}

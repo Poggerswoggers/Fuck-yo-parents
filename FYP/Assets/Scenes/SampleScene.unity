@@ -3486,6 +3486,10 @@ PrefabInstance:
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
       objectReference: {fileID: 1304518200}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: managedReferences[2641615680123699209].interactRad
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
