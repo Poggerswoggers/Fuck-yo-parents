@@ -10,7 +10,7 @@ public class MinigameManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
     [TextArea(2,5)]
-    [SerializeField] string instructionText;
+    public string instructionText;
     [SerializeField] TextMeshProUGUI instructionTextField;
     private void OnEnable()
     {
