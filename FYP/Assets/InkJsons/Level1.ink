@@ -28,7 +28,7 @@ I hate peak hours.
         Someone gets it.
             -> DONE
     *[Do you see anyone that needs help?] //Hints 
-        There's a guy who looks GRUMPY maybe he needs some help?
+        There's a guy who looks GRUMPY maybe he need some help?
             -> DONE
             
 
@@ -39,7 +39,7 @@ It stinks around here.
         Probably.
             -> DONE
     *[Do you see anyone that needs help?] //Hints
-        I saw someone that has CRUTCHES I think needs some help.
+        I saw someone that has CRUTCHES, I think they need some help.
             -> DONE
             
             
