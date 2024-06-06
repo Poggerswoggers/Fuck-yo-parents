@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Y2S2T2/FYP/Fuck-yo-parents/FYP/WebGL Build;C:/Y2S2T2/FYP;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Y2S2T2/FYP webGL builds;C:/Y2S2T2/FYP/Fuck-yo-parents/FYP/WebGL Build;C:/Y2S2T2/FYP;;;;;;;\"}"
             }
         ]
     }
