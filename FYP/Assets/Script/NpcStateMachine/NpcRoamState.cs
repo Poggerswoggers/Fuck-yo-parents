@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class NpcRoamState : NpcBaseState
 {
-    public float speed;
-    public float minSpeed, maxSpeed;
 
-    public Vector2 dir;
+    
+    public float speed { get; set;}
+    [SerializeField] float minSpeed, maxSpeed;
+
+    //Npc walk dir
+    Vector2 dir;
+
+    //Walk duration
     [SerializeField] float walkDuration;
     float _walkDur;
 
-    public float borderMargin = 0.5f;
+    [SerializeField] float borderMargin = 0.5f;
 
     //reference
     Rigidbody2D rb;
     NpcStateManager nSm;
     [SerializeField] SnapCamera sc;
 
-    public bool crossBoundX;
-    public bool crossBoundY;
+    //Roam cross border bound check
+    bool crossBoundX;
+    bool crossBoundY;
 
     Transform npcThis;
 
@@ -29,6 +35,7 @@ public class NpcRoamState : NpcBaseState
 
     public override void EnterState(NpcStateManager npcSm)
     {
+        Debug.Log("hehe");
         _walkDur = walkDuration;    
 
        nSm = npcSm;

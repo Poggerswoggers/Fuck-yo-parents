@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class NpcStateManager: MonoBehaviour
 {
-    public bool hasBounce;
-    public bool isWalking;
-    public string DialogueKnotName;
+    [SerializeField] bool _hasBounce;
+    public bool hasBounce
+    {
+        get { return _hasBounce; }
+    }
+    public bool isWalking { get; set; }
+
+    public string DialogueKnotName
+    {
+        get { return _dialogueKnotName; }
+    }
+    [SerializeField] string _dialogueKnotName;
 
     public NpcAnimation npcAnim;
     public MCQ question;
@@ -34,7 +43,7 @@ public class NpcStateManager: MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
-        Debug.Log(transform.name + "Switch to" + currentState);
+        //Debug.Log(transform.name + "Switch to" + currentState);
     }
 
     public void blud(IEnumerator coroutineMethod)

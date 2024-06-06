@@ -175,6 +175,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jaylen (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7593764233147058134, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Jaylen
+      objectReference: {fileID: 0}
     - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
@@ -535,7 +547,6 @@ MonoBehaviour:
   infoBox: {fileID: 1622087408}
   infoBoxXPos: -110
   phaseInSpeed: 0.4
-  correctOption: 0
 --- !u!1001 &89606080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -670,90 +681,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2492783254032599885, guid: cbf133129c86f054e9b76179f9f6fc01, type: 3}
   m_PrefabInstance: {fileID: 89606080}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &96649020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 96649021}
-  - component: {fileID: 96649022}
-  m_Layer: 0
-  m_Name: Jaylen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &96649021
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96649020}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 937533134}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &96649022
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96649020}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 38.399998, y: 38.399998}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &165270628
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,12 +849,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &403743677 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2721068929519199950, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
-  m_PrefabInstance: {fileID: 954008771}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &414530795
+--- !u!1 &300835147
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -935,263 +857,137 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 414530796}
-  - component: {fileID: 414530797}
-  m_Layer: 0
-  m_Name: Jaylen
+  - component: {fileID: 300835148}
+  - component: {fileID: 300835150}
+  - component: {fileID: 300835149}
+  m_Layer: 5
+  m_Name: Fps counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &414530796
-Transform:
+--- !u!224 &300835148
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414530795}
-  serializedVersion: 2
+  m_GameObject: {fileID: 300835147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 447213676}
+  m_Father: {fileID: 1595591613}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &414530797
-SpriteRenderer:
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 21.300049, y: 24.099976}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &300835149
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414530795}
+  m_GameObject: {fileID: 300835147}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 38.399998, y: 38.399998}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &447213671
-GameObject:
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &300835150
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 447213676}
-  - component: {fileID: 447213675}
-  - component: {fileID: 447213674}
-  - component: {fileID: 447213673}
-  - component: {fileID: 447213672}
-  m_Layer: 6
-  m_Name: Jaylen (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &447213672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447213671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
-  wanderTime: 0.5
-  flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
---- !u!114 &447213673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447213671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBounce: 1
-  isWalking: 0
-  DialogueKnotName: Jaylen
-  npcAnim: {fileID: 447213672}
-  question: {fileID: 0}
-  roamState:
-    rid: 2641615680123699208
-  interactState:
-    rid: 2641615680123699209
-  promptState:
-    rid: 2641615798566912002
-  interactingState:
-    rid: 2641615798566912003
-  references:
-    version: 2
-    RefIds:
-    - rid: 2641615680123699208
-      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
-      data:
-        speed: 0
-        minSpeed: 50
-        maxSpeed: 70
-        dir: {x: 0, y: 0}
-        walkDuration: 10
-        borderMargin: 1.5
-        sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
-        bounce: 1.2
-        multiplier: 1
-    - rid: 2641615680123699209
-      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
-      data:
-        isWandering: 0
-        chaseTarget: 0
-        interactRad: 2
-        target: {fileID: 0}
-        dir: {x: 0, y: 0, z: 0}
-        chaseDur: 5
-        npcLayer:
-          serializedVersion: 2
-          m_Bits: 64
-        yBounce: 1.1
-        multiplier: 0.9
-    - rid: 2641615798566912002
-      type: {class: NpcPromptState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 2641615798566912003
-      type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
-      data:
-        interactDur: 0
-        yBounce: 1.1
-        multiplier: 1
---- !u!58 &447213674
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447213671}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
---- !u!50 &447213675
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447213671}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!4 &447213676
+  m_GameObject: {fileID: 300835147}
+  m_CullTransparentMesh: 1
+--- !u!4 &403743677 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2721068929519199950, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+  m_PrefabInstance: {fileID: 954008771}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447213671}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.66, y: -6.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 414530796}
-  m_Father: {fileID: 969012780}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &476905510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1205,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 969012780}
     m_Modifications:
     - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Naomi
+      objectReference: {fileID: 0}
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
       objectReference: {fileID: 1304518200}
@@ -1455,6 +1259,10 @@ PrefabInstance:
     - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_Name
       value: Naomi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1779,271 +1587,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2392681129319802263, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
   m_PrefabInstance: {fileID: 488553783}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &607548209
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 607548214}
-  - component: {fileID: 607548213}
-  - component: {fileID: 607548212}
-  - component: {fileID: 607548211}
-  - component: {fileID: 607548210}
-  m_Layer: 6
-  m_Name: Jaylen (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &607548210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607548209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
-  wanderTime: 0.5
-  flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
---- !u!114 &607548211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607548209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBounce: 1
-  isWalking: 0
-  DialogueKnotName: Jaylen
-  npcAnim: {fileID: 607548210}
-  question: {fileID: 0}
-  roamState:
-    rid: 2641615680123699208
-  interactState:
-    rid: 2641615680123699209
-  promptState:
-    rid: 2641615798566912002
-  interactingState:
-    rid: 2641615798566912003
-  references:
-    version: 2
-    RefIds:
-    - rid: 2641615680123699208
-      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
-      data:
-        speed: 0
-        minSpeed: 50
-        maxSpeed: 70
-        dir: {x: 0, y: 0}
-        walkDuration: 10
-        borderMargin: 1.5
-        sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
-        bounce: 1.2
-        multiplier: 1
-    - rid: 2641615680123699209
-      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
-      data:
-        isWandering: 0
-        chaseTarget: 0
-        interactRad: 2
-        target: {fileID: 0}
-        dir: {x: 0, y: 0, z: 0}
-        chaseDur: 5
-        npcLayer:
-          serializedVersion: 2
-          m_Bits: 64
-        yBounce: 1.1
-        multiplier: 0.9
-    - rid: 2641615798566912002
-      type: {class: NpcPromptState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 2641615798566912003
-      type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
-      data:
-        interactDur: 0
-        yBounce: 1.1
-        multiplier: 0.9
---- !u!58 &607548212
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607548209}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
---- !u!50 &607548213
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607548209}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!4 &607548214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607548209}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3199997, y: -5.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 952363422}
-  m_Father: {fileID: 969012780}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &613883869
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 613883870}
-  - component: {fileID: 613883871}
-  m_Layer: 0
-  m_Name: Jaylen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &613883870
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613883869}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1645771185}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &613883871
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613883869}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 38.399998, y: 38.399998}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,90 +2390,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &836196663
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 836196664}
-  - component: {fileID: 836196665}
-  m_Layer: 0
-  m_Name: Jaylen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &836196664
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836196663}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 928715801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &836196665
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836196663}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 38.399998, y: 38.399998}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &855729387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2939,6 +2398,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 969012780}
     m_Modifications:
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Naomi
+      objectReference: {fileID: 0}
     - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
@@ -2986,6 +2453,10 @@ PrefabInstance:
     - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_Name
       value: Naomi (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3068,368 +2539,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865370952}
   m_CullTransparentMesh: 1
---- !u!1 &928715796
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 928715801}
-  - component: {fileID: 928715800}
-  - component: {fileID: 928715799}
-  - component: {fileID: 928715798}
-  - component: {fileID: 928715797}
-  m_Layer: 6
-  m_Name: Jaylen (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &928715797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928715796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
-  wanderTime: 0.5
-  flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
---- !u!114 &928715798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928715796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBounce: 1
-  isWalking: 0
-  DialogueKnotName: Jaylen
-  npcAnim: {fileID: 928715797}
-  question: {fileID: 0}
-  roamState:
-    rid: 2641615680123699208
-  interactState:
-    rid: 2641615680123699209
-  promptState:
-    rid: 2641615798566912002
-  interactingState:
-    rid: 2641615798566912003
-  references:
-    version: 2
-    RefIds:
-    - rid: 2641615680123699208
-      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
-      data:
-        speed: 0
-        minSpeed: 50
-        maxSpeed: 70
-        dir: {x: 0, y: 0}
-        walkDuration: 10
-        borderMargin: 1.5
-        sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
-        bounce: 1.2
-        multiplier: 1
-    - rid: 2641615680123699209
-      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
-      data:
-        isWandering: 0
-        chaseTarget: 0
-        interactRad: 2
-        target: {fileID: 0}
-        dir: {x: 0, y: 0, z: 0}
-        chaseDur: 5
-        npcLayer:
-          serializedVersion: 2
-          m_Bits: 64
-        yBounce: 1.1
-        multiplier: 0.9
-    - rid: 2641615798566912002
-      type: {class: NpcPromptState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 2641615798566912003
-      type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
-      data:
-        interactDur: 0
-        yBounce: 1.1
-        multiplier: 0.9
---- !u!58 &928715799
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928715796}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
---- !u!50 &928715800
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928715796}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!4 &928715801
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928715796}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 836196664}
-  m_Father: {fileID: 969012780}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &937533129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 937533134}
-  - component: {fileID: 937533133}
-  - component: {fileID: 937533132}
-  - component: {fileID: 937533131}
-  - component: {fileID: 937533130}
-  m_Layer: 6
-  m_Name: Jaylen (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &937533130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937533129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
-  wanderTime: 0.5
-  flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
---- !u!114 &937533131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937533129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBounce: 1
-  isWalking: 0
-  DialogueKnotName: Jaylen
-  npcAnim: {fileID: 937533130}
-  question: {fileID: 0}
-  roamState:
-    rid: 2641615680123699208
-  interactState:
-    rid: 2641615680123699209
-  promptState:
-    rid: 2641615798566912002
-  interactingState:
-    rid: 2641615798566912003
-  references:
-    version: 2
-    RefIds:
-    - rid: 2641615680123699208
-      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
-      data:
-        speed: 0
-        minSpeed: 50
-        maxSpeed: 70
-        dir: {x: 0, y: 0}
-        walkDuration: 10
-        borderMargin: 1.5
-        sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
-        bounce: 1.2
-        multiplier: 1
-    - rid: 2641615680123699209
-      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
-      data:
-        isWandering: 0
-        chaseTarget: 0
-        interactRad: 2
-        target: {fileID: 0}
-        dir: {x: 0, y: 0, z: 0}
-        chaseDur: 5
-        npcLayer:
-          serializedVersion: 2
-          m_Bits: 64
-        yBounce: 1.1
-        multiplier: 0.9
-    - rid: 2641615798566912002
-      type: {class: NpcPromptState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 2641615798566912003
-      type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
-      data:
-        interactDur: 0
-        yBounce: 1.1
-        multiplier: 0.9
---- !u!58 &937533132
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937533129}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
---- !u!50 &937533133
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937533129}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!4 &937533134
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937533129}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.39, y: -3.93, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 96649021}
-  m_Father: {fileID: 969012780}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &951190061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3482,6 +2591,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jaylen (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7593764233147058134, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Jaylen
+      objectReference: {fileID: 0}
     - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
@@ -3495,90 +2616,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
---- !u!1 &952363421
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 952363422}
-  - component: {fileID: 952363423}
-  m_Layer: 0
-  m_Name: Jaylen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &952363422
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952363421}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 607548214}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &952363423
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952363421}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 38.399998, y: 38.399998}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &954008771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3630,6 +2667,22 @@ PrefabInstance:
     - target: {fileID: 7593764233147058134, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
       propertyPath: m_Name
       value: Jaylen (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593764233147058134, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: isWalking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Jaylen
       objectReference: {fileID: 0}
     - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
@@ -3750,10 +2803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBounce: 0
-  isWalking: 0
-  DialogueKnotName: 
-  npcAnim: {fileID: 961592743}
+  _hasBounce: 0
+  _dialogueKnotName: 
+  npcAnim: {fileID: 0}
   question: {fileID: 0}
   roamState:
     rid: 2641615680123699208
@@ -3769,15 +2821,11 @@ MonoBehaviour:
     - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        speed: 0
         minSpeed: 60
         maxSpeed: 100
-        dir: {x: 0, y: 0}
         walkDuration: 6
         borderMargin: 0.5
         sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
         bounce: 0
         multiplier: 0
     - rid: 2641615680123699209
@@ -3800,7 +2848,6 @@ MonoBehaviour:
     - rid: 2641615798566912005
       type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
       data:
-        interactDur: 0
         yBounce: 0
         multiplier: 0
 --- !u!114 &961592743
@@ -3858,11 +2905,6 @@ Transform:
   - {fileID: 555674275}
   - {fileID: 1204599561}
   - {fileID: 1619853789}
-  - {fileID: 607548214}
-  - {fileID: 937533134}
-  - {fileID: 1645771185}
-  - {fileID: 447213676}
-  - {fileID: 928715801}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1057898281
@@ -4372,9 +3414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBounce: 0
-  isWalking: 0
-  DialogueKnotName: Ronaldo
+  _hasBounce: 0
+  _dialogueKnotName: Ronaldo
   npcAnim: {fileID: 1460308225}
   question: {fileID: 11400000, guid: 7bee4f81eab9e014a99b95c5c60ee6f5, type: 2}
   roamState:
@@ -4391,15 +3432,11 @@ MonoBehaviour:
     - rid: 2104765949873487876
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        speed: 0
         minSpeed: 30
         maxSpeed: 50
-        dir: {x: 0, y: 0}
         walkDuration: 8
         borderMargin: 1.5
         sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
         bounce: 0
         multiplier: 0
     - rid: 2104765949873487877
@@ -4422,7 +3459,6 @@ MonoBehaviour:
     - rid: 2641615798566912001
       type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
       data:
-        interactDur: 0
         yBounce: 0
         multiplier: 0
 --- !u!50 &1460308227
@@ -4497,6 +3533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460478912}
   - component: {fileID: 1460478911}
+  - component: {fileID: 1460478913}
   m_Layer: 0
   m_Name: BaseGameState
   m_TagString: Untagged
@@ -4535,6 +3572,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460478913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460478910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922aa98ffd1606344ac7202c0a6dbc0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 300835149}
 --- !u!1 &1575834734
 GameObject:
   m_ObjectHideFlags: 0
@@ -4717,6 +3767,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 865370953}
+  - {fileID: 300835148}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4805,187 +3856,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622087407}
   m_CullTransparentMesh: 1
---- !u!1 &1645771180
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1645771185}
-  - component: {fileID: 1645771184}
-  - component: {fileID: 1645771183}
-  - component: {fileID: 1645771182}
-  - component: {fileID: 1645771181}
-  m_Layer: 6
-  m_Name: Jaylen (7)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1645771181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645771180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
-  wanderTime: 0.5
-  flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
---- !u!114 &1645771182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645771180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBounce: 1
-  isWalking: 0
-  DialogueKnotName: Jaylen
-  npcAnim: {fileID: 1645771181}
-  question: {fileID: 0}
-  roamState:
-    rid: 2641615680123699208
-  interactState:
-    rid: 2641615680123699209
-  promptState:
-    rid: 2641615798566912002
-  interactingState:
-    rid: 2641615798566912003
-  references:
-    version: 2
-    RefIds:
-    - rid: 2641615680123699208
-      type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
-      data:
-        speed: 0
-        minSpeed: 50
-        maxSpeed: 70
-        dir: {x: 0, y: 0}
-        walkDuration: 10
-        borderMargin: 1.5
-        sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
-        bounce: 1.2
-        multiplier: 1
-    - rid: 2641615680123699209
-      type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
-      data:
-        isWandering: 0
-        chaseTarget: 0
-        interactRad: 2
-        target: {fileID: 0}
-        dir: {x: 0, y: 0, z: 0}
-        chaseDur: 5
-        npcLayer:
-          serializedVersion: 2
-          m_Bits: 64
-        yBounce: 1.1
-        multiplier: 0.9
-    - rid: 2641615798566912002
-      type: {class: NpcPromptState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 2641615798566912003
-      type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
-      data:
-        interactDur: 0
-        yBounce: 1.1
-        multiplier: 0.9
---- !u!58 &1645771183
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645771180}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
---- !u!50 &1645771184
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645771180}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!4 &1645771185
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645771180}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.84, y: -5.48, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 613883870}
-  m_Father: {fileID: 969012780}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1679576614
 GameObject:
   m_ObjectHideFlags: 0
@@ -5120,10 +3990,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBounce: 0
-  isWalking: 0
-  DialogueKnotName: 
-  npcAnim: {fileID: 1727359462}
+  _hasBounce: 0
+  _dialogueKnotName: 
+  npcAnim: {fileID: 0}
   question: {fileID: 0}
   roamState:
     rid: 2641615680123699208
@@ -5139,15 +4008,11 @@ MonoBehaviour:
     - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        speed: 0
         minSpeed: 80
         maxSpeed: 100
-        dir: {x: 0, y: 0}
         walkDuration: 5
         borderMargin: 0.5
         sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
         bounce: 0
         multiplier: 0
     - rid: 2641615680123699209
@@ -5170,7 +4035,6 @@ MonoBehaviour:
     - rid: 2641615798566912007
       type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
       data:
-        interactDur: 0
         yBounce: 0
         multiplier: 0
 --- !u!58 &1727359464
@@ -5260,6 +4124,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 969012780}
     m_Modifications:
     - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Naomi
+      objectReference: {fileID: 0}
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
       objectReference: {fileID: 1304518200}
@@ -5306,6 +4178,10 @@ PrefabInstance:
     - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_Name
       value: Naomi (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5866,10 +4742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBounce: 0
-  isWalking: 0
-  DialogueKnotName: 
-  npcAnim: {fileID: 2079606770}
+  _hasBounce: 0
+  _dialogueKnotName: 
+  npcAnim: {fileID: 0}
   question: {fileID: 0}
   roamState:
     rid: 2641615680123699208
@@ -5885,15 +4760,11 @@ MonoBehaviour:
     - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        speed: 0
         minSpeed: 80
         maxSpeed: 100
-        dir: {x: 0, y: 0}
         walkDuration: 5
         borderMargin: 0.5
         sc: {fileID: 1304518200}
-        crossBoundX: 0
-        crossBoundY: 0
         bounce: 0
         multiplier: 0
     - rid: 2641615680123699209
@@ -5916,7 +4787,6 @@ MonoBehaviour:
     - rid: 2641615798566912009
       type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
       data:
-        interactDur: 0
         yBounce: 0
         multiplier: 0
 --- !u!58 &2079606767
@@ -6029,6 +4899,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 969012780}
     m_Modifications:
     - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Naomi
+      objectReference: {fileID: 0}
+    - target: {fileID: 773922071262225094, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
       objectReference: {fileID: 1304518200}
@@ -6075,6 +4953,10 @@ PrefabInstance:
     - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_Name
       value: Naomi
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6132,6 +5014,18 @@ PrefabInstance:
     - target: {fileID: 7593764233147058134, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
       propertyPath: m_Name
       value: Jaylen (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593764233147058134, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _hasBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Jaylen
       objectReference: {fileID: 0}
     - target: {fileID: 7986910421895866066, guid: 9b26d0fce40161b429412c15d58d588d, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc

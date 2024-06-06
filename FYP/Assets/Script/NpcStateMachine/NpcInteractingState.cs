@@ -11,7 +11,7 @@ public class NpcInteractingState : NpcBaseState
     Transform npcThis;
     Rigidbody2D rb;
 
-    public float interactDur;
+    public float interactDur { get; set; }
     float _interactDur;
 
     [Header("Bounce Modifier")]

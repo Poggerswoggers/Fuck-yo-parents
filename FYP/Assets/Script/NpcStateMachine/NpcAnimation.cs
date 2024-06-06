@@ -121,7 +121,6 @@ public class NpcAnimation : MonoBehaviour
             spriteTransform.localScale = new Vector3(-1,1,1);
         }
         facing = spriteTransform.localScale;
-        Debug.Log(facing+ " "+gameObject.name);
     }
 
     public void WanderAnim(NpcInteractState state)

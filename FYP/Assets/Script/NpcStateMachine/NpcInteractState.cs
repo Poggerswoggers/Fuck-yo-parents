@@ -6,10 +6,9 @@ public class NpcInteractState : NpcBaseState
 {
     [SerializeField] bool isWandering;
     [SerializeField] bool chaseTarget;
-    bool isInteracting;
 
     Transform npcThis;
-    public float interactRad;
+    [SerializeField] float interactRad;
     [SerializeField] Transform target;
     [SerializeField] Vector3 dir;
     [SerializeField] float chaseDur;

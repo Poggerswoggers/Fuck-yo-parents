@@ -34,7 +34,7 @@ public class DialogueManager : GameBaseState
     //Npc data
     string dialogueKnotName;
     MCQ questionScriptable;
-    public int correctOption;
+    int correctOption;
 
     //Reference
     SnapCamera sC;
@@ -45,7 +45,7 @@ public class DialogueManager : GameBaseState
     {
         //infoTextField.text = "";
         gSm = gameStateManager;
-        StartCoroutine(LoadDialooguePanel(gameStateManager.snapState, dialogueKnotName));
+        StartCoroutine(LoadDialooguePanel(dialogueKnotName));
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
@@ -83,10 +83,8 @@ public class DialogueManager : GameBaseState
     }
 
     //Loads and tweens the dialogue boxes;
-    IEnumerator LoadDialooguePanel(SnapCamera _sC, string knotName) 
+    IEnumerator LoadDialooguePanel(string knotName) 
     {
-        sC = _sC;
-
         yield return new WaitForSeconds(phaseInSpeed);
         dialoguePanel.SetActive(true);
         
@@ -219,12 +217,12 @@ public class DialogueManager : GameBaseState
     {
         RefreshChoiceView();
         ExitDialogueMode();
-        gSm.ChangeStat(sC);
+        gSm.ChangeStat(gSm.snapState);
     }
 
     void ExitDialogueMode()
     {
-        sC.BackToOutCam();
+        gSm.snapState.BackToOutCam();
         dialoguePanel.SetActive(false);
     }
 
