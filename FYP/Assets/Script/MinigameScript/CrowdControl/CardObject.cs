@@ -7,9 +7,25 @@ public class CardObject : MonoBehaviour
     public Card card;
     SpriteRenderer sr;
 
-    private void Start()
+    private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         sr.sprite = card.cardSprite;
+    }
+
+    public void DecreaseSortOrder()
+    {
+        StartCoroutine(delay());
+    }
+
+    public void IncreaseSortOrder()
+    {
+        sr.sortingOrder = 5;
+    }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        sr.sortingOrder = 4;
     }
 }

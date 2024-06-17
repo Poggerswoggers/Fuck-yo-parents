@@ -11,7 +11,8 @@ public class Card
     public enum CardType
     {
         EzlinkCard,
-        PopularCard
+        PopularCard,
+        AnimalKaizerCard
     }
     public CardType cardType;
 }

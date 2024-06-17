@@ -7,8 +7,9 @@ public class NpcQueue
     private List<CrowdNpc> npcList;
     private List<Vector2> positionList;
 
+    //Reference
     CrowdControl cc;
-    public NpcQueue(List<Vector2> positionList, float gap, CrowdControl cc)
+    public NpcQueue(List<Vector2> positionList, float gap, CrowdControl cc) //Constructor
     {
         this.cc = cc;
         this.positionList = positionList;
@@ -21,8 +22,9 @@ public class NpcQueue
     public void AddNpc(CrowdNpc npc)
     {
         npcList.Add(npc);
-        npc.MoveInQueue(positionList[npcList.IndexOf(npc)]);
-        npc.Initialise(cc);
+        npc.MoveInQueue(positionList[npcList.IndexOf(npc)]);  //Move to nearest queue position
+        npc.Initialise(cc);  //Initialise the npc, pass value
+
         //npc.queueIndex = npcList.IndexOf(npc);
     }
 

@@ -23,7 +23,6 @@ public class CrowdNpc: MonoBehaviour
     }
     public Card activeCard { get; private set;}
     List<CardObject> cardList = new List<CardObject>();
-    bool cardLoaded;
 
     private int cardIndex;
 
@@ -41,7 +40,7 @@ public class CrowdNpc: MonoBehaviour
         //transform.position = Vector2.MoveTowards(transform.position, position, 2f);
     }
 
-    IEnumerator MoveInQueueCo(Vector2 targetPos)
+    IEnumerator MoveInQueueCo(Vector2 targetPos) //Move to vector position at constant speed
     {
         Vector3 pos = targetPos;
         float distance = (transform.position - pos).magnitude;
@@ -63,17 +62,16 @@ public class CrowdNpc: MonoBehaviour
         //Load the card when npc reaches the entrance
         if(transform.position == cc.entrancePos)
         {
-            LoadCards(cc.GetCardPos());
-            cardLoaded = true;
+            LoadCards(cc.GetCardPos()); 
         }
     }
 
-    public void LoadCards(Vector2 cardPos)
+    //Load the card and add them to the GO card's list and set a random active card from the list
+    public void LoadCards(Transform cardPos)
     {
         foreach(CardObject card in _thisNpc.cardObjects)
         {           
-            GameObject cardObj = Instantiate(card.gameObject, transform.GetChild(0));
-            cardObj.transform.position = cardPos;
+            GameObject cardObj = Instantiate(card.gameObject, cardPos);
 
             cardList.Add(cardObj.GetComponent<CardObject>());
         }
@@ -93,15 +91,30 @@ public class CrowdNpc: MonoBehaviour
 
     void SetActiveCardSprite()
     {
-        for(int i =0; i< cardList.Count; i++)
+        for (int i = 0; i < cardList.Count; i++)
         {
-            cardList[i].gameObject.SetActive(cardList[i].card == activeCard);
+            //cardList[i].gameObject.SetActive(cardList[i].card == activeCard);
+
+            if (cardList[i].card != activeCard)
+            {
+                //cardList[i].DecreaseSortOrder();
+                cardList[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                cardList[i].gameObject.SetActive(true);
+                //cardList[i].IncreaseSortOrder();
+                
+                //LeanTween.reset();
+                //LeanTween.rotateZ(cardList[i].gameObject, 50, 0.2f);
+                //LeanTween.move(cardList[i].gameObject, new Vector3(3.8f,-2f,0f), 0.2f);
+                //LeanTween.moveLocal(cardList[i].gameObject, Vector3.zero, 0.2f).setDelay(0.2f);
+                //eanTween.rotateZ(cardList[i].gameObject, 30, 0.2f).setDelay(0.2f);
+            }
         }
     }
-
     public void SelfDestruct()
     {
-        Destroy(transform.GetChild(0).gameObject);
         Destroy(gameObject, 2);
     }
 }
