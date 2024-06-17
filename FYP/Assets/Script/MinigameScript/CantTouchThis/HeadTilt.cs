@@ -3,26 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class HeadTilt : MonoBehaviour
+public class HeadTilt : BaseMiniGameClass
 {
     public static Action OnGameOver;
     [SerializeField] GameObject gameOverPanel;
 
 
-    public float forceAmount = 10f;
-    public float fallAmount = 10f;
+    [SerializeField] float forceAmount = 10f;
     private Rigidbody2D rb;
 
     public float fallThreshold = 15f;
-    public float maxFallingTorque;
-    public float minFallingTorque;
+    [SerializeField] float maxFallingTorque;
+    [SerializeField] float minFallingTorque;
 
-    public float rotationZ;
-    public float fallTorque;
+    private float rotationZ;
+    private float fallTorque;
 
-    public float maxLeanAngle;
+    [SerializeField] float maxLeanAngle;
 
-    public int startTorque;
+    [SerializeField] int startTorque;
     int[] dir;
 
     [Header("Sprites")]
@@ -36,10 +35,10 @@ public class HeadTilt : MonoBehaviour
     SpriteRenderer sr;
 
     //Game Time
-    public SliderTimer slider;
+    [SerializeField] SliderTimer slider;
     [SerializeField] float gameTIme;
 
-    void Start()
+    public override void StartGame()
     {
         _awakeTime = awakeTime;
         slider.gameTime = gameTIme;
@@ -51,9 +50,11 @@ public class HeadTilt : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         int i = UnityEngine.Random.Range(0, dir.Length);
         rb.AddTorque(dir[i]);
+
+        isGameActive = true;
     }
 
-    void Update()
+    public override void UpdateGame()
     {
         if(gameTIme<0)
         {
