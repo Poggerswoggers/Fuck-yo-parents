@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
   m_Name: Ahma
   m_EditorClassIdentifier: 
-  npcName: 
-  npcSprite: {fileID: 0}
-  cardObjects: []
+  npcName: Ahma
+  npcSprite: {fileID: 21300000, guid: 980de891e1859b843811ae366a9b9a82, type: 3}
+  cardObjects:
+  - {fileID: 1333658203352248187, guid: db04079dc0ebf4043b289d6d12a3af94, type: 3}

@@ -14,11 +14,11 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI instructionTextField;
     private void OnEnable()
     {
-        HeadTilt.OnGameOver += GameOver;
+        //HeadTilt.OnGameOver += GameOver;
     }
     private void OnDisable()
     {
-        HeadTilt.OnGameOver -= GameOver;
+        //HeadTilt.OnGameOver -= GameOver;
     }
 
     private void Start()

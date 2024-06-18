@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CrowdControl : BaseMiniGameClass
-{
-    [SerializeField] List<NpcScriptable> npcScriptableList;
-    [SerializeField] NpcScriptable ahMaScriptable;
-    
+{    
     //Initial Queue
     [SerializeField] int startNpc;
-    [SerializeField] int npcCount;
+    int npcCount;           //Current npc count
+
+    //
+    int npcCleared;         //Hope to move to a score manager
+    [SerializeField] TextMeshProUGUI clearText;
+    //
+
+    //AddNpcTImer
+    [SerializeField] float addDelay;
 
     //Queue Positions and gap
     [SerializeField] Vector2 queueStartPos;
@@ -28,13 +34,17 @@ public class CrowdControl : BaseMiniGameClass
     //Card
     [SerializeField] Transform cardPos;
 
-    //Tap delay
+    [Header("Tap Delay")]
     [SerializeField] float tapDelay;
     [SerializeField] float _tapDelay;
 
-    //reference 
-    NpcQueue npcQueue;
+    [Header("References")]
     [SerializeField] ReaderScreen rS;
+    NpcQueue npcQueue;
+
+    [Header("Scriptable List")]
+    [SerializeField] List<NpcScriptable> npcScriptableList;
+    [SerializeField] NpcScriptable ahMaScriptable;
 
     public Transform GetCardPos()
     {
@@ -67,7 +77,7 @@ public class CrowdControl : BaseMiniGameClass
         StartCoroutine(StartGameCo());
 
         //Add a npc every 5 seconds after 5 seconds
-        InvokeRepeating("AddNpc", 5f, 5f); 
+        InvokeRepeating("AddNpc", 5f, addDelay); 
     }
 
     //Spawn some initial Npcs
@@ -100,7 +110,9 @@ public class CrowdControl : BaseMiniGameClass
             npcQueue.AddNpc(npc);                    //Add the npc to the queue
             npcScriptableList.RemoveAt(index);
         }
-        npcCount++;       
+        npcCount++;
+
+        addDelay -= 0.3f;
     }
 
     //I think this is pretty messy
@@ -135,6 +147,8 @@ public class CrowdControl : BaseMiniGameClass
             {
                 frontNpc.SelfDestruct(); //Destroy the npc
                 npcCount--;
+                npcCleared++;
+                clearText.text = npcCleared + "/15";
                 frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
 
                 yield return new WaitForSeconds(0.2f);

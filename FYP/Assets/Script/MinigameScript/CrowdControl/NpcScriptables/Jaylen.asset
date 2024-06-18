@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Jaylen
   m_EditorClassIdentifier: 
   npcName: Ronaldo
-  npcSprite: {fileID: 21300000, guid: 82048954a965a3046a22f11190df40a7, type: 3}
+  npcSprite: {fileID: 21300000, guid: 55e9f089762cd4a4fb34f192c519f618, type: 3}
   cardObjects:
-  - {fileID: 8204854867183589638, guid: 7c45093f99ce390419d2f3c27a47ebdc, type: 3}
+  - {fileID: 8085093303957086774, guid: b15bd2de9ae8fcd41a8518faa725659a, type: 3}
+  - {fileID: 1377579523406469021, guid: e0249dadf3730be46acc5f42e95433fa, type: 3}

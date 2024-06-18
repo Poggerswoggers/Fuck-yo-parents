@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1584761128644069474
+--- !u!1 &7686921917850970926
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5474303811382583027}
-  - component: {fileID: 1333658203352248187}
+  - component: {fileID: 925105452456257039}
+  - component: {fileID: 8085093303957086774}
   m_Layer: 0
-  m_Name: Ezlink Card
+  m_Name: Ezlink Secondary Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5474303811382583027
+--- !u!4 &925105452456257039
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584761128644069474}
+  m_GameObject: {fileID: 7686921917850970926}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 447597262045918473}
+  - {fileID: 3299453190295084675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1333658203352248187
+--- !u!114 &8085093303957086774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584761128644069474}
+  m_GameObject: {fileID: 7686921917850970926}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5f76cd4d2d12ef4dac21425e4767a4f, type: 3}
@@ -48,18 +48,18 @@ MonoBehaviour:
   card:
     tappable: 1
     cardType: 0
---- !u!1001 &4847169916006158357
+--- !u!1001 &7545982660892408735
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5474303811382583027}
+    m_TransformParent: {fileID: 925105452456257039}
     m_Modifications:
     - target: {fileID: 2324646078301128025, guid: e48ef4e12cd017a45bb78575a353f37f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ccda63e44dbf93645a5a18a53db2905c, type: 3}
+      objectReference: {fileID: 21300000, guid: c1a2d9266fb93fb40a15972bd95d956e, type: 3}
     - target: {fileID: 2324646078301128025, guid: e48ef4e12cd017a45bb78575a353f37f, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -142,8 +142,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e48ef4e12cd017a45bb78575a353f37f, type: 3}
---- !u!4 &447597262045918473 stripped
+--- !u!4 &3299453190295084675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5004260107902444828, guid: e48ef4e12cd017a45bb78575a353f37f, type: 3}
-  m_PrefabInstance: {fileID: 4847169916006158357}
+  m_PrefabInstance: {fileID: 7545982660892408735}
   m_PrefabAsset: {fileID: 0}
