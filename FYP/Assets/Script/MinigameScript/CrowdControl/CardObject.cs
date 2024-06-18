@@ -7,12 +7,6 @@ public class CardObject : MonoBehaviour
     public Card card;
     SpriteRenderer sr;
 
-    private void Awake()
-    {
-        sr = GetComponentInChildren<SpriteRenderer>();
-        sr.sprite = card.cardSprite;
-    }
-
     public void DecreaseSortOrder()
     {
         StartCoroutine(delay());

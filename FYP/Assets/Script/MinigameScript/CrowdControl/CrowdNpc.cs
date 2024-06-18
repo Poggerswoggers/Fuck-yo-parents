@@ -22,6 +22,8 @@ public class CrowdNpc: MonoBehaviour
         }
     }
     public Card activeCard { get; private set;}
+    GameObject activeCardGameObject;
+
     List<CardObject> cardList = new List<CardObject>();
 
     private int cardIndex;
@@ -103,6 +105,7 @@ public class CrowdNpc: MonoBehaviour
             else
             {
                 cardList[i].gameObject.SetActive(true);
+                activeCardGameObject = cardList[i].gameObject;
                 //cardList[i].IncreaseSortOrder();
                 
                 //LeanTween.reset();
@@ -116,5 +119,12 @@ public class CrowdNpc: MonoBehaviour
     public void SelfDestruct()
     {
         Destroy(gameObject, 2);
+    }
+
+    public void TapCard()
+    {
+        LeanTween.reset();
+        LeanTween.rotateLocal(activeCardGameObject, new Vector3(0,0,-55), 0.2f);
+        LeanTween.rotateLocal(activeCardGameObject, new Vector3(0, 0, 0), 0.2f).setDelay(0.8f);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrowdControl : BaseMiniGameClass
 {
     [SerializeField] List<NpcScriptable> npcScriptableList;
+    [SerializeField] NpcScriptable ahMaScriptable;
     
     //Initial Queue
     [SerializeField] int startNpc;
@@ -27,8 +28,13 @@ public class CrowdControl : BaseMiniGameClass
     //Card
     [SerializeField] Transform cardPos;
 
+    //Tap delay
+    [SerializeField] float tapDelay;
+    [SerializeField] float _tapDelay;
+
     //reference 
     NpcQueue npcQueue;
+    [SerializeField] ReaderScreen rS;
 
     public Transform GetCardPos()
     {
@@ -81,37 +87,65 @@ public class CrowdControl : BaseMiniGameClass
     {
         CrowdNpc npc = Instantiate(npcPrefab).GetComponent<CrowdNpc>();
 
-        //Get randpm index from the scriptable List
-        int index = (int)Random.Range(0, npcScriptableList.Count);
-        npc.thisNpc = npcScriptableList[index];  //Assign the npc scriptable to the list's index
-        npcQueue.AddNpc(npc);                    //Add the npc to the queue
-
-        npcScriptableList.RemoveAt(index);       //Remove the scriptable object at index
+        if (npcCount == 5)
+        {
+            npc.thisNpc = ahMaScriptable;
+            npcQueue.AddNpc(npc);
+        }
+        else
+        {
+            //Get randpm index from the scriptable List
+            int index = (int)Random.Range(0, npcScriptableList.Count);
+            npc.thisNpc = npcScriptableList[index];  //Assign the npc scriptable to the list's index
+            npcQueue.AddNpc(npc);                    //Add the npc to the queue
+            npcScriptableList.RemoveAt(index);
+        }
         npcCount++;       
     }
+
+    //I think this is pretty messy
     public override void UpdateGame()
     {
+        if (Input.GetMouseButtonDown(1) && npcQueue.GetFirstInQueue() != null && npcQueue.GetFirstInQueue().activeCard != null)
+        {
+            npcQueue.GetFirstInQueue().SwitchActiveCard(); //Swap card
+        }
+
+        _tapDelay -= Time.deltaTime;
+
+        if (_tapDelay > 0) return; //For when u tap a invalid card u have a time penalty 
         if (Input.GetMouseButtonDown(0) && npcQueue.GetFirstInQueue() !=null && npcQueue.GetFirstInQueue().activeCard !=null)  //Checks
         {
             CrowdNpc frontNpc = npcQueue.GetFirstInQueue();
+            frontNpc.TapCard();
 
-            if(frontNpc.activeCard.tappable)
+            StartCoroutine(RelocateAndReQueue(frontNpc));
+        }      
+    }
+
+    IEnumerator RelocateAndReQueue(CrowdNpc frontNpc)
+    {
+        yield return new WaitForSeconds(0.2f); //Delay
+
+        if (frontNpc.activeCard.tappable)
+        {
+            rS.ScreenReader(true);  //Changes screen reader color
+            npcQueue.RelocateAllNpc(frontNpc); 
+            if (frontNpc != null)
             {
-                npcQueue.RelocateAllNpc(frontNpc);
-                if (frontNpc != null)
-                {
-                    frontNpc.SelfDestruct(); //Destroy the npc
-                    frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
+                frontNpc.SelfDestruct(); //Destroy the npc
+                npcCount--;
+                frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
 
-                    for (int i = 0; i < cardPos.childCount; i++) { Destroy(cardPos.GetChild(i).gameObject); } //Destroy the child cards under the carpos 
-                }
+                yield return new WaitForSeconds(0.2f);
+                for (int i = 0; i < cardPos.childCount; i++) { Destroy(cardPos.GetChild(i).gameObject); } //Destroy the child cards under the carpos 
             }
         }
-
-
-        if(Input.GetMouseButtonDown(1) && npcQueue.GetFirstInQueue() != null && npcQueue.GetFirstInQueue().activeCard != null) 
+        else
         {
-            npcQueue.GetFirstInQueue().SwitchActiveCard(); //Swap card
+            rS.ScreenReader(false); 
+            _tapDelay = tapDelay;
+
         }
     }
 }

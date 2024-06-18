@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
-  m_Name: Tyler
+  m_Name: Ahma
   m_EditorClassIdentifier: 
-  npcName: Tyler
-  npcSprite: {fileID: 21300000, guid: 2c95338c7100e9a408c500c865967260, type: 3}
-  cardObjects:
-  - {fileID: 8204854867183589638, guid: 7c45093f99ce390419d2f3c27a47ebdc, type: 3}
-  - {fileID: 6508077851322739205, guid: 93024e9ca1e171245a3d1aa8329860fb, type: 3}
+  npcName: 
+  npcSprite: {fileID: 0}
+  cardObjects: []

@@ -6,13 +6,12 @@ using UnityEngine;
 public class Card
 {
     public bool tappable;
-    public Sprite cardSprite;
 
     public enum CardType
     {
         EzlinkCard,
         PopularCard,
-        AnimalKaizerCard
+        PokemonCard
     }
     public CardType cardType;
 }
