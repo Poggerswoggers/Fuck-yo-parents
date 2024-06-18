@@ -35,7 +35,6 @@ public class NpcRoamState : NpcBaseState
 
     public override void EnterState(NpcStateManager npcSm)
     {
-        Debug.Log("hehe");
         _walkDur = walkDuration;    
 
        nSm = npcSm;
@@ -96,7 +95,6 @@ public class NpcRoamState : NpcBaseState
             {
                 _walkDur = walkDuration;
                 startWalking();
-                Debug.Log("Restart Walking");
             }
         }
            

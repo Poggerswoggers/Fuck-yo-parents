@@ -7,7 +7,7 @@ public class CrowdControl : BaseMiniGameClass
 {    
     //Initial Queue
     [SerializeField] int startNpc;
-    int npcCount;           //Current npc count
+    public int npcCount { get; set; }        //Current npc count
 
     //
     int npcCleared;         //Hope to move to a score manager
@@ -29,8 +29,6 @@ public class CrowdControl : BaseMiniGameClass
         }
     }
 
-    [SerializeField] GameObject npcPrefab;
-
     //Card
     [SerializeField] Transform cardPos;
 
@@ -44,7 +42,11 @@ public class CrowdControl : BaseMiniGameClass
 
     [Header("Scriptable List")]
     [SerializeField] List<NpcScriptable> npcScriptableList;
-    [SerializeField] NpcScriptable ahMaScriptable;
+    //[SerializeField] NpcScriptable ahMaScriptable;
+
+    [Header("Prefabs")]
+    [SerializeField] GameObject npcPrefab;
+    //[SerializeField] GameObject ahmaPrefab;
 
     public Transform GetCardPos()
     {
@@ -62,6 +64,12 @@ public class CrowdControl : BaseMiniGameClass
         }
         return list;
     }
+
+    protected override IEnumerator InstructionCo()
+    {
+        yield return null;
+    }
+
 
     // Start is called before the first frame update
     public override void StartGame()
@@ -96,23 +104,14 @@ public class CrowdControl : BaseMiniGameClass
     void AddNpc()
     {
         CrowdNpc npc = Instantiate(npcPrefab).GetComponent<CrowdNpc>();
-
-        if (npcCount == 5)
-        {
-            npc.thisNpc = ahMaScriptable;
-            npcQueue.AddNpc(npc);
-        }
-        else
-        {
-            //Get randpm index from the scriptable List
-            int index = (int)Random.Range(0, npcScriptableList.Count);
-            npc.thisNpc = npcScriptableList[index];  //Assign the npc scriptable to the list's index
-            npcQueue.AddNpc(npc);                    //Add the npc to the queue
-            npcScriptableList.RemoveAt(index);
-        }
+        //Get randpm index from the scriptable List
+        int index = (int)Random.Range(0, npcScriptableList.Count);
+        npc.thisNpc = npcScriptableList[index];  //Assign the npc scriptable to the list's index
+        npcQueue.AddNpc(npc);                    //Add the npc to the queue
+        npcScriptableList.RemoveAt(index);
+        
         npcCount++;
-
-        addDelay -= 0.3f;
+        addDelay *= 0.9f;
     }
 
     //I think this is pretty messy
@@ -145,7 +144,7 @@ public class CrowdControl : BaseMiniGameClass
             npcQueue.RelocateAllNpc(frontNpc); 
             if (frontNpc != null)
             {
-                frontNpc.SelfDestruct(); //Destroy the npc
+                frontNpc.SelfDestruct(2); //Destroy the npc
                 npcCount--;
                 npcCleared++;
                 clearText.text = npcCleared + "/15";
@@ -159,7 +158,6 @@ public class CrowdControl : BaseMiniGameClass
         {
             rS.ScreenReader(false); 
             _tapDelay = tapDelay;
-
         }
     }
 }

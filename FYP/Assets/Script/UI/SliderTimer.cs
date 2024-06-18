@@ -5,19 +5,17 @@ using UnityEngine.UI;
 
 public class SliderTimer : MonoBehaviour
 {
-    public Slider timerSlider;
-    public float gameTime;
+    [SerializeField] Slider timerSlider;
+    private float gameTime;
 
+    bool start;
+
+    BaseMiniGameClass bmGC;
 
     // Update is called once per frame
-
-    private void Start()
-    {
-        timerSlider.maxValue = gameTime;
-    }
-
     void Update()
     {
+        if (!start) return;  
 
         if (gameTime <=0)
         {
@@ -28,5 +26,13 @@ public class SliderTimer : MonoBehaviour
             gameTime -= Time.deltaTime;
         }
         timerSlider.value = gameTime;
+    }
+
+    public void SetValues(float gameTIme)
+    {
+        this.gameTime = gameTIme;
+        timerSlider.maxValue = gameTime;
+
+        start = true;
     }
 }

@@ -116,9 +116,9 @@ public class CrowdNpc: MonoBehaviour
             }
         }
     }
-    public void SelfDestruct()
+    public void SelfDestruct(float time)
     {
-        Destroy(gameObject, 2);
+        Destroy(gameObject, time);
     }
 
     public void TapCard()
@@ -126,5 +126,10 @@ public class CrowdNpc: MonoBehaviour
         LeanTween.reset();
         LeanTween.rotateLocal(activeCardGameObject, new Vector3(0,0,-55), 0.2f);
         LeanTween.rotateLocal(activeCardGameObject, new Vector3(0, 0, 0), 0.2f).setDelay(0.8f);
+    }
+
+    public virtual void Update()
+    {
+
     }
 }

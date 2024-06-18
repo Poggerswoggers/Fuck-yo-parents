@@ -6,36 +6,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class MinigameManager : MonoBehaviour
+public class MinigameManager
 {
-    public GameObject gameOverPanel;
-    [TextArea(2,5)]
-    public string instructionText;
-    [SerializeField] TextMeshProUGUI instructionTextField;
-    private void OnEnable()
+    public BaseMiniGameClass currentMiniGame;
+
+    public Action Instruction;
+    public MinigameManager(BaseMiniGameClass currentMiniGame)
     {
-        //HeadTilt.OnGameOver += GameOver;
-    }
-    private void OnDisable()
-    {
-        //HeadTilt.OnGameOver -= GameOver;
+        this.currentMiniGame = currentMiniGame;
+
+        Debug.Log(currentMiniGame);
     }
 
-    private void Start()
+    public void OnGameOver()
     {
-        StartCoroutine(LoadInstructionCo());
-    }
 
-    IEnumerator LoadInstructionCo()
-    {
-        instructionTextField.text = instructionText;
-        yield return new WaitForSeconds(1f);
-        instructionTextField.text = "";
     }
-
-    void GameOver()
-    {
-        gameOverPanel.SetActive(true);
-    }
-
 }

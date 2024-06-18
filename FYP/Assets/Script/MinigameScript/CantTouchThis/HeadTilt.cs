@@ -5,14 +5,11 @@ using System;
 
 public class HeadTilt : BaseMiniGameClass
 {
-    public static Action OnGameOver;
-    [SerializeField] GameObject gameOverPanel;
-
-
+    [Header("MiniGame Settings")]
     [SerializeField] float forceAmount = 10f;
     private Rigidbody2D rb;
 
-    public float fallThreshold = 15f;
+    [SerializeField] float fallThreshold = 15f;
     [SerializeField] float maxFallingTorque;
     [SerializeField] float minFallingTorque;
 
@@ -21,8 +18,8 @@ public class HeadTilt : BaseMiniGameClass
 
     [SerializeField] float maxLeanAngle;
 
-    [SerializeField] int startTorque;
-    int[] dir;
+    //[SerializeField] int startTorque;
+    //int[] dir;
 
     [Header("Sprites")]
     //HeadReference
@@ -38,18 +35,29 @@ public class HeadTilt : BaseMiniGameClass
     [SerializeField] SliderTimer slider;
     [SerializeField] float gameTIme;
 
+
+    protected override IEnumerator InstructionCo()
+    {
+        instructionPanel.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        instructionPanel.SetActive(false);
+
+        StartGame();
+    }
+
     public override void StartGame()
     {
         _awakeTime = awakeTime;
-        slider.gameTime = gameTIme;
+        slider.SetValues(gameTIme);
 
         sr = GetComponentInChildren<SpriteRenderer>();
         sr.sprite = Eyeclosed;
 
-        dir = new int[] {-startTorque, startTorque };
+        //dir = new int[] {-startTorque, startTorque };
         rb = GetComponent<Rigidbody2D>();
-        int i = UnityEngine.Random.Range(0, dir.Length);
-        rb.AddTorque(dir[i]);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        //int i = UnityEngine.Random.Range(0, dir.Length);
+        //rb.AddTorque(dir[i]);
 
         isGameActive = true;
     }
@@ -58,7 +66,7 @@ public class HeadTilt : BaseMiniGameClass
     {
         if(gameTIme<0)
         {
-            OnGameOver?.Invoke();
+            
             rb.bodyType = RigidbodyType2D.Static;
         }
         else
@@ -98,6 +106,7 @@ public class HeadTilt : BaseMiniGameClass
 
     private void FixedUpdate()
     {
+        if (!isGameActive) return;
         rotationZ = transform.rotation.eulerAngles.z;
         if (rotationZ > 180)
             rotationZ -= 360;
