@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 public class HeadTilt : BaseMiniGameClass
-{
+{   
     [Header("MiniGame Settings")]
     [SerializeField] float forceAmount = 10f;
     private Rigidbody2D rb;
@@ -17,9 +17,8 @@ public class HeadTilt : BaseMiniGameClass
     private float fallTorque;
 
     [SerializeField] float maxLeanAngle;
-
-    //[SerializeField] int startTorque;
-    //int[] dir;
+    [SerializeField] int startTorque;
+    int[] dir;
 
     [Header("Sprites")]
     //HeadReference
@@ -48,31 +47,29 @@ public class HeadTilt : BaseMiniGameClass
     public override void StartGame()
     {
         _awakeTime = awakeTime;
-        slider.SetValues(gameTIme);
 
         sr = GetComponentInChildren<SpriteRenderer>();
         sr.sprite = Eyeclosed;
 
-        //dir = new int[] {-startTorque, startTorque };
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
-        //int i = UnityEngine.Random.Range(0, dir.Length);
-        //rb.AddTorque(dir[i]);
+        dir = new int[] {-startTorque, startTorque };
+        int i = UnityEngine.Random.Range(0, dir.Length);
+        rb.AddTorque(dir[i]);
+
+        slider.SetTImer(gameTIme, () => gameManager.OnGameOver());
 
         isGameActive = true;
     }
 
     public override void UpdateGame()
     {
-        if(gameTIme<0)
-        {
-            
+        if(isGameOver && isGameActive)
+        {           
             rb.bodyType = RigidbodyType2D.Static;
         }
         else
-        {
-            gameTIme -= Time.deltaTime;
-            
+        {            
             if (Input.GetMouseButtonDown(0))
             {
                 rb.AddTorque(forceAmount * CheckMouseSide());
@@ -115,32 +112,26 @@ public class HeadTilt : BaseMiniGameClass
         {
             ApplyFallingBehavior(rotationZ);
         }
-
-        //Clamp rotation
-        //rotationZ = Mathf.Clamp(rotationZ, -maxLeanAngle, maxLeanAngle);
-        //transform.rotation = Quaternion.Euler(0, 0, rotationZ);
-
     }
-
 
     float CheckMouseSide()
     {
-        
-        if(Input.mousePosition.x > Screen.width/2)
-        {
-            Debug.Log("Right");
-            return 1;
-        }
-        else
-        {
-            Debug.Log("Left");
-            return -1;
-        }
+        return (Input.mousePosition.x > Screen.width / 2) ? 1 : -1;
     }
 
     public void HitPassenger()
     {
         Debug.Log("wdw");
         rb.AddTorque(forceAmount * Mathf.Sign(rotationZ)*30);
+    }
+
+
+    public override void EndSequenceMethod()
+    {
+        Debug.Log("Game Over");
+        sr.sprite = EyeOpen;
+
+        //LeanTween.reset();
+        //LeanTween.rotateZ(gameObject, 0, 0.3f);
     }
 }

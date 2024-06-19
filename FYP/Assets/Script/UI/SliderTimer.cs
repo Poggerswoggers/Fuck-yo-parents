@@ -2,37 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class SliderTimer : MonoBehaviour
 {
     [SerializeField] Slider timerSlider;
     private float gameTime;
 
-    bool start;
+    private Action timerCallback;
 
-    BaseMiniGameClass bmGC;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (!start) return;  
-
-        if (gameTime <=0)
-        {
-            gameTime = 0;
-        }
-        else
+        if(gameTime>0f)
         {
             gameTime -= Time.deltaTime;
+
+            if(isTimesUp()){
+                timerCallback?.Invoke();
+            }
+            timerSlider.value = gameTime;
         }
-        timerSlider.value = gameTime;
     }
 
-    public void SetValues(float gameTIme)
+    public void SetTImer(float gameTIme, Action timerCallback)
     {
         this.gameTime = gameTIme;
         timerSlider.maxValue = gameTime;
+        this.timerCallback = timerCallback;
+    }
 
-        start = true;
+    public bool isTimesUp()
+    {
+        return gameTime <= 0f;
     }
 }

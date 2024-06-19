@@ -8,13 +8,16 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     protected int score { get; set;}
     public bool isGameActive = false;  //Game Start bool
 
-    protected bool isGameOver; //game Over bool
+    public bool isGameOver { get; set; }
 
     protected MinigameManager gameManager;
+
+    public Action EndSequence {get; set;}
 
     protected abstract IEnumerator InstructionCo();
 
     [Header("Instruction Panel")]
+    [SerializeField] GameObject gameOverPanel;
     public GameObject instructionPanel;
 
     protected virtual void Start()
@@ -40,4 +43,16 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     {
         StartCoroutine(InstructionCo());
     }
+
+    public abstract void EndSequenceMethod();
+
+
+    private void OnEnable(){
+        EndSequence += EndSequenceMethod;
+    }
+    private void OnDisable(){
+        EndSequence -= EndSequenceMethod;
+    }
+
 }
+

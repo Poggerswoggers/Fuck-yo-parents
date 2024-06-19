@@ -160,4 +160,9 @@ public class CrowdControl : BaseMiniGameClass
             _tapDelay = tapDelay;
         }
     }
+
+    public override void EndSequenceMethod()
+    {
+        throw new System.NotImplementedException();
+    }
 }

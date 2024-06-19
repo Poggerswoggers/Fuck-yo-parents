@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using TMPro;
+
 
 public class MinigameManager
 {
@@ -20,6 +18,7 @@ public class MinigameManager
 
     public void OnGameOver()
     {
-
+        currentMiniGame.isGameOver = true;
+        currentMiniGame.EndSequence?.Invoke();
     }
 }
