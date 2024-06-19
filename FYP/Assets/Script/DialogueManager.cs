@@ -232,7 +232,7 @@ public class DialogueManager : GameBaseState
     }
     void LoadQuestions()
     {
-        gSm.mcqState.questionScriptable = questionScriptable;
+        gSm.mcqState.questionScriptable = questionScriptable;   
         gSm.ChangeStat(gSm.mcqState);
     }
 }

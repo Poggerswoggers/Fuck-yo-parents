@@ -5,11 +5,6 @@ using UnityEngine;
 public class NpcInteractingState : NpcBaseState
 {
     Vector3 target;
-    
-    //Reference
-    NpcStateManager nSm;
-    Transform npcThis;
-    Rigidbody2D rb;
 
     public float interactDur { get; set; }
     float _interactDur;

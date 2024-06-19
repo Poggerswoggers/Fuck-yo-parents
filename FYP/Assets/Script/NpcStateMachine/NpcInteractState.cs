@@ -6,8 +6,6 @@ public class NpcInteractState : NpcBaseState
 {
     [SerializeField] bool isWandering;
     [SerializeField] bool chaseTarget;
-
-    Transform npcThis;
     [SerializeField] float interactRad;
     [SerializeField] Transform target;
     [SerializeField] Vector3 dir;
@@ -20,9 +18,6 @@ public class NpcInteractState : NpcBaseState
     [SerializeField] float yBounce;
     [SerializeField] float multiplier;
 
-    //Reference
-    NpcStateManager nSm;
-    Rigidbody2D rb;
     public override void EnterState(NpcStateManager npcSm)
     {
         nSm = npcSm;
@@ -70,7 +65,6 @@ public class NpcInteractState : NpcBaseState
             isWandering = true;
             npcThis.GetComponent<NpcAnimation>().WanderAnim(this);           
         }
-
     }
 
     void MoveToTarget()

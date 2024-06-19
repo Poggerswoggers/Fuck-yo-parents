@@ -191,10 +191,6 @@ public class SnapCamera : GameBaseState
         CameraReticle.position = mousePosition;
     }
 
-    void WhenMouseIsntMoving()
-    {
-        Debug.Log("StoppedMoving");
-    }
 
     void SnapSystem()
     {

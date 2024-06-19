@@ -19,15 +19,11 @@ public class NpcRoamState : NpcBaseState
     [SerializeField] float borderMargin = 0.5f;
 
     //reference
-    Rigidbody2D rb;
-    NpcStateManager nSm;
     [SerializeField] SnapCamera sc;
 
     //Roam cross border bound check
     bool crossBoundX;
     bool crossBoundY;
-
-    Transform npcThis;
 
     [Header("Bounce Modifiers")]
     [SerializeField] float bounce;

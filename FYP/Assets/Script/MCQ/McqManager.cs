@@ -10,21 +10,29 @@ public class McqManager : GameBaseState
     //UI elements
     public GameObject mcqPanel;
     [SerializeField] TextMeshProUGUI questionText;
+    [SerializeField] Image spriteHolder;
 
+    [Header("Choice Stuff")]
     [SerializeField] Button choiceButtonPrefab;
     [SerializeField] GameObject buttonContainer;
 
-    public MCQ questionScriptable;
+    [Header("Answer Stuff")]
+    [SerializeField] TextMeshProUGUI answerTextPrefab;
+    [SerializeField] GameObject answerContainer;
+
+    public MCQ questionScriptable { get; set; }
     int mcqCount;
+
 
     public override void EnterState(GameStateManager gameStateManager)
     {
         mcqCount = questionScriptable.answerText.Length;
         questionText.text = questionScriptable.questionText;
 
+        spriteHolder.GetComponent<Image>().sprite = questionScriptable.characterSprite;
+
         DisplayChoices();
         mcqPanel.SetActive(true);
-
     }
 
     void DisplayChoices()
@@ -35,7 +43,7 @@ public class McqManager : GameBaseState
         for (int i =0; i<mcqCount; i++)
         {
             var choice = questionScriptable.answerText[i];
-            var button = CreateButtonOption(choice);
+            var button = CreateButtonOption(choice, i);
 
             if(i == questionScriptable.CorrectOption-1)
             {
@@ -49,14 +57,36 @@ public class McqManager : GameBaseState
 
     }
 
-    Button CreateButtonOption(string text)
+    Button CreateButtonOption(string text, int index)
     {
         var choiceButton = Instantiate(choiceButtonPrefab);
         choiceButton.transform.SetParent(buttonContainer.transform, false);
-
         var buttonText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.text = text;
 
+        var answerText = Instantiate(answerTextPrefab);
+        answerText.transform.SetParent(answerContainer.transform, false);
+        var _answerText = answerText.GetComponentInChildren<TextMeshProUGUI>();
+
+        switch (index)
+        {
+            case 0: 
+                buttonText.text = "A";
+                _answerText.text = "A: " + text;
+                break;
+            case 1:
+                buttonText.text = "B";
+                _answerText.text = "B: " + text;
+                break;
+            case 2:
+                buttonText.text = "C";
+                _answerText.text = "C: " + text;
+                break;
+            case 3:
+                buttonText.text = "D";
+                _answerText.text = "D: " + text;
+                break;
+
+        }
         return choiceButton;
     }
 

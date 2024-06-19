@@ -147,8 +147,4 @@ public class NpcAnimation : MonoBehaviour
         yield return new WaitForSeconds(dur);
         Destroy(bubble);
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position - Vector3.left * (Mathf.Sign(rb.velocity.x) * 4.5f), 2);
-    }
 }

@@ -14,4 +14,6 @@ public class MCQ : ScriptableObject
     public int CorrectOption;
     [TextArea(3, 5)]
     public string ExplanationText;
+
+    public Sprite characterSprite;
 }
