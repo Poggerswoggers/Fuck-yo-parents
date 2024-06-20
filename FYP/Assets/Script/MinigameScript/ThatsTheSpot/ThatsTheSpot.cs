@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ThatsTheSpot : MonoBehaviour
 {
-    [SerializeField] Sprite spriteToSpawn;
+    [SerializeField] Transform TargetArea;
 
     private void Start()
     {
-        SpawnRect(rect2);
+        GetRect(TargetArea);
     }
 
-    void SpawnRect(Rect rect)
+    void CalculateOverlap(Rect rect)
     {
-
+        
       
+    }
+
+    void GetRect(Transform areaTransform)
+    {
+        var bound = areaTransform.GetComponent<SpriteRenderer>().bounds.size;
+        Debug.Log(bound);
     }
 }
