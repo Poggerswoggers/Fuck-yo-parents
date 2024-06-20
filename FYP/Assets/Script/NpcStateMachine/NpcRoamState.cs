@@ -54,7 +54,10 @@ public class NpcRoamState : NpcBaseState
         Roaming();
     }
 
-
+    public override void ExitState(NpcStateManager npcSm)
+    {
+        
+    }
 
     void startWalking()
     {

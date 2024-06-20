@@ -196,13 +196,15 @@ public class SnapCamera : GameBaseState
     {
         if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
         {
-            camMode = true;
-            //blackout.SetActive(true);
 
             closestGameObject = GetClosestEnemy(taggedGameObject);
-            //closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-
-            StartCoroutine(ZoomToTarget());
+            NpcStateManager gameObjectState = closestGameObject.GetComponent<NpcStateManager>();
+            
+            if(gameObjectState.GetCurrentState() != gameObjectState.interactingState)
+            {
+                StartCoroutine(ZoomToTarget());
+                camMode = true;
+            }
         }
     }
 

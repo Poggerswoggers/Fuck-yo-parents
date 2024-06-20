@@ -23,7 +23,9 @@ public class NpcInteractingState : NpcBaseState
 
         Initialise();
 
-        nSm.npcAnim.Chatting(true, interactDur);
+        nSm.npcAnim.Chatting(interactDur);
+
+        isBusy = true;
     }
     void Initialise()
     {
@@ -44,5 +46,10 @@ public class NpcInteractingState : NpcBaseState
             nSm.SwitchState(nSm.roamState);
         }
     }
-    
+
+    public override void ExitState(NpcStateManager npcSm)
+    {
+        isBusy = false;
+    }
+
 }

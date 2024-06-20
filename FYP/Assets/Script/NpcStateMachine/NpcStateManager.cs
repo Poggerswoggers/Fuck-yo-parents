@@ -41,6 +41,8 @@ public class NpcStateManager: MonoBehaviour
 
     public void SwitchState(NpcBaseState state)
     {
+        currentState.ExitState(this);    
+
         currentState = state;
         state.EnterState(this);
         //Debug.Log(transform.name + "Switch to" + currentState);

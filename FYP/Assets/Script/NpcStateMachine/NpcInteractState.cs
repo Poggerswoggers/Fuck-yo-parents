@@ -7,8 +7,8 @@ public class NpcInteractState : NpcBaseState
     [SerializeField] bool isWandering;
     [SerializeField] bool chaseTarget;
     [SerializeField] float interactRad;
-    [SerializeField] Transform target;
-    [SerializeField] Vector3 dir;
+    Transform target;
+    Vector3 dir;
     [SerializeField] float chaseDur;
     float _chaseDur;
 
@@ -44,6 +44,11 @@ public class NpcInteractState : NpcBaseState
         if (!target) return;
         MoveToTarget();
     }
+
+    public override void ExitState(NpcStateManager npcSm)
+    {
+        
+    }
     void FindInteractTarget()
     {
         Collider2D hit = Physics2D.OverlapCircle(npcThis.position - Vector3.left*(Mathf.Sign(rb.velocity.x)*4.5f), interactRad, npcLayer);
@@ -51,7 +56,7 @@ public class NpcInteractState : NpcBaseState
         if(hit !=null && hit.transform != npcThis)
         {
             NpcStateManager targetnSm = hit.GetComponent<NpcStateManager>();
-            if(targetnSm.GetCurrentState() != targetnSm.interactingState && !targetnSm.interactState.chaseTarget)
+            if(!targetnSm.GetCurrentState().isBusy && !targetnSm.interactState.chaseTarget)
             {
                 target = hit.transform;
             }

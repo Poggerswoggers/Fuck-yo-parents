@@ -10,10 +10,15 @@ public class NpcPromptState : NpcBaseState
         npcThis.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         nSm = npcSm;
         nSm.npcAnim.StopWalkAnim();
+
+        isBusy = true;
     }
     public override void UpdateState(NpcStateManager npcSm)
     {
         
     }
-
+    public override void ExitState(NpcStateManager npcSm)
+    {
+        isBusy = false;
+    }
 }

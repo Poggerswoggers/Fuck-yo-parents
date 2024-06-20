@@ -79,7 +79,7 @@ public class NpcAnimation : MonoBehaviour
         //Sway back and forth
         float t = hop * Mathf.PI * 2;
         spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 2f);
-        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.5f, 0);
+        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.4f, 0);
 
         if (lastHop < 0.5 && hop >= 0.5f) bounce = _bounce;
         if (lastHop > 0.9 && hop <= 0.1f) bounce = _bounce;
@@ -137,14 +137,14 @@ public class NpcAnimation : MonoBehaviour
         state.BackToRoam(nsm.roamState);
     }
 
-    public void Chatting(bool isChatting, float dur)
+    public void Chatting(float dur)
     {
-        StartCoroutine(ChattingCo(isChatting, dur));
+        StartCoroutine(ChattingCo(dur));
     }
-    IEnumerator ChattingCo(bool isChatting, float dur)
+    IEnumerator ChattingCo(float dur)
     {
-        GameObject bubble = Instantiate(chatBubblePrefab, transform.position + Vector3.up*1.5f, Quaternion.identity);
+        transform.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(dur);
-        Destroy(bubble);
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 }
