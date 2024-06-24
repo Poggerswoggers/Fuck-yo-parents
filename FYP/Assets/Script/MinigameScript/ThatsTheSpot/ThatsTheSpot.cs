@@ -7,6 +7,9 @@ public class ThatsTheSpot : BaseMiniGameClass
     [SerializeField] Transform targetArea;
     [SerializeField] Transform pmdTransform;
 
+    //Reference
+    [SerializeField] PrecisionSlider slider;
+
     public float overlapArea;
     public struct points
     {

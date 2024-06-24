@@ -14,18 +14,48 @@ public class PmdController : MonoBehaviour
     [SerializeField] float steeringAngle = 20f;
     [SerializeField] Vector3 rotateAngle;
 
+    [SerializeField] PrecisionSlider slider;
+
+    public List<Transform> targets;
+    int index;
+    Transform currentTarget;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentTarget = targets[0];
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetInput();
+        ChangeTarget();
         Moving();
         Traction();
         ApplySteering();
+
+        moveX = TurnTowardsTarget();
+    }
+
+    void SetInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            TurnTowardsTarget();
+        }
+    }
+    float TurnTowardsTarget()
+    {
+        Vector3 vectorToTarget = currentTarget.position - transform.position;
+        vectorToTarget.Normalize();
+
+        float angleToTarget = Vector3.SignedAngle(-transform.up, vectorToTarget, Vector3.forward);
+
+
+        float steerAmount = angleToTarget / 20f;
+        steerAmount = Mathf.Clamp(steerAmount, -1f, 1f);
+        return steerAmount;
     }
 
     public void Moving()
@@ -48,5 +78,22 @@ public class PmdController : MonoBehaviour
         transform.Rotate(rotateAngle);
 
     }
+    void ChangeTarget()
+    {
+        if(Vector2.Distance(transform.position, currentTarget.position)< 2f)
+        {
+            if (index<targets.Count-1)
+            {
+                index++;
+                currentTarget = targets[index];
+            }
+            else
+            {
+                moveX = 0f;
+                moveY = 0f;
+            }
+        }
+    }
+    
 
 }
