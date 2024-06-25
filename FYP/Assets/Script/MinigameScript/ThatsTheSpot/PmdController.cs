@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PmdController : MonoBehaviour
 {
     private Vector3 MoveForce;
-    public float moveSpeed;
+    public float _moveSpeed;
+    private float moveSpeed;
     public float traction = 1;
 
     [SerializeField] float moveX;
@@ -14,20 +16,37 @@ public class PmdController : MonoBehaviour
     [SerializeField] float steeringAngle = 20f;
     [SerializeField] Vector3 rotateAngle;
 
-    [SerializeField] PrecisionSlider slider;
+    [SerializeField] Transform targetArea;
 
-    public Transform targets;
-    bool arrived;
+    //origin
+    Vector3 originPos;
+
+    public Action touchDown
+    {
+        get 
+        {
+            return touchDown;
+        }
+        set
+        {
+            touchDown = value;
+        }
+    }
+    //Reference
+    [SerializeField] PrecisionSlider slider;
+    [SerializeField] ThatsTheSpot minigameRef;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        moveSpeed = _moveSpeed;
+        originPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         SetInput();
         Moving();
         Traction();
@@ -45,15 +64,27 @@ public class PmdController : MonoBehaviour
     }
     float TurnTowardsTarget()
     {
-        Vector3 vectorToTarget = targets.position - transform.position;
+        Vector3 vectorToTarget = targetArea.position - transform.position;
         vectorToTarget.Normalize();
 
         float angleToTarget = Vector3.SignedAngle(-transform.up, vectorToTarget, Vector3.forward);
 
-        if(Mathf.Abs(slider.GetSliderPoint()-0.5f) > 0.1f)
+        if(Mathf.Abs(slider.GetSliderPoint()-0.5f) > 0.3f)
         {
-            steeringAngle *= 0.5f;
+            steeringAngle *= 0.3f;
+            Debug.Log(">0.3");
         }
+        else if(Mathf.Abs(slider.GetSliderPoint() - 0.5f) > 0.1f)
+        {
+            steeringAngle *= 0.7f;
+            Debug.Log(">0.1");  
+        }
+        else if (Mathf.Abs(slider.GetSliderPoint() - 0.5f) > 0.05f)
+        {
+            steeringAngle *= 0.85f;
+            Debug.Log(">0.05");
+        }
+        Debug.Log(Mathf.Abs(slider.GetSliderPoint() - 0.5f));
 
         float steerAmount = angleToTarget / 20f;
         steerAmount = Mathf.Clamp(steerAmount, -1f, 1f);
@@ -88,11 +119,25 @@ public class PmdController : MonoBehaviour
         {
             moveX = (moveX > 0) ? moveX -= Time.deltaTime * 0.9f : 0;
             moveY = (moveY > 0) ? moveY -= Time.deltaTime * 0.5f : 0;
+
+            if(moveY>0.01f && moveY < 0.8f)
+            {
+                minigameRef.GetArea(targetArea.transform, this.transform);
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        moveY = 0f;
+        moveX = 0;
+        moveSpeed = 0;
+    }
+
+    public void ResetAttempt()
+    {
+        transform.position = originPos;
+        transform.rotation = Quaternion.identity;
+        moveSpeed = _moveSpeed;
+        slider.ResetSlider();
     }
 }

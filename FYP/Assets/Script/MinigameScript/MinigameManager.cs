@@ -21,4 +21,6 @@ public class MinigameManager
         currentMiniGame.isGameOver = true;
         currentMiniGame.EndSequence?.Invoke();
     }
+
+
 }

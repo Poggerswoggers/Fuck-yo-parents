@@ -10,7 +10,7 @@ public class PrecisionSlider : MonoBehaviour
 
     [SerializeField] AnimationCurve speedCurve;
 
-    bool sliderActive = true;
+    [SerializeField] bool sliderActive = true;
     bool reverse;
 
     // Start is called before the first frame update
@@ -32,7 +32,6 @@ public class PrecisionSlider : MonoBehaviour
         {
             // Reverse the direction by multiplying deltaValue by -1
             reverse = !reverse;
-            Debug.Log(reverse);
         }
     }
 
@@ -40,6 +39,13 @@ public class PrecisionSlider : MonoBehaviour
     {
         sliderActive = false;
         return slider.value;
+    }
+
+    public void ResetSlider()
+    {
+        Debug.Log("blud");
+        sliderActive = true;
+        slider.value = 0;
     }
 }
     
