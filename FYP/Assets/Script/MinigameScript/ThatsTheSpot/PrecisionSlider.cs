@@ -43,7 +43,6 @@ public class PrecisionSlider : MonoBehaviour
 
     public void ResetSlider()
     {
-        Debug.Log("blud");
         sliderActive = true;
         slider.value = 0;
     }
