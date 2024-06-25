@@ -16,42 +16,44 @@ public class PmdController : MonoBehaviour
 
     [SerializeField] PrecisionSlider slider;
 
-    public List<Transform> targets;
-    int index;
-    Transform currentTarget;
+    public Transform targets;
+    bool arrived;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentTarget = targets[0];
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         SetInput();
-        ChangeTarget();
         Moving();
         Traction();
         ApplySteering();
 
-        moveX = TurnTowardsTarget();
     }
 
     void SetInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            TurnTowardsTarget();
+            moveY =1;
+            moveX = TurnTowardsTarget();
         }
     }
     float TurnTowardsTarget()
     {
-        Vector3 vectorToTarget = currentTarget.position - transform.position;
+        Vector3 vectorToTarget = targets.position - transform.position;
         vectorToTarget.Normalize();
 
         float angleToTarget = Vector3.SignedAngle(-transform.up, vectorToTarget, Vector3.forward);
 
+        if(Mathf.Abs(slider.GetSliderPoint()-0.5f) > 0.1f)
+        {
+            steeringAngle *= 0.5f;
+        }
 
         float steerAmount = angleToTarget / 20f;
         steerAmount = Mathf.Clamp(steerAmount, -1f, 1f);
@@ -73,27 +75,24 @@ public class PmdController : MonoBehaviour
 
     public void ApplySteering()
     {
-        Vector3 _rotateAngle = Vector3.forward * moveX * MoveForce.magnitude * steeringAngle; //turnAssist;
+        Vector3 _rotateAngle = Vector3.forward * moveX * steeringAngle; //turnAssist;
         rotateAngle = _rotateAngle * Time.deltaTime;
         transform.Rotate(rotateAngle);
 
     }
-    void ChangeTarget()
-    {
-        if(Vector2.Distance(transform.position, currentTarget.position)< 2f)
-        {
-            if (index<targets.Count-1)
-            {
-                index++;
-                currentTarget = targets[index];
-            }
-            else
-            {
-                moveX = 0f;
-                moveY = 0f;
-            }
-        }
-    }
     
 
+    private void OnTriggerStay2D(Collider2D other)
+    {   
+        if(other.tag == "Target")
+        {
+            moveX = (moveX > 0) ? moveX -= Time.deltaTime * 0.9f : 0;
+            moveY = (moveY > 0) ? moveY -= Time.deltaTime * 0.5f : 0;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        moveY = 0f;
+    }
 }
