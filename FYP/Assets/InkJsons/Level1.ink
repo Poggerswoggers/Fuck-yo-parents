@@ -28,15 +28,18 @@ I hate peak hours.
         Someone gets it.
             -> DONE
     *[Do you see anyone that needs help?] //Hints 
-        There's a guy who looks GRUMPY maybe he need some help?
+        I saw someone that has CRUTCHES, I think they need some help.
             -> DONE
             
 
 ==Naomi==
 ~correctAnswer = 0
-It stinks around here.
-    *[Somebody did not shower]
-        Probably.
+Do all pregnant ladies have big baby bumps?
+    *[Yes]
+        I don’t think so. You may not be able to tell if someone is pregnant as her baby bump may not be visible or she may be wearing loose clothing.
+            -> DONE
+    *[No] 
+        That’s right! You may not be able to tell if someone is pregnant as her baby bump may not be visible or she may be wearing loose clothing.
             -> DONE
     *[Do you see anyone that needs help?] //Hints
         I saw someone that has CRUTCHES, I think they need some help.
