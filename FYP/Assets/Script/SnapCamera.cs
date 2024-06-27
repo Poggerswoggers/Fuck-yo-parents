@@ -53,7 +53,6 @@ public class SnapCamera : GameBaseState
 
     //References
     DialogueManager dm;
-    GameStateManager gSm;
     public Vector2 CalculateBounds()
     {
         var bound = boundaryObj.GetComponent<SpriteRenderer>().bounds;
@@ -91,13 +90,13 @@ public class SnapCamera : GameBaseState
 
         }
 
-        if(_timeToFindNpc>0 && gameStateManager.sM.levelTargets != null)
+        if(_timeToFindNpc>0 && ScoreManager.Instance._levelTarget != null)
         {
             _timeToFindNpc -= Time.deltaTime;
         }
         else
         {
-            ScoreManager.OnScoreChange?.Invoke(1000);
+            ScoreManager.Instance.OnScoreChange?.Invoke(1000);
             _timeToFindNpc = timeToFindNpc;
         }
     }
@@ -236,8 +235,9 @@ public class SnapCamera : GameBaseState
         //zoomCam.m_Lens.OrthographicSize = 1.5f;
         zoomCam.Priority = 2;
         zoomCam.Follow = closestGameObject;
-
-        ScoreManager.OnTargetChanged(closestGameObject.transform);
+        
+        //If closest = taret npc, remove the target Npc
+        ScoreManager.Instance.Updatetargets(closestGameObject.transform);
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();      
         //bs = nSm.GetCurrentState();
@@ -245,8 +245,10 @@ public class SnapCamera : GameBaseState
         LeanTween.move(CameraReticle.gameObject, closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset, 0.5f);
 
         yield return new WaitForSeconds(0.2f);
+
+        //Set dialogue stuff to be active and pass npc parameters
         dm.gameObject.SetActive(true);
-        dm.Initialise(nSm.question, nSm.DialogueKnotName);
+        gSm.nSm = nSm;
         gSm.ChangeStat(dm);
     }
 

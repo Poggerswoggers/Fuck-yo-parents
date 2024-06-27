@@ -20,12 +20,14 @@ public class McqManager : GameBaseState
     [SerializeField] TextMeshProUGUI answerTextPrefab;
     [SerializeField] GameObject answerContainer;
 
-    public MCQ questionScriptable { get; set; }
+    MCQ questionScriptable;
     int mcqCount;
 
 
     public override void EnterState(GameStateManager gameStateManager)
     {
+        gSm = gameStateManager;
+        questionScriptable = gSm.nSm.question;  //Get the mcq scriptable object
         mcqCount = questionScriptable.answerText.Length;
         questionText.text = questionScriptable.questionText;
 
@@ -99,7 +101,7 @@ public class McqManager : GameBaseState
         }
         else
         {
-            ScoreManager.OnScoreChange?.Invoke(500);
+            ScoreManager.Instance.OnScoreChange?.Invoke(500);
             Destroy(button.gameObject);
         }
     }
@@ -107,7 +109,8 @@ public class McqManager : GameBaseState
     void GoToMiniGame()
     {
         mcqPanel.SetActive(false);
-        SceneManager.LoadScene("HeadTilt", LoadSceneMode.Additive);
+        int index = gSm.nSm.GetComponent<MinigameNpcs>().GetGameIndex();
+        ScoreManager.Instance.loadAddictiveScene(index);
 
     }
 

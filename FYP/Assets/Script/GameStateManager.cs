@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
-{
-    public ScoreManager sM;
+{    
+    public NpcStateManager nSm { get; set; }
+
     
     GameBaseState currentState;
 
@@ -32,5 +33,10 @@ public class GameStateManager : MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
+    }
+
+    public void ClearNpc()
+    {
+        Destroy(nSm.gameObject);
     }
 }

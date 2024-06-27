@@ -75,7 +75,6 @@ public class HeadTilt : BaseMiniGameClass
                 rb.AddTorque(forceAmount * CheckMouseSide());
                 awakeTime = _awakeTime;
                 awake = true;
-                Debug.Log("Clicked");
 
                 minFallingTorque *= 1.02f;
             }
@@ -121,7 +120,6 @@ public class HeadTilt : BaseMiniGameClass
 
     public void HitPassenger()
     {
-        Debug.Log("wdw");
         rb.AddTorque(forceAmount * Mathf.Sign(rotationZ)*30);
     }
 
@@ -130,7 +128,7 @@ public class HeadTilt : BaseMiniGameClass
     {
         Debug.Log("Game Over");
         sr.sprite = EyeOpen;
-
+        base.EndSequenceMethod();
         //LeanTween.reset();
         //LeanTween.rotateZ(gameObject, 0, 0.3f);
     }

@@ -12,7 +12,7 @@ public class PassengerCollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ScoreManager.OnScoreChange?.Invoke(250);        
+        ScoreManager.Instance.OnScoreChange?.Invoke(250);        
         HeadTilt.HitPassenger();
     }
 }

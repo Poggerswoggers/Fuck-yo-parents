@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public abstract class BaseMiniGameClass : MonoBehaviour
 {
@@ -44,7 +45,10 @@ public abstract class BaseMiniGameClass : MonoBehaviour
         StartCoroutine(InstructionCo());
     }
 
-    public abstract void EndSequenceMethod();
+    public virtual void EndSequenceMethod()
+    {
+        ScoreManager.Instance.UnloadAddictiveScene();
+    }
 
 
     private void OnEnable(){
