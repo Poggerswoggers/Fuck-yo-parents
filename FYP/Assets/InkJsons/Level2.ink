@@ -34,10 +34,24 @@ Urm, hi there! Do you need help?
         I always plan ahead for my travel time, so I leave my house early to avoid being late.
             -> DONE
     *[Have you seen someone who could use a helping hand?] 
-        I saw someone walking around with a HEARING AID. He could use some help
+        I saw someone walking around with a HEARING AID, he could use some help.
             -> DONE
               
-            
+==Davian==
+~correctAnswer = 0
+Urm, hi there! Do you need help?
+    *[You look like you can play Basketball?]
+        Thanks for the compliment.
+            -> DONE
+    *[Nothing.] 
+        Orh ok lor.
+            -> DONE
+    *[Where are you headed?] 
+        Going to play basketball with some friends. being late.
+            -> DONE
+    *[Who is your idol?] 
+        The legend in my heart - Lebron James.
+            -> DONE
             
             
             
