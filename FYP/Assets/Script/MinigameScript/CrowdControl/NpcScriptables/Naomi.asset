@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
   m_Name: Naomi
   m_EditorClassIdentifier: 
-  npcName: Naomi
   npcSprite: {fileID: 21300000, guid: 00ef125438f35cd41aac1acee6174b3c, type: 3}
   cardObjects:
-  - {fileID: 2687031554740379759, guid: 58cd6e3c16c90f849ad0b5aa7e944514, type: 3}
+  - {fileID: 8469896416037950454, guid: b7e6d79d7b7519e42972dd1443ce136d, type: 3}

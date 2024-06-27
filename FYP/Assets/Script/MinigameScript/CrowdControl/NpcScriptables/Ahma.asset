@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
   m_Name: Ahma
   m_EditorClassIdentifier: 
-  npcName: Ahma
   npcSprite: {fileID: 21300000, guid: 980de891e1859b843811ae366a9b9a82, type: 3}
   cardObjects:
-  - {fileID: 1333658203352248187, guid: db04079dc0ebf4043b289d6d12a3af94, type: 3}
+  - {fileID: 2507325723622912160, guid: 9afb1f00a7cf3c2458c3b7d1586f18d9, type: 3}
+  - {fileID: 3784849116849419251, guid: 231edeae89e86a6498b8c0cdc8979e01, type: 3}

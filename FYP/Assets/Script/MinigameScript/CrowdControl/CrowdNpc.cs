@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrowdNpc: MonoBehaviour
 {
     [SerializeField] float speed;
+    float dur;
     CrowdControl cc;
 
     private NpcScriptable _thisNpc; // Backing field for the property
@@ -47,7 +48,7 @@ public class CrowdNpc: MonoBehaviour
         Vector3 pos = targetPos;
         float distance = (transform.position - pos).magnitude;
 
-        float dur = distance / speed;
+        dur = distance / speed;
         float elapseTime = 0;
 
         Vector3 initialPos = transform.position;
@@ -106,18 +107,12 @@ public class CrowdNpc: MonoBehaviour
             {
                 cardList[i].gameObject.SetActive(true);
                 activeCardGameObject = cardList[i].gameObject;
-                //cardList[i].IncreaseSortOrder();
-                
-                //LeanTween.reset();
-                //LeanTween.rotateZ(cardList[i].gameObject, 50, 0.2f);
-                //LeanTween.move(cardList[i].gameObject, new Vector3(3.8f,-2f,0f), 0.2f);
-                //LeanTween.moveLocal(cardList[i].gameObject, Vector3.zero, 0.2f).setDelay(0.2f);
-                //eanTween.rotateZ(cardList[i].gameObject, 30, 0.2f).setDelay(0.2f);
             }
         }
     }
     public void SelfDestruct(float time)
     {
+        
         Destroy(gameObject, time);
     }
 
@@ -128,8 +123,20 @@ public class CrowdNpc: MonoBehaviour
         LeanTween.rotateLocal(activeCardGameObject, new Vector3(0, 0, 0), 0.2f).setDelay(0.8f);
     }
 
-    public virtual void Update()
+    public void WaitTime()
     {
+        StartCoroutine(WaitTimeCo());
+    }
+    IEnumerator WaitTimeCo()
+    {
+        yield return new WaitForSeconds(10f);       //Delay die
+        cc.GetQueue().RelocateAllNpc(this);         //Rearrange queue
 
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+
+        MoveInQueue(new Vector2(-10, transform.position.y));        //Move off screen
+        SelfDestruct(dur);                          //Die
     }
 }

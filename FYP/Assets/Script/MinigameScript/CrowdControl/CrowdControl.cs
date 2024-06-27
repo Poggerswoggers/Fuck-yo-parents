@@ -7,9 +7,7 @@ public class CrowdControl : BaseMiniGameClass
 {    
     //Initial Queue
     [SerializeField] int startNpc;
-    public int npcCount { get; set; }        //Current npc count
 
-    //
     int npcCleared;         //Hope to move to a score manager
     [SerializeField] TextMeshProUGUI clearText;
     //
@@ -42,12 +40,16 @@ public class CrowdControl : BaseMiniGameClass
 
     [Header("Scriptable List")]
     [SerializeField] List<NpcScriptable> npcScriptableList;
-    //[SerializeField] NpcScriptable ahMaScriptable;
+    [SerializeField] NpcScriptable ahmaScriptable;
+
+    int ahmaIndex = 4;
 
     [Header("Prefabs")]
     [SerializeField] GameObject npcPrefab;
-    //[SerializeField] GameObject ahmaPrefab;
 
+    [Header("Slider Timer")]
+    [SerializeField] SliderTimer timer;
+    [SerializeField] float gameTime;
     public Transform GetCardPos()
     {
         return cardPos;
@@ -84,6 +86,9 @@ public class CrowdControl : BaseMiniGameClass
         npcQueue = new NpcQueue(waitingQueuePositionList, positionSize, this);  //Create a instance of npcqueue
 
         StartCoroutine(StartGameCo());
+
+        timer.SetTImer(gameTime, () => gameManager.OnGameOver());
+
         isGameActive = true;
         //Add a npc every 5 seconds after 5 seconds
         InvokeRepeating("AddNpc", 5f, addDelay); 
@@ -104,14 +109,22 @@ public class CrowdControl : BaseMiniGameClass
 
     void AddNpc()
     {
+        if (npcScriptableList.Count == 0) return;
         CrowdNpc npc = Instantiate(npcPrefab).GetComponent<CrowdNpc>();
-        //Get randpm index from the scriptable List
-        int index = (int)Random.Range(0, npcScriptableList.Count);
-        npc.thisNpc = npcScriptableList[index];  //Assign the npc scriptable to the list's index
-        npcQueue.AddNpc(npc);                    //Add the npc to the queue
-        npcScriptableList.RemoveAt(index);
-        
-        npcCount++;
+
+        if(npcCleared >= ahmaIndex)
+        {
+            ahmaIndex += 5;
+            npc.thisNpc = ahmaScriptable;
+            npc.WaitTime();
+        }
+        else
+        {
+            npc.thisNpc = npcScriptableList[0];  //Assign the npc scriptable to the list's index
+            npcScriptableList.RemoveAt(0);
+        }
+
+        npcQueue.AddNpc(npc);
         addDelay *= 0.9f;
     }
 
@@ -146,13 +159,14 @@ public class CrowdControl : BaseMiniGameClass
             if (frontNpc != null)
             {
                 frontNpc.SelfDestruct(2); //Destroy the npc
-                npcCount--;
                 npcCleared++;
-                clearText.text = npcCleared + "/15";
+                clearText.text = $"<color=#800000ff>{npcCleared}</color>/15";
                 frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
 
                 yield return new WaitForSeconds(0.2f);
                 for (int i = 0; i < cardPos.childCount; i++) { Destroy(cardPos.GetChild(i).gameObject); } //Destroy the child cards under the carpos 
+
+                
             }
         }
         else
@@ -160,10 +174,17 @@ public class CrowdControl : BaseMiniGameClass
             rS.ScreenReader(false); 
             _tapDelay = tapDelay;
         }
+
+        if(npcCleared == 15){ gameManager.OnGameOver(); }
     }
 
     public override void EndSequenceMethod()
     {
-        //throw new System.NotImplementedException();
+        Debug.Log("w");
+        base.EndSequenceMethod();
+    }
+
+    public NpcQueue GetQueue(){
+        return npcQueue;
     }
 }

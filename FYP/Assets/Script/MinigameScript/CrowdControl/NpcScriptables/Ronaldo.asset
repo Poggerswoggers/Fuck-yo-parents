@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
   m_Name: Ronaldo
   m_EditorClassIdentifier: 
-  npcName: Ronaldo
   npcSprite: {fileID: 21300000, guid: 52d2640d4cbc78c4c8b4ee698eb28873, type: 3}
   cardObjects:
-  - {fileID: 7774733085598643467, guid: 8299aa0a811380049aac0d4afb1d836b, type: 3}
-  - {fileID: 1333658203352248187, guid: db04079dc0ebf4043b289d6d12a3af94, type: 3}
-  - {fileID: 1377579523406469021, guid: e0249dadf3730be46acc5f42e95433fa, type: 3}
+  - {fileID: 2507325723622912160, guid: 9afb1f00a7cf3c2458c3b7d1586f18d9, type: 3}
+  - {fileID: 1675230227678738884, guid: 3fa8484114f32494d81cc853d0734fc3, type: 3}

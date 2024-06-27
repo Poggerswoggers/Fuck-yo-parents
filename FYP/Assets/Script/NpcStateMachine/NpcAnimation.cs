@@ -79,7 +79,7 @@ public class NpcAnimation : MonoBehaviour
         //Sway back and forth
         float t = hop * Mathf.PI * 2;
         spriteTransform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(t) * 2f);
-        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.4f, 0);
+        spriteTransform.localPosition = new Vector3(0, Mathf.Abs(Mathf.Sin(t)) * 0.3f, 0);
 
         if (lastHop < 0.5 && hop >= 0.5f) bounce = _bounce;
         if (lastHop > 0.9 && hop <= 0.1f) bounce = _bounce;

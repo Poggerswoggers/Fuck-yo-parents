@@ -1109,16 +1109,64 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 748192536836085009, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748192536836085009, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748192536836085009, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748192536836085009, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 748192536836085009, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1430023010764648624, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
       propertyPath: m_Name
       value: PrecisionSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 1582313964105050574, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582313964105050574, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 473144864, guid: b76ed9787c6f7be40be4556b50e9a854, type: 3}
+    - target: {fileID: 2691930709635360365, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2691930709635360365, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845398346894409656, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152262565476316053, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1666e2637a222843acc24ad85321184, type: 3}
+    - target: {fileID: 6152262565476316053, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152262565476316053, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152262565476316053, guid: 54971d84d2cae9f479f232cea8a3ba8b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
