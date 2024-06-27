@@ -18,6 +18,21 @@ What do you want?
     *[Bet I could outrun you.]
         Anyone can outrun me, move.
             ->loadMCQ
+==Gary==
+~correctAnswer = 1
+What do you want?
+    *[Let me help you.] 
+         I can handle myself.
+            ->loadMCQ
+    *[I’ll lead the way.]
+        No need to help, I got it.
+            ->loadMCQ
+    *[How much does that stick cost?]
+        Get out of my way.
+            ->loadMCQ
+    *[How many fingers am I holding up?]
+        That’s not very nice.
+            ->loadMCQ
 
          
 
