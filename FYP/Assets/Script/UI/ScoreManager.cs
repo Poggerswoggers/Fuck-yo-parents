@@ -4,33 +4,60 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static Action<int> OnScoreChange;
-    public static Action<Transform> OnTargetChanged;
+    public static ScoreManager Instance { get; private set; }
+    public Action<int> OnScoreChange;
 
     [SerializeField] int maxScore;
     [SerializeField] int levelScore;
     [SerializeField] TextMeshProUGUI scoreText;
 
+    int addictiveScene;
+
     //target Ref
-    public List<Transform> levelTargets;
+    [SerializeField] List<Transform> levelTargets;
+    [SerializeField] GameStateManager gSm;
+    public List<Transform> _levelTarget
+    {
+        get
+        {
+            return levelTargets;
+        }
+    }
+
+    int minigameCount;
+
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void OnEnable()
     {
         OnScoreChange += UpdateScore;
-        OnTargetChanged += Updatetargets;
     }
 
     private void OnDisable()
     {
         OnScoreChange -= UpdateScore;
-        OnTargetChanged += Updatetargets;
     }
+
 
     private void Start()
     {
+        minigameCount = levelTargets.Count;
         UpdateScore(-maxScore);
     }
 
@@ -47,5 +74,17 @@ public class ScoreManager : MonoBehaviour
         {
             levelTargets.Remove(target);
         }
+    }
+
+    public void UnloadAddictiveScene()
+    {
+        SceneManager.UnloadSceneAsync(addictiveScene);
+        gSm.ChangeStat(gSm.snapState);
+        gSm.ClearNpc();
+    }
+    public void loadAddictiveScene(int sceneId)
+    {
+        addictiveScene = sceneId;
+        SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
     }
 }

@@ -36,15 +36,11 @@ public class DialogueManager : GameBaseState
     MCQ questionScriptable;
     int correctOption;
 
-    //Reference
-    SnapCamera sC;
-    GameStateManager gSm;
-
-
     public override void EnterState(GameStateManager gameStateManager)
     {
         //infoTextField.text = "";
         gSm = gameStateManager;
+        Initialise();
         StartCoroutine(LoadDialooguePanel(dialogueKnotName));
     }
 
@@ -76,10 +72,10 @@ public class DialogueManager : GameBaseState
     {
         
     }
-    public void Initialise(MCQ _questionScriptable, string _knotName)
+    public void Initialise()
     {
-        questionScriptable = _questionScriptable;
-        dialogueKnotName = _knotName;
+        questionScriptable = gSm.nSm.question;
+        dialogueKnotName = gSm.nSm.DialogueKnotName;
     }
 
     //Loads and tweens the dialogue boxes;
@@ -121,7 +117,7 @@ public class DialogueManager : GameBaseState
         {
             if(questionScriptable !=null)
             {
-                LoadQuestions();
+                gSm.ChangeStat(gSm.mcqState);
                 ExitDialogueMode();
             }
             else
@@ -192,10 +188,9 @@ public class DialogueManager : GameBaseState
         DisplayNewLine();
         RefreshChoiceView();
 
-        Debug.Log(correctPrompt);
         if (!correctPrompt)
         {
-            ScoreManager.OnScoreChange?.Invoke(500);
+            ScoreManager.Instance.OnScoreChange?.Invoke(500);
         }
     }
 
@@ -224,15 +219,5 @@ public class DialogueManager : GameBaseState
     {
         gSm.snapState.BackToOutCam();
         dialoguePanel.SetActive(false);
-    }
-
-    void BindExternalFunctions()
-    {
-        //inkStory.BindExternalFunction("LoadQuestion", (string questionName) => LoadQuestions(questionName));
-    }
-    void LoadQuestions()
-    {
-        gSm.mcqState.questionScriptable = questionScriptable;   
-        gSm.ChangeStat(gSm.mcqState);
     }
 }
