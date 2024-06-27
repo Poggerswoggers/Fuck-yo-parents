@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StoryMode.unity
     guid: af350931836b24a39beeac98a0726647
+  - enabled: 1
+    path: Assets/Scenes/Minigames/CrowdControl.unity
+    guid: 62bff079a08ff524a9c295fefb862ed8
+  - enabled: 1
+    path: Assets/Scenes/Minigames/RouteAssister.unity
+    guid: db3a0a0f73c4eb94d9f38d8ea436cc0a
   m_configObjects: {}

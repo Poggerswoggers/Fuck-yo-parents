@@ -1435,6 +1435,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1460308224}
+  - {fileID: 6586496841620466397}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &555674275 stripped
@@ -2831,7 +2832,6 @@ Transform:
   - {fileID: 66011039}
   - {fileID: 555674275}
   - {fileID: 1204599561}
-  - {fileID: 6586496841620466397}
   - {fileID: 1619853789}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4839,6 +4839,7 @@ GameObject:
   - component: {fileID: 3671533628287205633}
   - component: {fileID: 8137700174933618060}
   - component: {fileID: 5439986779945968801}
+  - component: {fileID: 8137700174933618061}
   m_Layer: 6
   m_Name: Gary
   m_TagString: Untagged
@@ -5557,13 +5558,13 @@ Transform:
   m_GameObject: {fileID: 1640792630974355483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.19, y: -4.62, z: 0}
+  m_LocalPosition: {x: 17, y: -4.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9126511688575736446}
   - {fileID: 3211924967759249715}
-  m_Father: {fileID: 969012780}
+  m_Father: {fileID: 533893238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &6806044968203276859
 RectTransform:
@@ -5606,9 +5607,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasBounce: 1
-  _dialogueKnotName: Naomi
+  _dialogueKnotName: Gary
   npcAnim: {fileID: 5439986779945968801}
-  question: {fileID: 0}
+  question: {fileID: 11400000, guid: 6018ec0f000cc6549b56e4c50f1e7b3c, type: 2}
   roamState:
     rid: 2641615680123699208
   interactState:
@@ -5650,6 +5651,19 @@ MonoBehaviour:
       data:
         yBounce: 1.1
         multiplier: 0.9
+--- !u!114 &8137700174933618061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640792630974355483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc1abce951c43d4e84ecf566198db7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameSceneIndex: 0
 --- !u!1001 &8209936382864500952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5856,8 +5870,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 60
     m_Right: 60
-    m_Top: 40
-    m_Bottom: 40
+    m_Top: 30
+    m_Bottom: 30
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1

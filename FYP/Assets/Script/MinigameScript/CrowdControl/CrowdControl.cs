@@ -67,6 +67,7 @@ public class CrowdControl : BaseMiniGameClass
 
     protected override IEnumerator InstructionCo()
     {
+        StartGame();
         yield return null;
     }
 
@@ -83,7 +84,7 @@ public class CrowdControl : BaseMiniGameClass
         npcQueue = new NpcQueue(waitingQueuePositionList, positionSize, this);  //Create a instance of npcqueue
 
         StartCoroutine(StartGameCo());
-
+        isGameActive = true;
         //Add a npc every 5 seconds after 5 seconds
         InvokeRepeating("AddNpc", 5f, addDelay); 
     }
@@ -137,7 +138,7 @@ public class CrowdControl : BaseMiniGameClass
     IEnumerator RelocateAndReQueue(CrowdNpc frontNpc)
     {
         yield return new WaitForSeconds(0.2f); //Delay
-
+    
         if (frontNpc.activeCard.tappable)
         {
             rS.ScreenReader(true);  //Changes screen reader color
@@ -163,6 +164,6 @@ public class CrowdControl : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

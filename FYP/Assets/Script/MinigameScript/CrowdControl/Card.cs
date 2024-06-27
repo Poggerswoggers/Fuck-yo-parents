@@ -7,11 +7,10 @@ public class Card
 {
     public bool tappable;
 
-    public enum CardType
+    public enum CardTypes
     {
         EzlinkCard,
-        PopularCard,
-        PokemonCard
+        OtherCard
     }
-    public CardType cardType;
+    public CardTypes cardType;
 }
