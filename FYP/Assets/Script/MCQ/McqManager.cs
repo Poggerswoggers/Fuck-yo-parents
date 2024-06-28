@@ -8,7 +8,9 @@ using UnityEngine.SceneManagement;
 public class McqManager : GameBaseState
 {
     //UI elements
-    public GameObject mcqPanel;
+    [SerializeField] GameObject mcqPanel;
+    [SerializeField] GameObject NextButton;
+
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] Image spriteHolder;
 
@@ -22,11 +24,12 @@ public class McqManager : GameBaseState
 
     MCQ questionScriptable;
     int mcqCount;
-
+    
 
     public override void EnterState(GameStateManager gameStateManager)
     {
         gSm = gameStateManager;
+        NextButton.SetActive(false);
         questionScriptable = gSm.nSm.question;  //Get the mcq scriptable object
         mcqCount = questionScriptable.answerText.Length;
         questionText.text = questionScriptable.questionText;
@@ -94,10 +97,11 @@ public class McqManager : GameBaseState
 
     void onPromptClick(bool correctAns, Button button)
     {
-        Debug.Log(gameObject + " " + correctAns);
         if(correctAns)
         {
-            GoToMiniGame();
+            questionText.text = questionScriptable.ExplanationText;
+            NextButton.SetActive(true);
+            DestroyQuestion();
         }
         else
         {
@@ -106,14 +110,27 @@ public class McqManager : GameBaseState
         }
     }
 
-    void GoToMiniGame()
+    public void GoToMiniGame()
     {
         mcqPanel.SetActive(false);
         int index = gSm.nSm.GetComponent<MinigameNpcs>().GetGameIndex();
         ScoreManager.Instance.loadAddictiveScene(index);
 
     }
-
+    void DestroyQuestion()
+    {
+        if (buttonContainer != null)
+        {
+            foreach (var button in buttonContainer.GetComponentsInChildren<Button>())
+            {
+                Destroy(button.gameObject);
+            }
+            foreach (var text in answerContainer.GetComponentsInChildren<TextMeshProUGUI>())
+            {
+                Destroy(text.gameObject);
+            }
+        }
+    }
     public override void UpdateState(GameStateManager gameStateManager)
     {
         

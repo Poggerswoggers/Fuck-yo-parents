@@ -110,7 +110,8 @@ public class CrowdControl : BaseMiniGameClass
     void AddNpc()
     {
         if (npcScriptableList.Count == 0) return;
-        CrowdNpc npc = Instantiate(npcPrefab).GetComponent<CrowdNpc>();
+        CrowdNpc npc = Instantiate(npcPrefab, new Vector2(-15, waitingQueuePositionList[0].y), Quaternion.identity).GetComponent<CrowdNpc>();
+        npc.transform.SetParent(this.transform);
 
         if(npcCleared >= ahmaIndex)
         {
@@ -125,7 +126,7 @@ public class CrowdControl : BaseMiniGameClass
         }
 
         npcQueue.AddNpc(npc);
-        addDelay *= 0.9f;
+        addDelay *= 0.85f;
     }
 
     //I think this is pretty messy

@@ -31,7 +31,9 @@ public class GameStateManager : MonoBehaviour
 
     public void ChangeStat(GameBaseState state)
     {
+        currentState.gameObject.SetActive(false);
         currentState = state;
+        currentState.gameObject.SetActive(true);
         state.EnterState(this);
     }
 

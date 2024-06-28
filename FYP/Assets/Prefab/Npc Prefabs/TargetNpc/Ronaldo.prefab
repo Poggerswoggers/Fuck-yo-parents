@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a1e1dcd9bd0e46bdfd888c41b1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hasBounce: 0
+  _hasBounce: 1
   _dialogueKnotName: Ronaldo
   npcAnim: {fileID: 943749807377658346}
   question: {fileID: 11400000, guid: 7bee4f81eab9e014a99b95c5c60ee6f5, type: 2}
@@ -129,13 +129,13 @@ MonoBehaviour:
     - rid: 2104765949873487876
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        minSpeed: 30
-        maxSpeed: 50
+        minSpeed: 10
+        maxSpeed: 15
         walkDuration: 8
         borderMargin: 1.5
         sc: {fileID: 0}
-        bounce: 0
-        multiplier: 0
+        bounce: 1
+        multiplier: 0.8
     - rid: 2104765949873487877
       type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
       data:
@@ -146,16 +146,16 @@ MonoBehaviour:
         npcLayer:
           serializedVersion: 2
           m_Bits: 64
-        yBounce: 0
-        multiplier: 0
+        yBounce: 1
+        multiplier: 1
     - rid: 2641615798566912000
       type: {class: NpcPromptState, ns: , asm: Assembly-CSharp}
       data: 
     - rid: 2641615798566912001
       type: {class: NpcInteractingState, ns: , asm: Assembly-CSharp}
       data:
-        yBounce: 0
-        multiplier: 0
+        yBounce: 1
+        multiplier: 1
 --- !u!114 &943749807377658346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7545122960177122374}
   - component: {fileID: 5266011130522404078}
-  - component: {fileID: 5165640338967370825}
   m_Layer: 0
   m_Name: Ronaldo
   m_TagString: Untagged
@@ -248,7 +247,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 52d2640d4cbc78c4c8b4ee698eb28873, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ebb1aa4c9901d12489131f4491b3adbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -259,27 +258,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5165640338967370825
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7403183876867950876}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d12dd56f04dd3424a868ee4972fef79f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7918850054694026381
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -58,5 +58,6 @@ public abstract class BaseMiniGameClass : MonoBehaviour
         EndSequence -= EndSequenceMethod;
     }
 
+
 }
 

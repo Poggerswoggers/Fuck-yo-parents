@@ -8,14 +8,9 @@ public class SnapCamera : GameBaseState
     [SerializeField] int snapTries;
 
     //UI stuff
-    [SerializeField] float uiDelay;
-    public GameObject blackout;
-
-
-
     [SerializeField] Transform CameraReticle;
     [SerializeField] Vector2 camSize;
-    public LayerMask npcLayer;
+    [SerializeField] LayerMask npcLayer;
     RaycastHit2D[] contact;
     [SerializeField] GameObject[] taggedGameObject;
     [SerializeField] Transform closestGameObject;
@@ -38,16 +33,14 @@ public class SnapCamera : GameBaseState
     [SerializeField] private float zoomSpeed = 20f;
     [SerializeField] private float minCamSize = 2f;
     [SerializeField] private float maxCamSize = 5f;
-    [SerializeField] float newZoomLevel;
-    Vector3 cameraOrigin;
+    float newZoomLevel;
 
     [Header("Camera Pan")]
     Vector3 origin;
     Vector3 difference;
-    Vector3 resetCam;
-    [SerializeField] bool drag;
-
-
+    bool drag;
+    [SerializeField] float xBound;
+    [SerializeField] float yBound;
     //Boundary Object
     public Transform boundaryObj;
 
@@ -64,7 +57,6 @@ public class SnapCamera : GameBaseState
         dm = gSm.dialogueStat;
         CalculateBounds();
         Initialise();
-        cameraOrigin = outCamGameObject.transform.position;
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
@@ -224,9 +216,10 @@ public class SnapCamera : GameBaseState
         }
         if(drag)
         {
-            //X pan max
-            float maxX = Mathf.Clamp(origin.x - difference.x, -20, 20);
-            outCam.transform.position = new Vector3(maxX, outCam.transform.position.y, outCam.transform.position.z);
+            //X Y pan max
+            float maxX = Mathf.Clamp(origin.x - difference.x, -xBound, xBound);
+            float maxY = Mathf.Clamp(origin.y - difference.y, -yBound, yBound);
+            outCam.transform.position = new Vector3(maxX, maxY, outCam.transform.position.z);
             
         }
     }
@@ -247,7 +240,6 @@ public class SnapCamera : GameBaseState
         yield return new WaitForSeconds(0.2f);
 
         //Set dialogue stuff to be active and pass npc parameters
-        dm.gameObject.SetActive(true);
         gSm.nSm = nSm;
         gSm.ChangeStat(dm);
     }

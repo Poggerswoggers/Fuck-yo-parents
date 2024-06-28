@@ -18,14 +18,13 @@ public class DialogueManager : GameBaseState
     [SerializeField] Button buttonPrefab;
 
     [SerializeField] TextMeshProUGUI infoTextField;
-    [SerializeField] TextMeshProUGUI nameField;
 
     [Header("UI Panel")]
-    public GameObject dialoguePanel;
-    public RectTransform promptBox;
-    [SerializeField] float promptBoxYPos;
-    public RectTransform infoBox;
-    [SerializeField] float infoBoxXPos;
+    [SerializeField] GameObject dialoguePanel;
+    //[SerializeField] RectTransform promptBox;
+    //[SerializeField] float promptBoxYPos;
+    //[SerializeField] RectTransform infoBox;
+    //[SerializeField] float infoBoxXPos;
     [SerializeField] float phaseInSpeed;
 
     bool canContinueToNextLine = false;
