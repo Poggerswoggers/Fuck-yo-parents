@@ -52,7 +52,7 @@ public class ThatsTheSpot : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        //throw new System.NotImplementedException();
+        base.EndSequenceMethod();
     }
 
     public void GetArea(Transform areaTransform, Transform pmdTransform)
@@ -64,23 +64,23 @@ public class ThatsTheSpot : BaseMiniGameClass
         if (!tried)
         {
             tried = true;
-            if (tries > 0)
-            {
-                tries--;
-                StartCoroutine(RetrySequenceCo(pmdTransform.GetComponent<PmdController>()));
-            }
-            else
-            {
-                Debug.Log("Game Over");
-                gameManager.OnGameOver();
-            }
+            StartCoroutine(RetrySequenceCo(pmdTransform.GetComponent<PmdController>()));
         }
     }
     IEnumerator RetrySequenceCo(PmdController pmdC)
     {
         yield return new WaitForSeconds(3f);
-        percentageText.gameObject.SetActive(false);
-        pmdC.ResetAttempt();
-        tried = false;
+        if(tries >0)
+        {
+            tries--;
+            percentageText.gameObject.SetActive(false);
+            pmdC.ResetAttempt();
+            tried = false;
+        }
+        else
+        {
+            Debug.Log("Game Over");
+            gameManager.OnGameOver();
+        }
     }
 }

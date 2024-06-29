@@ -14,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] int maxScore;
     [SerializeField] int levelScore;
     [SerializeField] TextMeshProUGUI scoreText;
+    GameObject scoreParent;
 
     int addictiveScene;
 
@@ -58,6 +59,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         minigameCount = levelTargets.Count;
+        scoreParent = scoreText.transform.parent.gameObject;
         UpdateScore(-maxScore);
     }
 
@@ -78,12 +80,14 @@ public class ScoreManager : MonoBehaviour
 
     public void UnloadAddictiveScene()
     {
+        scoreParent.SetActive(true);
         SceneManager.UnloadSceneAsync(addictiveScene);
         gSm.ChangeStat(gSm.snapState);
         gSm.ClearNpc();
     }
     public void loadAddictiveScene(int sceneId)
     {
+        scoreParent.SetActive(false);
         addictiveScene = sceneId;
         SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
     }

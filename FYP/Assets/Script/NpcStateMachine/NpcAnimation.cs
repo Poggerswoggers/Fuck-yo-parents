@@ -30,7 +30,6 @@ public class NpcAnimation : MonoBehaviour
     Transform spriteTransform;
     Rigidbody2D rb;
     SpriteRenderer sR;
-    Animator anim;
     NpcStateManager nsm;
 
     // Start is called before the first frame update
@@ -42,20 +41,12 @@ public class NpcAnimation : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sR = spriteTransform.GetComponent<SpriteRenderer>();
         nsm = trans.GetComponent<NpcStateManager>();
-
-        if(spriteTransform.GetComponent<Animator>() !=null)
-        {
-            anim = spriteTransform.GetComponent<Animator>();
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (anim != null)
-        {
-            anim.SetBool("isWalking", nsm.isWalking);
-        }
+
     }
 
     public void npcAnimation()

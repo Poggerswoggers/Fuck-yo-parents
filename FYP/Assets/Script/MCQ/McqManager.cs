@@ -98,8 +98,10 @@ public class McqManager : GameBaseState
     void onPromptClick(bool correctAns, Button button)
     {
         if(correctAns)
-        {
+        {            
             questionText.text = questionScriptable.ExplanationText;
+            questionText.fontSize = (questionScriptable.ExplanationText.Length > 88) ? 50 : 60;
+
             NextButton.SetActive(true);
             DestroyQuestion();
         }

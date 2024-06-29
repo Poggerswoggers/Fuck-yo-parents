@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Minigames/CrowdControl.unity
     guid: 62bff079a08ff524a9c295fefb862ed8
   - enabled: 1
+    path: Assets/Scenes/Minigames/ThatsTheSpot.unity
+    guid: c6a11fcde073afc47850c6100e1f6cff
+  - enabled: 1
     path: Assets/Scenes/Minigames/RouteAssister.unity
     guid: db3a0a0f73c4eb94d9f38d8ea436cc0a
   m_configObjects: {}
