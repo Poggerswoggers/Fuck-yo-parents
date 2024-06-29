@@ -5,7 +5,7 @@ VAR questionName = ""
 EXTERNAL LoadQuestion(name)
 ==Ronaldo==
 ~correctAnswer = 1
-What do you want?
+Excuse me.
     *[Do you need any help?] 
         That’ll be lovely  
             ->loadMCQ
@@ -20,7 +20,7 @@ What do you want?
             ->loadMCQ
 ==Gary==
 ~correctAnswer = 1
-What do you want?
+Hello.
     *[Let me help you.] 
          I can handle myself.
             ->loadMCQ
@@ -44,6 +44,9 @@ I hate peak hours.
             -> DONE
     *[Do you see anyone that needs help?] //Hints 
         I saw someone that has CRUTCHES, I think they need some help.
+            -> DONE
+    *[Whatever it takes to get home.] //Hints 
+        Yeah, I’ll just have to squeeze in for a while.
             -> DONE
             
 
@@ -80,7 +83,7 @@ Would you rather have $1 or $2?
 ~correctAnswer = 0
 Yes?            
     *[You look slick,where did you get your clothes?]        
-        There’s someone wearing SUNGLASSES, he might need some help? 
+        From the thrift store, I like the vintage fit. 
             -> DONE
     *[Where are you headed to?]        
         I am heading to work. 
