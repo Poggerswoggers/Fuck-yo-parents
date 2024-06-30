@@ -25,8 +25,8 @@ Hello.
     *[I’ll lead the way.]
         No need to help, I got it.
             ->DONE
-    *[How much does that stick cost?]
-        Get out of my way.
+    *[Would you like me to help you?]
+        That’ll be nice. 
             ->DONE
     *[How many fingers am I holding up?]
         That’s not very nice.

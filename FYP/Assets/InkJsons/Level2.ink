@@ -2,7 +2,54 @@
 
 VAR correctAnswer = ""
 
-
+==YuYuan==
+~correctAnswer = 1
+…
+    *[You seem nervous, do you need my help?]
+        Yes ,thank you.
+            -> DONE
+    *[(Judge them by looking)] 
+        (Stresses out)
+            -> DONE
+    *[Hi ! I can help you.] 
+        It’s ok!
+            -> DONE
+    *[Is something wrong?] 
+        ...
+            -> DONE
+            
+==Dave==
+~correctAnswer = 1
+(Sign language)
+    *[(Thumbs up)]
+        (Confused look) 
+            -> DONE
+    *[(Types on phone to ask if he needed help)] 
+        (Smiles at you and nods)
+            -> DONE
+    *[(Exaggerate your movement)] 
+        (Seems uneasy)
+            -> DONE
+    *[(Cover your face)] 
+        (Scratches his head) 
+            -> DONE
+            
+  ==Fatimah==
+~correctAnswer = 1
+(Seems shaken)
+    *[(Stare at her and say nothing)]
+        (Confused look) 
+            -> DONE
+    *[You look like you need help.] 
+        No, I think I can manage.
+            -> DONE
+    *[You look lost, I can help.] 
+        (She shakes her head and moves past you)
+            -> DONE
+    *[Hello, do you need my help?] 
+        I am a little lost, thanks for helping. 
+            -> DONE
+            
 ==Grace==
 ~correctAnswer = 0
 I saw someone putting their bags on the MRT seats.
