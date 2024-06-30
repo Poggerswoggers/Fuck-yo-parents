@@ -47,4 +47,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(SceneToUnload);
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

@@ -52,7 +52,7 @@ public class ThatsTheSpot : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        base.EndSequenceMethod();
+        base.UnloadedAndUpdateScore(1);
     }
 
     public void GetArea(Transform areaTransform, Transform pmdTransform)

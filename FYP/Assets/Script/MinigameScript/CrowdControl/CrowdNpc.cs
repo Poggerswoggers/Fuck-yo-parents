@@ -132,6 +132,9 @@ public class CrowdNpc: MonoBehaviour
         yield return new WaitForSeconds(10f);       //Delay die
         cc.GetQueue().RelocateAllNpc(this);         //Rearrange queue
 
+        cc.ahMaLeft++;
+
+        //Turn the other way
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;

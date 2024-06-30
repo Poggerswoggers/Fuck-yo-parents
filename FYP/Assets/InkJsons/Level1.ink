@@ -1,38 +1,36 @@
-->Seth
-
 VAR correctAnswer = ""
-VAR questionName = ""
-EXTERNAL LoadQuestion(name)
+
+
 ==Ronaldo==
 ~correctAnswer = 1
 Excuse me.
     *[Do you need any help?] 
         That’ll be lovely  
-            ->loadMCQ
+            ->DONE
     *[(Starts laughing at them)]
         What's so funny? Don’t bother me! 
-            ->loadMCQ
+            ->DONE
     *[How much does that stick cost?]
         Get out of my way.
-            ->loadMCQ
+            ->DONE
     *[Bet I could outrun you.]
         Anyone can outrun me, move.
-            ->loadMCQ
+            ->DONE
 ==Gary==
 ~correctAnswer = 1
 Hello.
     *[Let me help you.] 
          I can handle myself.
-            ->loadMCQ
+            ->DONE
     *[I’ll lead the way.]
         No need to help, I got it.
-            ->loadMCQ
+            ->DONE
     *[How much does that stick cost?]
         Get out of my way.
-            ->loadMCQ
+            ->DONE
     *[How many fingers am I holding up?]
         That’s not very nice.
-            ->loadMCQ
+            ->DONE
 
          
 

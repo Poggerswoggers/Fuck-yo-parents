@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public abstract class BaseMiniGameClass : MonoBehaviour
 {
-    protected int score { get; set;}
+    protected int score;
     public bool isGameActive = false;  //Game Start bool
 
     public bool isGameOver { get; set; }
@@ -45,9 +45,11 @@ public abstract class BaseMiniGameClass : MonoBehaviour
         StartCoroutine(InstructionCo());
     }
 
-    public virtual void EndSequenceMethod()
+    public abstract void EndSequenceMethod();
+
+    protected void UnloadedAndUpdateScore(int i)
     {
-        ScoreManager.Instance.UnloadAddictiveScene();
+        ScoreManager.Instance.UnloadAddictiveScene(i);
     }
 
 

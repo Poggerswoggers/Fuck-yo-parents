@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PassengerCollision : MonoBehaviour
 {
-    public HeadTilt HeadTilt;
-
+    [SerializeField] HeadTilt HeadTilt;
     private void Start()
     {
         HeadTilt = HeadTilt.GetComponent<HeadTilt>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ScoreManager.Instance.OnScoreChange?.Invoke(250);        
+        //ScoreManager.Instance.OnScoreChange?.Invoke(250);        
         HeadTilt.HitPassenger();
     }
 }

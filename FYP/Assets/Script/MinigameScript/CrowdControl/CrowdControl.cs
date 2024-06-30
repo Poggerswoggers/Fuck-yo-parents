@@ -43,6 +43,7 @@ public class CrowdControl : BaseMiniGameClass
     [SerializeField] NpcScriptable ahmaScriptable;
 
     int ahmaIndex = 4;
+    public int ahMaLeft { get; set; }
 
     [Header("Prefabs")]
     [SerializeField] GameObject npcPrefab;
@@ -181,8 +182,8 @@ public class CrowdControl : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        Debug.Log("w");
-        base.EndSequenceMethod();
+        score = 2000 - (15 - npcCleared) * 100 - ahMaLeft * 200;
+        base.UnloadedAndUpdateScore(score);
     }
 
     public NpcQueue GetQueue(){

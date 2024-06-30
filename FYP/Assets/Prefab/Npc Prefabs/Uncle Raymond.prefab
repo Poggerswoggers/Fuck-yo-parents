@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasBounce: 1
-  _dialogueKnotName: Raymond
+  _dialogueKnotName: UncleTan
   npcAnim: {fileID: 8686431809043388173}
   question: {fileID: 0}
   roamState:
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 190537659384255643}
   - component: {fileID: 5142355296868624921}
   m_Layer: 0
-  m_Name: Yu Hui
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

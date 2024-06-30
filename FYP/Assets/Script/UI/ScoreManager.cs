@@ -13,7 +13,11 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] int maxScore;
     [SerializeField] int levelScore;
+
+    [Header("Scores")]
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI minigameScoreText;
+
     GameObject scoreParent;
 
     int addictiveScene;
@@ -30,6 +34,9 @@ public class ScoreManager : MonoBehaviour
     }
 
     int minigameCount;
+
+    [Header("Level End Panel")]
+    [SerializeField] GameObject levelEndPanel;
 
     private void Awake()
     {
@@ -78,17 +85,47 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void UnloadAddictiveScene()
-    {
-        scoreParent.SetActive(true);
+    public void UnloadAddictiveScene(int score)
+    {       
         SceneManager.UnloadSceneAsync(addictiveScene);
+
+        minigameCount--;
+        StartCoroutine(UpdateScoreMinigameCo(score));
         gSm.ChangeStat(gSm.snapState);
-        gSm.ClearNpc();
+        gSm.ClearNpc();        
     }
+
     public void loadAddictiveScene(int sceneId)
     {
         scoreParent.SetActive(false);
         addictiveScene = sceneId;
         SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
+    }
+
+    IEnumerator UpdateScoreMinigameCo(int scoreDiff)        //Lerp the score because idk how to show a tween value :(
+    {
+        levelScore += scoreDiff;
+
+        scoreParent.SetActive(true);
+        minigameScoreText.gameObject.SetActive(true);
+        float elapsedLerp = 0;
+        float _pointsGained = 0;
+
+        while (elapsedLerp < 1.5f)
+        {
+            _pointsGained = Mathf.Lerp(_pointsGained, scoreDiff, elapsedLerp / 1.5f);
+            minigameScoreText.text = _pointsGained.ToString("000");
+            elapsedLerp += Time.deltaTime;
+
+            yield return null;
+        }
+        minigameScoreText.gameObject.SetActive(false);
+        scoreText.text = "SCORE:" + levelScore.ToString();
+
+        if(minigameCount == 0) { EndLevel(); }  //End level
+    }
+    void EndLevel()
+    {
+        levelEndPanel.SetActive(true);
     }
 }

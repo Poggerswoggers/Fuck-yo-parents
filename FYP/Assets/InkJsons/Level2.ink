@@ -1,8 +1,6 @@
-->Jolin
+->Isaac
 
 VAR correctAnswer = ""
-VAR questionName = ""
-EXTERNAL LoadQuestion(name)
 
 
 ==Grace==
@@ -54,20 +52,55 @@ Urm, hi there! Do you need help?
             -> DONE
             
             
+==Jayden==
+~correctAnswer = 0
+Hello There!
+    *[Have you seen anyone who could use some help?]
+        Be patient and look closely, I think someone might be NERVOUS.
+        ->DONE
+    *[Give me your best joke!]
+        I failed my spelling… so my teacher said: Simei (see me) after school!
+        ->DONE
+    *[Where are you rushing off to?]
+        Back home to play games duh. I need to level up for the rewards!
+        ->DONE
+    *[Get out of the way man!]
+        Wow that’s rude.
+        ->DONE
+
+        
+==UncleTan==
+~correctAnswer = 0
+Walao! Why should we take public transport?
+    *[So we can be more environmentally friendly]
+        Nice one! Public Transport is a more environmentally friendly travel option than private cars and ride-hailing.
+        ->DONE
+    *[So we can sit eat and drink]
+        I don’t think so though. You will be fined
+        ->DONE
+    *[So we can chat loudly with our friends]
+        That isn’t very considerate of you. Remember that you are commuting with others!
+        ->DONE
+    *[So we could sleep when commuting]
+        You should be alert to people who might need help! So you could give out seats to people who need it.
+        ->DONE
+
+
+==Isaac==
+~correctAnswer = 0
+Yes?
+    *[What are you listening to?]
+        New Jeans Hype Boy
+        ->DONE
+    *[Are you deaf]
+        Woah that’s rude…How could you make assumptions just like that?
+        ->DONE
+    *[Do you need any help?]
+        Nope, but I did see someone walk past me with a HEARING AID.
+        ->DONE
+    *[I like your keychains]
+        Thank you, I’m trying to collect more animals!
+        ->DONE
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-==loadMCQ==
-->DONE

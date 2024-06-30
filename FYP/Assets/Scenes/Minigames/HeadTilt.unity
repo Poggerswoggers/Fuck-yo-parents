@@ -2140,6 +2140,7 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 1306455331}
+  Strikes: 3
   forceAmount: 35
   fallThreshold: 2
   maxFallingTorque: 3
@@ -2150,7 +2151,7 @@ MonoBehaviour:
   EyeOpen: {fileID: 21300000, guid: cdf72368efab69744aece814ac10c868, type: 3}
   awakeTime: 0.7
   slider: {fileID: 1456610403}
-  gameTIme: 20
+  gameTIme: 5
 --- !u!4 &1133560778
 Transform:
   m_ObjectHideFlags: 0
@@ -2426,7 +2427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1306455332
 Transform:
   m_ObjectHideFlags: 0

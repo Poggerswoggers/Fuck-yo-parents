@@ -4,7 +4,10 @@ using UnityEngine;
 using System;
 
 public class HeadTilt : BaseMiniGameClass
-{   
+{
+    [Header("Strike")]
+    [SerializeField] int Strikes;
+    
     [Header("MiniGame Settings")]
     [SerializeField] float forceAmount = 10f;
     private Rigidbody2D rb;
@@ -64,32 +67,26 @@ public class HeadTilt : BaseMiniGameClass
 
     public override void UpdateGame()
     {
-        if(isGameOver && isGameActive)
-        {           
-            rb.bodyType = RigidbodyType2D.Static;
+        if (isGameOver) return;
+        if (Input.GetMouseButtonDown(0))
+        {
+            rb.AddTorque(forceAmount * CheckMouseSide());
+            awakeTime = _awakeTime;
+            awake = true;
+
+            minFallingTorque *= 1.02f;
+        }
+        if (awakeTime > 0 && awake)
+        {
+            sr.sprite = EyeOpen;
+            awakeTime -= Time.deltaTime;
         }
         else
-        {            
-            if (Input.GetMouseButtonDown(0))
-            {
-                rb.AddTorque(forceAmount * CheckMouseSide());
-                awakeTime = _awakeTime;
-                awake = true;
-
-                minFallingTorque *= 1.02f;
-            }
-            if (awakeTime > 0 && awake)
-            {
-                sr.sprite = EyeOpen;
-                awakeTime -= Time.deltaTime;
-            }
-            else
-            {
-                awake = false;
-                sr.sprite = Eyeclosed;
-            }
-        }       
-
+        {
+            awake = false;
+            sr.sprite = Eyeclosed;
+        }
+             
         //rb.AddTorque(-Mathf.Sign(transform.rotation.eulerAngles.z) * fallAmount*0.05f);
     }
 
@@ -102,6 +99,12 @@ public class HeadTilt : BaseMiniGameClass
 
     private void FixedUpdate()
     {
+        if(isGameOver)
+        {
+            rb.AddTorque(-Mathf.Sign(rotationZ) * fallTorque*10f);
+            if(Mathf.Abs(rotationZ) <= 0.5) { rb.bodyType = RigidbodyType2D.Static; }
+        }
+
         if (!isGameActive) return;
         rotationZ = transform.rotation.eulerAngles.z;
         if (rotationZ > 180)
@@ -120,6 +123,7 @@ public class HeadTilt : BaseMiniGameClass
 
     public void HitPassenger()
     {
+        Strikes++;
         rb.AddTorque(forceAmount * Mathf.Sign(rotationZ)*30);
     }
 
@@ -128,8 +132,11 @@ public class HeadTilt : BaseMiniGameClass
     {
         Debug.Log("Game Over");
         sr.sprite = EyeOpen;
-        base.EndSequenceMethod();
-        //LeanTween.reset();
-        //LeanTween.rotateZ(gameObject, 0, 0.3f);
+        StartCoroutine(EndSequenceCo());
+    }
+    IEnumerator EndSequenceCo()
+    {
+        yield return new WaitForSeconds(2f);
+        base.UnloadedAndUpdateScore(2000 - Strikes*100);
     }
 }
