@@ -21,6 +21,9 @@ public class RouteAssister : BaseMiniGameClass
     List<string> numberAlpha = new List<string> { "1st", "2nd", "3rd", "4th"}; //A list to store string
     List<int> fakeRoute = new List<int> { 198, 502, 69 };
     public int clear = 0; //Number of correct option to match with scriptable
+
+    //Ask Panel
+    [SerializeField] GameObject askPanel;
     
     [Header("Scriptable Object List")]
     [SerializeField] List<Destinations> destinationsScriptable;  //A list of all routes
@@ -54,12 +57,14 @@ public class RouteAssister : BaseMiniGameClass
     }
     public override void EndSequenceMethod()
     {
-        
+        base.UnloadedAndUpdateScore(score);
     }
 
     public override void StartGame()
     {
         destinationsScriptable = ShuffleList(destinationsScriptable);    //Shuffle the list
+
+        score = 2000;  //suvject to change
 
         StartCoroutine(StartSequence());
         isGameActive = true;    //Set is game active
@@ -73,10 +78,11 @@ public class RouteAssister : BaseMiniGameClass
         destinationsScriptable.RemoveAt(0);
 
         //Cool transition sequence
+        map.GetComponent<SpriteRenderer>().sprite = currentDes.map;
         map.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         mapCam.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
         cam.m_Lens.OrthographicSize = 6;
         mapCam.gameObject.SetActive(false);
         map.SetActive(false);
@@ -91,7 +97,10 @@ public class RouteAssister : BaseMiniGameClass
 
     void SetGame()
     {
-        for(int i =0; i<currentDes.busRoutes.Count; i++)   //Set the text active and have the blanks
+        askPanel.SetActive(true);
+        askPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"How can I get to <u><color=green> {currentDes.destinationName}</u></color>?";  
+
+        for (int i =0; i<currentDes.busRoutes.Count; i++)   //Set the text active and have the blanks
         {
             GameObject _text = directorPanel.transform.GetChild(i).gameObject;
             _text.SetActive(true);
@@ -145,13 +154,16 @@ public class RouteAssister : BaseMiniGameClass
 
         if(index == currentDes.busRoutes.Count-1)   //if index = 2 means filled out route choices
         {
-
-            rounds--;
-            if(rounds>0)
+            CheckIfMatch();
+            if (rounds>0)
             {
+                rounds--;
                 StartCoroutine(NextRound());
             }
-            CheckIfMatch();   
+            else
+            {
+                gameManager.OnGameOver();
+            }
         }
         index++;
     }
@@ -159,6 +171,7 @@ public class RouteAssister : BaseMiniGameClass
     {
         busOptionPanels.SetActive(false);
         directorPanel.SetActive(false);
+        askPanel.SetActive(false);
         LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(1f);
         //Reset button listener
         ResetButton();    
@@ -170,12 +183,10 @@ public class RouteAssister : BaseMiniGameClass
     void CheckIfMatch()
     { 
         if(clear == currentDes.busRoutes.Count){
-            Debug.Log("w");
+            score += 500;
         }
         else{
-            Debug.Log("L");
+            score -= 500;
         }
     }
-
-
 }

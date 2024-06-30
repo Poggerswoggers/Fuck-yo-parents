@@ -127,7 +127,9 @@ public class PmdController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         moveX = 0;
-        moveSpeed = 0;
+        moveY = 0;
+
+        minigameRef.GetArea(targetArea.transform, this.transform);
     }
 
     public void ResetAttempt()

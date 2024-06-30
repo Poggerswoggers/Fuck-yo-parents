@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9be04a6fa34154e89a73cae972511a, type: 3}
   m_Name: Bouna Vista
   m_EditorClassIdentifier: 
+  destinationName: Bouna Vista
   busRoutes: b9000000f60100004e010000
+  map: {fileID: 21300000, guid: bb890a1786d93d547879fa6f8ba29331, type: 3}

@@ -14,9 +14,14 @@ public class GameStateManager : MonoBehaviour
     public DialogueManager dialogueStat;
     public McqManager mcqState;
 
-
+    [Header("Audio")]
+    [SerializeField] AudioClip levelMusic;
     private void Start()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
         currentState = snapState;
         currentState.EnterState(this);
     }

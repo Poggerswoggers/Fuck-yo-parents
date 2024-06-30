@@ -7,6 +7,7 @@ using TMPro;
 public class ThatsTheSpot : BaseMiniGameClass
 {
     [SerializeField]float tries = 2;
+    [SerializeField] List<GameObject> triesObject;
     bool tried;
 
     [SerializeField] Transform targetTransform;
@@ -19,6 +20,8 @@ public class ThatsTheSpot : BaseMiniGameClass
     public float overlapArea;
 
     [SerializeField] TextMeshProUGUI percentageText;
+
+    int liveScore;
 
     public struct points
     {
@@ -52,7 +55,9 @@ public class ThatsTheSpot : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        base.UnloadedAndUpdateScore(1);
+        score = liveScore*10;
+        Debug.Log(score);
+        base.UnloadedAndUpdateScore(score);
     }
 
     public void GetArea(Transform areaTransform, Transform pmdTransform)
@@ -65,17 +70,21 @@ public class ThatsTheSpot : BaseMiniGameClass
         {
             tried = true;
             StartCoroutine(RetrySequenceCo(pmdTransform.GetComponent<PmdController>()));
+            triesObject[(int)tries].SetActive(false);
         }
     }
     IEnumerator RetrySequenceCo(PmdController pmdC)
     {
         yield return new WaitForSeconds(3f);
-        if(tries >0)
+        liveScore += Mathf.RoundToInt(overlapArea * 100);
+        if (tries >0)
         {
             tries--;
             percentageText.gameObject.SetActive(false);
             pmdC.ResetAttempt();
             tried = false;
+
+            overlapArea = 0;
         }
         else
         {
