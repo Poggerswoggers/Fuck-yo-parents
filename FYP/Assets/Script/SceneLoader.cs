@@ -30,6 +30,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     public void BackToMain() {
+        audioManager.PlaySFX(audioManager.clickSound);
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -39,10 +40,12 @@ public class SceneLoader : MonoBehaviour
     }
 
     public void ResetAll() {
+        audioManager.PlaySFX(audioManager.clickSound);
         confirmScreen.gameObject.SetActive(true);
     }
 
     public void DenyReset() {
+        audioManager.PlaySFX(audioManager.clickSound);
         confirmScreen.gameObject.SetActive(false);
     }
 
