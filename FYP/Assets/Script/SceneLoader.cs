@@ -8,15 +8,24 @@ public class SceneLoader : MonoBehaviour
 {
     public Image confirmScreen;
 
+    AudioManager audioManager;
+
+    public void Awake() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        }
+
     public void LevelSelect() {
+        audioManager.PlaySFX(audioManager.clickSound);
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void Credits() {
+        audioManager.PlaySFX(audioManager.clickSound);
         SceneManager.LoadScene("Credits");
     }
 
     public void Settings() {
+        audioManager.PlaySFX(audioManager.clickSound);
         SceneManager.LoadScene("Settings");
     }
 
