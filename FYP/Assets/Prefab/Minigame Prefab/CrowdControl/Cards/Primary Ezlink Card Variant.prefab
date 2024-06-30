@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 2869606908024322764, guid: 3fa8484114f32494d81cc853d0734fc3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1d57ae8df8828db46a6b9fb5b91ecf57, type: 3}
+      objectReference: {fileID: 21300000, guid: 0510742901ced664b9dc3b32a9e33b8f, type: 3}
     - target: {fileID: 3583125696126749011, guid: 3fa8484114f32494d81cc853d0734fc3, type: 3}
       propertyPath: m_Name
       value: Primary Ezlink Card Variant

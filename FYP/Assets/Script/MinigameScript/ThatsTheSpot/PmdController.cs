@@ -5,8 +5,10 @@ using System;
 
 public class PmdController : MonoBehaviour
 {
+    bool canDrive = true;
+
     private Vector3 MoveForce;
-    public float _moveSpeed;
+    [SerializeField] float _moveSpeed;
     private float moveSpeed;
     public float traction = 1;
 
@@ -21,17 +23,7 @@ public class PmdController : MonoBehaviour
     //origin
     Vector3 originPos;
 
-    public Action touchDown
-    {
-        get 
-        {
-            return touchDown;
-        }
-        set
-        {
-            touchDown = value;
-        }
-    }
+
     //Reference
     [SerializeField] PrecisionSlider slider;
     [SerializeField] ThatsTheSpot minigameRef;
@@ -56,8 +48,9 @@ public class PmdController : MonoBehaviour
 
     void SetInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canDrive)
         {
+            canDrive = false;
             moveY =1;
             moveX = TurnTowardsTarget();
         }
@@ -77,7 +70,7 @@ public class PmdController : MonoBehaviour
         {
             steeringAngle *= 0.7f;
         }
-        else if (Mathf.Abs(slider.GetSliderPoint() - 0.5f) > 0.05f)
+        else if (Mathf.Abs(slider.GetSliderPoint() - 0.5f) > 0.08f)
         {
             steeringAngle *= 0.85f;
         }
@@ -134,6 +127,7 @@ public class PmdController : MonoBehaviour
 
     public void ResetAttempt()
     {
+        canDrive = true;
         transform.position = originPos;
         transform.rotation = Quaternion.identity;
         moveSpeed = _moveSpeed;

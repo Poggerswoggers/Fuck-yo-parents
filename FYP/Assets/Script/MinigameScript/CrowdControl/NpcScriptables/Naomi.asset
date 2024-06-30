@@ -15,3 +15,4 @@ MonoBehaviour:
   npcSprite: {fileID: 21300000, guid: 00ef125438f35cd41aac1acee6174b3c, type: 3}
   cardObjects:
   - {fileID: 8469896416037950454, guid: b7e6d79d7b7519e42972dd1443ce136d, type: 3}
+  - {fileID: 3621498026535673055, guid: bb54df3668560e749ae3ca065405799a, type: 3}

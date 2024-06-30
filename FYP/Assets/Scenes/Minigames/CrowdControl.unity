@@ -600,6 +600,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43c6707ae63f5764981204ab9c2d8c49, type: 2}
   - {fileID: 11400000, guid: b0ac389ce1eb9184686963dbaa294409, type: 2}
   - {fileID: 11400000, guid: 846e84ba6493e8b48bc5ce252f7599e0, type: 2}
+  - {fileID: 11400000, guid: 09749f69e19804a4b9ebf2bf03729344, type: 2}
   - {fileID: 11400000, guid: 1e36dbb3d13799545ac1874c58f905a1, type: 2}
   - {fileID: 11400000, guid: 2ca4637147185f44f921a3e7fbee309d, type: 2}
   - {fileID: 11400000, guid: 1e36dbb3d13799545ac1874c58f905a1, type: 2}
@@ -607,7 +608,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 846e84ba6493e8b48bc5ce252f7599e0, type: 2}
   - {fileID: 11400000, guid: ce202e32855bfd741bf29073e142b6d3, type: 2}
   - {fileID: 11400000, guid: 43c6707ae63f5764981204ab9c2d8c49, type: 2}
-  - {fileID: 11400000, guid: b0ac389ce1eb9184686963dbaa294409, type: 2}
+  - {fileID: 11400000, guid: 09749f69e19804a4b9ebf2bf03729344, type: 2}
   ahmaScriptable: {fileID: 11400000, guid: e624516469d0b30479f52de290781122, type: 2}
   npcPrefab: {fileID: 1999079495521488809, guid: 295265919bd017249a93a13078f81787, type: 3}
   timer: {fileID: 1423356634}
