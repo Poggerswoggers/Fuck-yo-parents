@@ -7,30 +7,28 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     public Image confirmScreen;
-
-    AudioManager audioManager;
+    [SerializeField] AudioClip clickSound; 
 
     public void Awake() {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         }
 
     public void LevelSelect() {
-        audioManager.PlaySFX(audioManager.clickSound);
+        AudioManager.instance.PlaySFX(clickSound);
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void Credits() {
-        audioManager.PlaySFX(audioManager.clickSound);
+        AudioManager.instance.PlaySFX(clickSound);
         SceneManager.LoadScene("Credits");
     }
 
     public void Settings() {
-        audioManager.PlaySFX(audioManager.clickSound);
+        AudioManager.instance.PlaySFX(clickSound);
         SceneManager.LoadScene("Settings");
     }
 
     public void BackToMain() {
-        audioManager.PlaySFX(audioManager.clickSound);
+        AudioManager.instance.PlaySFX(clickSound);
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -40,12 +38,12 @@ public class SceneLoader : MonoBehaviour
     }
 
     public void ResetAll() {
-        audioManager.PlaySFX(audioManager.clickSound);
+        AudioManager.instance.PlaySFX(clickSound);
         confirmScreen.gameObject.SetActive(true);
     }
 
     public void DenyReset() {
-        audioManager.PlaySFX(audioManager.clickSound);
+        AudioManager.instance.PlaySFX(clickSound);
         confirmScreen.gameObject.SetActive(false);
     }
 

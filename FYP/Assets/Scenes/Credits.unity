@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: f4507685821004ede8e9402864955303, type: 3}
 --- !u!114 &644329754
 MonoBehaviour:
   m_ObjectHideFlags: 0

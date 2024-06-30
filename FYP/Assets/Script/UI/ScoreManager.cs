@@ -114,7 +114,7 @@ public class ScoreManager : MonoBehaviour
         while (elapsedLerp < 1.5f)
         {
             _pointsGained = Mathf.Lerp(_pointsGained, scoreDiff, elapsedLerp / 1.5f);
-            minigameScoreText.text = _pointsGained.ToString("000");
+            minigameScoreText.text = _pointsGained.ToString("00");
             elapsedLerp += Time.deltaTime;
 
             yield return null;

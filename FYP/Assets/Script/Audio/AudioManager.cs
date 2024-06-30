@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private AudioMixer myMixer;
+
+    [Header("Audio source")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
 
-    public AudioClip clickSound; 
-    public AudioClip menuBGM;
-    public AudioClip snapSound;
+    [Header("Menu ")]
+    [SerializeField] AudioClip menuBGM;
 
     public static AudioManager instance;
 
@@ -21,14 +24,26 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-    private void Start() {
+    private void Start()
+    {
+        float music = PlayerPrefs.GetFloat("musicVolume");
+        float sfx = PlayerPrefs.GetFloat("sfxVolume");
+
+        myMixer.SetFloat("bgm", Mathf.Log10(music) * 20); // Change the min volume to 0.0001
+        myMixer.SetFloat("sfx", Mathf.Log10(sfx) * 20); // Change the min volume to 0.0001
+
         // Play bgm once app launches
         musicSource.clip = menuBGM;
         musicSource.Play();
         }
 
-    public void PlaySFX(AudioClip clip) {
+    public void PlaySFX(AudioClip clip) 
+    {        
         sfxSource.PlayOneShot(clip);
-        }
-
     }
+
+    public void PlayMusic(AudioClip clip){
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
+}
