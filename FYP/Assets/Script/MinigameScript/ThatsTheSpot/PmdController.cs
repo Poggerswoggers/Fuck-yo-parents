@@ -128,6 +128,7 @@ public class PmdController : MonoBehaviour
     public void ResetAttempt()
     {
         canDrive = true;
+        steeringAngle = 45;
         transform.position = originPos;
         transform.rotation = Quaternion.identity;
         moveSpeed = _moveSpeed;

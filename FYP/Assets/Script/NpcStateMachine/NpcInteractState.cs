@@ -24,13 +24,8 @@ public class NpcInteractState : NpcBaseState
         npcThis = npcSm.transform;
         
         rb = npcThis.GetComponent<Rigidbody2D>();
-        Initialise();
-        FindInteractTarget();  
-    }
-    void Initialise()
-    {
-        target = null;
         _chaseDur = chaseDur;
+        FindInteractTarget();  
     }
 
     public override void UpdateState(NpcStateManager npcSm)
@@ -47,7 +42,7 @@ public class NpcInteractState : NpcBaseState
 
     public override void ExitState(NpcStateManager npcSm)
     {
-        
+        target = null;
     }
     void FindInteractTarget()
     {
@@ -119,5 +114,10 @@ public class NpcInteractState : NpcBaseState
     {
         isWandering = false;
         nSm.SwitchState(state);
+    }
+
+    public override void OnCollisionEnter2D(NpcStateManager npcSm, Collision2D collision)
+    {
+       
     }
 }

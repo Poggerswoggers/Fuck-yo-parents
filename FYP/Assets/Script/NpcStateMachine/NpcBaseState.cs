@@ -16,5 +16,7 @@ public abstract class NpcBaseState
 
     public abstract void ExitState(NpcStateManager npcSm);
 
+    public abstract void OnCollisionEnter2D(NpcStateManager npcSm, Collision2D collision);
+
     //public abstract IEnumerator CoroutineState (NpcStateManager npcSm);
 }

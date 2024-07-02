@@ -929,6 +929,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1117823221079569269, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
+      propertyPath: minigameSceneIndex
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2001167517824048993, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.34
@@ -973,6 +977,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dave
       objectReference: {fileID: 0}
+    - target: {fileID: 8223508369589743446, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
+      propertyPath: question
+      value: 
+      objectReference: {fileID: 11400000, guid: e4288b7bffe8de047b3641b625108de9, type: 2}
+    - target: {fileID: 8223508369589743446, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
+      propertyPath: _dialogueKnotName
+      value: Dave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223508369589743446, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
+      propertyPath: managedReferences[2641615680123699208].sc
+      value: 
+      objectReference: {fileID: 2145099565}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

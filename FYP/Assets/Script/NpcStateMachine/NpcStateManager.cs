@@ -45,7 +45,11 @@ public class NpcStateManager: MonoBehaviour
 
         currentState = state;
         state.EnterState(this);
-        //Debug.Log(transform.name + "Switch to" + currentState);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        currentState.OnCollisionEnter2D(this, collision);
+        Debug.Log("Collide");
     }
 
     public void blud(IEnumerator coroutineMethod)

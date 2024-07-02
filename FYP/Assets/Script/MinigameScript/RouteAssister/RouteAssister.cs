@@ -68,6 +68,7 @@ public class RouteAssister : BaseMiniGameClass
 
         StartCoroutine(StartSequence());
         isGameActive = true;    //Set is game active
+        LeanTween.reset();
     }
     IEnumerator StartSequence()
     {
@@ -87,7 +88,6 @@ public class RouteAssister : BaseMiniGameClass
         mapCam.gameObject.SetActive(false);
         map.SetActive(false);
 
-        LeanTween.reset();
         LeanTween.moveX(cam.gameObject, 5.6f, 0.5f).setDelay(1f);
 
         yield return new WaitForSeconds(1.5f);

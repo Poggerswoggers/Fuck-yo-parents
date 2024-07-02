@@ -57,6 +57,8 @@ public class SnapCamera : GameBaseState
         dm = gSm.dialogueStat;
         CalculateBounds();
         Initialise();
+
+        LeanTween.reset();
     }
 
     public override void UpdateState(GameStateManager gameStateManager)

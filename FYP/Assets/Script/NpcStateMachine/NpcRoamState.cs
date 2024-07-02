@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class NpcRoamState : NpcBaseState
 {
 
@@ -56,7 +57,8 @@ public class NpcRoamState : NpcBaseState
 
     public override void ExitState(NpcStateManager npcSm)
     {
-        
+        rb.velocity = Vector2.zero;
+        nSm.npcAnim.StopWalkAnim();
     }
 
     void startWalking()
@@ -86,8 +88,6 @@ public class NpcRoamState : NpcBaseState
             int odds = Random.Range(0, 2);
             if(odds == 0)
             {
-                rb.velocity = Vector2.zero;
-                nSm.npcAnim.StopWalkAnim();
                 nSm.SwitchState(nSm.interactState);
             }
             else
@@ -121,6 +121,23 @@ public class NpcRoamState : NpcBaseState
         else if (Mathf.Abs(npcThis.position.y) < sc.CalculateBounds().y)
         {
             crossBoundY = false;
+        }
+    }
+
+    public override void OnCollisionEnter2D(NpcStateManager npcSm, Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Vector3 direction = collision.transform.position - npcThis.position;
+            
+            if(Mathf.Abs(dir.x) > 0.1)
+            {
+                dir = new Vector2(-Mathf.Sign(npcThis.position.x) * Mathf.Sin(Random.Range(0, Mathf.PI / 2)), Random.insideUnitCircle.y);
+            }
+            if (Mathf.Abs(dir.y) > 0.1)
+            {
+                dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(npcThis.position.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
+            }
         }
     }
 }

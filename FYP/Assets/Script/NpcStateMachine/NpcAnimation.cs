@@ -95,7 +95,7 @@ public class NpcAnimation : MonoBehaviour
 
     public void StopWalkAnim()
     {
-        LeanTween.reset();
+        //LeanTween.reset();
         //nsm.isWalking = false;
         spriteTransform.rotation = Quaternion.identity;
         LeanTween.moveLocal(spriteTransform.gameObject, Vector3.zero, 0.2f);

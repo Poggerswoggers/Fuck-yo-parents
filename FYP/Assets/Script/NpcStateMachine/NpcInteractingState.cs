@@ -52,4 +52,9 @@ public class NpcInteractingState : NpcBaseState
         isBusy = false;
     }
 
+    public override void OnCollisionEnter2D(NpcStateManager npcSm, Collision2D collision)
+    {
+        
+    }
+
 }
