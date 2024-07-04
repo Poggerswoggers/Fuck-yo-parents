@@ -37,7 +37,7 @@ public class DialogueManager : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
-        //infoTextField.text = "";
+        Cursor.visible = true;
         gSm = gameStateManager;
         Initialise();
         StartCoroutine(LoadDialooguePanel(dialogueKnotName));

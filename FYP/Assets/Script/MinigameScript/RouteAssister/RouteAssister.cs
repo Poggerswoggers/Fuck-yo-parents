@@ -44,17 +44,6 @@ public class RouteAssister : BaseMiniGameClass
     [SerializeField] CinemachineVirtualCamera cam;   //2 cinemachine cam for smooth transition
     [SerializeField] CinemachineVirtualCamera mapCam;
 
-    public List<Destinations> ShuffleList(List<Destinations> list) //Fisher-Yates shuffle
-    {
-        for (int i = list.Count - 1; i > 0; i--)
-        {
-            int j = Random.Range(0, i + 1);
-            Destinations temp = list[i];
-            list[i] = list[j];
-            list[j] = temp;
-        }
-        return list;
-    }
     public override void EndSequenceMethod()
     {
         base.UnloadedAndUpdateScore(score);
@@ -62,7 +51,7 @@ public class RouteAssister : BaseMiniGameClass
 
     public override void StartGame()
     {
-        destinationsScriptable = ShuffleList(destinationsScriptable);    //Shuffle the list
+        destinationsScriptable = Helper.Shuffle(destinationsScriptable);    //Shuffle the list
 
         score = 2000;  //suvject to change
 

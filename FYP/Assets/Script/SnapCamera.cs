@@ -53,6 +53,7 @@ public class SnapCamera : GameBaseState
     }
     public override void EnterState(GameStateManager gameStateManager)
     {
+        Cursor.visible = false;
         gSm = gameStateManager;
         dm = gSm.dialogueStat;
         CalculateBounds();

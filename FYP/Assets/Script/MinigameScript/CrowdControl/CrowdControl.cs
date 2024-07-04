@@ -56,18 +56,6 @@ public class CrowdControl : BaseMiniGameClass
         return cardPos;
     }
 
-    public List<NpcScriptable> ShuffleList(List<NpcScriptable> list) //Fisher-Yates shuffle
-    {
-        for (int i = list.Count - 1; i > 0; i--)
-        {
-            int j = Random.Range(0, i + 1);
-            NpcScriptable temp = list[i];
-            list[i] = list[j];
-            list[j] = temp;
-        }
-        return list;
-    }
-
     protected override IEnumerator InstructionCo()
     {
         StartGame();
@@ -78,9 +66,9 @@ public class CrowdControl : BaseMiniGameClass
     // Start is called before the first frame update
     public override void StartGame()
     {
-        npcScriptableList = ShuffleList(npcScriptableList); //Set the shuffled list
+        npcScriptableList = Helper.Shuffle(npcScriptableList); //Set the shuffled list
         
-        for (int i = 0; i<10; i++)
+        for (int i = 0; i<20; i++)
         {
             waitingQueuePositionList.Add(queueStartPos + Vector2.left * positionSize * i);  //Create list of vector2 queue positions
         }
@@ -127,7 +115,6 @@ public class CrowdControl : BaseMiniGameClass
         }
 
         npcQueue.AddNpc(npc);
-        addDelay *= 0.85f;
     }
 
     //I think this is pretty messy
@@ -162,13 +149,13 @@ public class CrowdControl : BaseMiniGameClass
             {
                 frontNpc.SelfDestruct(2); //Destroy the npc
                 npcCleared++;
+                addDelay *= 0.85f;
                 clearText.text = $"<color=#800000ff>{npcCleared}</color>/15";
                 frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
 
                 yield return new WaitForSeconds(0.2f);
                 for (int i = 0; i < cardPos.childCount; i++) { Destroy(cardPos.GetChild(i).gameObject); } //Destroy the child cards under the carpos 
-
-                
+              
             }
         }
         else
