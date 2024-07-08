@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 2.65
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 83fd08069d6483a891c37416879da45523b505d9
@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 2.65
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 83fd08069d6483a891c37416879da45523b505d9
@@ -2386,7 +2386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: yBound
-      value: 3
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: boundaryObj
