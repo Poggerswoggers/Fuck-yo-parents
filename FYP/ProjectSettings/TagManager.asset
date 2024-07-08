@@ -50,6 +50,9 @@ TagManager:
   - name: Props
     uniqueID: 4071803531
     locked: 0
+  - name: Prop Shadow
+    uniqueID: 3641029923
+    locked: 0
   - name: Floor
     uniqueID: 2827183261
     locked: 0
@@ -59,7 +62,7 @@ TagManager:
   - name: NPC
     uniqueID: 376750993
     locked: 0
-  - name: Shadow
+  - name: Background Forward Shadow
     uniqueID: 1436851591
     locked: 0
   - name: Foreground
