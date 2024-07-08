@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yu Yuan Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7244444912148459607, guid: c90e3ad3e97a5ea48b040814ef786c4a, type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8126819689531443705, guid: c90e3ad3e97a5ea48b040814ef786c4a, type: 3}
       propertyPath: m_Sprite
       value: 
