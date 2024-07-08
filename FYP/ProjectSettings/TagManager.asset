@@ -41,6 +41,30 @@ TagManager:
   - 
   - CameraConfiner
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 101252483
+    locked: 0
+  - name: Background
+    uniqueID: 3261130907
+    locked: 0
+  - name: Props
+    uniqueID: 4071803531
+    locked: 0
+  - name: Floor
+    uniqueID: 2827183261
+    locked: 0
+  - name: Background Forward
+    uniqueID: 3122200505
+    locked: 0
+  - name: NPC
+    uniqueID: 376750993
+    locked: 0
+  - name: Shadow
+    uniqueID: 1436851591
+    locked: 0
+  - name: Foreground
+    uniqueID: 1982120741
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
