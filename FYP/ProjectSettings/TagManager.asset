@@ -50,11 +50,11 @@ TagManager:
   - name: Props
     uniqueID: 4071803531
     locked: 0
-  - name: Prop Shadow
-    uniqueID: 3641029923
-    locked: 0
   - name: Floor
     uniqueID: 2827183261
+    locked: 0
+  - name: Prop Shadow
+    uniqueID: 3641029923
     locked: 0
   - name: Background Forward
     uniqueID: 3122200505
