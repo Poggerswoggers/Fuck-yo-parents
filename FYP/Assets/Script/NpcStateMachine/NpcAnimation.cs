@@ -22,8 +22,6 @@ public class NpcAnimation : MonoBehaviour
 
     [SerializeField] float flip;
 
-    [Header("Chatting")]
-    public GameObject chatBubblePrefab;
 
     //Reference
     Transform trans;
