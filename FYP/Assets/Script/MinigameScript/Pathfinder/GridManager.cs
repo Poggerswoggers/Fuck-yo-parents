@@ -9,6 +9,7 @@ public class GridManager : MonoBehaviour
 
 
     private GameObject[,] tiles;
+    [SerializeField] List<Tile> correctTile;
     public void GenerateGrid(int size, PathFinder pf)
     {
         foreach (Transform child in gridParent)
@@ -29,8 +30,19 @@ public class GridManager : MonoBehaviour
                 // Assign click event
                 int posX = x;
                 int posY = y;
+
+                if(pf.currentSequence.Contains(new Vector2Int(x, y)))
+                {
+                    tileObj.GetComponent<Tile>().correctPath = true;
+                    correctTile.Add(tileObj.GetComponent<Tile>());
+                }
                 tileObj.GetComponent<Tile>().Init(posX, posY, pf.OnTileClicked);
             }
         }
+    }
+
+    public List<Tile> GetCorrectTile()
+    {
+        return correctTile;
     }
 }

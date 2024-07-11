@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    public bool correctPath { get; set; }
     private int x, y;
     private System.Action<int, int> onClick;
 
@@ -17,5 +18,11 @@ public class Tile : MonoBehaviour
     void OnMouseDown()
     {
         onClick?.Invoke(x, y);
+        ChangeColor(Color.red);
+    }
+
+    public void ChangeColor(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
     }
 }

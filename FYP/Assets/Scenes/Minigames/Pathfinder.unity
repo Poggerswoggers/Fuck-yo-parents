@@ -353,6 +353,8 @@ MonoBehaviour:
     - {x: 0, y: 2}
   playerSequence: []
   gridSize: 2
+  delayTime: 0.5
+  correctTiles: {fileID: 5340495168701979720, guid: cb95a36b7bc0d054aa333df9e2a78c48, type: 3}
 --- !u!114 &1646991496
 MonoBehaviour:
   m_ObjectHideFlags: 0

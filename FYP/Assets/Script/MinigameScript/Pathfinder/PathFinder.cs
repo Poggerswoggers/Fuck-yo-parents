@@ -8,11 +8,12 @@ public class PathFinder : BaseMiniGameClass
 
     [SerializeField] List<CorrectSequences> sequences;
     [SerializeField] List<Vector2Int> playerSequence = new List<Vector2Int>();
-    List<Vector2Int> currentSequence { get; set;}
+    public List<Vector2Int> currentSequence { get; set;}
     int index;
 
     [SerializeField] int gridSize;
-
+    [Header("Delay Time")]
+    [SerializeField] float delayTime;
     [Header("FlashTiles")]
     [SerializeField] GameObject correctTiles;
     public override void EndSequenceMethod()
@@ -60,9 +61,17 @@ public class PathFinder : BaseMiniGameClass
 
     IEnumerator FlashCorrectSequenceCo()
     {
-        foreach(Vector2Int p in currentSequence)
+        yield return new WaitForSeconds(1f);
+        foreach(Tile p in gm.GetCorrectTile())
         {
-            GameObject wTile = Instantiate(correctTiles);
+            p.ChangeColor(Color.green);
+            yield return new WaitForSeconds(delayTime);
+        }
+
+        yield return new WaitForSeconds(delayTime * 2);      
+        foreach(Tile p in gm.GetCorrectTile())
+        {
+            p.ChangeColor(Color.white);
         }
     }
 
