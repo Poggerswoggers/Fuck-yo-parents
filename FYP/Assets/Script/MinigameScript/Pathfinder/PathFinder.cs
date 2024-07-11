@@ -8,10 +8,13 @@ public class PathFinder : BaseMiniGameClass
 
     [SerializeField] List<CorrectSequences> sequences;
     [SerializeField] List<Vector2Int> playerSequence = new List<Vector2Int>();
-    List<Vector2Int> currentSequence = new List<Vector2Int>();
+    List<Vector2Int> currentSequence { get; set;}
     int index;
 
     [SerializeField] int gridSize;
+
+    [Header("FlashTiles")]
+    [SerializeField] GameObject correctTiles;
     public override void EndSequenceMethod()
     {
         //throw new System.NotImplementedException();
@@ -38,7 +41,11 @@ public class PathFinder : BaseMiniGameClass
 
     public void IncreaseGridSize()
     {
-        gridSize++;       
+        gridSize++;
+        sequences.RemoveAt(0);
+        currentSequence = sequences[0].correctSequence;
+        playerSequence.Clear();
+        index = 0;
         gm.GenerateGrid(gridSize, this);
     }
 
@@ -47,6 +54,15 @@ public class PathFinder : BaseMiniGameClass
         for(int i =0; i< correctSequence.Count; i++)
         {
             correctSequence[i] = Vector2Check(correctSequence[i], i);
+        }
+        StartCoroutine(FlashCorrectSequenceCo());
+    }
+
+    IEnumerator FlashCorrectSequenceCo()
+    {
+        foreach(Vector2Int p in currentSequence)
+        {
+            GameObject wTile = Instantiate(correctTiles);
         }
     }
 
@@ -73,6 +89,15 @@ public class PathFinder : BaseMiniGameClass
             Debug.Log("yes");
         }
         index++;
+        CheckGridEnd();
+    }
+
+    public void CheckGridEnd()
+    {
+        if(playerSequence.Count == currentSequence.Count)
+        {
+            IncreaseGridSize();
+        }
     }
 
     [System.Serializable]
