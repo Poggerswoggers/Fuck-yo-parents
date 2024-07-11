@@ -53,6 +53,9 @@ TagManager:
   - name: Floor
     uniqueID: 2827183261
     locked: 0
+  - name: Doors
+    uniqueID: 509495921
+    locked: 0
   - name: NPC
     uniqueID: 376750993
     locked: 0
