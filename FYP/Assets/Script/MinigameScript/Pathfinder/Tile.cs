@@ -15,14 +15,19 @@ public class Tile : MonoBehaviour
         this.onClick = onClick;
     }
 
-    void OnMouseDown()
+    public void ChangeColor(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
+    }
+
+    public void OnClick()
     {
         onClick?.Invoke(x, y);
         ChangeColor(Color.red);
     }
 
-    public void ChangeColor(Color color)
+    public Vector2Int getCoord()
     {
-        GetComponent<SpriteRenderer>().color = color;
+        return new Vector2Int(x, y);
     }
 }

@@ -49,7 +49,6 @@ public class NpcStateManager: MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         currentState.OnCollisionEnter2D(this, collision);
-        Debug.Log("Collide");
     }
 
     public void blud(IEnumerator coroutineMethod)

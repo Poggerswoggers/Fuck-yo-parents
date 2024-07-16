@@ -26,12 +26,18 @@ public class PathFinder : BaseMiniGameClass
         currentSequence = sequences[0].correctSequence;
         CheckCorrectSequence(currentSequence);
         gm.GenerateGrid(gridSize, this);
-        isGameActive = true;
     }
 
     public override void UpdateGame()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null)
+            {
+                hit.transform.GetComponent<Tile>().OnClick();
+            }
+        }
     }
 
     protected override IEnumerator InstructionCo()
@@ -42,9 +48,11 @@ public class PathFinder : BaseMiniGameClass
 
     public void IncreaseGridSize()
     {
+        isGameActive = false;
         gridSize++;
         sequences.RemoveAt(0);
         currentSequence = sequences[0].correctSequence;
+        CheckCorrectSequence(currentSequence);
         playerSequence.Clear();
         index = 0;
         gm.GenerateGrid(gridSize, this);
@@ -64,7 +72,7 @@ public class PathFinder : BaseMiniGameClass
         yield return new WaitForSeconds(1f);
         foreach(Tile p in gm.GetCorrectTile())
         {
-            p.ChangeColor(Color.green);
+            int i = sequences[index].correctSequence.IndexOf(p.getCoord());
             yield return new WaitForSeconds(delayTime);
         }
 
@@ -73,6 +81,7 @@ public class PathFinder : BaseMiniGameClass
         {
             p.ChangeColor(Color.white);
         }
+        isGameActive = true;
     }
 
     Vector2Int Vector2Check(Vector2Int points, int index)

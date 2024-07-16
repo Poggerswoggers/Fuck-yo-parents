@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MinigameNpcs : MonoBehaviour
 {
-    [SerializeField] int  minigameSceneIndex;
+    [SerializeField] int minigameSceneIndex;
 
     public int GetGameIndex()
     {
