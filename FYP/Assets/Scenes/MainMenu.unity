@@ -980,8 +980,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: V1.40
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc2069f4ca7ed4c01ad903db1c9a46a9, type: 2}
-  m_sharedMaterial: {fileID: 3706865471480105655, guid: cc2069f4ca7ed4c01ad903db1c9a46a9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1688db27b04594532870328314633a98, type: 2}
+  m_sharedMaterial: {fileID: -6439388274807012715, guid: 1688db27b04594532870328314633a98, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -989,13 +989,13 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278224638
   m_fontColor: {r: 0.9960785, g: 0.5254902, b: 0, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 0.9960785, g: 0.5254902, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
