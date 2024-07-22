@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PathFinder : BaseMiniGameClass
 {
-    [SerializeField] GridManager gm;
+    [Header("Game config")]
+    [SerializeField] int tries;
 
+    [SerializeField] GridManager gm;
+    [Header("Sequence")]
     [SerializeField] List<CorrectSequences> sequences;
     [SerializeField] List<Vector2Int> playerSequence = new List<Vector2Int>();
     public List<Vector2Int> currentSequence { get; set;}
@@ -23,13 +26,16 @@ public class PathFinder : BaseMiniGameClass
 
     public override void StartGame()
     {
-        currentSequence = sequences[0].correctSequence;
-        gm.GenerateGrid(gridSize, this);
-        CheckCorrectSequence(currentSequence);
+        currentSequence = sequences[0].correctSequence;     //Current sequence
+        gm.GenerateGrid(gridSize, this);                    //Generate the grid on start
+        CheckCorrectSequence(currentSequence);              //Check sequence is valid
+
+        tries--;
     }
 
     public override void UpdateGame()
     {
+        //Mouse screen raycast to click on the tile
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -48,6 +54,7 @@ public class PathFinder : BaseMiniGameClass
 
     public void IncreaseGridSize()
     {
+        //After completing a sequence, this is called to start a new sequence
         isGameActive = false;
         gridSize++;
         sequences.RemoveAt(0);
@@ -69,6 +76,8 @@ public class PathFinder : BaseMiniGameClass
 
     IEnumerator FlashCorrectSequenceCo()
     {
+        //Flashes the correct sequence and start the game
+        //isGameActive controls whether the update loop runs
         yield return new WaitForSeconds(delayTime);
         foreach (Tile p in gm.correctTiles)
         {
@@ -77,7 +86,7 @@ public class PathFinder : BaseMiniGameClass
         }
         foreach (Tile p in gm.correctTiles)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
             p.ChangeColor(Color.white);
         }
         yield return new WaitForSeconds(delayTime);      
@@ -86,6 +95,7 @@ public class PathFinder : BaseMiniGameClass
 
     public void RearrangedSequence()
     {
+        //Rearranges the instaniated tile order to fit index order 
         int index = 0;
         Tile[] correctTilesCopy = gm.correctTiles.ToArray();
         foreach (Tile p in correctTilesCopy)
@@ -97,6 +107,7 @@ public class PathFinder : BaseMiniGameClass
             index++;
            
         }
+        //Start flash sequence
         StartCoroutine(FlashCorrectSequenceCo());
     }
 
@@ -115,6 +126,7 @@ public class PathFinder : BaseMiniGameClass
 
     public void OnTileClicked(int x, int y)
     {
+        //On tileClick event method
         Vector2Int tileVector2 = new Vector2Int(x, y);
         playerSequence.Add(tileVector2);
 
@@ -122,15 +134,27 @@ public class PathFinder : BaseMiniGameClass
         {   
             Debug.Log("yes");
         }
+        if (currentSequence[currentSequence.Count-1] == tileVector2)
+        {
+            CheckGridEnd();
+        }
         index++;
-        CheckGridEnd();
     }
 
     public void CheckGridEnd()
     {
         if(playerSequence.Count == currentSequence.Count)
         {
+           
+        }
+        if(tries > 0)
+        {
+            tries--;
             IncreaseGridSize();
+        }
+        else
+        {
+            Debug.Log("Game Over");
         }
     }
 

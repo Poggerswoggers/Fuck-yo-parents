@@ -45,8 +45,12 @@ public class SnapCamera : GameBaseState
     //Boundary Object
     [SerializeField] Transform boundaryObj;
 
-    //References
-    DialogueManager dm;
+    private void Start()
+    {
+        CamOrigin = outCamGameObject.transform.position;
+        _timeToFindNpc = timeToFindNpc;
+    }
+
     public Vector2 CalculateBounds()
     {
         var bound = boundaryObj.GetComponent<SpriteRenderer>().bounds;
@@ -56,9 +60,6 @@ public class SnapCamera : GameBaseState
     {
         Cursor.visible = false;
         gSm = gameStateManager;
-        dm = gSm.dialogueStat;
-        _timeToFindNpc = timeToFindNpc;
-        CamOrigin = outCamGameObject.transform.position;
         LeanTween.reset();
     }
 
@@ -217,8 +218,8 @@ public class SnapCamera : GameBaseState
             //X Y pan max
             float maxX = Mathf.Clamp(origin.x - difference.x, -xBound, xBound);
             float maxY = Mathf.Clamp(origin.y - difference.y, CamOrigin.y-yBound, CamOrigin.y+yBound);
-            outCam.transform.position = new Vector3(maxX, maxY, outCam.transform.position.z);
-            
+
+            outCam.transform.position = new Vector3(maxX, maxY, outCam.transform.position.z);         
         }
     }
     IEnumerator ZoomToTarget()
@@ -239,7 +240,7 @@ public class SnapCamera : GameBaseState
 
         //Set dialogue stuff to be active and pass npc parameters
         gSm.nSm = nSm;
-        gSm.ChangeStat(dm);
+        gSm.ChangeStat(gSm.dialogueStat);
     }
 
 

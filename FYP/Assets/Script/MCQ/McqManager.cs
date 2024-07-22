@@ -9,8 +9,9 @@ public class McqManager : GameBaseState
 {
     //UI elements
     [SerializeField] GameObject mcqPanel;
-    [SerializeField] GameObject NextButton;
+    [SerializeField] Button NextButton;
 
+    [Header("Ui elements")]
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] TextMeshProUGUI answerStatementText;
     [SerializeField] Image spriteHolder;
@@ -30,12 +31,16 @@ public class McqManager : GameBaseState
     public override void EnterState(GameStateManager gameStateManager)
     {
         gSm = gameStateManager;
+        
+        //Clear answerList for new ones
+        answerChoiceList.Clear();
         questionScriptable = gSm.nSm.question;  //Get the mcq scriptable object
 
-        mcqCount = questionScriptable.answerText.Length;
+        //Sets the question, sprite and get question count
+        mcqCount = questionScriptable.answerText.Length;    
         questionText.text = questionScriptable.questionText;
         spriteHolder.GetComponent<Image>().sprite = questionScriptable.characterSprite;
-
+        answerStatementText.gameObject.SetActive(false);
 
         DisplayChoices();
         mcqPanel.SetActive(true);
@@ -53,28 +58,13 @@ public class McqManager : GameBaseState
 
             bool isCorrect = false;
             isCorrect = (questionScriptable.correctOptions.Contains(i + 1));    //Determine if choice is correct based on scriptable object
-            AnswerChoice _buttonOption = new AnswerChoice(button, isCorrect, i + 1);        
-            button.onClick.AddListener(() => onPromptClick(_buttonOption));     
+            AnswerChoice _buttonOption = new AnswerChoice(button, isCorrect, i + 1);    //Create new answerchoice which is map to each button    
+            button.onClick.AddListener(() => onPromptClick(_buttonOption));         
 
             //Add answerChoice instance to the list
             answerChoiceList.Add(_buttonOption);
-
-            /*switch (questionScriptable.questionType)
-            {
-                case MCQ.questionTypes.SingleChoice:
-                    isCorrect = (questionScriptable.correctOptions.Contains(i + 1));
-                    _buttonOption = new AnswerChoice(button, isCorrect, i+1);
-                    Debug.Log(isCorrect+""+ choice);
-                    button.onClick.AddListener(() => onPromptClick(_buttonOption));
-                    break;
-
-                case MCQ.questionTypes.MultiplyChoice:
-                    isCorrect = (questionScriptable.correctOptions.Contains(i+1));
-                    _buttonOption = new AnswerChoice(button, isCorrect, i+1);
-                    button.onClick.AddListener(() => onPromptClick(_buttonOption));
-                    break;
-            }*/
         }
+        NextButton.onClick.AddListener(() => LockChoices());
     }
     Button CreateButtonOption(string text)
     {
@@ -130,8 +120,9 @@ public class McqManager : GameBaseState
             answerStatementText.text = "INCORRECT";
         }
         DestroyAnswers();
+        NextButton.onClick.RemoveAllListeners();
+        NextButton.onClick.AddListener(() => GoToMiniGame());
     }
-    //Maybe set a new button
 
     public void GoToMiniGame()
     {

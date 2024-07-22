@@ -96,7 +96,7 @@ public class NpcRoamState : NpcBaseState
                 startWalking();
             }
         }
-           
+          
        
         if (Mathf.Abs(npcThis.position.x) > sc.CalculateBounds().x-borderMargin && !crossBoundX)
         {

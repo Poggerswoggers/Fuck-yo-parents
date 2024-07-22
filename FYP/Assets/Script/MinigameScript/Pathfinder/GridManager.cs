@@ -12,6 +12,8 @@ public class GridManager : MonoBehaviour
     public List<Tile> correctTiles { get; set; } = new List<Tile>();
     public void GenerateGrid(int size, PathFinder pf)
     {
+        Vector2Int parentPosition = Vector2Int.RoundToInt(gridParent.position);  //Get Grid parent position
+
         correctTiles.Clear();
         foreach (Transform child in gridParent)
         {
@@ -25,7 +27,7 @@ public class GridManager : MonoBehaviour
             for (int x = 0; x < size; x++)
             {
                 GameObject tileObj = Instantiate(tilePrefab, gridParent);
-                tileObj.transform.position = new Vector3(x, y, 0);
+                tileObj.transform.position = new Vector3(x+ parentPosition.x, y + parentPosition.y, 0);
                 tiles[x, y] = tileObj;
 
                 // Assign click event

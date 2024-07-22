@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4790855865431172674}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -131,11 +131,11 @@ MonoBehaviour:
       data:
         minSpeed: 30
         maxSpeed: 55
-        walkDuration: 20
+        walkDuration: 15
         borderMargin: 1.5
         sc: {fileID: 0}
-        bounce: 1
-        multiplier: 1.4
+        bounce: 1.2
+        multiplier: 1
     - rid: 2641615680123699209
       type: {class: NpcInteractState, ns: , asm: Assembly-CSharp}
       data:
@@ -173,7 +173,6 @@ MonoBehaviour:
   bounceDamp: 0.7
   wanderTime: 0.5
   flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
 --- !u!1 &5208989351937999270
 GameObject:
   m_ObjectHideFlags: 0

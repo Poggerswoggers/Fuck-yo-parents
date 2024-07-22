@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d7e34aadb86204a88fa81a305c1288, type: 3}
+  m_Name: Intel_1
+  m_EditorClassIdentifier: 
+  questionText: 'What should you do if you see a commuter with Intellectual Disability
+    who is lost? Select all that apply.
+
+'
+  answerText:
+  - " \rAlert an adult or the Passenger Service Office\r\n"
+  - Drag them away to where you think they should be
+  - 'Ask if they need help and help them if you can '
+  - Laugh at them
+  correctOptions: 0100000003000000
+  ExplanationText: 'Ask if they need help and help them if you know the directions.
+    If not, it may be better to ask an adult for help with the commuter.
+
+'
+  characterSprite: {fileID: 21300000, guid: f01fb803466139f4b9949b7cf8e70a31, type: 3}
+  questionType: 1

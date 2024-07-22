@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167212192}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Grid Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 167212191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.93, y: -1.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -318,7 +318,7 @@ Transform:
   m_GameObject: {fileID: 1646991493}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.09, y: -3.91, z: -0.068201415}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -339,6 +339,7 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 0}
+  tries: 2
   gm: {fileID: 1646991496}
   sequences:
   - correctSequence:
@@ -369,7 +370,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 5340495168701979720, guid: 5d64df07dbc6bcf4a93f85b7ef42f8ee, type: 3}
   gridParent: {fileID: 167212192}
-  correctTile: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -33,7 +33,6 @@ public class SceneLoader : MonoBehaviour
     }
 
     public void StoryMode(string sceneName) {
-        Debug.Log("Click");
         SceneManager.LoadScene(sceneName);
     }
 
