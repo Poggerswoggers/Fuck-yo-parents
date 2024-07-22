@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Linq;
 
 public class McqManager : GameBaseState
 {
@@ -17,10 +17,9 @@ public class McqManager : GameBaseState
     [Header("Choice Stuff")]
     [SerializeField] Button choiceButtonPrefab;
     [SerializeField] GameObject buttonContainer;
+    [SerializeField] Color selectedColor;
 
-    [Header("Answer Stuff")]
-    [SerializeField] TextMeshProUGUI answerTextPrefab;
-    [SerializeField] GameObject answerContainer;
+    List<int> playerChoice;
 
     MCQ questionScriptable;
     int mcqCount;
@@ -29,12 +28,12 @@ public class McqManager : GameBaseState
     public override void EnterState(GameStateManager gameStateManager)
     {
         gSm = gameStateManager;
-        NextButton.SetActive(false);
         questionScriptable = gSm.nSm.question;  //Get the mcq scriptable object
+
         mcqCount = questionScriptable.answerText.Length;
         questionText.text = questionScriptable.questionText;
-
         spriteHolder.GetComponent<Image>().sprite = questionScriptable.characterSprite;
+
 
         DisplayChoices();
         mcqPanel.SetActive(true);
@@ -48,76 +47,73 @@ public class McqManager : GameBaseState
         for (int i =0; i<mcqCount; i++)
         {
             var choice = questionScriptable.answerText[i];
-            var button = CreateButtonOption(choice, i);
+            var button = CreateButtonOption(choice);
 
-            if(i == questionScriptable.CorrectOption-1)
+            bool isCorrect = false;
+            AnswerChoice _buttonOption;
+            switch (questionScriptable.questionType)
             {
-                button.onClick.AddListener(() => onPromptClick(true, button));
-            }
-            else
-            {
-                button.onClick.AddListener(() => onPromptClick(false, button));
+                case MCQ.questionTypes.SingleChoice:
+                    isCorrect = (i == questionScriptable.CorrectOption - 1);
+                    _buttonOption = new AnswerChoice(button, isCorrect, i);
+                    button.onClick.AddListener(() => onPromptClick(_buttonOption));
+                    break;
+
+                case MCQ.questionTypes.MultiplyChoice:
+                    isCorrect = (questionScriptable.correctOptions.Contains(i+1));
+                    _buttonOption = new AnswerChoice(button, isCorrect, i);
+                    Debug.Log(isCorrect);
+                    button.onClick.AddListener(() => onPromptClick(_buttonOption));
+                    break;
             }
         }
-
     }
-
-    Button CreateButtonOption(string text, int index)
+    Button CreateButtonOption(string text)
     {
         var choiceButton = Instantiate(choiceButtonPrefab);
         choiceButton.transform.SetParent(buttonContainer.transform, false);
         var buttonText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
-
-        var answerText = Instantiate(answerTextPrefab);
-        answerText.transform.SetParent(answerContainer.transform, false);
-        var _answerText = answerText.GetComponentInChildren<TextMeshProUGUI>();
-
-        switch (index)
-        {
-            case 0: 
-                buttonText.text = "A";
-                _answerText.text = "A: " + text;
-                break;
-            case 1:
-                buttonText.text = "B";
-                _answerText.text = "B: " + text;
-                break;
-            case 2:
-                buttonText.text = "C";
-                _answerText.text = "C: " + text;
-                break;
-            case 3:
-                buttonText.text = "D";
-                _answerText.text = "D: " + text;
-                break;
-
-        }
+        buttonText.text = text;
+        //((char)('A' + index)) + ": "
         return choiceButton;
     }
 
-    void onPromptClick(bool correctAns, Button button)
+    void onPromptClick(AnswerChoice answerChoice)
     {
-        if(correctAns)
-        {            
-            questionText.text = questionScriptable.ExplanationText;
-            questionText.fontSize = (questionScriptable.ExplanationText.Length > 88) ? 50 : 60;
-
-            NextButton.SetActive(true);
-            DestroyQuestion();
-        }
-        else
+        switch (questionScriptable.questionType)
         {
-            ScoreManager.Instance.OnScoreChange?.Invoke(500);
-            Destroy(button.gameObject);
+            case MCQ.questionTypes.SingleChoice:
+                break;
+            case MCQ.questionTypes.MultiplyChoice:
+                answerChoice.selected = !answerChoice.selected;
+                if (answerChoice.selected)
+                {
+                    answerChoice.thisButton.image.color = selectedColor;
+                    playerChoice.Add(answerChoice.index);
+                }
+                else
+                {
+                    answerChoice.thisButton.image.color = Color.white;
+                    playerChoice.Remove(answerChoice.index);
+                }
+                break;
         }
     }
+
+    public void LockChoices()
+    {
+        if (questionScriptable.correctOptions.OrderBy(x => x).SequenceEqual(playerChoice.OrderBy(x => x)))
+        {
+            Debug.Log("correct");
+        }
+    }
+    //Maybe set a new button
 
     public void GoToMiniGame()
     {
         mcqPanel.SetActive(false);
         int index = gSm.nSm.GetComponent<MinigameNpcs>().GetGameIndex();
         ScoreManager.Instance.loadAddictiveScene(index);
-
     }
     void DestroyQuestion()
     {
@@ -126,10 +122,6 @@ public class McqManager : GameBaseState
             foreach (var button in buttonContainer.GetComponentsInChildren<Button>())
             {
                 Destroy(button.gameObject);
-            }
-            foreach (var text in answerContainer.GetComponentsInChildren<TextMeshProUGUI>())
-            {
-                Destroy(text.gameObject);
             }
         }
     }
@@ -141,5 +133,18 @@ public class McqManager : GameBaseState
     public override void ExitState(GameStateManager gameStateManager)
     {
         
+    }
+}
+internal class AnswerChoice
+{
+    public readonly Button thisButton;
+    public readonly bool isCorrect;
+    public readonly int index;
+    public bool selected;
+    public AnswerChoice(Button refButton, bool isCorrect, int index)
+    {
+        thisButton = refButton;
+        this.isCorrect = isCorrect;
+        this.index = index;
     }
 }

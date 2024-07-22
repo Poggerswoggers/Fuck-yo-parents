@@ -120,9 +120,10 @@ public class CrowdControl : BaseMiniGameClass
     //I think this is pretty messy
     public override void UpdateGame()
     {
-        if (Input.GetMouseButtonDown(1) && npcQueue.GetFirstInQueue() != null && npcQueue.GetFirstInQueue().activeCard != null)
+        float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+        if (Mathf.Abs(scrollDelta)>0.05f && npcQueue.GetFirstInQueue() != null && npcQueue.GetFirstInQueue().activeCard != null)
         {
-            npcQueue.GetFirstInQueue().SwitchActiveCard(); //Swap card
+            npcQueue.GetFirstInQueue().SwitchActiveCard(Mathf.Sign(scrollDelta)); //Swap card
         }
 
         _tapDelay -= Time.deltaTime;

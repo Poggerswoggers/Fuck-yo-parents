@@ -9,10 +9,10 @@ public class GridManager : MonoBehaviour
 
 
     private GameObject[,] tiles;
-    [SerializeField] List<Tile> currentTiles;
+    public List<Tile> correctTiles { get; set; } = new List<Tile>();
     public void GenerateGrid(int size, PathFinder pf)
     {
-        currentTiles.Clear();
+        correctTiles.Clear();
         foreach (Transform child in gridParent)
         {
             Destroy(child.gameObject);
@@ -35,15 +35,10 @@ public class GridManager : MonoBehaviour
                 if(pf.currentSequence.Contains(new Vector2Int(x, y)))
                 {
                     tileObj.GetComponent<Tile>().correctPath = true;
-                    currentTiles.Add(tileObj.GetComponent<Tile>());
+                    correctTiles.Add(tileObj.GetComponent<Tile>());
                 }
                 tileObj.GetComponent<Tile>().Init(posX, posY, pf.OnTileClicked);
             }
         }
-    }
-
-    public List<Tile> GetCorrectTile()
-    {
-        return currentTiles;
     }
 }

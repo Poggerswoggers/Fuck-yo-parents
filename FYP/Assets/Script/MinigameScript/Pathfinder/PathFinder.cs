@@ -24,8 +24,8 @@ public class PathFinder : BaseMiniGameClass
     public override void StartGame()
     {
         currentSequence = sequences[0].correctSequence;
-        CheckCorrectSequence(currentSequence);
         gm.GenerateGrid(gridSize, this);
+        CheckCorrectSequence(currentSequence);
     }
 
     public override void UpdateGame()
@@ -52,10 +52,10 @@ public class PathFinder : BaseMiniGameClass
         gridSize++;
         sequences.RemoveAt(0);
         currentSequence = sequences[0].correctSequence;
-        CheckCorrectSequence(currentSequence);
         playerSequence.Clear();
         index = 0;
         gm.GenerateGrid(gridSize, this);
+        CheckCorrectSequence(currentSequence);
     }
 
     void CheckCorrectSequence(List<Vector2Int> correctSequence)
@@ -64,24 +64,40 @@ public class PathFinder : BaseMiniGameClass
         {
             correctSequence[i] = Vector2Check(correctSequence[i], i);
         }
-        StartCoroutine(FlashCorrectSequenceCo());
+        RearrangedSequence();
     }
 
     IEnumerator FlashCorrectSequenceCo()
     {
-        yield return new WaitForSeconds(1f);
-        foreach(Tile p in gm.GetCorrectTile())
+        yield return new WaitForSeconds(delayTime);
+        foreach (Tile p in gm.correctTiles)
         {
-            int i = sequences[index].correctSequence.IndexOf(p.getCoord());
-            yield return new WaitForSeconds(delayTime);
+            p.ChangeColor(Color.green);
+            yield return new WaitForSeconds(0.5f);
         }
-
-        yield return new WaitForSeconds(delayTime * 2);      
-        foreach(Tile p in gm.GetCorrectTile())
+        foreach (Tile p in gm.correctTiles)
         {
+            yield return new WaitForSeconds(0.5f);
             p.ChangeColor(Color.white);
         }
+        yield return new WaitForSeconds(delayTime);      
         isGameActive = true;
+    }
+
+    public void RearrangedSequence()
+    {
+        int index = 0;
+        Tile[] correctTilesCopy = gm.correctTiles.ToArray();
+        foreach (Tile p in correctTilesCopy)
+        {
+            int i = currentSequence.IndexOf(p.getCoord());
+            Tile tmp = correctTilesCopy[i];
+            gm.correctTiles[index] = correctTilesCopy[i];
+            correctTilesCopy[i] = tmp;
+            index++;
+           
+        }
+        StartCoroutine(FlashCorrectSequenceCo());
     }
 
     Vector2Int Vector2Check(Vector2Int points, int index)

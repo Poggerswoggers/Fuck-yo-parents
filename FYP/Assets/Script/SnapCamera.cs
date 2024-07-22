@@ -41,8 +41,9 @@ public class SnapCamera : GameBaseState
     bool drag;
     [SerializeField] float xBound;
     [SerializeField] float yBound;
+    Vector2 CamOrigin;
     //Boundary Object
-    public Transform boundaryObj;
+    [SerializeField] Transform boundaryObj;
 
     //References
     DialogueManager dm;
@@ -56,9 +57,8 @@ public class SnapCamera : GameBaseState
         Cursor.visible = false;
         gSm = gameStateManager;
         dm = gSm.dialogueStat;
-        CalculateBounds();
-        Initialise();
-
+        _timeToFindNpc = timeToFindNpc;
+        CamOrigin = outCamGameObject.transform.position;
         LeanTween.reset();
     }
 
@@ -99,11 +99,6 @@ public class SnapCamera : GameBaseState
     {
         
 
-    }
-
-    void Initialise()
-    {
-        _timeToFindNpc = timeToFindNpc;
     }
 
     private void Update()
@@ -221,7 +216,7 @@ public class SnapCamera : GameBaseState
         {
             //X Y pan max
             float maxX = Mathf.Clamp(origin.x - difference.x, -xBound, xBound);
-            float maxY = Mathf.Clamp(origin.y - difference.y, -yBound, yBound);
+            float maxY = Mathf.Clamp(origin.y - difference.y, CamOrigin.y-yBound, CamOrigin.y+yBound);
             outCam.transform.position = new Vector3(maxX, maxY, outCam.transform.position.z);
             
         }

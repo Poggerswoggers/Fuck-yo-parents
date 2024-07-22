@@ -84,10 +84,16 @@ public class CrowdNpc: MonoBehaviour
         SetActiveCardSprite();
     }
 
-    public void SwitchActiveCard()
+    public void SwitchActiveCard(float dir)
     {
-        cardIndex = (cardIndex == cardList.Count - 1) ? 0 : cardIndex+1;
-
+        cardIndex += (int)dir;
+        if (cardIndex < 0){
+            cardIndex = cardList.Count - 1;
+        }
+        else if(cardIndex > cardList.Count - 1){
+            cardIndex = 0;
+        }
+        Debug.Log(cardIndex);
         activeCard = cardList[cardIndex].card;
         SetActiveCardSprite();
     }
@@ -96,8 +102,6 @@ public class CrowdNpc: MonoBehaviour
     {
         for (int i = 0; i < cardList.Count; i++)
         {
-            //cardList[i].gameObject.SetActive(cardList[i].card == activeCard);
-
             if (cardList[i].card != activeCard)
             {
                 //cardList[i].DecreaseSortOrder();
