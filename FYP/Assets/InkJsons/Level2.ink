@@ -118,7 +118,7 @@ Hello There!
         
 ==UncleTan==
 ~correctAnswer = 0
-Walao! Why should we take public transport?
+Why should we take public transport?
     *[So we can be more environmentally friendly]
         Nice one! Public Transport is a more environmentally friendly travel option than private cars and ride-hailing.
         ->DONE
