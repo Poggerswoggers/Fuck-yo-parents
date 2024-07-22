@@ -11,7 +11,6 @@ public class MCQ : ScriptableObject
     [TextArea(2, 5)]
     public string[] answerText = new string[4];
 
-    public int CorrectOption;   //Single choice
     public List<int> correctOptions;    //Multiple choice
     [TextArea(3, 5)]
     public string ExplanationText;
