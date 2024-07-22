@@ -93,14 +93,14 @@ Yes?
 ==Garreth==  
 ~correctAnswer = 0
 Why is being caring on public transport important?            
-    *[So that we can assist commuters that needs help.]        
+    *[So that we can assist commuters who needs help.]        
         That’s right! Together, we can be Caring Commuters!
             -> DONE
     *[So we can ignore others and be focused on ourselves only.]        
         I don’t think that is right, we should not ignore others who need help!
             -> DONE
     *[So we can use our phones.]
-         That’s right. Go big!   
+        I don’t think that is right, we should not ignore others who need help!  
             -> DONE
     *[So that others can receive help when they need it.]
          That’s right! Together, we can be Caring Commuters!
