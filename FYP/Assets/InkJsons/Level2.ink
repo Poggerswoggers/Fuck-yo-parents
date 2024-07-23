@@ -118,7 +118,7 @@ Hello There!
         
 ==UncleTan==
 ~correctAnswer = 0
-Why should we take public transport?
+Aw man! Why should we take public transport?
     *[So we can be more environmentally friendly]
         Nice one! Public Transport is a more environmentally friendly travel option than private cars and ride-hailing.
         ->DONE
@@ -139,7 +139,7 @@ Yes?
     *[What are you listening to?]
         New Jeans Hype Boy
         ->DONE
-    *[Are you deaf]
+    *[Are you wearing a hearing aid?]
         Woah that’s rude…How could you make assumptions just like that?
         ->DONE
     *[Do you need any help?]
@@ -149,5 +149,100 @@ Yes?
         Thank you, I’m trying to collect more animals!
         ->DONE
             
-            
-            
+==Jason==
+~correctAnswer = 0
+What’s good cuh?
+    *[How do you make your commuting session more fun?]
+        I play games on my phone, just make sure not to disturb the other commuters when you do it though.
+        ->DONE
+    *[Have you seen someone who could use a helping hand?]
+        Take your time to observe , there could be people that are NERVOUS around you but it is not obvious.
+        ->DONE
+    *[What should I do when a train arrives?]
+        You should stand to side and allow the commuters from the train to exit before entering.
+        ->DONE
+    *[Tell me a joke.]
+        Nah fam, nobody tells me what to do, I’m a Sigma. 
+        ->DONE          
+    
+==Liyue==
+~correctAnswer = 0
+Hey!
+    *[Nothing.]
+        Oh…
+        ->DONE
+    *[Where are you going?]
+        I’m going to a music festival with my friends!
+        ->DONE
+    *[What can I do to become a better commuter?]
+        Remember and practice the 3As actively!
+        ->DONE
+        
+==Kyle==
+~correctAnswer = 0
+Skibidi.
+    *[Go away.]
+        No rizz.
+        ->DONE
+    *[What’s skibidi?]
+        Nevermind.
+        ->DONE
+    *[What are the 3As?]
+        Assess, Ask and Assist!
+        ->DONE
+        
+==Jiayan==
+~correctAnswer = 0
+What should you NOT do when you see a commuter in need e.g, commuter with physical disability, pregnant etc?
+    *[Stare at them]
+        That’s one thing to NOT do, however all the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
+        ->DONE
+    *[Laugh at them]
+        That’s one thing to NOT do, however all the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
+        ->DONE
+    *[Speak to them very loudly]
+        That’s one thing to NOT do, however all the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
+        ->DONE
+    *[All of the above]
+        Great job! All the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead. Together, we can be Caring Commuters!
+        ->DONE
+        
+==OungOung== 
+~correctAnswer = 0
+I’m Batman.
+    *[No you’re not]
+        You’re no fun.
+        ->DONE
+    *[Oh? So where are you going now?]
+        Gotham needs me.
+        ->DONE
+    *[Where is your batmobile?]
+        I sold it, since taking public transport is more environmentally friendly. 
+        ->DONE
+    *[Ok noted.]
+        Justice never sleeps!
+        ->DONE
+        
+==Fries== 
+~correctAnswer = 0
+I’m Batman.
+    *[Um…hi? Sorry I’m in a rush.]
+        Sorry to bother!
+        ->DONE
+        
+==Terence== 
+~correctAnswer = 0
+What’s up?.
+    *[The ceiling]
+        …
+        ->DONE
+    *[Hey there! Where are you headed to?]
+       I’m getting some chicken rice! 
+        ->DONE
+    *[Nothing.]
+       Huh? 
+        ->DONE
+    *[Have you seen anyone who might need help?]
+        I think someone LOOKS CONFUSED AND LOST. You might want to be patient with them too.
+        ->DONE        
+                 
