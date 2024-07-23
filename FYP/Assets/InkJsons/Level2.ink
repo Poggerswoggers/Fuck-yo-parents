@@ -149,7 +149,7 @@ Yes?
         Thank you, I’m trying to collect more animals!
         ->DONE
             
-  ==Jason==
+==Jason==
 ~correctAnswer = 0
 What’s good cuh?
     *[How do you make your commuting session more fun?]
@@ -165,7 +165,7 @@ What’s good cuh?
         Nah fam, nobody tells me what to do, I’m a Sigma. 
         ->DONE          
     
-    ==Liyue==
+==Liyue==
 ~correctAnswer = 0
 Hey!
     *[Nothing.]
@@ -178,9 +178,9 @@ Hey!
         Remember and practice the 3As actively!
         ->DONE
         
-  ==Kyle==
+==Kyle==
 ~correctAnswer = 0
-Hey!
+Skibidi.
     *[Go away.]
         No rizz.
         ->DONE
@@ -191,7 +191,7 @@ Hey!
         Assess, Ask and Assist!
         ->DONE
         
- ==Jiayan==
+==Jiayan==
 ~correctAnswer = 0
 What should you NOT do when you see a commuter in need e.g, commuter with physical disability, pregnant etc?
     *[Stare at them]
@@ -205,4 +205,44 @@ What should you NOT do when you see a commuter in need e.g, commuter with physic
         ->DONE
     *[All of the above]
         Great job! All the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead. Together, we can be Caring Commuters!
-        ->DONE          
+        ->DONE
+        
+==OungOung== 
+~correctAnswer = 0
+I’m Batman.
+    *[No you’re not]
+        You’re no fun.
+        ->DONE
+    *[Oh? So where are you going now?]
+        Gotham needs me.
+        ->DONE
+    *[Where is your batmobile?]
+        I sold it, since taking public transport is more environmentally friendly. 
+        ->DONE
+    *[Ok noted.]
+        Justice never sleeps!
+        ->DONE
+        
+==Fries== 
+~correctAnswer = 0
+I’m Batman.
+    *[Um…hi? Sorry I’m in a rush.]
+        Sorry to bother!
+        ->DONE
+        
+==Terence== 
+~correctAnswer = 0
+What’s up?.
+    *[The ceiling]
+        …
+        ->DONE
+    *[Hey there! Where are you headed to?]
+       I’m getting some chicken rice! 
+        ->DONE
+    *[Nothing.]
+       Huh? 
+        ->DONE
+    *[Have you seen anyone who might need help?]
+        I think someone LOOKS CONFUSED AND LOST. You might want to be patient with them too.
+        ->DONE        
+                 
