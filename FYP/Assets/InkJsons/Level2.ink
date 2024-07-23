@@ -139,7 +139,7 @@ Yes?
     *[What are you listening to?]
         New Jeans Hype Boy
         ->DONE
-    *[Are you deaf]
+    *[Are you wearing a hearing aid?]
         Woah that’s rude…How could you make assumptions just like that?
         ->DONE
     *[Do you need any help?]
