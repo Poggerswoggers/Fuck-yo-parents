@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PathFinder : BaseMiniGameClass
 {
@@ -9,16 +10,21 @@ public class PathFinder : BaseMiniGameClass
 
     [SerializeField] GridManager gm;
     [Header("Sequence")]
-    [SerializeField] List<CorrectSequences> sequences;
-    [SerializeField] List<Vector2Int> playerSequence = new List<Vector2Int>();
+    [SerializeField] List<CorrectSequences> sequences;  //All sequences 
+    //[SerializeField] List<Tile> playerSequence = new List<Tile>();  //Players click sequence
     public List<Vector2Int> currentSequence { get; set;}
     int index;
+    bool failed;
 
     [SerializeField] int gridSize;
     [Header("Delay Time")]
     [SerializeField] float delayTime;
     [Header("FlashTiles")]
     [SerializeField] GameObject correctTiles;
+    [Header("TileMap")] //Tilemap
+    [SerializeField] Tilemap tileMap;
+    [SerializeField] TileBase defaultTile;
+
     public override void EndSequenceMethod()
     {
         //throw new System.NotImplementedException();
@@ -26,10 +32,11 @@ public class PathFinder : BaseMiniGameClass
 
     public override void StartGame()
     {
+        score = 2000;
+
         currentSequence = sequences[0].correctSequence;     //Current sequence
         gm.GenerateGrid(gridSize, this);                    //Generate the grid on start
         CheckCorrectSequence(currentSequence);              //Check sequence is valid
-
         tries--;
     }
 
@@ -52,14 +59,18 @@ public class PathFinder : BaseMiniGameClass
         StartGame();
     }
 
-    public void IncreaseGridSize()
+    void IncreaseGridSize()
     {
         //After completing a sequence, this is called to start a new sequence
-        isGameActive = false;
         gridSize++;
         sequences.RemoveAt(0);
         currentSequence = sequences[0].correctSequence;
-        playerSequence.Clear();
+        Retry();
+    }
+    public void Retry()
+    {
+        tileMap.ClearAllTiles();
+        isGameActive = false;
         index = 0;
         gm.GenerateGrid(gridSize, this);
         CheckCorrectSequence(currentSequence);
@@ -124,17 +135,17 @@ public class PathFinder : BaseMiniGameClass
         return points;
     }
 
-    public void OnTileClicked(int x, int y)
+    public void OnTileClicked(Tile tile)
     {
         //On tileClick event method
-        Vector2Int tileVector2 = new Vector2Int(x, y);
-        playerSequence.Add(tileVector2);
+        Vector2Int pos = tile.getCoord();
+        failed = (currentSequence.IndexOf(pos) == index) ? false : true;
+        //Set Tilemap
+        Vector3Int posVec3 = tileMap.WorldToCell(tile.transform.position);
+        tileMap.SetTile(posVec3, defaultTile);
 
-        if (tileVector2 == currentSequence[index])
-        {   
-            Debug.Log("yes");
-        }
-        if (currentSequence[currentSequence.Count-1] == tileVector2)
+        //If the final tile is clicked
+        if (currentSequence[currentSequence.Count-1] == pos)
         {
             CheckGridEnd();
         }
@@ -143,18 +154,16 @@ public class PathFinder : BaseMiniGameClass
 
     public void CheckGridEnd()
     {
-        if(playerSequence.Count == currentSequence.Count)
-        {
-           
-        }
-        if(tries > 0)
+        tileMap.ClearAllTiles();
+        if (tries > 0)
         {
             tries--;
             IncreaseGridSize();
         }
         else
         {
-            Debug.Log("Game Over");
+            isGameActive = false;
+            score -= (failed) ? 500 : 0;
         }
     }
 

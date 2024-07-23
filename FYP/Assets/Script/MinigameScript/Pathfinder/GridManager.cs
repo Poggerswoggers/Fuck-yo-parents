@@ -27,19 +27,18 @@ public class GridManager : MonoBehaviour
             for (int x = 0; x < size; x++)
             {
                 GameObject tileObj = Instantiate(tilePrefab, gridParent);
-                tileObj.transform.position = new Vector3(x+ parentPosition.x, y + parentPosition.y, 0);
+                tileObj.transform.position = new Vector3(x+ parentPosition.x+0.5f, y + parentPosition.y+0.5f, 0);
                 tiles[x, y] = tileObj;
 
                 // Assign click event
-                int posX = x;
-                int posY = y;
+                Vector2Int pos = new Vector2Int(x, y);
 
                 if(pf.currentSequence.Contains(new Vector2Int(x, y)))
                 {
                     tileObj.GetComponent<Tile>().correctPath = true;
                     correctTiles.Add(tileObj.GetComponent<Tile>());
                 }
-                tileObj.GetComponent<Tile>().Init(posX, posY, pf.OnTileClicked);
+                tileObj.GetComponent<Tile>().Init(pos, pf.OnTileClicked);
             }
         }
     }
