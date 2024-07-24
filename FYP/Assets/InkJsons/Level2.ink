@@ -6,7 +6,7 @@ VAR correctAnswer = ""
 ~correctAnswer = 1
 …
     *[You seem nervous, do you need my help?]
-        Yes ,thank you.
+        Yes ,thank you. (You slowly guide her to a nearby station staff)
             -> DONE
     *[(Judge them by looking)] 
         (Stresses out)
@@ -25,7 +25,7 @@ VAR correctAnswer = ""
         (Confused look) 
             -> DONE
     *[(Types on phone to ask if he needed help)] 
-        (Smiles at you and nods)
+        (Smiles at you and nods, as you guided him to the exit)
             -> DONE
     *[(Exaggerate your movement)] 
         (Seems uneasy)
@@ -47,7 +47,7 @@ VAR correctAnswer = ""
         (She shakes her head and moves past you)
             -> DONE
     *[Hello, do you need my help?] 
-        I am a little lost, thanks for helping. 
+        I am a little lost, thanks for helping. (She gave you her CARA card as you contact her family members.)
             -> DONE
             
 ==Grace==
