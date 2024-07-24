@@ -11,7 +11,7 @@ public class PathFinder : BaseMiniGameClass
     [SerializeField] GridManager gm;
     [Header("Sequence")]
     [SerializeField] List<CorrectSequences> sequences;  //All sequences 
-    //[SerializeField] List<Tile> playerSequence = new List<Tile>();  //Players click sequence
+    List<Vector2Int> playerSequence = new List<Vector2Int>();  //Players click sequence
     public List<Vector2Int> currentSequence { get; set;}
     int index;
     bool failed;
@@ -38,6 +38,8 @@ public class PathFinder : BaseMiniGameClass
         gm.GenerateGrid(gridSize, this);                    //Generate the grid on start
         CheckCorrectSequence(currentSequence);              //Check sequence is valid
         tries--;
+
+        isGameActive = false;
     }
 
     public override void UpdateGame()
@@ -69,8 +71,8 @@ public class PathFinder : BaseMiniGameClass
     }
     public void Retry()
     {
+        StopAllCoroutines();
         tileMap.ClearAllTiles();
-        isGameActive = false;
         index = 0;
         gm.GenerateGrid(gridSize, this);
         CheckCorrectSequence(currentSequence);
@@ -140,20 +142,27 @@ public class PathFinder : BaseMiniGameClass
         //On tileClick event method
         Vector2Int pos = tile.getCoord();
         failed = (currentSequence.IndexOf(pos) == index) ? false : true;
-        //Set Tilemap
-        Vector3Int posVec3 = tileMap.WorldToCell(tile.transform.position);
-        tileMap.SetTile(posVec3, defaultTile);
+        playerSequence.Add(pos);    //Add tilePos to current sequence
 
+        //Set Tilemap
+        paintTile(tile.transform.position);
         //If the final tile is clicked
         if (currentSequence[currentSequence.Count-1] == pos)
         {
-            CheckGridEnd();
+            StartCoroutine(CheckGridEnd());
         }
         index++;
     }
-
-    public void CheckGridEnd()
+    public void paintTile(Vector3 pos)
     {
+        Vector3Int posVec3 = tileMap.WorldToCell(pos);
+        tileMap.SetTile(posVec3, defaultTile);
+    }
+
+    IEnumerator CheckGridEnd()
+    {
+        isGameActive = false;
+        yield return new WaitForSeconds(1.5f);
         tileMap.ClearAllTiles();
         if (tries > 0)
         {

@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     Vector2Int xy;
     private System.Action<Tile> onClick;
 
+
     public void Init(Vector2Int xy, System.Action<Tile> onClick)
     {
         this.xy = xy;
@@ -21,6 +22,8 @@ public class Tile : MonoBehaviour
     public void OnClick()
     {
         onClick?.Invoke(this);
+        onClick = null;
+
     }
 
     public Vector2Int getCoord()

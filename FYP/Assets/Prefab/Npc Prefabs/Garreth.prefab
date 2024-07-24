@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 581042543063667439}
   - component: {fileID: 97918292448530563}
   m_Layer: 0
-  m_Name: Garreth
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,6 @@ MonoBehaviour:
   bounceDamp: 0.7
   wanderTime: 2
   flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
 --- !u!1001 &5528780929324594229
 PrefabInstance:
   m_ObjectHideFlags: 0

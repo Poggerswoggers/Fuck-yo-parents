@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Helper
 {
@@ -16,4 +17,11 @@ public static class Helper
         return list;
     }
 
+    public static void AddListener(this EventTrigger trigger, EventTriggerType eventType, System.Action<PointerEventData> listener)
+    {
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = eventType;
+        entry.callback.AddListener(data => listener.Invoke((PointerEventData)data));
+        trigger.triggers.Add(entry);
+    }
 }

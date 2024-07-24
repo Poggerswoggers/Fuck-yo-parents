@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.EventSystems;
 
 public class DialogueManager : GameBaseState
 {
@@ -14,7 +14,7 @@ public class DialogueManager : GameBaseState
     private Story inkStory;
 
     //
-    [SerializeField] GridLayoutGroup optionContainer;
+    [SerializeField] VerticalLayoutGroup optionContainer;
     [SerializeField] Button buttonPrefab;
 
     [SerializeField] TextMeshProUGUI infoTextField;
@@ -161,9 +161,12 @@ public class DialogueManager : GameBaseState
             {
                 button.onClick.AddListener(() => OnPromptClick(choice, false));
             }
-        }
-        
 
+            //Set event triggers
+            EventTrigger buttonEvent = button.GetComponent<EventTrigger>();
+            buttonEvent.AddListener(EventTriggerType.PointerEnter, EnterHover);
+            buttonEvent.AddListener(EventTriggerType.PointerExit, ExitHover);
+        }
     }
 
     Button CreateOptionButton(string text) //Create button with text
@@ -218,5 +221,14 @@ public class DialogueManager : GameBaseState
     {
         gSm.snapState.BackToOutCam();
         dialoguePanel.SetActive(false);
+    }
+
+    void EnterHover(PointerEventData eventData)
+    {
+        LeanTween.scale(eventData.pointerEnter, Vector3.one * 1.05f, 0.2f);
+    }
+    void ExitHover(PointerEventData eventData)
+    {
+        LeanTween.scale(eventData.pointerEnter, Vector3.one, 0.2f);
     }
 }

@@ -41,5 +41,22 @@ public class GridManager : MonoBehaviour
                 tileObj.GetComponent<Tile>().Init(pos, pf.OnTileClicked);
             }
         }
+        SetMiscTile(pf);
+    }
+
+    public void SetMiscTile(PathFinder pf)
+    {
+        Vector3 posFirst = correctTiles[0].transform.position;
+        for(int i = 1; i < 4; i++)
+        {
+            Vector3 _pos = new Vector3(posFirst.x, posFirst.y - i, 0);
+            pf.paintTile(_pos);
+        }
+        Vector3 posLast = correctTiles[correctTiles.Count-1].transform.position;
+        for (int i = 1; i < 5; i++)
+        {
+            Vector3 _pos = new Vector3(posLast.x, posLast.y + i, 0);
+            pf.paintTile(_pos);
+        }
     }
 }

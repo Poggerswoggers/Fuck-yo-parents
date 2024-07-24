@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7986910421895866066}
   - component: {fileID: 6884474074235132584}
   m_Layer: 6
-  m_Name: Jaylen (1)
+  m_Name: Jaylen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

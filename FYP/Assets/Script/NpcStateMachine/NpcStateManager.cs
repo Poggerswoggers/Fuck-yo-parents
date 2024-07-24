@@ -13,9 +13,8 @@ public class NpcStateManager: MonoBehaviour
 
     public string DialogueKnotName
     {
-        get { return _dialogueKnotName; }
+        get { return gameObject.name; }
     }
-    [SerializeField] string _dialogueKnotName;
 
     public NpcAnimation npcAnim;
     public MCQ question;
