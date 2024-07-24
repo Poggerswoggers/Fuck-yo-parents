@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2400941835364435992, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: m_Name
-      value: Brock Variant
+      value: Brock
       objectReference: {fileID: 0}
+    - target: {fileID: 6409871669932344966, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: question
+      value: 
+      objectReference: {fileID: 11400000, guid: ae065774d9034134db4168f74a6ce444, type: 2}
     - target: {fileID: 6409871669932344966, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: _dialogueKnotName
       value: Brock

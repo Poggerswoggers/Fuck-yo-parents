@@ -854,7 +854,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4016197159829515653, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
       propertyPath: m_Name
-      value: 'Brock '
+      value: Brock
       objectReference: {fileID: 0}
     - target: {fileID: 5627755414616531739, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
@@ -901,8 +901,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5776012624186411387, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
