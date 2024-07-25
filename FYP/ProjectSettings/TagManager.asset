@@ -56,6 +56,12 @@ TagManager:
   - name: Doors
     uniqueID: 509495921
     locked: 0
+  - name: Top Props
+    uniqueID: 3112016105
+    locked: 0
+  - name: Front Props
+    uniqueID: 362195701
+    locked: 0
   - name: NPC
     uniqueID: 376750993
     locked: 0
