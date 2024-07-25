@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/RouteAssister.unity
     guid: db3a0a0f73c4eb94d9f38d8ea436cc0a
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Level3.unity
+    guid: a1cc2df2c1b7fcb42a6f8c4c230d5e17
   m_configObjects: {}
