@@ -257,10 +257,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2340426121633372266, guid: 377ffc17c3dd439458a76f68200ef38b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1423356634}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377ffc17c3dd439458a76f68200ef38b, type: 3}
 --- !u!1 &726574906
 GameObject:
@@ -621,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 1205992681}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9005938, y: -3.018912, z: 0.0068892175}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -807,40 +804,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1423356631 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2340426121633372266, guid: 377ffc17c3dd439458a76f68200ef38b, type: 3}
-  m_PrefabInstance: {fileID: 587154634}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1423356632 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5203317432127056835, guid: 377ffc17c3dd439458a76f68200ef38b, type: 3}
   m_PrefabInstance: {fileID: 587154634}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1423356633 stripped
+--- !u!114 &1423356634 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3306484380221239320, guid: 377ffc17c3dd439458a76f68200ef38b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5617997606789164969, guid: 377ffc17c3dd439458a76f68200ef38b, type: 3}
   m_PrefabInstance: {fileID: 587154634}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423356631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1423356634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423356631}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a21bb8f15e505364baa400b26b4ace63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerSlider: {fileID: 1423356633}
 --- !u!1 &1424577047
 GameObject:
   m_ObjectHideFlags: 0
