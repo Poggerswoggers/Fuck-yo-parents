@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brock
       objectReference: {fileID: 0}
+    - target: {fileID: 5185733420451875902, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6a7690769a329b48a3ab0ea5ca52926, type: 3}
     - target: {fileID: 6409871669932344966, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: question
       value: 
