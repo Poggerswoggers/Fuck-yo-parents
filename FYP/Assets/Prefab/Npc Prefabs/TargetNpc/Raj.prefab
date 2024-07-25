@@ -13,6 +13,14 @@ PrefabInstance:
       value: Raj
       objectReference: {fileID: 0}
     - target: {fileID: 5844213243948591523, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844213243948591523, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844213243948591523, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 97cba416fba0e694bad6cff0f2bf5eaf, type: 3}
