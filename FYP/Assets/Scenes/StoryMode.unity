@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!1 &92982057
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7238fbd3d80344feb08ba64885e2187, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0a136736ea6847168190dc0a18b481d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
