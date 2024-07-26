@@ -127,14 +127,12 @@ public class NpcRoamState : NpcBaseState
     public override void OnCollisionEnter2D(NpcStateManager npcSm, Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
-        {           
-            if(Mathf.Abs(dir.x) > 0.1)
-            {
-                dir = new Vector2(-Mathf.Sign(npcThis.position.x) * Mathf.Sin(Random.Range(0, Mathf.PI / 2)), Random.insideUnitCircle.y);
+        {
+            if(Mathf.Abs(dir.x) > 0.1){
+                dir = new Vector2(-Mathf.Sign(dir.x) * Mathf.Sin(Random.Range(0, Mathf.PI / 2)), Random.insideUnitCircle.y);
             }
-            if (Mathf.Abs(dir.y) > 0.1)
-            {
-                dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(npcThis.position.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
+            if (Mathf.Abs(dir.y) > 0.1){
+                dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(dir.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
             }
         }
     }

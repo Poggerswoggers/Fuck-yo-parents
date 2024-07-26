@@ -5,41 +5,35 @@ using UnityEngine.Tilemaps;
 
 public class PathFinder : BaseMiniGameClass
 {
-    [Header("Game config")]
-    [SerializeField] int tries;
+    [Header("Color")]
+    [SerializeField] Color tileDefaultColor;
+    [SerializeField] Color tileFlashColor;
 
     [SerializeField] GridManager gm;
     [Header("Sequence")]
     [SerializeField] List<CorrectSequences> sequences;  //All sequences 
     List<Vector2Int> playerSequence = new List<Vector2Int>();  //Players click sequence
+    int gridSize;
+
     public List<Vector2Int> currentSequence { get; set;}
     int index;
     bool failed;
 
-    [SerializeField] int gridSize;
     [Header("Delay Time")]
     [SerializeField] float delayTime;
-    [Header("FlashTiles")]
-    [SerializeField] GameObject correctTiles;
     [Header("TileMap")] //Tilemap
     [SerializeField] Tilemap tileMap;
     [SerializeField] TileBase defaultTile;
 
     public override void EndSequenceMethod()
     {
-        //throw new System.NotImplementedException();
+        
     }
 
     public override void StartGame()
     {
         score = 2000;
-
-        currentSequence = sequences[0].correctSequence;     //Current sequence
-        gm.GenerateGrid(gridSize, this);                    //Generate the grid on start
-        CheckCorrectSequence(currentSequence);              //Check sequence is valid
-        tries--;
-
-        isGameActive = false;
+        IncreaseGridSize();
     }
 
     public override void UpdateGame()
@@ -64,9 +58,9 @@ public class PathFinder : BaseMiniGameClass
     void IncreaseGridSize()
     {
         //After completing a sequence, this is called to start a new sequence
-        gridSize++;
-        sequences.RemoveAt(0);
         currentSequence = sequences[0].correctSequence;
+        gridSize = sequences[0].gridSize;
+        sequences.RemoveAt(0);
         Retry();
     }
     public void Retry()
@@ -75,17 +69,11 @@ public class PathFinder : BaseMiniGameClass
         tileMap.ClearAllTiles();
         index = 0;
         gm.GenerateGrid(gridSize, this);
-        CheckCorrectSequence(currentSequence);
+        RearrangedSequence();
+        isGameActive = false;
     }
 
-    void CheckCorrectSequence(List<Vector2Int> correctSequence)
-    {
-        for(int i =0; i< correctSequence.Count; i++)
-        {
-            correctSequence[i] = Vector2Check(correctSequence[i], i);
-        }
-        RearrangedSequence();
-    }
+
 
     IEnumerator FlashCorrectSequenceCo()
     {
@@ -94,15 +82,11 @@ public class PathFinder : BaseMiniGameClass
         yield return new WaitForSeconds(delayTime);
         foreach (Tile p in gm.correctTiles)
         {
-            p.ChangeColor(Color.green);
+            p.ChangeColor(tileFlashColor);
             yield return new WaitForSeconds(0.5f);
-        }
-        foreach (Tile p in gm.correctTiles)
-        {
-            yield return new WaitForSeconds(0.1f);
-            p.ChangeColor(Color.white);
-        }
-        yield return new WaitForSeconds(delayTime);      
+        }        
+        yield return new WaitForSeconds(delayTime);
+        gm.ColorAllTiles(tileDefaultColor);
         isGameActive = true;
     }
 
@@ -120,21 +104,9 @@ public class PathFinder : BaseMiniGameClass
             index++;
            
         }
-        //Start flash sequence
+        //Start flash sequence and set enroute tiles
+        gm.SetMiscTile(this);
         StartCoroutine(FlashCorrectSequenceCo());
-    }
-
-    Vector2Int Vector2Check(Vector2Int points, int index)
-    {
-        if(points.x > gridSize)
-        {
-            points.x = 0;
-        }
-        if(points.y > gridSize)
-        {
-            points.y = index;
-        }
-        return points;
     }
 
     public void OnTileClicked(Tile tile)
@@ -164,9 +136,8 @@ public class PathFinder : BaseMiniGameClass
         isGameActive = false;
         yield return new WaitForSeconds(1.5f);
         tileMap.ClearAllTiles();
-        if (tries > 0)
+        if (sequences.Count>0)
         {
-            tries--;
             IncreaseGridSize();
         }
         else
@@ -180,5 +151,6 @@ public class PathFinder : BaseMiniGameClass
     internal class CorrectSequences
     {
         public List<Vector2Int> correctSequence = new List<Vector2Int>();
+        public int gridSize;
     }
 }

@@ -99,7 +99,6 @@ public class SnapCamera : GameBaseState
     public override void ExitState(GameStateManager gameStateManager)
     {
         
-
     }
 
     private void Update()
@@ -268,8 +267,6 @@ public class SnapCamera : GameBaseState
         zoomCam.Priority = 1;
         zoomCam.Follow = null;
         camMode = false;
-        //closestGameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
-        //blackout.SetActive(false);
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
         nSm.SwitchState(nSm.roamState);

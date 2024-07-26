@@ -21,6 +21,7 @@ public class DialogueManager : GameBaseState
 
     [Header("UI Panel")]
     [SerializeField] GameObject dialoguePanel;
+    [SerializeField] EventTrigger _backButton;
     //[SerializeField] RectTransform promptBox;
     //[SerializeField] float promptBoxYPos;
     //[SerializeField] RectTransform infoBox;
@@ -69,12 +70,16 @@ public class DialogueManager : GameBaseState
 
     public override void ExitState(GameStateManager gameStateManager)
     {
-        
+        gSm.snapState.BackToOutCam();
+        dialoguePanel.SetActive(false);
     }
     public void Initialise()
     {
         questionScriptable = gSm.nSm.question;
         dialogueKnotName = gSm.nSm.DialogueKnotName;
+
+        _backButton.AddListener(EventTriggerType.PointerEnter, EnterHover);
+        _backButton.AddListener(EventTriggerType.PointerExit, ExitHover);
     }
 
     //Loads and tweens the dialogue boxes;
@@ -117,7 +122,6 @@ public class DialogueManager : GameBaseState
             if(questionScriptable !=null)
             {
                 gSm.ChangeStat(gSm.mcqState);
-                ExitDialogueMode();
             }
             else
             {
@@ -213,22 +217,17 @@ public class DialogueManager : GameBaseState
     public void backButton()
     {
         RefreshChoiceView();
-        ExitDialogueMode();
         gSm.ChangeStat(gSm.snapState);
-    }
-
-    void ExitDialogueMode()
-    {
-        gSm.snapState.BackToOutCam();
-        dialoguePanel.SetActive(false);
     }
 
     void EnterHover(PointerEventData eventData)
     {
-        LeanTween.scale(eventData.pointerEnter, Vector3.one * 1.05f, 0.2f);
+        float facing = eventData.pointerEnter.transform.lossyScale.x;
+        LeanTween.scale(eventData.pointerEnter, new Vector3(Mathf.Sign(facing),1,1)*1.05f, 0.2f);
     }
     void ExitHover(PointerEventData eventData)
     {
-        LeanTween.scale(eventData.pointerEnter, Vector3.one, 0.2f);
+        float facing = eventData.pointerEnter.transform.lossyScale.x;
+        LeanTween.scale(eventData.pointerEnter, new Vector3(Mathf.Sign(facing), 1,1), 0.2f);
     }
 }
