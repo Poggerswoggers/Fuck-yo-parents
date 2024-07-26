@@ -150,7 +150,7 @@ RectTransform:
   m_GameObject: {fileID: 187139977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.21762, y: 0.21762, z: 0.21762}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 644329757}
@@ -260,8 +260,8 @@ MonoBehaviour:
     De Ren \n\n(Programmer / VFX Designer)  Jason Soh Hui Hong  \n\n(Sound & Music)\nLai
     Yuet \nShane \nLuis \n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2e73f75f5d4849f9939b1f62a0c146a, type: 2}
-  m_sharedMaterial: {fileID: -7961529043980317750, guid: d2e73f75f5d4849f9939b1f62a0c146a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1688db27b04594532870328314633a98, type: 2}
+  m_sharedMaterial: {fileID: -6439388274807012715, guid: 1688db27b04594532870328314633a98, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1044,7 +1044,7 @@ RectTransform:
   m_GameObject: {fileID: 1185623185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.24372834, y: 0.24372834, z: 0.24372834}
+  m_LocalScale: {x: 0.3247689, y: 0.3247689, z: 0.3247689}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 644329757}
