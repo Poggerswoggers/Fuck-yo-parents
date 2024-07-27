@@ -57,9 +57,6 @@ Do all pregnant ladies have big baby bumps?
     *[No] 
         That’s right! You may not be able to tell if someone is pregnant as her baby bump may not be visible or she may be wearing loose clothing.
             -> DONE
-    *[Do you see anyone that needs help?] //Hints
-        I saw someone that has CRUTCHES, I think they need some help.
-            -> DONE
             
 ==Nicholas== 
 ~correctAnswer = 0
@@ -92,19 +89,15 @@ Yes?
             
 ==Garreth==  
 ~correctAnswer = 0
-Why is being caring on public transport important?            
-    *[So that we can assist commuters who needs help.]        
-        That’s right! Together, we can be Caring Commuters!
+What should you do if you see someone who needs help using Heartwheels @ Linkway wheelchairs?          
+
+    *[Ask an adult if they can help]        
+        That’s right! The wheelchairs are also available for vulnerable commuters to use.
             -> DONE
-    *[So we can ignore others and be focused on ourselves only.]        
-        I don’t think that is right, we should not ignore others who need help!
+    *[Ignore them]        
+        I don’t think that is right. We should not ignore them! The wheelchairs are also available for vulnerable commuters to use.
             -> DONE
-    *[So we can use our phones.]
-        I don’t think that is right, we should not ignore others who need help!  
-            -> DONE
-    *[So that others can receive help when they need it.]
-         That’s right! Together, we can be Caring Commuters!
-            -> DONE
+ 
             
 ==loadMCQ==
 ->DONE

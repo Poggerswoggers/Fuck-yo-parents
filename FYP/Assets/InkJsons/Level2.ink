@@ -52,7 +52,7 @@ VAR correctAnswer = ""
             
 ==Grace==
 ~correctAnswer = 0
-I saw someone putting their bags on the MRT seats.
+What should you do when you see someone put their bags on the seats?
     *[Ignore them !]
         Doesn’t feel right to me though. We should free up the seat for those who need it!
             -> DONE
@@ -63,7 +63,7 @@ I saw someone putting their bags on the MRT seats.
         The correct thing to do is to free up the seat for those who need it!
             -> DONE
     *[You should scold them to put their bags on the floor instead.] 
-        Are you sure? That doesn’t seem right. We should be nice and ask them free up the seat for those who need it!
+        That doesn’t seem right. We should be nice and ask them free up the seat for those who need it!
             -> DONE
             
 ==Jolin==
