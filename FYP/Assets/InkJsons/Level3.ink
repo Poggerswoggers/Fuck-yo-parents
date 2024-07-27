@@ -80,7 +80,7 @@ Arg it hurts, I just want to go home.
         I’m not telling you! Please move out of the way.
             -> DONE
 
-==NicholasR==
+==Nicholas==
 ~correctAnswer = 0
 English or Chinese?
     *[English]
@@ -91,6 +91,70 @@ English or Chinese?
             -> DONE
     *[None] 
         Bye then.
+            -> DONE
+
+==Terry ==
+~correctAnswer = 0
+What should you do when you see young children (below 6 years old) on the train?
+    *[Ask the caregiver/children if they need a seat]
+        Nice one lah! Young children may not be able to balance well in a moving bus or train or might feel tired more easily
+            -> DONE
+    *[Ignore them] 
+      You should be alert!
+            -> DONE
+    *[Play with them] 
+     You shouldn’t do that! They might fall and injure themselves!
+            -> DONE
+    *[Stare at them] 
+        I don’t think you should…that is rude.
+            -> DONE
+            
+==Darren==
+~correctAnswer = 0
+What's good my g.
+    *[Ramen is goated.]
+       Eh real.
+            -> DONE
+    *[Have you seen anyone who looks like they need help?] 
+       I did come across someone who looked NERVOUS.
+            -> DONE
+    *[Are you a capybara?] 
+     No, but that is my spirit animal.
+            -> DONE
+    *[What are the four caring norms?] 
+        Give time, Give care, Give a hand and Give Thanks!
+            -> DONE
+ 
+ ==Boon==
+~correctAnswer = 0
+Yo yo yo yo! 
+    *[What should you do if you find a commuter that needs help?]
+       Ask if they need your help, guide them to a station staff so that they can Assist the commuter!
+            -> DONE
+    *[Are you referencing something?] 
+       Maybe? But if you are sneezing, someone must be thinking about you.
+            -> DONE
+    *[Have you seen anyone who looks like they need help?] 
+    I saw someone wearing a LANYARD (card around the neck).
+            -> DONE
+    *[What is your night routine?] 
+        I look into the mirror and I see the ALPHA in me! 
+            -> DONE
+ 
+ ==Saiful==
+~correctAnswer = 0
+… (He quietly looks at you
+    *[Sorry to disturb you! (You awkwardly walk away)]
+            -> DONE
+
+ ==Charlote==
+~correctAnswer = 0
+ Is the Heart Zone one of the places  at MRT stations and bus interchanges for commuters to give and receive help?
+    *[Yes]
+       That is correct.The Heart Zone helps to build awareness and is a place for commuters to give and receive help.
+            -> DONE
+    *[No] 
+       That is incorrect.The Heart Zone helps to build awareness and is a place for commuters to give and receive help.
             -> DONE
  
  
