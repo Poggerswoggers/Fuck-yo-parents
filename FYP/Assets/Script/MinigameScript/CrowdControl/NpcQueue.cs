@@ -9,7 +9,7 @@ public class NpcQueue
 
     //Reference
     CrowdControl cc;
-    public NpcQueue(List<Vector2> positionList, float gap, CrowdControl cc) //Constructor
+    public NpcQueue(List<Vector2> positionList, CrowdControl cc) //Constructor
     {
         this.cc = cc;
         this.positionList = positionList;

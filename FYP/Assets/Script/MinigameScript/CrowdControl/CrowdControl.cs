@@ -72,7 +72,7 @@ public class CrowdControl : BaseMiniGameClass
         {
             waitingQueuePositionList.Add(queueStartPos + Vector2.left * positionSize * i);  //Create list of vector2 queue positions
         }
-        npcQueue = new NpcQueue(waitingQueuePositionList, positionSize, this);  //Create a instance of npcqueue
+        npcQueue = new NpcQueue(waitingQueuePositionList, this);  //Create a instance of npcqueue
 
         StartCoroutine(StartGameCo());
 

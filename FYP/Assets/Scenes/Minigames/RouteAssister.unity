@@ -562,8 +562,9 @@ GameObject:
   m_Component:
   - component: {fileID: 365187662}
   - component: {fileID: 365187661}
+  - component: {fileID: 365187663}
   m_Layer: 0
-  m_Name: Nicholas
+  m_Name: Route giver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,6 +637,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 983005590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365187663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365187660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794f9f1d3292f394e868754b7de5c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  askPanel: {fileID: 132086089}
+  responses:
+  - Thank you my G!
+  - Thanks you for helping me!
+  - I appreciate your help young boy.
 --- !u!1 &467010299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727007361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1311,7 +1329,6 @@ MonoBehaviour:
   busOptionPanels: {fileID: 727007360}
   directorPanel: {fileID: 1870192725}
   clear: 0
-  askPanel: {fileID: 132086089}
   destinationsScriptable:
   - {fileID: 11400000, guid: b02ed76099f81d64e97bea6ce780fed4, type: 2}
   - {fileID: 11400000, guid: bd6f076b49af3434fb60a25dee50fbe3, type: 2}
@@ -1323,7 +1340,7 @@ MonoBehaviour:
   - {fileID: 1818957412}
   - {fileID: 1328819184}
   - {fileID: 1651655072}
-  npc: {fileID: 0}
+  npc: {fileID: 365187663}
   cam: {fileID: 1498328715}
   mapCam: {fileID: 686114412}
 --- !u!4 &1230121962

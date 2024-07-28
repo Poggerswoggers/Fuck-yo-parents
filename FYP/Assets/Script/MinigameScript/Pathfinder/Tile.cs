@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public bool correctPath { get; set; }
     Vector2Int xy;
     private System.Action<Tile> onClick;
 

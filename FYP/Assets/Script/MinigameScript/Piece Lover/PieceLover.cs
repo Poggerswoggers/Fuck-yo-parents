@@ -97,14 +97,12 @@ public class PieceLover : BaseMiniGameClass
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, lm);
-            if (hit.collider!=null)
+            if (hit.transform.TryGetComponent(out Rigidbody2D rb))
             {
                 draggingPiece = hit.transform;
                 draggingPiece.LeanRotate(Vector3.zero, 0.25f).setDelay(0.25f);
                 offset = draggingPiece.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                offset += Vector3.back;
 
-                Rigidbody2D rb = draggingPiece.GetComponent<Rigidbody2D>();
                 rb.isKinematic = true;
                 rb.angularVelocity = 0;
                 rb.velocity = Vector3.zero;

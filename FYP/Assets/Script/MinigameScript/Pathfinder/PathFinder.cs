@@ -12,7 +12,7 @@ public class PathFinder : BaseMiniGameClass
     [SerializeField] GridManager gm;
     [Header("Sequence")]
     [SerializeField] List<CorrectSequences> sequences;  //All sequences 
-    List<Vector2Int> playerSequence = new List<Vector2Int>();  //Players click sequence
+    [SerializeField] Vector2Int currentplayerTile;
     int gridSize;
 
     public List<Vector2Int> currentSequence { get; set;}
@@ -114,7 +114,6 @@ public class PathFinder : BaseMiniGameClass
         //On tileClick event method
         Vector2Int pos = tile.getCoord();
         failed = (currentSequence.IndexOf(pos) == index) ? false : true;
-        playerSequence.Add(pos);    //Add tilePos to current sequence
 
         //Set Tilemap
         paintTile(tile.transform.position);

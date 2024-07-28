@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 using UnityEngine.EventSystems;
+using System.Threading.Tasks;
 
 public class RouteAssister : BaseMiniGameClass
 {
@@ -22,9 +23,6 @@ public class RouteAssister : BaseMiniGameClass
     [SerializeField] GameObject directorPanel;
     List<string> numberAlpha = new List<string> { "1st", "2nd", "3rd", "4th"}; //A list to store string
     public int clear = 0; //Number of correct option to match with scriptable
-
-    //Ask Panel
-    [SerializeField] GameObject askPanel;
     
     [Header("Scriptable Object List")]
     [SerializeField] List<Destinations> destinationsScriptable;  //A list of all routes
@@ -36,7 +34,7 @@ public class RouteAssister : BaseMiniGameClass
     [SerializeField] List<Button> routeButton;
 
     [Header("npc")]
-    [SerializeField] Transform npc;
+    [SerializeField] Routegiver npc;
 
     [Header("Cinemachine ref")]
     [SerializeField] CinemachineVirtualCamera cam;   //2 cinemachine cam for smooth transition
@@ -52,18 +50,21 @@ public class RouteAssister : BaseMiniGameClass
         destinationsScriptable = Helper.Shuffle(destinationsScriptable);    //Shuffle the list
         score = 2000;  //suvject to change
 
-        StartCoroutine(StartSequence());
+        StartSequence();
         isGameActive = true;    //Set is game active
         LeanTween.reset();
     }
-    IEnumerator StartSequence()
+    void StartSequence()
     {
         clear = 0;
         index = 0;
-
         currentDes = destinationsScriptable[0];  //Sets current route as the first scriptable in the list
         destinationsScriptable.RemoveAt(0);
 
+        StartCoroutine(StartSequenceCo());
+    }
+    IEnumerator StartSequenceCo()
+    {    
         //Cool transition sequence
         map.GetComponent<SpriteRenderer>().sprite = currentDes.map;
         map.SetActive(true);
@@ -83,8 +84,7 @@ public class RouteAssister : BaseMiniGameClass
 
     void SetGame()
     {
-        askPanel.SetActive(true);
-        askPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"How can I get to <u><color=green> {currentDes.destinationName}</u></color>?";  
+        npc.AskForDirection(currentDes.destinationName);    //Pass destination name to the npc to 'ask'
 
         for (int i =0; i<currentDes.route.Count; i++)   //Set the text active and have the blanks
         {
@@ -137,7 +137,7 @@ public class RouteAssister : BaseMiniGameClass
 
     public void OnClickBusNumber(Destinations.MRTRoutes buttonRoute)
     {
-        clear = (currentDes.route[index] == buttonRoute) ? clear + 1 : clear;   //Clear goes up when selected button int matches the current route index int
+        clear = (currentDes.route[index] == buttonRoute && clear == index) ? clear + 1 : clear;   //Clear goes up when selected button int matches the current route index int
         busTexts[index].text = $": <u><color=green>{buttonRoute}</color></u>";       //Set rich text color
 
         if(index == currentDes.route.Count-1)   //if index = 2 means filled out route choices
@@ -145,7 +145,7 @@ public class RouteAssister : BaseMiniGameClass
             CheckIfMatch();
             if (destinationsScriptable.Count>0)
             {
-                StartCoroutine(NextRound());
+                RoundOver();
             }
             else
             {
@@ -154,18 +154,22 @@ public class RouteAssister : BaseMiniGameClass
         }
         index++;
     }
-    IEnumerator NextRound()
+    async void RoundOver()
     {
         busOptionPanels.SetActive(false);
+        await npc.PostAssistance();
         directorPanel.SetActive(false);
-        askPanel.SetActive(false);
-        LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(1f);
+
+
+        //LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(1f);
         //Reset button listener
         ResetButton();    
-
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(StartSequence());
+        LeanTween.delayedCall(2f, () => StartSequence());
     }
+
+
+
+
 
     void CheckIfMatch()
     { 
