@@ -657,7 +657,7 @@ MonoBehaviour:
   instructionPanel: {fileID: 0}
   startNpc: 5
   clearText: {fileID: 925106147}
-  addDelay: 4
+  addDelay: 5
   queueStartPos: {x: 4, y: -17.7}
   positionSize: 2
   cardPos: {fileID: 445993473}

@@ -31,14 +31,15 @@ public class SnapCamera : GameBaseState
     [Header("Camera Zooming")]
     [SerializeField] private Camera cam;
     [SerializeField] private float zoomSpeed = 20f;
+    [SerializeField] float zoomSens;
     [SerializeField] private float minCamSize = 2f;
     [SerializeField] private float maxCamSize = 5f;
     float newZoomLevel;
 
-    [Header("Camera Pan")]
     Vector3 origin;
     Vector3 difference;
     bool drag;
+    [Header("Camera Pan")]
     [SerializeField] float xBound;
     [SerializeField] float yBound;
     Vector2 CamOrigin;
@@ -49,6 +50,7 @@ public class SnapCamera : GameBaseState
     {
         CamOrigin = outCamGameObject.transform.position;
         _timeToFindNpc = timeToFindNpc;
+        //newZoomLevel = outCam.m_Lens.OrthographicSize;
     }
 
     public Vector2 CalculateBounds()
@@ -67,13 +69,10 @@ public class SnapCamera : GameBaseState
     {
         contact = Physics2D.BoxCastAll(CameraReticle.position, camSize, 0, Vector2.zero, 0, npcLayer);
 
-
-        if (contact != null && contact.Length > 0)
-        {
+        if (contact != null && contact.Length > 0){
             RayToCollider();
         }
-        if (contact.Length == 0)
-        {
+        if (contact.Length == 0){
             taggedGameObject = new GameObject[0];
         }
 
@@ -83,6 +82,7 @@ public class SnapCamera : GameBaseState
             CameraPan();
             WhenMouseIsMoving();
             SnapSystem();
+            //Zoom();
 
         }
 
@@ -101,36 +101,19 @@ public class SnapCamera : GameBaseState
         
     }
 
-    private void Update()
-    {
-        //Zoom();
-
-        /*if (Input.mousePosition != lastMousePosition)
-        {
-            lastMousePosition = Input.mousePosition;
-            WhenMouseIsMoving();
-
-            timeElapsed = 0f;
-        }
-        else
-        {
-            timeElapsed += Time.deltaTime;
-            if(timeElapsed>= lockDuration)
-            {
-                WhenMouseIsntMoving();
-            }
-        }*/
-
-    }
-
     public void Zoom()
     {
         // Get MouseWheel-Value and calculate new Orthographic-Size
         // (while using Zoom-Speed-Multiplier)
-        float mouseScrollWheel = Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
-        newZoomLevel = cam.orthographicSize - mouseScrollWheel;
+        newZoomLevel -= Input.GetAxis("Mouse ScrollWheel") * zoomSens;
+        //newZoomLevel = cam.orthographicSize - mouseScrollWheel;
 
-        if(mouseScrollWheel !=0)
+        newZoomLevel = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
+        float camSize = Mathf.MoveTowards(outCam.m_Lens.OrthographicSize, newZoomLevel, zoomSpeed * Time.deltaTime);
+        outCam.m_Lens.OrthographicSize = newZoomLevel;
+
+
+        /*if(mouseScrollWheel !=0)
         {
 
             outCamGameObject.SetActive(false);
@@ -154,7 +137,7 @@ public class SnapCamera : GameBaseState
 
             // Apply Target-Position to Camera
             cam.transform.position = targetPos;
-        }
+        }*/
 
     }
     public void RayToCollider()
@@ -233,7 +216,9 @@ public class SnapCamera : GameBaseState
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();      
         //bs = nSm.GetCurrentState();
         nSm.SwitchState(nSm.promptState);
-        LeanTween.move(CameraReticle.gameObject, closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset, 0.5f);
+        LeanTween.move(CameraReticle.gameObject, 
+            closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset, 
+            0.5f);
 
         yield return new WaitForSeconds(0.2f);
 

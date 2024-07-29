@@ -31,9 +31,7 @@ public class McqManager : GameBaseState
     public override void EnterState(GameStateManager gameStateManager)
     {
         gSm = gameStateManager;
-        
-        //Clear answerList for new ones
-        answerChoiceList.Clear();
+            
         questionScriptable = gSm.nSm.question;  //Get the mcq scriptable object
 
         //Sets the question, sprite and get question count
@@ -126,6 +124,7 @@ public class McqManager : GameBaseState
 
     public void GoToMiniGame()
     {
+        NextButton.onClick.RemoveAllListeners();
         mcqPanel.SetActive(false);
         int index = gSm.nSm.GetComponent<MinigameNpcs>().GetGameIndex();
         ScoreManager.Instance.loadAddictiveScene(index);
@@ -149,7 +148,9 @@ public class McqManager : GameBaseState
 
     public override void ExitState(GameStateManager gameStateManager)
     {
-        
+        //Clear answerList and player'sChoice for new ones
+        answerChoiceList.Clear();
+        playerChoice.Clear();
     }
 }
 internal class AnswerChoice

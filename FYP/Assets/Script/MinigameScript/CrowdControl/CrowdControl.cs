@@ -14,6 +14,7 @@ public class CrowdControl : BaseMiniGameClass
 
     //AddNpcTImer
     [SerializeField] float addDelay;
+    float _addDelay;
 
     //Queue Positions and gap
     [SerializeField] Vector2 queueStartPos;
@@ -62,25 +63,26 @@ public class CrowdControl : BaseMiniGameClass
         yield return null;
     }
 
-
-    // Start is called before the first frame update
-    public override void StartGame()
+    //Initialise game values
+    private void Awake()
     {
+        _addDelay = addDelay;
         npcScriptableList = Helper.Shuffle(npcScriptableList); //Set the shuffled list
-        
-        for (int i = 0; i<20; i++)
+
+        for (int i = 0; i < 20; i++)
         {
             waitingQueuePositionList.Add(queueStartPos + Vector2.left * positionSize * i);  //Create list of vector2 queue positions
         }
         npcQueue = new NpcQueue(waitingQueuePositionList, this);  //Create a instance of npcqueue
+    }
 
+    //Start to control when the instruction ends
+    public override void StartGame()
+    {      
         StartCoroutine(StartGameCo());
-
         timer.SetTImer(gameTime, () => gameManager.OnGameOver());
 
         isGameActive = true;
-        //Add a npc every 5 seconds after 5 seconds
-        InvokeRepeating("AddNpc", 5f, addDelay); 
     }
 
     //Spawn some initial Npcs
@@ -113,15 +115,25 @@ public class CrowdControl : BaseMiniGameClass
             npc.thisNpc = npcScriptableList[0];  //Assign the npc scriptable to the list's index
             npcScriptableList.RemoveAt(0);
         }
-
         npcQueue.AddNpc(npc);
     }
 
     //I think this is pretty messy
     public override void UpdateGame()
     {
+        CardControl();
+
+        _addDelay -= Time.deltaTime;
+        if (_addDelay < 0)
+        {
+            AddNpc();
+            _addDelay = addDelay;
+        }
+    }
+    void CardControl()
+    {
         float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
-        if (Mathf.Abs(scrollDelta)>0.05f && npcQueue.GetFirstInQueue() != null && npcQueue.GetFirstInQueue().activeCard != null)
+        if (Mathf.Abs(scrollDelta) > 0.05f && npcQueue.GetFirstInQueue() != null && npcQueue.GetFirstInQueue().activeCard != null)
         {
             npcQueue.GetFirstInQueue().SwitchActiveCard(Mathf.Sign(scrollDelta)); //Swap card
         }
@@ -129,13 +141,13 @@ public class CrowdControl : BaseMiniGameClass
         _tapDelay -= Time.deltaTime;
 
         if (_tapDelay > 0) return; //For when u tap a invalid card u have a time penalty 
-        if (Input.GetMouseButtonDown(0) && npcQueue.GetFirstInQueue() !=null && npcQueue.GetFirstInQueue().activeCard !=null)  //Checks
+        if (Input.GetMouseButtonDown(0) && npcQueue.GetFirstInQueue() != null && npcQueue.GetFirstInQueue().activeCard != null)  //Checks
         {
             CrowdNpc frontNpc = npcQueue.GetFirstInQueue();
             frontNpc.TapCard();
 
             StartCoroutine(RelocateAndReQueue(frontNpc));
-        }      
+        }
     }
 
     IEnumerator RelocateAndReQueue(CrowdNpc frontNpc)
@@ -150,7 +162,7 @@ public class CrowdControl : BaseMiniGameClass
             {
                 frontNpc.SelfDestruct(2); //Destroy the npc
                 npcCleared++;
-                addDelay *= 0.85f;
+                addDelay *= 0.9f;
                 clearText.text = $"<color=#800000ff>{npcCleared}</color>/15";
                 frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
 
