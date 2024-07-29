@@ -5,6 +5,7 @@ using System.Linq;
 
 public class GridManager : MonoBehaviour
 {
+    [SerializeField] Sprite clickableSprite;
     [SerializeField] GameObject tilePrefab;
     [SerializeField] Transform GridOrigin;
 
@@ -14,7 +15,7 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] Vector3 startPos, endPos;
 
-    [Header("Path RUnner")]
+    [Header("Path Rnner")]
     [SerializeField] Transform pathRunner;
     [SerializeField] float runnerSpeed;
 
@@ -56,7 +57,6 @@ public class GridManager : MonoBehaviour
         }
         //I love linq xoxo
         correctTiles = allTiles.Where(c => pf.currentSequence.Contains(c.getCoord())).ToList();
-        SetMiscTile();
     }
 
     public void SetMiscTile()
@@ -82,7 +82,9 @@ public class GridManager : MonoBehaviour
 
     public void ColorAllTiles(Color color)
     {
-        foreach(Tile tile in allTiles) {
+        foreach(Tile tile in allTiles)
+        {
+            tile.GetComponent<SpriteRenderer>().sprite = clickableSprite;
             tile.ChangeColor(color);
         }
     }

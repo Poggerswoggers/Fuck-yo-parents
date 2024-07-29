@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
-  m_Name: Jaylen
+  m_Name: EdMund
   m_EditorClassIdentifier: 
-  npcSprite: {fileID: 21300000, guid: 55e9f089762cd4a4fb34f192c519f618, type: 3}
+  npcSprite: {fileID: 21300000, guid: d7e984f5c173b0b42a9b0d15a8666c25, type: 3}
   cardObjects:
-  - {fileID: 1675230227678738884, guid: 3fa8484114f32494d81cc853d0734fc3, type: 3}
+  - {fileID: 3784849116849419251, guid: 231edeae89e86a6498b8c0cdc8979e01, type: 3}
   - {fileID: 3621498026535673055, guid: 70e31d1db7094754389c71777ed79f58, type: 3}

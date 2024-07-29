@@ -74,7 +74,7 @@ public class PmdController : MonoBehaviour
         {
             steeringAngle *= 0.85f;
         }
-        Debug.Log(Mathf.Abs(slider.GetSliderPoint() - 0.5f));
+        Debug.Log(Mathf.Abs(slider.GetSliderPoint()));
 
         float steerAmount = angleToTarget / 20f;
         steerAmount = Mathf.Clamp(steerAmount, -1f, 1f);

@@ -574,7 +574,7 @@ RectTransform:
   m_GameObject: {fileID: 998576682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1837800135}
@@ -673,13 +673,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 846e84ba6493e8b48bc5ce252f7599e0, type: 2}
   - {fileID: 11400000, guid: 09749f69e19804a4b9ebf2bf03729344, type: 2}
   - {fileID: 11400000, guid: 1e36dbb3d13799545ac1874c58f905a1, type: 2}
-  - {fileID: 11400000, guid: 2ca4637147185f44f921a3e7fbee309d, type: 2}
   - {fileID: 11400000, guid: 1e36dbb3d13799545ac1874c58f905a1, type: 2}
-  - {fileID: 11400000, guid: 9c7a5c67043a4484d9e092adb6d97db6, type: 2}
   - {fileID: 11400000, guid: 846e84ba6493e8b48bc5ce252f7599e0, type: 2}
-  - {fileID: 11400000, guid: ce202e32855bfd741bf29073e142b6d3, type: 2}
   - {fileID: 11400000, guid: 43c6707ae63f5764981204ab9c2d8c49, type: 2}
   - {fileID: 11400000, guid: 09749f69e19804a4b9ebf2bf03729344, type: 2}
+  - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
+  - {fileID: 11400000, guid: 3291d54c03528be4e8bd1fd4f7a824b6, type: 2}
   ahmaScriptable: {fileID: 11400000, guid: e624516469d0b30479f52de290781122, type: 2}
   npcPrefab: {fileID: 1999079495521488809, guid: 295265919bd017249a93a13078f81787, type: 3}
   timer: {fileID: 1423356634}
@@ -1544,14 +1543,14 @@ RectTransform:
   m_GameObject: {fileID: 2117208283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1837800135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -151, y: 0}
   m_SizeDelta: {x: 2160, y: 1620}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2117208285

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 377f0cb208039154ebb0ff0653f2e4a7
+guid: c10f0eb4778885f46ad4aceb6ac7b287
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 593
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,30 +106,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Brail vertical_0
+      name: Path_Tiles_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 43
-        width: 625
-        height: 614
+        x: 57
+        y: 879
+        width: 615
+        height: 625
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +124,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d23f8379a8e004448606ad143bbad40
-      internalID: -1071436047
+      spriteID: 961f753949b5034458eb445dc46b2163
+      internalID: -849024028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Path_Tiles_1
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 877
+        width: 614
+        height: 627
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2a8909e88a36040ad0ff9c16e00953
+      internalID: -1493491872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Path_Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 117
+        width: 615
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7fd0c201f33ea84999c39593317e2db
+      internalID: 1699144917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Path_Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 117
+        width: 615
+        height: 627
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8215b53accca047a09f61e573f0139
+      internalID: 824058140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Path_Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 1490
+        y: 122
+        width: 626
+        height: 615
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b8371de676f7a4189382329bcbdf01
+      internalID: -31677231
       vertices: []
       indices: 
       edges: []
@@ -154,7 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Brail vertical_0: -1071436047
+      Path_Tiles_0: -849024028
+      Path_Tiles_1: -1493491872
+      Path_Tiles_2: 1699144917
+      Path_Tiles_3: 824058140
+      Path_Tiles_4: -31677231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -105,6 +105,7 @@ public class PathFinder : BaseMiniGameClass
            
         }
         //Start flash sequence and set enroute tiles
+        gm.SetMiscTile();
         StartCoroutine(FlashCorrectSequenceCo());
     }
 
