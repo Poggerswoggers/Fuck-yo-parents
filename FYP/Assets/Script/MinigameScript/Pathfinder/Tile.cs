@@ -21,12 +21,15 @@ public class Tile : MonoBehaviour
     public void OnClick()
     {
         onClick?.Invoke(this);
-        onClick = null;
-
     }
 
     public Vector2Int getCoord()
     {
         return xy;
+    }
+
+    public void DisableOnClick()
+    {
+        onClick = null;
     }
 }

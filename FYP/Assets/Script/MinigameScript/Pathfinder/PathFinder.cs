@@ -16,7 +16,7 @@ public class PathFinder : BaseMiniGameClass
     int gridSize;
 
     public List<Vector2Int> currentSequence { get; set;}
-    int index;
+    public int index;
     bool failed;
 
     [Header("Delay Time")]
@@ -65,6 +65,7 @@ public class PathFinder : BaseMiniGameClass
     }
     public void Retry()
     {
+        currentplayerTile = currentSequence[0] - Vector2Int.up;  //Sets the first tile as the first tile in the created path
         StopAllCoroutines();
         tileMap.ClearAllTiles();
         index = 0;
@@ -72,7 +73,6 @@ public class PathFinder : BaseMiniGameClass
         RearrangedSequence();
         isGameActive = false;
     }
-
 
 
     IEnumerator FlashCorrectSequenceCo()
@@ -105,35 +105,47 @@ public class PathFinder : BaseMiniGameClass
            
         }
         //Start flash sequence and set enroute tiles
-        gm.SetMiscTile(this);
         StartCoroutine(FlashCorrectSequenceCo());
     }
 
     public void OnTileClicked(Tile tile)
     {
+        //This is to check that the clicked tile is adjacent to the previous tile
+        if ((currentplayerTile - tile.getCoord()).sqrMagnitude > 1) return;          
+        currentplayerTile = tile.getCoord();
+        //Unsubscribe the tile from this onclick event
+        tile.DisableOnClick();
+
+        //Set Tile to be painted on the tilemap
+        paintTile(tile.transform.position);
+
         //On tileClick event method
         Vector2Int pos = tile.getCoord();
-        failed = (currentSequence.IndexOf(pos) == index) ? false : true;
-
-        //Set Tilemap
-        paintTile(tile.transform.position);
+        if (currentSequence.IndexOf(pos) == index && !failed)
+        {
+            index++;
+        }
+        else
+        {
+            failed = true;
+        }
         //If the final tile is clicked
         if (currentSequence[currentSequence.Count-1] == pos)
         {
-            StartCoroutine(CheckGridEnd());
+            isGameActive = false;
+            //StartCoroutine(gm.RunPathCo());
+            gm.RunPathCo();
         }
-        index++;
     }
     public void paintTile(Vector3 pos)
     {
+        //Paint the til on the tilemap on vector3 pos
         Vector3Int posVec3 = tileMap.WorldToCell(pos);
         tileMap.SetTile(posVec3, defaultTile);
     }
 
-    IEnumerator CheckGridEnd()
+    public void CheckGridEnd()
     {
-        isGameActive = false;
-        yield return new WaitForSeconds(1.5f);
         tileMap.ClearAllTiles();
         if (sequences.Count>0)
         {
@@ -141,7 +153,6 @@ public class PathFinder : BaseMiniGameClass
         }
         else
         {
-            isGameActive = false;
             score -= (failed) ? 500 : 0;
         }
     }
@@ -152,4 +163,6 @@ public class PathFinder : BaseMiniGameClass
         public List<Vector2Int> correctSequence = new List<Vector2Int>();
         public int gridSize;
     }
+
+
 }

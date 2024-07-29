@@ -953,6 +953,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2194620650843340416, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2852112037012187186, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: inkStoryJson
       value: 

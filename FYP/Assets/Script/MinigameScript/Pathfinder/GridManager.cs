@@ -12,6 +12,15 @@ public class GridManager : MonoBehaviour
     public List<Tile> correctTiles { get; set; } = new List<Tile>();
     List<Tile> allTiles = new List<Tile>();
 
+    [SerializeField] Vector3 startPos, endPos;
+
+    [Header("Path RUnner")]
+    [SerializeField] Transform pathRunner;
+    [SerializeField] float runnerSpeed;
+
+    //reference
+    PathFinder pf;
+
     private void Start()
     {
         LeanTween.reset();
@@ -19,6 +28,7 @@ public class GridManager : MonoBehaviour
 
     public void GenerateGrid(int size, PathFinder pf)
     {
+        this.pf = pf;
         Vector2Int parentPosition = Vector2Int.RoundToInt(GridOrigin.position);  //Get Grid parent position
 
         correctTiles.Clear();
@@ -46,24 +56,28 @@ public class GridManager : MonoBehaviour
         }
         //I love linq xoxo
         correctTiles = allTiles.Where(c => pf.currentSequence.Contains(c.getCoord())).ToList();
+        SetMiscTile();
     }
 
-    public void SetMiscTile(PathFinder pf)
+    public void SetMiscTile()
     {
         //This first loop set's the path to the first correct tile(entry)
         Vector3 posFirst = correctTiles[0].transform.position; 
         for(int i = 1; i < 4; i++)
         {
-            Vector3 _pos = new Vector3(posFirst.x, posFirst.y - i, 0);
-            pf.paintTile(_pos);
+            Vector3 w_pos = new Vector3(posFirst.x, posFirst.y - i, 0);
+            startPos = w_pos;
+            pf.paintTile(w_pos);
+      
         }
         //This second loop set's the path to the last correct tile(exit)
         Vector3 posLast = correctTiles[correctTiles.Count-1].transform.position;
         for (int i = 1; i < 4; i++)
         {
-            Vector3 _pos = new Vector3(posLast.x, posLast.y + i, 0);
-            pf.paintTile(_pos);
-        }
+            Vector3 n_pos = new Vector3(posLast.x, posLast.y + i, 0);
+            endPos = n_pos;
+            pf.paintTile(n_pos);
+        }      
     }
 
     public void ColorAllTiles(Color color)
@@ -71,5 +85,27 @@ public class GridManager : MonoBehaviour
         foreach(Tile tile in allTiles) {
             tile.ChangeColor(color);
         }
+    }
+
+    public void RunPathCo()
+    {
+        pathRunner.position = startPos;
+        LTSeq sequence = LeanTween.sequence();
+
+        Vector3 previousPosition = pathRunner.position;
+
+        for (int i=0; i<pf.index; i++)
+        {
+            Vector3 targetPosition = correctTiles[i].transform.position;
+            float dist = (targetPosition - previousPosition).magnitude;
+            float duration = dist / runnerSpeed;
+            sequence.append(LeanTween.move(pathRunner.gameObject, correctTiles[i].transform.position,duration));
+
+            previousPosition = targetPosition;
+        }
+        sequence.append(() =>
+        {
+            LeanTween.delayedCall(1.5f, pf.CheckGridEnd);
+        });
     }
 }
