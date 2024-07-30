@@ -7,7 +7,6 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 using UnityEngine.EventSystems;
-using System.Threading.Tasks;
 
 public class RouteAssister : BaseMiniGameClass
 {
@@ -25,7 +24,8 @@ public class RouteAssister : BaseMiniGameClass
     public int clear = 0; //Number of correct option to match with scriptable
     
     [Header("Scriptable Object List")]
-    [SerializeField] List<Destinations> destinationsScriptable;  //A list of all routes
+    List<Destinations> destinationsScriptable;  //A list of all routes
+    [SerializeField] List<RoundsConfig> roundsConfig;
 
     Destinations currentDes; //current route
     int index = 0;  //route index
@@ -47,6 +47,7 @@ public class RouteAssister : BaseMiniGameClass
 
     public override void StartGame()
     {
+        SetDifficulty();
         destinationsScriptable = Helper.Shuffle(destinationsScriptable);    //Shuffle the list
         score = 2000;  //suvject to change
 
@@ -64,8 +65,10 @@ public class RouteAssister : BaseMiniGameClass
         StartCoroutine(StartSequenceCo());
     }
     IEnumerator StartSequenceCo()
-    {    
+    {
         //Cool transition sequence
+        npc.ResetPosition();
+        map.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
         map.GetComponent<SpriteRenderer>().sprite = currentDes.map;
         map.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -163,10 +166,18 @@ public class RouteAssister : BaseMiniGameClass
 
         //LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(1f);
         //Reset button listener
-        ResetButton();    
-        LeanTween.delayedCall(2f, () => StartSequence());
-    }
 
+        bool pass = (clear == 3) ? true : false;
+        ResetButton();
+        RoundOverSequence(pass);
+    }
+    void RoundOverSequence(bool complete)
+    {
+        map.GetComponent<SpriteRenderer>().sprite = null;
+        map.SetActive(true);
+        map.transform.GetChild(0).GetComponent<SpriteRenderer>().color = (complete) ? Color.green : Color.red;
+        LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(2f).setOnComplete(StartSequence);
+    }
 
 
 
@@ -193,6 +204,24 @@ public class RouteAssister : BaseMiniGameClass
 
     protected override void SetDifficulty()
     {
+        switch (GetDifficulty())
+        {
+            case difficulty.One:
+                this.destinationsScriptable = roundsConfig[0].destinationsScriptable;
+                break;
 
+            case difficulty.Two:
+                this.destinationsScriptable = roundsConfig[1].destinationsScriptable;
+                break;
+            default:
+                Debug.Log("Not found");
+                break;
+        }
+    }
+
+    [System.Serializable]
+    internal class RoundsConfig
+    {
+        public List<Destinations> destinationsScriptable;
     }
 }

@@ -11,10 +11,22 @@ public class Routegiver : MonoBehaviour
 
     [SerializeField] List<string> responses;
 
+    Vector3 startPos;
+
+    //Ref
+    SpriteRenderer sr;
+
+    private void Start()
+    {
+        startPos = transform.position;
+        sr = GetComponent<SpriteRenderer>();
+    }
+
     public void AskForDirection(string destinationName)
     {
         askPanel.SetActive(true);
         askPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"How can I get to <u><color=green>{destinationName}</u></color>?";
+        startPos = transform.position;
     }
 
     public async Task PostAssistance()
@@ -25,7 +37,13 @@ public class Routegiver : MonoBehaviour
         await Task.Delay(1000);
         askPanel.SetActive(false);
 
-        GetComponent<SpriteRenderer>().flipX = false;
+        sr.flipX = !sr.flipX;
         LeanTween.moveLocalX(gameObject, 8, 1f);
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = startPos;
+        sr.flipX= !sr.flipX;
     }
 }

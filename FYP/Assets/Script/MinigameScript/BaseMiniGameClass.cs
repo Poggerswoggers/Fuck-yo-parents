@@ -13,14 +13,13 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     }
     public difficulty GetDifficulty()
     {
-        Debug.Log(ScoreManager.selectedMinigameDifficulty);
         if (Enum.IsDefined(typeof(difficulty), ScoreManager.selectedMinigameDifficulty))
         {
             return (difficulty)ScoreManager.selectedMinigameDifficulty;
         }
         else
         {
-            throw new ArgumentException("Invalid integer value for enum conversion.");
+            return difficulty.One;
         }
     }
 

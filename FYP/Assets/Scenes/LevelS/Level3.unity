@@ -192,6 +192,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47f2f28a3b1e9f843b308932e73b059c, type: 3}
+--- !u!4 &178909360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+  m_PrefabInstance: {fileID: 1568376293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &216466791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,6 +1534,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 234008882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1568376293
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1667032043}
+    m_Modifications:
+    - target: {fileID: 2400941835364435992, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_Name
+      value: Ben
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185733420451875902, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ac20ac7859186914d9a198f2affd04b1, type: 3}
+    - target: {fileID: 6409871669932344966, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: question
+      value: 
+      objectReference: {fileID: 11400000, guid: fe1e74d3c8ac72b4bae9090b64fdbf55, type: 2}
+    - target: {fileID: 6409871669932344966, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: managedReferences[2641615680123699208].sc
+      value: 
+      objectReference: {fileID: 275726041}
+    - target: {fileID: 8166368284534935634, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710250089411127695, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: levelScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710250089411127695, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: minigameSceneIndex
+      value: CrowdControl
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
 --- !u!1 &1644552218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1678,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1210985882}
+  - {fileID: 178909360}
   - {fileID: 2085481439}
   - {fileID: 1493089230}
   - {fileID: 1724710022}
@@ -1654,6 +1741,14 @@ PrefabInstance:
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
       objectReference: {fileID: 275726041}
+    - target: {fileID: 2966723450145879341, guid: 47f2f28a3b1e9f843b308932e73b059c, type: 3}
+      propertyPath: managedReferences[2641615680123699208].maxSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966723450145879341, guid: 47f2f28a3b1e9f843b308932e73b059c, type: 3}
+      propertyPath: managedReferences[2641615680123699208].minSpeed
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 3902639569040555925, guid: 47f2f28a3b1e9f843b308932e73b059c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1692,7 +1787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc1abce951c43d4e84ecf566198db7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameSceneIndex: 
+  minigameSceneIndex: Pathfinder
+  levelScale: 2
 --- !u!1001 &1881000721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2155,6 +2251,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6767544228657437504, guid: 27ee9ff050998f548b85d91553cc8e66, type: 3}
+      propertyPath: levelScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767544228657437504, guid: 27ee9ff050998f548b85d91553cc8e66, type: 3}
       propertyPath: minigameSceneIndex
       value: PieceLover
       objectReference: {fileID: 0}
@@ -2197,6 +2297,10 @@ PrefabInstance:
       objectReference: {fileID: 275726041}
     - target: {fileID: 8166368284534935634, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710250089411127695, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: levelScale
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
@@ -2305,8 +2409,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929919372259068946, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
+      propertyPath: levelScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929919372259068946, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
       propertyPath: minigameSceneIndex
-      value: 
+      value: RouteAssister
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
