@@ -1567,7 +1567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc1abce951c43d4e84ecf566198db7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameSceneIndex: 3
+  minigameSceneIndex: HeadTilt
+  levelScale: 1
 --- !u!1 &1527142687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,8 +2477,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 533893238}
     m_Modifications:
     - target: {fileID: 1117823221079569269, guid: c90e3ad3e97a5ea48b040814ef786c4a, type: 3}
+      propertyPath: levelScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117823221079569269, guid: c90e3ad3e97a5ea48b040814ef786c4a, type: 3}
       propertyPath: minigameSceneIndex
-      value: 10
+      value: CrowdControl
       objectReference: {fileID: 0}
     - target: {fileID: 2001167517824048993, guid: c90e3ad3e97a5ea48b040814ef786c4a, type: 3}
       propertyPath: m_LocalPosition.x

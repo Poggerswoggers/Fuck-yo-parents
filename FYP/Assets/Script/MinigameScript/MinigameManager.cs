@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 
 public class MinigameManager
@@ -12,7 +13,6 @@ public class MinigameManager
     public MinigameManager(BaseMiniGameClass currentMiniGame)
     {
         this.currentMiniGame = currentMiniGame;
-
         Debug.Log(currentMiniGame);
     }
 
@@ -21,6 +21,4 @@ public class MinigameManager
         currentMiniGame.isGameOver = true;
         currentMiniGame.EndSequence?.Invoke();
     }
-
-
 }

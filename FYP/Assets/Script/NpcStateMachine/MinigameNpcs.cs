@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MinigameNpcs : MonoBehaviour
 {
-    [SerializeField] int minigameSceneIndex;
-
-    public int GetGameIndex()
-    {
-        return minigameSceneIndex;
+    [SerializeField] string minigameSceneIndex;
+    [Range(1,2)]
+    [SerializeField] int levelScale;
+    public void GetMinigameValue()
+    {        
+        ScoreManager.Instance.loadAddictiveScene(minigameSceneIndex, levelScale);
     }
 }

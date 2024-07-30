@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
+    public static int selectedMinigameDifficulty;
     public Action<int> OnScoreChange;
 
     [SerializeField] int maxScore;
@@ -20,7 +21,7 @@ public class ScoreManager : MonoBehaviour
 
     GameObject scoreParent;
 
-    int addictiveScene;
+    string addictiveScene;
 
     //target Ref
     [SerializeField] List<Transform> levelTargets;
@@ -95,11 +96,12 @@ public class ScoreManager : MonoBehaviour
         gSm.ClearNpc();        
     }
 
-    public void loadAddictiveScene(int sceneId)
+    public void loadAddictiveScene(string sceneName, int minigameDifficulty)
     {
         scoreParent.SetActive(false);
-        addictiveScene = sceneId;
-        SceneManager.LoadScene(sceneId, LoadSceneMode.Additive);
+        addictiveScene = sceneName;
+        selectedMinigameDifficulty = minigameDifficulty;
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
 
     IEnumerator UpdateScoreMinigameCo(int scoreDiff)        //Lerp the score because idk how to show a tween value :(

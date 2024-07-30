@@ -6,9 +6,27 @@ using UnityEngine.SceneManagement;
 
 public abstract class BaseMiniGameClass : MonoBehaviour
 {
+    public enum difficulty
+    {
+        One = 1,
+        Two = 2,
+    }
+    public difficulty GetDifficulty()
+    {
+        Debug.Log(ScoreManager.selectedMinigameDifficulty);
+        if (Enum.IsDefined(typeof(difficulty), ScoreManager.selectedMinigameDifficulty))
+        {
+            return (difficulty)ScoreManager.selectedMinigameDifficulty;
+        }
+        else
+        {
+            throw new ArgumentException("Invalid integer value for enum conversion.");
+        }
+    }
+
     protected int score;
     public bool isGameActive = false;  //Game Start bool
-
+    
     public bool isGameOver { get; set; }
 
     protected MinigameManager gameManager;
@@ -60,6 +78,9 @@ public abstract class BaseMiniGameClass : MonoBehaviour
         EndSequence -= EndSequenceMethod;
     }
 
+    protected virtual void SetDifficulty()
+    {
 
+    }
 }
 

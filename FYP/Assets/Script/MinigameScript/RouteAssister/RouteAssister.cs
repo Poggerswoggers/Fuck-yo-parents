@@ -190,4 +190,9 @@ public class RouteAssister : BaseMiniGameClass
         float facing = eventData.pointerEnter.transform.lossyScale.x;
         LeanTween.scale(eventData.pointerEnter, Vector3.one*0.9f, 0.2f);
     }
+
+    protected override void SetDifficulty()
+    {
+
+    }
 }

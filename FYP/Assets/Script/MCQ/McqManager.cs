@@ -126,8 +126,7 @@ public class McqManager : GameBaseState
     {
         NextButton.onClick.RemoveAllListeners();
         mcqPanel.SetActive(false);
-        int index = gSm.nSm.GetComponent<MinigameNpcs>().GetGameIndex();
-        ScoreManager.Instance.loadAddictiveScene(index);
+        gSm.nSm.GetComponent<MinigameNpcs>().GetMinigameValue();
     }
     void DestroyAnswers()
     {

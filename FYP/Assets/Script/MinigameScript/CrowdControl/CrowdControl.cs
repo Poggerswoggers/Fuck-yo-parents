@@ -40,6 +40,7 @@ public class CrowdControl : BaseMiniGameClass
     NpcQueue npcQueue;
 
     [Header("Scriptable List")]
+    [SerializeField] List<RoundConfig> roundsConfig;
     [SerializeField] List<NpcScriptable> npcScriptableList;
     [SerializeField] NpcScriptable ahmaScriptable;
 
@@ -52,6 +53,8 @@ public class CrowdControl : BaseMiniGameClass
     [Header("Slider Timer")]
     [SerializeField] SliderTimer timer;
     [SerializeField] float gameTime;
+
+    
     public Transform GetCardPos()
     {
         return cardPos;
@@ -66,6 +69,7 @@ public class CrowdControl : BaseMiniGameClass
     //Initialise game values
     private void Awake()
     {
+        SetDifficulty();
         _addDelay = addDelay;
         npcScriptableList = Helper.Shuffle(npcScriptableList); //Set the shuffled list
 
@@ -78,7 +82,7 @@ public class CrowdControl : BaseMiniGameClass
 
     //Start to control when the instruction ends
     public override void StartGame()
-    {      
+    {
         StartCoroutine(StartGameCo());
         timer.SetTImer(gameTime, () => gameManager.OnGameOver());
 
@@ -188,5 +192,28 @@ public class CrowdControl : BaseMiniGameClass
 
     public NpcQueue GetQueue(){
         return npcQueue;
+    }
+
+    protected override void SetDifficulty()
+    {
+        switch (GetDifficulty())
+        {
+            case difficulty.One:
+                npcScriptableList = roundsConfig[0].npcScriptableList;
+                gameTime = roundsConfig[0].gameTime;
+                break;
+
+            case difficulty.Two:
+                npcScriptableList = roundsConfig[1].npcScriptableList;
+                gameTime = roundsConfig[1].gameTime;
+                break;
+        }
+    }
+
+    [System.Serializable]
+    internal class RoundConfig
+    {
+        public float gameTime;
+        public List<NpcScriptable> npcScriptableList;
     }
 }

@@ -114,4 +114,9 @@ public class TakeASeatGm : BaseMiniGameClass
         }
         return null;
     }
+
+    protected override void SetDifficulty()
+    {
+
+    }
 }

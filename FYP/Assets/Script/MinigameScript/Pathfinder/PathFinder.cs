@@ -165,5 +165,8 @@ public class PathFinder : BaseMiniGameClass
         public int gridSize;
     }
 
+    protected override void SetDifficulty()
+    {
 
+    }
 }

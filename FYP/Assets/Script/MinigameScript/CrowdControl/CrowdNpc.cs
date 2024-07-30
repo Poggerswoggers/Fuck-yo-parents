@@ -93,7 +93,6 @@ public class CrowdNpc: MonoBehaviour
         else if(cardIndex > cardList.Count - 1){
             cardIndex = 0;
         }
-        Debug.Log(cardIndex);
         activeCard = cardList[cardIndex].card;
         SetActiveCardSprite();
     }
