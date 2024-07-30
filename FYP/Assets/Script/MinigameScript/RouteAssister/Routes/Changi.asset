@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Changi
   m_EditorClassIdentifier: 
   destinationName: Changi Airport
-  map: {fileID: 21300000, guid: bb890a1786d93d547879fa6f8ba29331, type: 3}
+  map: {fileID: 21300000, guid: 66f5f4d6f9d45084b9f32a9d99dd631d, type: 3}
   route: 000000000300000004000000

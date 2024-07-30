@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chinatown
   m_EditorClassIdentifier: 
   destinationName: China Town
-  map: {fileID: 21300000, guid: 36d668a4ffe0fe346b3a0ea8c108c2b8, type: 3}
+  map: {fileID: 21300000, guid: acdb857bc1bb5c349be586f4afe2fdef, type: 3}
   route: 000000000300000002000000
