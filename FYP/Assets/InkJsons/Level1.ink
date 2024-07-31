@@ -41,7 +41,7 @@ I hate peak hours.
         Someone gets it.
             -> DONE
     *[Do you see anyone that needs help?] //Hints 
-        I saw someone that has CRUTCHES, I think they need some help.
+        I saw someone that has <color=yellow>CRUTCHES</color>, I think they need some help.
             -> DONE
     *[Whatever it takes to get home.] //Hints 
         Yeah, I’ll just have to squeeze in for a while.
@@ -62,7 +62,7 @@ Do all pregnant ladies have big baby bumps?
 ~correctAnswer = 0
 Would you rather have $1 or $2?            
     *[Is there someone that could use some help?]        
-        There’s someone wearing SUNGLASSES, he might need some help? 
+        There’s someone wearing <color=yellow>SUNGLASSES</color>, he might need some help? 
             -> DONE
     *[$1]        
         Wrong answer, next time we go big.
@@ -84,7 +84,7 @@ Yes?
         I am heading to work. 
             -> DONE
     *[Is there someone that could use some help?]
-         There’s someone that is walking with a GUIDE CANE, he might need some help?  
+         There’s someone that is walking with a <color=yellow>GUIDE CANE</color>, he might need some help?  
             -> DONE
             
 ==Garreth==  
@@ -98,6 +98,10 @@ What should you do if you see someone who needs help using Heartwheels @ Linkway
         I don’t think that is right. We should not ignore them! The wheelchairs are also available for vulnerable commuters to use.
             -> DONE
  
+ ==Beta==
+ ~correctAnswer = 0
+ He seems to be into his phone...
+     -> DONE
             
 ==loadMCQ==
 ->DONE

@@ -103,7 +103,7 @@ Urm, hi there! Do you need help?
 ~correctAnswer = 0
 Hello There!
     *[Have you seen anyone who could use some help?]
-        Be patient and look closely, I think someone might be NERVOUS.
+        Be patient and look closely, I think someone might be <color=yellow>NERVOUS</color>.
         ->DONE
     *[Give me your best joke!]
         I failed my spelling… so my teacher said: Simei (see me) after school!
@@ -143,7 +143,7 @@ Yes?
         Woah that’s rude…How could you make assumptions just like that?
         ->DONE
     *[Do you need any help?]
-        Nope, but I did see someone walk past me with a HEARING AID.
+        Nope, but I did see someone walk past me with a <color=yellow>HEARING AID</color>.
         ->DONE
     *[I like your keychains]
         Thank you, I’m trying to collect more animals!
@@ -156,7 +156,7 @@ What’s good cuh?
         I play games on my phone, just make sure not to disturb the other commuters when you do it though.
         ->DONE
     *[Have you seen someone who could use a helping hand?]
-        Take your time to observe , there could be people that are NERVOUS around you but it is not obvious.
+        Take your time to observe , there could be people that are <color=yellow>NERVOUS</color> around you but it's not obvious.
         ->DONE
     *[What should I do when a train arrives?]
         You should stand to side and allow the commuters from the train to exit before entering.
@@ -223,6 +223,19 @@ I’m Batman.
         Justice never sleeps!
         ->DONE
         
+==Edmund== 
+~correctAnswer = 0
+I’m Batman.
+    *[Have you seen anyone who might need help?]
+        I saw someone that looks LOST , maybe she might need some help?
+        ->DONE
+    *[Name one game off the top of your head!]
+        Mario Odyssey!  
+        ->DONE
+    *[Where are you going?]
+        I am currently heading to school to teach!
+        ->DONE
+        
 ==Fries== 
 ~correctAnswer = 0
 I’m Batman.
@@ -243,6 +256,6 @@ What’s up?.
        Huh? 
         ->DONE
     *[Have you seen anyone who might need help?]
-        I think someone LOOKS CONFUSED AND LOST. You might want to be patient with them too.
+        I think someone LOOKS <color=yellow>CONFUSED AND LOST</color>. You might want to be patient with them too.
         ->DONE        
                  
