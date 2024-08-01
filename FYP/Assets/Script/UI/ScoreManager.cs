@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
-    public static int selectedMinigameDifficulty;
+    public static int selectedMinigameDifficulty =1;
     public Action<int> OnScoreChange;
 
     [SerializeField] int maxScore;

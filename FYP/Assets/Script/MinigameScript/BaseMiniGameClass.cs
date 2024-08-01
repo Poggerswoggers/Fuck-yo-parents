@@ -13,7 +13,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     }
     public difficulty GetDifficulty()
     {
-        if (Enum.IsDefined(typeof(difficulty), ScoreManager.selectedMinigameDifficulty))
+        if (Enum.IsDefined(typeof(difficulty), ScoreManager.selectedMinigameDifficulty))    
         {
             return (difficulty)ScoreManager.selectedMinigameDifficulty;
         }

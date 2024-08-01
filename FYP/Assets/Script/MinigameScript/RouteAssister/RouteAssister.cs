@@ -13,6 +13,8 @@ public class RouteAssister : BaseMiniGameClass
     [Header("Route Assister")]
     //The starting map
     [SerializeField] GameObject map;
+    //Time map is shown
+    [SerializeField] float peakTime;
 
     //Bus sequence button
     [SerializeField] GameObject busOptionPanels;
@@ -61,32 +63,29 @@ public class RouteAssister : BaseMiniGameClass
         index = 0;
         currentDes = destinationsScriptable[0];  //Sets current route as the first scriptable in the list
         destinationsScriptable.RemoveAt(0);
-
+   
         StartCoroutine(StartSequenceCo());
     }
     IEnumerator StartSequenceCo()
     {
-        //Cool transition sequence
         npc.ResetPosition();
+        //Cool transition sequence
         map.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
         map.GetComponent<SpriteRenderer>().sprite = currentDes.map;
         map.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         mapCam.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(peakTime);
         cam.m_Lens.OrthographicSize = 6;
         mapCam.gameObject.SetActive(false);
         map.SetActive(false);
 
-        LeanTween.moveX(cam.gameObject, 5.6f, 0.5f).setDelay(1f);
-
-        yield return new WaitForSeconds(1.5f);
-        SetGame();  //Set the path
-        SetButtons();
+        LeanTween.moveX(cam.gameObject, 5.6f, 0.5f).setDelay(1f).setOnComplete(SetGame);
     }
 
     void SetGame()
-    {
+    { 
+        SetButtons();
         npc.AskForDirection(currentDes.destinationName);    //Pass destination name to the npc to 'ask'
 
         for (int i =0; i<currentDes.route.Count; i++)   //Set the text active and have the blanks
@@ -141,7 +140,7 @@ public class RouteAssister : BaseMiniGameClass
     public void OnClickBusNumber(Destinations.MRTRoutes buttonRoute)
     {
         clear = (currentDes.route[index] == buttonRoute && clear == index) ? clear + 1 : clear;   //Clear goes up when selected button int matches the current route index int
-        busTexts[index].text = $": <u><color=green>{buttonRoute}</color></u>";       //Set rich text color
+        busTexts[index].text = $": <u><color=red>{buttonRoute}</color></u>";       //Set rich text color
 
         if(index == currentDes.route.Count-1)   //if index = 2 means filled out route choices
         {

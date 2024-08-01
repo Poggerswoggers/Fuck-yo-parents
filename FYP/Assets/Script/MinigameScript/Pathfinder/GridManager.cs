@@ -13,7 +13,7 @@ public class GridManager : MonoBehaviour
     public List<Tile> correctTiles { get; set; } = new List<Tile>();
     List<Tile> allTiles = new List<Tile>();
 
-    [SerializeField] Vector3 startPos, endPos;
+    Vector3 startPos, endPos;
 
     [Header("Path Rnner")]
     [SerializeField] Transform pathRunner;
@@ -95,11 +95,13 @@ public class GridManager : MonoBehaviour
         LTSeq sequence = LeanTween.sequence();
 
         Vector3 previousPosition = pathRunner.position;
+        Vector3 targetPosition = Vector3.zero;
+        float dist = 0;
 
         for (int i=0; i<pf.index; i++)
         {
-            Vector3 targetPosition = correctTiles[i].transform.position;
-            float dist = (targetPosition - previousPosition).magnitude;
+            targetPosition = correctTiles[i].transform.position;
+            dist = (targetPosition - previousPosition).magnitude;
             float duration = dist / runnerSpeed;
             sequence.append(LeanTween.move(pathRunner.gameObject, correctTiles[i].transform.position,duration));
 
@@ -107,7 +109,13 @@ public class GridManager : MonoBehaviour
         }
         sequence.append(() =>
         {
-            LeanTween.delayedCall(1.5f, pf.CheckGridEnd);
+            if(pf.index == correctTiles.Count)
+            {
+                targetPosition = endPos;
+                dist = (targetPosition - previousPosition).magnitude;
+                float duration = dist / runnerSpeed;
+                LeanTween.move(pathRunner.gameObject, endPos, duration).setOnComplete(pf.CheckGridEnd);
+            }
         });
     }
 }
