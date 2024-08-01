@@ -1,5 +1,3 @@
-->Bobby
-
 VAR correctAnswer = ""
 
 ==Bobby==

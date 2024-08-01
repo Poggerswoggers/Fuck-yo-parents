@@ -172,7 +172,7 @@ public class SnapCamera : GameBaseState
             closestGameObject = GetClosestEnemy(taggedGameObject);
             NpcStateManager gameObjectState = closestGameObject.GetComponent<NpcStateManager>();
             
-            if(gameObjectState.GetCurrentState() != gameObjectState.interactingState)
+            if(gameObjectState.GetCurrentState() == gameObjectState.roamState)
             {
                 StartCoroutine(ZoomToTarget());
                 camMode = true;

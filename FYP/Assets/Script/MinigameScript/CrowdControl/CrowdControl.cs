@@ -7,6 +7,7 @@ public class CrowdControl : BaseMiniGameClass
 {    
     //Initial Queue
     [SerializeField] int startNpc;
+    int commutersToClear;
 
     int npcCleared;         //Hope to move to a score manager
     [SerializeField] TextMeshProUGUI clearText;
@@ -84,6 +85,7 @@ public class CrowdControl : BaseMiniGameClass
     public override void StartGame()
     {
         StartCoroutine(StartGameCo());
+        clearText.text = $"<color=#800000ff>0</color>/{commutersToClear}";
         timer.SetTImer(gameTime, () => gameManager.OnGameOver());
 
         isGameActive = true;
@@ -167,7 +169,7 @@ public class CrowdControl : BaseMiniGameClass
                 frontNpc.SelfDestruct(2); //Destroy the npc
                 npcCleared++;
                 addDelay *= 0.9f;
-                clearText.text = $"<color=#800000ff>{npcCleared}</color>/15";
+                clearText.text = $"<color=#800000ff>{npcCleared}</color>/{commutersToClear}";
                 frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
 
                 yield return new WaitForSeconds(0.2f);
@@ -181,12 +183,12 @@ public class CrowdControl : BaseMiniGameClass
             _tapDelay = tapDelay;
         }
 
-        if(npcCleared == 15){ gameManager.OnGameOver(); }
+        if(npcCleared == commutersToClear){ gameManager.OnGameOver(); }
     }
 
     public override void EndSequenceMethod()
     {
-        score = 2000 - (15 - npcCleared) * 100 - ahMaLeft * 200;
+        score = 2000 - (commutersToClear - npcCleared) * 100 - ahMaLeft * 200;
         base.UnloadedAndUpdateScore(score);
     }
 
@@ -201,11 +203,13 @@ public class CrowdControl : BaseMiniGameClass
             case difficulty.One:
                 npcScriptableList = roundsConfig[0].npcScriptableList;
                 gameTime = roundsConfig[0].gameTime;
+                commutersToClear = roundsConfig[0].commutersToClear;
                 break;
 
             case difficulty.Two:
                 npcScriptableList = roundsConfig[1].npcScriptableList;
                 gameTime = roundsConfig[1].gameTime;
+                commutersToClear = roundsConfig[1].commutersToClear;
                 break;
         }
     }
@@ -214,6 +218,7 @@ public class CrowdControl : BaseMiniGameClass
     internal class RoundConfig
     {
         public float gameTime;
+        public int commutersToClear;
         public List<NpcScriptable> npcScriptableList;
     }
 }

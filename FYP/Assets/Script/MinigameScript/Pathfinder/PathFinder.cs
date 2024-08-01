@@ -35,7 +35,7 @@ public class PathFinder : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        
+        base.UnloadedAndUpdateScore(score);
     }
 
     public override void StartGame()
@@ -159,13 +159,14 @@ public class PathFinder : BaseMiniGameClass
     public void CheckGridEnd()
     {
         tileMap.ClearAllTiles();
-        if (sequenceScriptables.Count>0)
+        if (currentSequence.correctSequences.Count>0)
         {
             IncreaseGridSize();
         }
         else
         {
             score -= (failed) ? 500 : 0;
+            EndSequenceMethod();
         }
     }
 

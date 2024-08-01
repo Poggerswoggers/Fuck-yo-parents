@@ -2723,26 +2723,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5763778449032252290, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.9490196
-      objectReference: {fileID: 0}
-    - target: {fileID: 5763778449032252290, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.9490196
-      objectReference: {fileID: 0}
-    - target: {fileID: 5763778449032252290, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.9490196
-      objectReference: {fileID: 0}
-    - target: {fileID: 5763778449032252290, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294111986
-      objectReference: {fileID: 0}
-    - target: {fileID: 5763778449032252290, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

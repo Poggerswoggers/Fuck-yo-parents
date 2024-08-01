@@ -1,5 +1,6 @@
-->Tutorial
+VAR correctAnswer = ""
 ==Tutorial==
+~correctAnswer = 0
 Welcome commuters champion.
     *[What is this place?]
        You have entered the COMMUTING ZONE, where the commuters that did not receive assistance are sent here.
