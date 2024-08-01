@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class PathFinder : BaseMiniGameClass
 {
+    [Header("Camera")]
+    [SerializeField] Camera minigameCam;
+
     [Header("Color")]
     [SerializeField] Color tileDefaultColor;
     [SerializeField] Color tileFlashColor;
 
     [SerializeField] GridManager gm;
     [Header("Sequence")]
-    [SerializeField] List<CorrectSequences> sequences;  //All sequences 
+    [SerializeField] List<SequenceScriptable> sequenceScriptables;  //All sequences 
+    SequenceScriptable currentSequence;
     [SerializeField] Vector2Int currentplayerTile;
     int gridSize;
 
-    public List<Vector2Int> currentSequence { get; set;}
+    public List<Vector2Int> currentSequenceVec2 { get; set;}
     public int index;
     bool failed;
 
@@ -25,6 +30,9 @@ public class PathFinder : BaseMiniGameClass
     [SerializeField] Tilemap tileMap;
     [SerializeField] TileBase defaultTile;
 
+    [Header("Reset Button")]
+    [SerializeField] Button resetButton;
+
     public override void EndSequenceMethod()
     {
         
@@ -33,6 +41,7 @@ public class PathFinder : BaseMiniGameClass
     public override void StartGame()
     {
         score = 2000;
+        SetDifficulty();
         IncreaseGridSize();
     }
 
@@ -41,9 +50,10 @@ public class PathFinder : BaseMiniGameClass
         //Mouse screen raycast to click on the tile
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(minigameCam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null)
             {
+                Debug.Log(hit.collider);
                 hit.transform.GetComponent<Tile>().OnClick();
             }
         }
@@ -58,14 +68,14 @@ public class PathFinder : BaseMiniGameClass
     void IncreaseGridSize()
     {
         //After completing a sequence, this is called to start a new sequence
-        currentSequence = sequences[0].correctSequence;
-        gridSize = sequences[0].gridSize;
-        sequences.RemoveAt(0);
+        currentSequenceVec2 = currentSequence.correctSequences[0].sequence;
+        gridSize = currentSequence.correctSequences[0].gridSize;
+        currentSequence.correctSequences.RemoveAt(0);
         Retry();
     }
     public void Retry()
     {
-        currentplayerTile = currentSequence[0] - Vector2Int.up;  //Sets the first tile as the first tile in the created path
+        currentplayerTile = currentSequenceVec2[0] - Vector2Int.up;  //Sets the first tile as the first tile in the created path
         StopAllCoroutines();
         tileMap.ClearAllTiles();
         index = 0;
@@ -97,7 +107,7 @@ public class PathFinder : BaseMiniGameClass
         Tile[] correctTilesCopy = gm.correctTiles.ToArray();
         foreach (Tile p in correctTilesCopy)
         {
-            int i = currentSequence.IndexOf(p.getCoord());
+            int i = currentSequenceVec2.IndexOf(p.getCoord());
             Tile tmp = correctTilesCopy[i];
             gm.correctTiles[index] = correctTilesCopy[i];
             correctTilesCopy[i] = tmp;
@@ -122,7 +132,7 @@ public class PathFinder : BaseMiniGameClass
 
         //On tileClick event method
         Vector2Int pos = tile.getCoord();
-        if (currentSequence.IndexOf(pos) == index && !failed)
+        if (currentSequenceVec2.IndexOf(pos) == index && !failed)
         {
             index++;
         }
@@ -131,10 +141,11 @@ public class PathFinder : BaseMiniGameClass
             failed = true;
         }
         //If the final tile is clicked
-        if (currentSequence[currentSequence.Count-1] == pos)
+        if (currentSequenceVec2[currentSequenceVec2.Count-1] == pos)
         {
             isGameActive = false;
-            //StartCoroutine(gm.RunPathCo());
+
+            resetButton.onClick.RemoveAllListeners();
             gm.RunPathCo();
         }
     }
@@ -148,7 +159,7 @@ public class PathFinder : BaseMiniGameClass
     public void CheckGridEnd()
     {
         tileMap.ClearAllTiles();
-        if (sequences.Count>0)
+        if (sequenceScriptables.Count>0)
         {
             IncreaseGridSize();
         }
@@ -158,15 +169,18 @@ public class PathFinder : BaseMiniGameClass
         }
     }
 
-    [System.Serializable]
-    internal class CorrectSequences
-    {
-        public List<Vector2Int> correctSequence = new List<Vector2Int>();
-        public int gridSize;
-    }
-
     protected override void SetDifficulty()
     {
-
+        switch (GetDifficulty())
+        {
+            case difficulty.One:
+                currentSequence = Instantiate(sequenceScriptables[0]);
+                gm.runnerSprite = currentSequence.pathRunnerSprite;
+                break;
+            case difficulty.Two:
+                currentSequence = Instantiate(sequenceScriptables[1]);
+                gm.runnerSprite = currentSequence.pathRunnerSprite;
+                break;
+        }
     }
 }

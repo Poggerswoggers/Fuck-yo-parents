@@ -2301,7 +2301,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8710250089411127695, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: levelScale
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710250089411127695, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
+      propertyPath: minigameSceneIndex
+      value: Pathfinder
       objectReference: {fileID: 0}
     - target: {fileID: 8983989741866256180, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: m_LocalPosition.x

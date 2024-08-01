@@ -18,6 +18,12 @@ public class GridManager : MonoBehaviour
     [Header("Path Rnner")]
     [SerializeField] Transform pathRunner;
     [SerializeField] float runnerSpeed;
+    public Sprite runnerSprite
+    {
+        set{
+            pathRunner.GetComponentInChildren<SpriteRenderer>().sprite = value;
+        }
+    }
 
     //reference
     PathFinder pf;
@@ -56,7 +62,7 @@ public class GridManager : MonoBehaviour
             }
         }
         //I love linq xoxo
-        correctTiles = allTiles.Where(c => pf.currentSequence.Contains(c.getCoord())).ToList();
+        correctTiles = allTiles.Where(c => pf.currentSequenceVec2.Contains(c.getCoord())).ToList();
     }
 
     public void SetMiscTile()
