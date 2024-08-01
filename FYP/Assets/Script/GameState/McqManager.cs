@@ -127,6 +127,7 @@ public class McqManager : GameBaseState
         NextButton.onClick.RemoveAllListeners();
         mcqPanel.SetActive(false);
         gSm.nSm.GetComponent<MinigameNpcs>().GetMinigameValue();
+        gSm.ChangeStat(gSm.minigameState);
     }
     void DestroyAnswers()
     {

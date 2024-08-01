@@ -978,7 +978,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5.5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1206,11 +1206,13 @@ MonoBehaviour:
   dropPoint: {fileID: 105145466}
   jigsawTexture: {fileID: 2800000, guid: 0fa86fab935fe204898206452ef761f6, type: 3}
   cellCount: 3
+  jigsawFixedTime: 5
   piecePrefab: {fileID: 5471918527326403308, guid: 5e7e8dbc44cf9734ab00a58b125769c4, type: 3}
   xforceOffset: 0.2
   slotParent: {fileID: 1713849185}
   timer: {fileID: 1155472259}
   gameTime: 45
+  minigameCam: {fileID: 1317692008}
 --- !u!61 &1329929246
 BoxCollider2D:
   m_ObjectHideFlags: 0

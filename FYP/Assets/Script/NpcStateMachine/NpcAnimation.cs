@@ -18,8 +18,6 @@ public class NpcAnimation : MonoBehaviour
     float lastHop;
 
     Vector3 facing;
-
-
     [SerializeField] float flip;
 
 

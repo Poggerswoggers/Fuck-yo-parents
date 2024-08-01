@@ -7,6 +7,7 @@ public class SequenceScriptable : ScriptableObject
 {
     public List<CorrectSequence> correctSequences;
     public Sprite pathRunnerSprite;
+    public Sprite failedSnippet; 
 }
 [System.Serializable]
 public struct CorrectSequence

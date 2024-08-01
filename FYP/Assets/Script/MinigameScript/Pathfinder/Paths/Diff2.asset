@@ -39,3 +39,4 @@ MonoBehaviour:
     - {x: 1, y: 4}
     gridSize: 5
   pathRunnerSprite: {fileID: 21300000, guid: 7c41f16c8289dee49b445d6114b19b02, type: 3}
+  failedSnippet: {fileID: 21300000, guid: a5600b1f730b04a4786b2dc1dd27a16b, type: 3}

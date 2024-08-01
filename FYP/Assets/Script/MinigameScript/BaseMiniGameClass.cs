@@ -26,11 +26,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     protected int score;
     public bool isGameActive = false;  //Game Start bool
     
-    public bool isGameOver { get; set; }
-
     protected MinigameManager gameManager;
-
-    public Action EndSequence {get; set;}
 
     protected abstract IEnumerator InstructionCo();
 
@@ -41,6 +37,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     protected virtual void Start()
     {
         gameManager = new MinigameManager(this);
+        gameManager.EndSequence += EndSequenceMethod;
         Instruction();
     }
     public abstract void StartGame();
@@ -69,12 +66,8 @@ public abstract class BaseMiniGameClass : MonoBehaviour
         ScoreManager.Instance.UnloadAddictiveScene(i);
     }
 
-
-    private void OnEnable(){
-        EndSequence += EndSequenceMethod;
-    }
     private void OnDisable(){
-        EndSequence -= EndSequenceMethod;
+        gameManager.EndSequence -= EndSequenceMethod;
     }
 
     protected virtual void SetDifficulty()

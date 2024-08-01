@@ -61,6 +61,7 @@ public class SnapCamera : GameBaseState
     public override void EnterState(GameStateManager gameStateManager)
     {
         Cursor.visible = false;
+        CameraReticle.gameObject.SetActive(true);
         gSm = gameStateManager;
         LeanTween.reset();
     }
@@ -98,7 +99,7 @@ public class SnapCamera : GameBaseState
     }
     public override void ExitState(GameStateManager gameStateManager)
     {
-        
+        CameraReticle.gameObject.SetActive(false);
     }
 
     public void Zoom()
@@ -168,13 +169,12 @@ public class SnapCamera : GameBaseState
     {
         if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
         {
-
             closestGameObject = GetClosestEnemy(taggedGameObject);
             NpcStateManager gameObjectState = closestGameObject.GetComponent<NpcStateManager>();
             
             if(gameObjectState.GetCurrentState() == gameObjectState.roamState)
             {
-                StartCoroutine(ZoomToTarget());
+                ZoomToTarget();
                 camMode = true;
             }
         }
@@ -204,9 +204,8 @@ public class SnapCamera : GameBaseState
             outCam.transform.position = new Vector3(maxX, maxY, outCam.transform.position.z);         
         }
     }
-    IEnumerator ZoomToTarget()
+    void ZoomToTarget()
     {
-        //zoomCam.m_Lens.OrthographicSize = 1.5f;
         zoomCam.Priority = 2;
         zoomCam.Follow = closestGameObject;
         
@@ -216,15 +215,11 @@ public class SnapCamera : GameBaseState
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();      
         //bs = nSm.GetCurrentState();
         nSm.SwitchState(nSm.promptState);
-        LeanTween.move(CameraReticle.gameObject, 
-            closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset, 
-            0.5f);
-
-        yield return new WaitForSeconds(0.2f);
-
         //Set dialogue stuff to be active and pass npc parameters
         gSm.nSm = nSm;
-        gSm.ChangeStat(gSm.dialogueStat);
+        LeanTween.move(CameraReticle.gameObject,
+            closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset,
+            0.5f).setOnComplete(()=>gSm.ChangeStat(gSm.dialogueStat));
     }
 
 

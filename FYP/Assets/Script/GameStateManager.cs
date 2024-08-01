@@ -13,6 +13,7 @@ public class GameStateManager : MonoBehaviour
     public SnapCamera snapState;
     public DialogueManager dialogueStat;
     public McqManager mcqState;
+    public MinigameState minigameState;
 
     [Header("Audio")]
     [SerializeField] AudioClip levelMusic;

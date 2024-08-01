@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using System.Linq;
+using System;
 
 public class PathFinder : BaseMiniGameClass
 {
@@ -16,13 +18,12 @@ public class PathFinder : BaseMiniGameClass
     [SerializeField] GridManager gm;
     [Header("Sequence")]
     [SerializeField] List<SequenceScriptable> sequenceScriptables;  //All sequences 
-    SequenceScriptable currentSequence;
+    public SequenceScriptable currentSequence { get; set; }
     [SerializeField] Vector2Int currentplayerTile;
     int gridSize;
 
-    public List<Vector2Int> currentSequenceVec2 { get; set;}
+    public List<Vector2Int> currentSequenceVec2;
     public int index;
-    bool failed;
 
     [Header("Delay Time")]
     [SerializeField] float delayTime;
@@ -33,9 +34,12 @@ public class PathFinder : BaseMiniGameClass
     [Header("Reset Button")]
     [SerializeField] Button resetButton;
 
+    [Header("Pass/Fail UI Panel")]
+    [SerializeField] Image panel;
+
     public override void EndSequenceMethod()
     {
-        base.UnloadedAndUpdateScore(score);
+        UnloadedAndUpdateScore(score);
     }
 
     public override void StartGame()
@@ -53,7 +57,6 @@ public class PathFinder : BaseMiniGameClass
             RaycastHit2D hit = Physics2D.Raycast(minigameCam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider);
                 hit.transform.GetComponent<Tile>().OnClick();
             }
         }
@@ -67,6 +70,8 @@ public class PathFinder : BaseMiniGameClass
 
     void IncreaseGridSize()
     {
+        resetButton.gameObject.SetActive(true);
+        panel.gameObject.SetActive(false);
         //After completing a sequence, this is called to start a new sequence
         currentSequenceVec2 = currentSequence.correctSequences[0].sequence;
         gridSize = currentSequence.correctSequences[0].gridSize;
@@ -90,7 +95,7 @@ public class PathFinder : BaseMiniGameClass
         //Flashes the correct sequence and start the game
         //isGameActive controls whether the update loop runs
         yield return new WaitForSeconds(delayTime);
-        foreach (Tile p in gm.correctTiles)
+        foreach (Tile p in gm.CorrectTiles)
         {
             p.ChangeColor(tileFlashColor);
             yield return new WaitForSeconds(0.5f);
@@ -104,12 +109,12 @@ public class PathFinder : BaseMiniGameClass
     {
         //Rearranges the instaniated tile order to fit index order 
         int index = 0;
-        Tile[] correctTilesCopy = gm.correctTiles.ToArray();
+        Tile[] correctTilesCopy = gm.CorrectTiles.ToArray();
         foreach (Tile p in correctTilesCopy)
         {
             int i = currentSequenceVec2.IndexOf(p.getCoord());
             Tile tmp = correctTilesCopy[i];
-            gm.correctTiles[index] = correctTilesCopy[i];
+            gm.CorrectTiles[index] = correctTilesCopy[i];
             correctTilesCopy[i] = tmp;
             index++;
            
@@ -132,21 +137,15 @@ public class PathFinder : BaseMiniGameClass
 
         //On tileClick event method
         Vector2Int pos = tile.getCoord();
-        if (currentSequenceVec2.IndexOf(pos) == index && !failed)
-        {
+        if (currentSequenceVec2.IndexOf(pos) == index){
             index++;
-        }
-        else
-        {
-            failed = true;
         }
         //If the final tile is clicked
         if (currentSequenceVec2[currentSequenceVec2.Count-1] == pos)
         {
             isGameActive = false;
-
-            resetButton.onClick.RemoveAllListeners();
-            gm.RunPathCo();
+            resetButton.gameObject.SetActive(false);
+            gm.RunPathCo(index);
         }
     }
     public void paintTile(Vector3 pos)
@@ -165,9 +164,14 @@ public class PathFinder : BaseMiniGameClass
         }
         else
         {
-            score -= (failed) ? 500 : 0;
             EndSequenceMethod();
         }
+    }
+
+    public void SetOnGridComplete(bool pass)
+    {
+        panel.gameObject.SetActive(!pass);
+        panel.sprite = currentSequence.failedSnippet;
     }
 
     protected override void SetDifficulty()
@@ -176,12 +180,15 @@ public class PathFinder : BaseMiniGameClass
         {
             case difficulty.One:
                 currentSequence = Instantiate(sequenceScriptables[0]);
-                gm.runnerSprite = currentSequence.pathRunnerSprite;
                 break;
             case difficulty.Two:
                 currentSequence = Instantiate(sequenceScriptables[1]);
-                gm.runnerSprite = currentSequence.pathRunnerSprite;
                 break;
         }
+    }
+
+    public List<Tile> MatchCorrectTile(List<Tile> allTiles)
+    {
+        return allTiles.Where(c => currentSequenceVec2.Contains(c.getCoord())).ToList();
     }
 }

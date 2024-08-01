@@ -67,7 +67,7 @@ public class HeadTilt : BaseMiniGameClass
 
     public override void UpdateGame()
     {
-        if (isGameOver) return;
+        if (!isGameActive) return;
         if (Input.GetMouseButtonDown(0))
         {
             rb.AddTorque(forceAmount * CheckMouseSide());
@@ -99,7 +99,7 @@ public class HeadTilt : BaseMiniGameClass
 
     private void FixedUpdate()
     {
-        if(isGameOver)
+        if(!isGameActive)
         {
             rb.AddTorque(-Mathf.Sign(rotationZ) * fallTorque*10f);
             if(Mathf.Abs(rotationZ) <= 0.5) { rb.bodyType = RigidbodyType2D.Static; }
@@ -130,7 +130,7 @@ public class HeadTilt : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        Debug.Log("Game Over");
+        isGameActive = false;
         sr.sprite = EyeOpen;
         StartCoroutine(EndSequenceCo());
     }

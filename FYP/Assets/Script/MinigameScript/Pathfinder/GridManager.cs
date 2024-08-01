@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class GridManager : MonoBehaviour
 {
@@ -10,23 +9,21 @@ public class GridManager : MonoBehaviour
     [SerializeField] Transform GridOrigin;
 
     private GameObject[,] tiles;
-    public List<Tile> correctTiles { get; set; } = new List<Tile>();
-    List<Tile> allTiles = new List<Tile>();
+    public List<Tile> CorrectTiles { get; set; } = new List<Tile>();
+
+    readonly List<Tile> allTiles = new List<Tile>();
 
     Vector3 startPos, endPos;
 
     [Header("Path Rnner")]
     [SerializeField] Transform pathRunner;
     [SerializeField] float runnerSpeed;
-    public Sprite runnerSprite
-    {
-        set{
-            pathRunner.GetComponentInChildren<SpriteRenderer>().sprite = value;
-        }
-    }
 
     //reference
     PathFinder pf;
+
+    Vector3 targetPosition = Vector3.zero;
+    float dist = 0;
 
     private void Start()
     {
@@ -38,7 +35,7 @@ public class GridManager : MonoBehaviour
         this.pf = pf;
         Vector2Int parentPosition = Vector2Int.RoundToInt(GridOrigin.position);  //Get Grid parent position
 
-        correctTiles.Clear();
+        CorrectTiles.Clear();
         allTiles.Clear();
         foreach (Transform child in GridOrigin.GetChild(1))
         {
@@ -62,14 +59,14 @@ public class GridManager : MonoBehaviour
             }
         }
         //I love linq xoxo
-        correctTiles = allTiles.Where(c => pf.currentSequenceVec2.Contains(c.getCoord())).ToList();
+        CorrectTiles = pf.MatchCorrectTile(allTiles);
     }
 
     public void SetMiscTile()
     {
         //This first loop set's the path to the first correct tile(entry)
-        Vector3 posFirst = correctTiles[0].transform.position; 
-        for(int i = 1; i < 4; i++)
+        Vector3 posFirst = CorrectTiles[0].transform.position; 
+        for(int i = 1; i < 5; i++)
         {
             Vector3 w_pos = new Vector3(posFirst.x, posFirst.y - i, 0);
             startPos = w_pos;
@@ -77,13 +74,15 @@ public class GridManager : MonoBehaviour
       
         }
         //This second loop set's the path to the last correct tile(exit)
-        Vector3 posLast = correctTiles[correctTiles.Count-1].transform.position;
-        for (int i = 1; i < 4; i++)
+        Vector3 posLast = CorrectTiles[CorrectTiles.Count-1].transform.position;
+        for (int i = 1; i < 5; i++)
         {
             Vector3 n_pos = new Vector3(posLast.x, posLast.y + i, 0);
             endPos = n_pos;
             pf.paintTile(n_pos);
-        }      
+        }
+        pathRunner.position = startPos;
+        pathRunner.GetComponentInChildren<SpriteRenderer>().sprite = pf.currentSequence.pathRunnerSprite;
     }
 
     public void ColorAllTiles(Color color)
@@ -95,33 +94,43 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public void RunPathCo()
+    public void RunPathCo(int index)
     {
-        pathRunner.position = startPos;
         LTSeq sequence = LeanTween.sequence();
 
+        bool pass = false;
         Vector3 previousPosition = pathRunner.position;
-        Vector3 targetPosition = Vector3.zero;
-        float dist = 0;
 
-        for (int i=0; i<pf.index; i++)
+        for (int i=0; i<index; i++)
         {
-            targetPosition = correctTiles[i].transform.position;
+            targetPosition = CorrectTiles[i].transform.position;
             dist = (targetPosition - previousPosition).magnitude;
             float duration = dist / runnerSpeed;
-            sequence.append(LeanTween.move(pathRunner.gameObject, correctTiles[i].transform.position,duration));
+            sequence.append(LeanTween.move(pathRunner.gameObject, CorrectTiles[i].transform.position,duration));
 
             previousPosition = targetPosition;
         }
         sequence.append(() =>
         {
-            if(pf.index == correctTiles.Count)
-            {
-                targetPosition = endPos;
-                dist = (targetPosition - previousPosition).magnitude;
-                float duration = dist / runnerSpeed;
-                LeanTween.move(pathRunner.gameObject, endPos, duration).setOnComplete(pf.CheckGridEnd);
-            }
+            pass = GridEndBool(index, previousPosition);
+            pf.SetOnGridComplete(pass);
         });
+    }
+
+    bool GridEndBool(int index, Vector3 previousPosition)
+    {
+        if (index == CorrectTiles.Count)
+        {
+            targetPosition = endPos;
+            dist = (targetPosition - previousPosition).magnitude;
+            float duration = dist / runnerSpeed;
+            LeanTween.move(pathRunner.gameObject, endPos, duration).setOnComplete(pf.CheckGridEnd);
+            return true;
+        }
+        else
+        {
+            LeanTween.delayedCall(1f, pf.CheckGridEnd);
+            return false;
+        }
     }
 }

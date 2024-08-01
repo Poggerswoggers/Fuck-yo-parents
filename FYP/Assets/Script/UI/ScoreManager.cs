@@ -92,7 +92,10 @@ public class ScoreManager : MonoBehaviour
 
         minigameCount--;
         StartCoroutine(UpdateScoreMinigameCo(score));
-        gSm.ChangeStat(gSm.snapState);
+        if (minigameCount > 0)
+        {
+            gSm.ChangeStat(gSm.snapState);
+        }
         gSm.ClearNpc();        
     }
 

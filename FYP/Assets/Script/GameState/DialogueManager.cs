@@ -22,10 +22,10 @@ public class DialogueManager : GameBaseState
     [Header("UI Panel")]
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] EventTrigger _backButton;
-    //[SerializeField] RectTransform promptBox;
-    //[SerializeField] float promptBoxYPos;
-    //[SerializeField] RectTransform infoBox;
-    //[SerializeField] float infoBoxXPos;
+    [SerializeField] RectTransform promptBox;
+    [SerializeField] float promptBoxYPos;
+    [SerializeField] RectTransform infoBox;
+    [SerializeField] float infoBoxXPos;
     [SerializeField] float phaseInSpeed;
 
     bool canContinueToNextLine = false;
@@ -38,10 +38,11 @@ public class DialogueManager : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
+        LeanTween.reset();
         Cursor.visible = true;
         gSm = gameStateManager;
         Initialise();
-        StartCoroutine(LoadDialooguePanel(dialogueKnotName));
+        LoadDialooguePanel(dialogueKnotName);
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
@@ -83,14 +84,12 @@ public class DialogueManager : GameBaseState
     }
 
     //Loads and tweens the dialogue boxes;
-    IEnumerator LoadDialooguePanel(string knotName) 
+    void LoadDialooguePanel(string knotName) 
     {
-        yield return new WaitForSeconds(phaseInSpeed);
         dialoguePanel.SetActive(true);
         
         //LeanTween.moveY(promptBox, promptBoxYPos, phaseInSpeed).setDelay(0.3f);
         //LeanTween.moveX(infoBox, infoBoxXPos, phaseInSpeed);
-
         StartStory(knotName);
     }
 

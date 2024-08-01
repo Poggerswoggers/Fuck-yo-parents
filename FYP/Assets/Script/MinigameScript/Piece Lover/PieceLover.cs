@@ -16,6 +16,7 @@ public class PieceLover : BaseMiniGameClass
     [SerializeField] int cellCount;
 
     [Header("Jigsaw pieces")]
+    [SerializeField] float jigsawFixedTime;
     [SerializeField] Transform piecePrefab;
     [SerializeField] float xforceOffset;
     int piecesToMatch;
@@ -27,6 +28,9 @@ public class PieceLover : BaseMiniGameClass
     [Header("Slider Timer")]
     [SerializeField] SliderTimer timer;
     [SerializeField] float gameTime;
+
+    [Header("Camera")]
+    [SerializeField] Camera minigameCam;
     public override void EndSequenceMethod()
     {
         Debug.Log("game");
@@ -78,7 +82,7 @@ public class PieceLover : BaseMiniGameClass
     }
     IEnumerator BreakJigSaw(List<Transform> pieces)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(jigsawFixedTime);
         foreach(Transform piece in pieces)
         {
             piece.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -95,13 +99,13 @@ public class PieceLover : BaseMiniGameClass
         //Pick up jigsaw
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePos = minigameCam.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, lm);
             if (hit.transform.TryGetComponent(out Rigidbody2D rb))
             {
                 draggingPiece = hit.transform;
                 draggingPiece.LeanRotate(Vector3.zero, 0.25f).setDelay(0.25f);
-                offset = draggingPiece.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                offset = draggingPiece.position - minigameCam.ScreenToWorldPoint(Input.mousePosition);
 
                 rb.isKinematic = true;
                 rb.angularVelocity = 0;
@@ -118,7 +122,7 @@ public class PieceLover : BaseMiniGameClass
         //Dragging jigsaw
         if (draggingPiece)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePos = minigameCam.ScreenToWorldPoint(Input.mousePosition);
             mousePos += offset;
             draggingPiece.position = mousePos;
         }
