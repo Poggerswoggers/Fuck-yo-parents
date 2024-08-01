@@ -6,7 +6,8 @@ VAR correctAnswer = ""
 ~correctAnswer = 1
 …
     *[You seem nervous, do you need my help?]
-        Yes ,thank you. (You slowly guide her to a nearby station staff)
+        Yes ,thank you. 
+        (You slowly guide her to a nearby station staff)
             -> DONE
     *[(Judge them by looking)] 
         (Stresses out)
@@ -47,7 +48,8 @@ VAR correctAnswer = ""
         (She shakes her head and moves past you)
             -> DONE
     *[Hello, do you need my help?] 
-        I am a little lost, thanks for helping. (She gave you her CARA card as you contact her family members.)
+        I am a little lost, thanks for helping. 
+        (She gave you her CARA card as you contact her family members.)
             -> DONE
             
 ==Grace==

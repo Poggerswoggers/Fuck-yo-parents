@@ -5,7 +5,8 @@ VAR correctAnswer = ""
 ~correctAnswer = 1
 Excuse me.
     *[Do you need any help?] 
-        That’ll be lovely (You guide him to another floor in the station slowly. ) 
+        That’ll be lovely 
+        (You guide him to another floor in the station slowly. ) 
             ->DONE
     *[(Starts laughing at them)]
         What's so funny? Don’t bother me! 
@@ -26,13 +27,12 @@ Hello.
         No need to help, I got it.
             ->DONE
     *[Would you like me to help you?]
-        That’ll be nice.  (You match his walking pace as you guide him to the station gantry)
+        That’ll be nice.  
+        (You match his walking pace as you guide him to the station gantry)
             ->DONE
     *[How many fingers am I holding up?]
         That’s not very nice.
             ->DONE
-
-         
 
 ==Jaylen==
 ~correctAnswer = 0
