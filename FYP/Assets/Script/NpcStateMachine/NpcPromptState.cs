@@ -8,10 +8,9 @@ public class NpcPromptState : NpcBaseState
     {
         npcThis = npcSm.transform;
         npcThis.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        npcThis.GetComponent<Collider2D>().enabled = false;
         nSm = npcSm;
         nSm.npcAnim.StopWalkAnim();
-
-        isBusy = true;
     }
     public override void UpdateState(NpcStateManager npcSm)
     {
@@ -19,7 +18,7 @@ public class NpcPromptState : NpcBaseState
     }
     public override void ExitState(NpcStateManager npcSm)
     {
-        isBusy = false;
+        npcThis.GetComponent<Collider2D>().enabled = true;
     }
 
     public override void OnCollisionEnter2D(NpcStateManager npcSm, Collision2D collision)

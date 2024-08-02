@@ -51,7 +51,7 @@ public class NpcInteractState : NpcBaseState
         if(hit !=null && hit.transform != npcThis)
         {
             NpcStateManager targetnSm = hit.GetComponent<NpcStateManager>();
-            if(!targetnSm.GetCurrentState().isBusy && !targetnSm.interactState.chaseTarget)
+            if(!targetnSm.interactState.chaseTarget)
             {
                 target = hit.transform;
             }

@@ -18,7 +18,8 @@ public class PieceLover : BaseMiniGameClass
     [Header("Jigsaw pieces")]
     [SerializeField] float jigsawFixedTime;
     [SerializeField] Transform piecePrefab;
-    [SerializeField] float xforceOffset;
+    private float xforceOffset = 0.2f;
+    [SerializeField] float splitForce;
     int piecesToMatch;
 
     [Header("Jigsaw Slot")]
@@ -31,9 +32,13 @@ public class PieceLover : BaseMiniGameClass
 
     [Header("Camera")]
     [SerializeField] Camera minigameCam;
+
+    [Header("Particle")]
+    [SerializeField] GameObject snapParticle;
     public override void EndSequenceMethod()
     {
-        Debug.Log("game");
+        Debug.Log("Game");
+        UnloadedAndUpdateScore(1);
     }
 
     public override void StartGame()
@@ -88,7 +93,7 @@ public class PieceLover : BaseMiniGameClass
             piece.GetComponent<Rigidbody2D>().isKinematic = false;
             float x = Random.Range(piece.position.x - xforceOffset, piece.position.x + xforceOffset);
             Vector2 force = new Vector2(x, piece.localPosition.y);
-            piece.GetComponent<Rigidbody2D>().AddForce(force.normalized*4, ForceMode2D.Impulse);
+            piece.GetComponent<Rigidbody2D>().AddForce(force.normalized*splitForce, ForceMode2D.Impulse);
         }
         isGameActive = true;
         timer.SetTImer(gameTime, () => gameManager.OnGameOver());
@@ -101,6 +106,7 @@ public class PieceLover : BaseMiniGameClass
         {
             Vector3 mousePos = minigameCam.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, lm);
+            if (!hit.collider) return;
             if (hit.transform.TryGetComponent(out Rigidbody2D rb))
             {
                 draggingPiece = hit.transform;
@@ -141,6 +147,9 @@ public class PieceLover : BaseMiniGameClass
             {
                 piecesToMatch--;
                 draggingPiece.GetComponent<BoxCollider2D>().enabled = false;
+                //Set particle
+                GameObject particle = Instantiate(snapParticle);
+                particle.transform.position = (Vector3Int)slotsPos[index];  //It self destructs
                 if(piecesToMatch == 0) { gameManager.OnGameOver();}
             }
         }

@@ -23,11 +23,6 @@ public class SnapCamera : GameBaseState
 
     bool camMode;
 
-
-    [Header("Timer")]
-    [SerializeField] float timeToFindNpc;
-    float _timeToFindNpc;
-
     [Header("Camera Zooming")]
     [SerializeField] private Camera cam;
     [SerializeField] private float zoomSpeed = 20f;
@@ -46,10 +41,12 @@ public class SnapCamera : GameBaseState
     //Boundary Object
     [SerializeField] Transform boundaryObj;
 
+    [Header("Dialogue indicator")]
+    [SerializeField] Transform visualCue;
+
     private void Start()
     {
         CamOrigin = outCamGameObject.transform.position;
-        _timeToFindNpc = timeToFindNpc;
         //newZoomLevel = outCam.m_Lens.OrthographicSize;
     }
 
@@ -86,16 +83,6 @@ public class SnapCamera : GameBaseState
             //Zoom();
 
         }
-
-        if(_timeToFindNpc>0 && ScoreManager.Instance._levelTarget != null)
-        {
-            _timeToFindNpc -= Time.deltaTime;
-        }
-        else
-        {
-            ScoreManager.Instance.OnScoreChange?.Invoke(1000);
-            _timeToFindNpc = timeToFindNpc;
-        }
     }
     public override void ExitState(GameStateManager gameStateManager)
     {
@@ -106,12 +93,12 @@ public class SnapCamera : GameBaseState
     {
         // Get MouseWheel-Value and calculate new Orthographic-Size
         // (while using Zoom-Speed-Multiplier)
-        newZoomLevel -= Input.GetAxis("Mouse ScrollWheel") * zoomSens;
+        //SnewZoomLevel -= Input.GetAxis("Mouse ScrollWheel") * zoomSens;
         //newZoomLevel = cam.orthographicSize - mouseScrollWheel;
 
-        newZoomLevel = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
-        float camSize = Mathf.MoveTowards(outCam.m_Lens.OrthographicSize, newZoomLevel, zoomSpeed * Time.deltaTime);
-        outCam.m_Lens.OrthographicSize = newZoomLevel;
+        //newZoomLevel = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
+        //float camSize = Mathf.MoveTowards(outCam.m_Lens.OrthographicSize, newZoomLevel, zoomSpeed * Time.deltaTime);
+        //outCam.m_Lens.OrthographicSize = newZoomLevel;
 
 
         /*if(mouseScrollWheel !=0)
@@ -167,9 +154,9 @@ public class SnapCamera : GameBaseState
 
     void SnapSystem()
     {
-        if(Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
+        closestGameObject = GetClosestEnemy(taggedGameObject);
+        if (Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
         {
-            closestGameObject = GetClosestEnemy(taggedGameObject);
             NpcStateManager gameObjectState = closestGameObject.GetComponent<NpcStateManager>();
             
             if(gameObjectState.GetCurrentState() == gameObjectState.roamState)
@@ -226,6 +213,7 @@ public class SnapCamera : GameBaseState
     
     Transform GetClosestEnemy(GameObject[] enemies)
     {
+        if (enemies.Length == 0) return null;
         Transform bestTarget = null;
         float mindist = Mathf.Infinity;
         foreach(GameObject col in enemies)
@@ -238,7 +226,6 @@ public class SnapCamera : GameBaseState
                 bestTarget = col.transform;
             }
         }
-        Debug.Log(bestTarget);
         return bestTarget;
     }
 

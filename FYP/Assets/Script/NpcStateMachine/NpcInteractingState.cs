@@ -24,8 +24,8 @@ public class NpcInteractingState : NpcBaseState
         Initialise();
 
         nSm.npcAnim.Chatting(interactDur);
-
-        isBusy = true;
+        npcThis.GetComponent<Collider2D>().enabled = false;
+        
     }
     void Initialise()
     {
@@ -49,7 +49,7 @@ public class NpcInteractingState : NpcBaseState
 
     public override void ExitState(NpcStateManager npcSm)
     {
-        isBusy = false;
+        npcThis.GetComponent<Collider2D>().enabled = true;
     }
 
     public override void OnCollisionEnter2D(NpcStateManager npcSm, Collision2D collision)

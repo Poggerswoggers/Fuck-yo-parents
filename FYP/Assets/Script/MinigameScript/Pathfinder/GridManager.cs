@@ -94,11 +94,9 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public void RunPathCo(int index)
+    public void RunPathCo(int index, bool state)
     {
         LTSeq sequence = LeanTween.sequence();
-
-        bool pass = false;
         Vector3 previousPosition = pathRunner.position;
 
         for (int i=0; i<index; i++)
@@ -112,25 +110,23 @@ public class GridManager : MonoBehaviour
         }
         sequence.append(() =>
         {
-            pass = GridEndBool(index, previousPosition);
-            pf.SetOnGridComplete(pass);
+            pf.SetOnGridComplete(GridEndBool(state, previousPosition));
         });
     }
 
-    bool GridEndBool(int index, Vector3 previousPosition)
+    bool GridEndBool(bool state, Vector3 previousPosition)
     {
-        if (index == CorrectTiles.Count)
+        if (!state)
         {
             targetPosition = endPos;
             dist = (targetPosition - previousPosition).magnitude;
             float duration = dist / runnerSpeed;
             LeanTween.move(pathRunner.gameObject, endPos, duration).setOnComplete(pf.CheckGridEnd);
-            return true;
         }
         else
         {
             LeanTween.delayedCall(1f, pf.CheckGridEnd);
-            return false;
         }
+        return state;
     }
 }

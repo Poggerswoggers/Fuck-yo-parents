@@ -63,7 +63,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
 
     protected void UnloadedAndUpdateScore(int i)
     {
-        ScoreManager.Instance.UnloadAddictiveScene(i);
+        ScoreManager.Instance?.UnloadAddictiveScene(i);
     }
 
     private void OnDisable(){

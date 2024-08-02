@@ -23,7 +23,8 @@ public class PathFinder : BaseMiniGameClass
     int gridSize;
 
     public List<Vector2Int> currentSequenceVec2;
-    public int index;
+    private int index;
+    private bool state = false;
 
     [Header("Delay Time")]
     [SerializeField] float delayTime;
@@ -39,6 +40,7 @@ public class PathFinder : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
+        Debug.Log("Game");
         UnloadedAndUpdateScore(score);
     }
 
@@ -84,6 +86,7 @@ public class PathFinder : BaseMiniGameClass
         StopAllCoroutines();
         tileMap.ClearAllTiles();
         index = 0;
+        state = false;
         gm.GenerateGrid(gridSize, this);
         RearrangedSequence();
         isGameActive = false;
@@ -137,15 +140,19 @@ public class PathFinder : BaseMiniGameClass
 
         //On tileClick event method
         Vector2Int pos = tile.getCoord();
-        if (currentSequenceVec2.IndexOf(pos) == index){
+        if (currentSequenceVec2.IndexOf(pos) == index && !state){
             index++;
+        }
+        else
+        {
+            state = true;
         }
         //If the final tile is clicked
         if (currentSequenceVec2[currentSequenceVec2.Count-1] == pos)
         {
             isGameActive = false;
             resetButton.gameObject.SetActive(false);
-            gm.RunPathCo(index);
+            gm.RunPathCo(index, state);
         }
     }
     public void paintTile(Vector3 pos)
@@ -170,7 +177,7 @@ public class PathFinder : BaseMiniGameClass
 
     public void SetOnGridComplete(bool pass)
     {
-        panel.gameObject.SetActive(!pass);
+        panel.gameObject.SetActive(pass);
         panel.sprite = currentSequence.failedSnippet;
     }
 
