@@ -46,7 +46,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -174,10 +174,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae185e7e19374202964f7e2594c89d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myMixer: {fileID: 24100000, guid: 9b83eb12143dc4d87892d3e7a3cf411f, type: 2}
   musicSource: {fileID: 1095388085172583686}
   sfxSource: {fileID: 9144594987473573874}
-  clickSound: {fileID: 8300000, guid: f4507685821004ede8e9402864955303, type: 3}
   menuBGM: {fileID: 8300000, guid: c0cd5e96d5901bb42bcbba721ffdae62, type: 3}
+  camSnap: {fileID: 8300000, guid: 8cfbb05056081454b99e792b031e1605, type: 3}
+  cardTap: {fileID: 8300000, guid: f9611a55d623b4a44a70a7dda9298ce0, type: 3}
+  wrongCardTap: {fileID: 8300000, guid: 7ae77a1a2081c46f2b1dbc2ed9159554, type: 3}
+  buttonClick: {fileID: 8300000, guid: 405d7f8629eb14a2491f1e4a491827dd, type: 3}
 --- !u!1 &4839036803929637884
 GameObject:
   m_ObjectHideFlags: 0

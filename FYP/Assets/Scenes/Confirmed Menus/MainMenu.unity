@@ -1607,7 +1607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: f4507685821004ede8e9402864955303, type: 3}
 --- !u!1 &1071622712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2451,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: f4507685821004ede8e9402864955303, type: 3}
 --- !u!114 &1327349858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3056,14 +3054,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1095388085172583686, guid: 1d092759e1a962643b2bf06b98a327f9, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2556191614559340500, guid: 1d092759e1a962643b2bf06b98a327f9, type: 3}
-      propertyPath: myMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 9b83eb12143dc4d87892d3e7a3cf411f, type: 2}
     - target: {fileID: 3195648275525433951, guid: 1d092759e1a962643b2bf06b98a327f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

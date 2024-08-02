@@ -12,6 +12,12 @@ public class AudioManager : MonoBehaviour
     [Header("Menu ")]
     [SerializeField] AudioClip menuBGM;
 
+    [Header("SFX source")]
+    public AudioClip camSnap;
+    public AudioClip cardTap;
+    public AudioClip wrongCardTap;
+    public AudioClip buttonClick;
+
     public static AudioManager instance;
 
     public void Awake() {
