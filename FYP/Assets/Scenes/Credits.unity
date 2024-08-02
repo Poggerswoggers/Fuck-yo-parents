@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 37, y: 65}
+  m_AnchoredPosition: {x: 30, y: 7}
   m_SizeDelta: {x: 3709, y: 677.3272}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &187139979
@@ -225,14 +225,14 @@ RectTransform:
   m_GameObject: {fileID: 194711509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.86743, y: 0.86743, z: 0.86743}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2071757744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 127.27, y: -29}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &194711511
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_text: "(Team Lead / Game designer)  Lua Boon Yi   \n\n(Level Designer / UIUX)
     Tan Wei Ting Jolin  \n\n(2D Art lead/ Programmer / VFX Designer)  Darren Lim
     De Ren \n\n(Programmer / VFX Designer)  Jason Soh Hui Hong  \n\n(Sound & Music)\nLai
-    Yuet \nShane \nLuis \n\n\n"
+    Yuet\r\nChen Zai Shane Matthew\r\nEsta Luis Gerard Esporlas\r\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1688db27b04594532870328314633a98, type: 2}
   m_sharedMaterial: {fileID: -6439388274807012715, guid: 1688db27b04594532870328314633a98, type: 2}
@@ -1051,7 +1051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 94, y: -9}
   m_SizeDelta: {x: 2765.1697, y: 748}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1185623187
