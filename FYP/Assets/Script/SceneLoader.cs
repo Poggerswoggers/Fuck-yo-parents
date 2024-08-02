@@ -7,42 +7,45 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     public Image confirmScreen;
-    [SerializeField] AudioClip clickSound; 
+
+    AudioManager audioManager;
 
     public void Awake() {
-        }
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     public void LevelSelect() {
-        AudioManager.instance.PlaySFX(clickSound);
+        audioManager.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void Credits() {
-        AudioManager.instance.PlaySFX(clickSound);
+        audioManager.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("Credits");
     }
 
     public void Settings() {
-        AudioManager.instance.PlaySFX(clickSound);
+        audioManager.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("Settings");
     }
 
     public void BackToMain() {
-        AudioManager.instance.PlaySFX(clickSound);
+        audioManager.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("MainMenu");
     }
 
     public void StoryMode(string sceneName) {
+        audioManager.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene(sceneName);
     }
 
     public void ResetAll() {
-        AudioManager.instance.PlaySFX(clickSound);
+        audioManager.PlaySFX(audioManager.buttonClick);
         confirmScreen.gameObject.SetActive(true);
     }
 
     public void DenyReset() {
-        AudioManager.instance.PlaySFX(clickSound);
+        audioManager.PlaySFX(audioManager.buttonClick);
         confirmScreen.gameObject.SetActive(false);
     }
 

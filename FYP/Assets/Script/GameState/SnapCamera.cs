@@ -21,6 +21,8 @@ public class SnapCamera : GameBaseState
     [SerializeField] CinemachineVirtualCamera zoomCam;
     [SerializeField] GameObject outCamGameObject;
 
+    AudioManager audioManager;
+
     bool camMode;
 
     [Header("Camera Zooming")]
@@ -48,6 +50,7 @@ public class SnapCamera : GameBaseState
     {
         CamOrigin = outCamGameObject.transform.position;
         //newZoomLevel = outCam.m_Lens.OrthographicSize;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public Vector2 CalculateBounds()
@@ -161,6 +164,7 @@ public class SnapCamera : GameBaseState
             
             if(gameObjectState.GetCurrentState() == gameObjectState.roamState)
             {
+                audioManager.PlaySFX(audioManager.camSnap);
                 ZoomToTarget();
                 camMode = true;
             }

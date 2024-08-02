@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Confirmed Menus/MainMenu.unity
     guid: 13288c7ad85a546f4872ef5077f2ed9e
   - enabled: 1
     path: Assets/Scenes/LevelS/Level1.unity
@@ -21,19 +21,19 @@ EditorBuildSettings:
     path: Assets/Scenes/MCQ Scene.unity
     guid: 67082f48d41fc284bac2e609d9416ae6
   - enabled: 1
-    path: Assets/Scenes/Settings.unity
+    path: Assets/Scenes/Confirmed Menus/Settings.unity
     guid: 55f05e08ac31c4797be7b1cabba3a935
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
+    path: Assets/Scenes/Confirmed Menus/Credits.unity
     guid: 53926be5e587441928fc99d9cc1f1227
   - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
+    path: Assets/Scenes/Confirmed Menus/LevelSelect.unity
     guid: 490056c58202a49b4a52b18b0f42792b
   - enabled: 1
     path: Assets/Scenes/MinigamesSelect.unity
     guid: 5c9086ba00c384f38957eafbde9071f2
   - enabled: 1
-    path: Assets/Scenes/StoryMode.unity
+    path: Assets/Scenes/Confirmed Menus/StoryMode.unity
     guid: af350931836b24a39beeac98a0726647
   - enabled: 1
     path: Assets/Scenes/Minigames/HeadTilt.unity
