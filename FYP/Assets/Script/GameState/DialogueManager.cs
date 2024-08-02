@@ -18,15 +18,16 @@ public class DialogueManager : GameBaseState
     [SerializeField] Button buttonPrefab;
 
     [SerializeField] TextMeshProUGUI infoTextField;
+    [SerializeField] char[] textArray;
 
     [Header("UI Panel")]
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] EventTrigger _backButton;
-    [SerializeField] RectTransform promptBox;
-    [SerializeField] float promptBoxYPos;
-    [SerializeField] RectTransform infoBox;
-    [SerializeField] float infoBoxXPos;
-    [SerializeField] float phaseInSpeed;
+    //[SerializeField] RectTransform promptBox;
+    //[SerializeField] float promptBoxYPos;
+    //[SerializeField] RectTransform infoBox;
+    //[SerializeField] float infoBoxXPos;
+    //[SerializeField] float phaseInSpeed;
 
     bool canContinueToNextLine = false;
     private Coroutine displayLineCoroutine;
@@ -87,9 +88,6 @@ public class DialogueManager : GameBaseState
     void LoadDialooguePanel(string knotName) 
     {
         dialoguePanel.SetActive(true);
-        
-        //LeanTween.moveY(promptBox, promptBoxYPos, phaseInSpeed).setDelay(0.3f);
-        //LeanTween.moveX(infoBox, infoBoxXPos, phaseInSpeed);
         StartStory(knotName);
     }
 
@@ -105,7 +103,6 @@ public class DialogueManager : GameBaseState
     {
         if (inkStory.canContinue)
         {
-            //Debug.Log("Display ran");
             if (displayLineCoroutine != null)
             {
                 StopCoroutine(displayLineCoroutine);
@@ -134,12 +131,37 @@ public class DialogueManager : GameBaseState
         infoTextField.text = "";
         canContinueToNextLine = false;
 
+        textArray = infoText.ToCharArray();
+
         yield return new WaitForSeconds(0.3f);
-        foreach (char letter in infoText.ToCharArray())
+        for(int i =0; i < infoText.Length; i++)
         {
-            infoTextField.text += letter;
+            if (textArray[i].Equals('<'))
+            {
+                infoTextField.text += GetCompleteRichTextTag(ref i);
+            }
+            else
+            {
+                infoTextField.text += textArray[i];
+            }
             yield return new WaitForSeconds(typingSpeed);
+        } 
+    }
+
+    string GetCompleteRichTextTag(ref int index)
+    {
+        string completeTag = string.Empty;
+
+        while(index < textArray.Length)
+        {
+                completeTag += textArray[index];
+
+                if (textArray[index].Equals('>'))
+                    return completeTag;
+
+                index++;
         }
+        return string.Empty;
     }
 
     void DisplayChoices()

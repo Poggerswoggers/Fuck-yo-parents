@@ -16,10 +16,8 @@ MonoBehaviour:
 
 '
   answerText:
-  - " \rMemory loss \r\n\r"
-  - '
-
-    Difficulty in speaking '
+  - " \rMemory loss"
+  - 'Difficulty in speaking '
   - 'Confusion
 
 '

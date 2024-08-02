@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9121436329125052620
 Transform:
   m_ObjectHideFlags: 0
@@ -85,6 +85,7 @@ MonoBehaviour:
   choiceButtonPrefab: {fileID: 3464599059183720601, guid: c478366cfa35e664db0e641085f2fe88, type: 3}
   buttonContainer: {fileID: 6697309089747536193}
   selectedColor: {r: 0.59748423, g: 0.59748423, b: 0.59748423, a: 1}
+  defaultColor: {r: 0.8742138, g: 0.6728523, b: 0.34363744, a: 1}
   playerChoice: 
 --- !u!1 &4135029532557327187
 GameObject:

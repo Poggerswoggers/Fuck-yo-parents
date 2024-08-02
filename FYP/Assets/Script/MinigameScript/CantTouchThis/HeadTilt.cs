@@ -18,6 +18,7 @@ public class HeadTilt : BaseMiniGameClass
 
     private float rotationZ;
     private float fallTorque;
+    private bool reset;
 
     [SerializeField] float maxLeanAngle;
     [SerializeField] int startTorque;
@@ -99,10 +100,10 @@ public class HeadTilt : BaseMiniGameClass
 
     private void FixedUpdate()
     {
-        if(!isGameActive)
+        if (reset)
         {
-            rb.AddTorque(-Mathf.Sign(rotationZ) * fallTorque*10f);
-            if(Mathf.Abs(rotationZ) <= 0.5) { rb.bodyType = RigidbodyType2D.Static; }
+            rb.AddTorque(-Mathf.Sign(rotationZ) * fallTorque * 10f);
+            if (Mathf.Abs(rotationZ) <= 0.5) { rb.bodyType = RigidbodyType2D.Static; }
         }
 
         if (!isGameActive) return;
@@ -131,12 +132,13 @@ public class HeadTilt : BaseMiniGameClass
     public override void EndSequenceMethod()
     {
         isGameActive = false;
+        reset = true;
         sr.sprite = EyeOpen;
         StartCoroutine(EndSequenceCo());
     }
     IEnumerator EndSequenceCo()
     {
         yield return new WaitForSeconds(2f);
-        base.UnloadedAndUpdateScore(2000 - Strikes*100);
+        UnloadedAndUpdateScore(2000 - Strikes*100);
     }
 }

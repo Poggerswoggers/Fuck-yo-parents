@@ -41,10 +41,14 @@ public class PieceLover : BaseMiniGameClass
         UnloadedAndUpdateScore(1);
     }
 
-    public override void StartGame()
+    private void Awake()
     {
         CreateSlots();
         CreateJigSaw();
+    }
+
+    public override void StartGame()
+    {
         LeanTween.reset();
     }
 

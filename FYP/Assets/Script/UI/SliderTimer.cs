@@ -34,6 +34,11 @@ public class SliderTimer : MonoBehaviour
         this.timerCallback = timerCallback;
     }
 
+    public void TimePenalty(float penaltyTime)
+    {
+        gameTime -= penaltyTime;
+    }
+
     public bool isTimesUp()
     {
         return gameTime <= 0f;

@@ -1,4 +1,4 @@
-->Isaac
+
 
 VAR correctAnswer = ""
 

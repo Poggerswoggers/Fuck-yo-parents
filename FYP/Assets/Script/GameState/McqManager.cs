@@ -20,6 +20,7 @@ public class McqManager : GameBaseState
     [SerializeField] Button choiceButtonPrefab;
     [SerializeField] GameObject buttonContainer;
     [SerializeField] Color selectedColor;
+    [SerializeField] Color defaultColor;
 
     [SerializeField] List<int> playerChoice;
     List<AnswerChoice> answerChoiceList = new List<AnswerChoice>();
@@ -69,7 +70,7 @@ public class McqManager : GameBaseState
         var choiceButton = Instantiate(choiceButtonPrefab);
         choiceButton.transform.SetParent(buttonContainer.transform, false);
         var buttonText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.text = text;
+        buttonText.text = text?.Trim();
         //((char)('A' + index)) + ": "
         return choiceButton;
     }
@@ -101,7 +102,7 @@ public class McqManager : GameBaseState
         }
         else
         {
-            answerChoice.thisButton.image.color = Color.white;
+            answerChoice.thisButton.image.color = defaultColor;
             playerChoice.Remove(answerChoice.index);
         }
     }

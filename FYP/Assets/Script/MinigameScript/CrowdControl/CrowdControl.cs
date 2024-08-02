@@ -42,7 +42,7 @@ public class CrowdControl : BaseMiniGameClass
 
     [Header("Scriptable List")]
     [SerializeField] List<RoundConfig> roundsConfig;
-    [SerializeField] List<NpcScriptable> npcScriptableList;
+    List<NpcScriptable> npcScriptableList = new List<NpcScriptable>();
     [SerializeField] NpcScriptable ahmaScriptable;
 
     int ahmaIndex = 4;
@@ -195,6 +195,13 @@ public class CrowdControl : BaseMiniGameClass
     public NpcQueue GetQueue(){
         return npcQueue;
     }
+
+    public void TimePenalty()
+    {
+        timer.TimePenalty(5);
+    }
+
+
 
     protected override void SetDifficulty()
     {

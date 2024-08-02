@@ -10,42 +10,45 @@ public class SceneLoader : MonoBehaviour
 
     AudioManager audioManager;
 
-    public void Awake() {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    public void Awake(){
+        if (AudioManager.instance)
+        {
+            audioManager = AudioManager.instance;
+        }
     }
 
     public void LevelSelect() {
-        audioManager.PlaySFX(audioManager.buttonClick);
+        audioManager?.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void Credits() {
-        audioManager.PlaySFX(audioManager.buttonClick);
+        audioManager?.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("Credits");
     }
 
     public void Settings() {
-        audioManager.PlaySFX(audioManager.buttonClick);
+        audioManager?.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("Settings");
     }
 
     public void BackToMain() {
-        audioManager.PlaySFX(audioManager.buttonClick);
+        audioManager?.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("MainMenu");
     }
 
     public void StoryMode(string sceneName) {
-        audioManager.PlaySFX(audioManager.buttonClick);
-        SceneManager.LoadScene(sceneName);
+        audioManager?.PlaySFX(audioManager.buttonClick);
+        SceneManager.LoadSceneAsync(sceneName);
     }
 
     public void ResetAll() {
-        audioManager.PlaySFX(audioManager.buttonClick);
+        audioManager?.PlaySFX(audioManager.buttonClick);
         confirmScreen.gameObject.SetActive(true);
     }
 
     public void DenyReset() {
-        audioManager.PlaySFX(audioManager.buttonClick);
+        audioManager?.PlaySFX(audioManager.buttonClick);
         confirmScreen.gameObject.SetActive(false);
     }
 

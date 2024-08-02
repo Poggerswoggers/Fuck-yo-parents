@@ -21,16 +21,16 @@ public class SnapCamera : GameBaseState
     [SerializeField] CinemachineVirtualCamera zoomCam;
     [SerializeField] GameObject outCamGameObject;
 
-    AudioManager audioManager;
+    //AudioManager audioManager;
 
     bool camMode;
 
     [Header("Camera Zooming")]
-    [SerializeField] private Camera cam;
-    [SerializeField] private float zoomSpeed = 20f;
-    [SerializeField] float zoomSens;
-    [SerializeField] private float minCamSize = 2f;
-    [SerializeField] private float maxCamSize = 5f;
+    //[SerializeField] private Camera cam;
+    //[SerializeField] private float zoomSpeed = 20f;
+    //[SerializeField] float zoomSens;
+    //[SerializeField] private float minCamSize = 2f;
+    //[SerializeField] private float maxCamSize = 5f;
     float newZoomLevel;
 
     Vector3 origin;
@@ -45,12 +45,13 @@ public class SnapCamera : GameBaseState
 
     [Header("Dialogue indicator")]
     [SerializeField] Transform visualCue;
+    [SerializeField] Vector3 visualCueOffset;
 
     private void Start()
     {
         CamOrigin = outCamGameObject.transform.position;
         //newZoomLevel = outCam.m_Lens.OrthographicSize;
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public Vector2 CalculateBounds()
@@ -148,8 +149,23 @@ public class SnapCamera : GameBaseState
     {
         Gizmos.DrawCube(CameraReticle.position,camSize);
     }
+    void PositionVisualCue()
+    {
+        if (closestGameObject)
+        {
+            visualCue.gameObject.SetActive(true);
+            visualCue.position = closestGameObject.position+visualCueOffset;
+        }
+        else
+        {
+            visualCue.gameObject.SetActive(false);
+        }
+    }
+
     void WhenMouseIsMoving()
     {
+        closestGameObject = GetClosestEnemy(taggedGameObject);
+        PositionVisualCue();     
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         CameraReticle.position = mousePosition;
     }
@@ -157,17 +173,12 @@ public class SnapCamera : GameBaseState
 
     void SnapSystem()
     {
-        closestGameObject = GetClosestEnemy(taggedGameObject);
         if (Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
-        {
-            NpcStateManager gameObjectState = closestGameObject.GetComponent<NpcStateManager>();
+        {         
+            //audioManager.PlaySFX(audioManager.camSnap);
+            ZoomToTarget();
+            camMode = true;
             
-            if(gameObjectState.GetCurrentState() == gameObjectState.roamState)
-            {
-                audioManager.PlaySFX(audioManager.camSnap);
-                ZoomToTarget();
-                camMode = true;
-            }
         }
     }
 
@@ -203,9 +214,13 @@ public class SnapCamera : GameBaseState
         //If closest = taret npc, remove the target Npc
         ScoreManager.Instance.Updatetargets(closestGameObject.transform);
 
+        //Set its layer to be infront
+        closestGameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
+
+        //Switch the npc state
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();      
-        //bs = nSm.GetCurrentState();
         nSm.SwitchState(nSm.promptState);
+   
         //Set dialogue stuff to be active and pass npc parameters
         gSm.nSm = nSm;
         LeanTween.move(CameraReticle.gameObject,
@@ -238,6 +253,9 @@ public class SnapCamera : GameBaseState
         zoomCam.Priority = 1;
         zoomCam.Follow = null;
         camMode = false;
+
+        //Set its layer to be normal
+        closestGameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
         nSm.SwitchState(nSm.roamState);

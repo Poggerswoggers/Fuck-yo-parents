@@ -2389,11 +2389,11 @@ PrefabInstance:
       objectReference: {fileID: 1304518200}
     - target: {fileID: 2392681129319802263, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.306593
+      value: -15.45
       objectReference: {fileID: 0}
     - target: {fileID: 2392681129319802263, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9000001
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 2392681129319802263, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2496,6 +2496,10 @@ PrefabInstance:
       propertyPath: reticle
       value: 
       objectReference: {fileID: 1231246161}
+    - target: {fileID: 7404491343342965655, guid: ae621596fb1d3624b85dbadbd5998f58, type: 3}
+      propertyPath: normalNpcParent
+      value: 
+      objectReference: {fileID: 1190779508}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2553,6 +2557,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7596451448182966017, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670111313022997781, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670111313022997781, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670111313022997781, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670111313022997781, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2567,30 +2591,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: xBound
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: yBound
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: zoomSens
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: camSize.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: zoomSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: minCamSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: boundaryObj
       value: 
       objectReference: {fileID: 727759400}
@@ -2598,17 +2598,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 1534015552792686095, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
+    - target: {fileID: 3398915896390260879, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4107514649372066107, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
+    - target: {fileID: 3398915896390260879, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754043722241284520, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5751560214044701264, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2669,7 +2665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1117823221079569269, guid: c90e3ad3e97a5ea48b040814ef786c4a, type: 3}
       propertyPath: minigameSceneIndex
-      value: CrowdControl
+      value: Pathfinder
       objectReference: {fileID: 0}
     - target: {fileID: 2001167517824048993, guid: c90e3ad3e97a5ea48b040814ef786c4a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2914,7 +2910,7 @@ SceneRoots:
   - {fileID: 3316834346821130545}
   - {fileID: 2130023523942645146}
   - {fileID: 312080491287205375}
+  - {fileID: 1852030617166795765}
   - {fileID: 459906776}
   - {fileID: 1176430269}
   - {fileID: 1429557017}
-  - {fileID: 1852030617166795765}

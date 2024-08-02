@@ -143,6 +143,7 @@ public class CrowdNpc: MonoBehaviour
         transform.localScale = scale;
 
         MoveInQueue(new Vector2(-10, transform.position.y));        //Move off screen
-        SelfDestruct(dur);                          //Die
+        SelfDestruct(5);                          //Die
+        cc.TimePenalty();
     }
 }

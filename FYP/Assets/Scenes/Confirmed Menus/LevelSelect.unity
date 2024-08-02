@@ -877,7 +877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 363331148}
-  clickSound: {fileID: 8300000, guid: f4507685821004ede8e9402864955303, type: 3}
 --- !u!1 &849654528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1380,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level1
+          m_StringArgument: StoryMode
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1671699419

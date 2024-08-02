@@ -5,10 +5,10 @@ using UnityEngine;
 public class NpcAnimation : MonoBehaviour
 {
     [Header("Bounce")]
-    [SerializeField] float bounce;
+    private float bounce;
     float bounceVel;
-    public float bounceAccel;
-    public float bounceDamp;
+    const float bounceAccel = 0.2f;
+    const float bounceDamp = 0.7f;
 
     [Header("Wander")]
     public float wanderTime;
