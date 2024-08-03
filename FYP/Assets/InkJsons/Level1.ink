@@ -40,14 +40,13 @@ I hate peak hours.
     *[I hate it too]
         Someone gets it.
             -> DONE
-    *[Do you see anyone that needs help?] //Hints 
+    *[Do you see anyone that needs help?]
         I saw someone that has <color=yellow>CRUTCHES</color>, I think they need some help.
             -> DONE
-    *[Whatever it takes to get home.] //Hints 
+    *[Whatever it takes to get home.] 
         Yeah, I’ll just have to squeeze in for a while.
             -> DONE
             
-
 ==Naomi==
 ~correctAnswer = 0
 Do all pregnant ladies have big baby bumps?

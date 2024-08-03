@@ -240,9 +240,8 @@ I’m Batman.
         
 ==Fries== 
 ~correctAnswer = 0
-I’m Batman.
-    *[Um…hi? Sorry I’m in a rush.]
-        Sorry to bother!
+Um…hi? Sorry I’m in a rush.
+    *[Sorry to bother!]
         ->DONE
         
 ==Terence== 
