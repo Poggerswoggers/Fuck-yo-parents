@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 180464547}
   - component: {fileID: 180464549}
   m_Layer: 5
-  m_Name: Exit Panel
+  m_Name: EN Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 2105835362}
   - component: {fileID: 2105835361}
   m_Layer: 5
-  m_Name: TaS Panel
+  m_Name: TS Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
