@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 180464547}
   - component: {fileID: 180464549}
   m_Layer: 5
-  m_Name: Exit Panel
+  m_Name: EN Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69385aea01cf7d148b38e60f6d98551b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42985f1ed161246499e21ed0341de90a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 2105835362}
   - component: {fileID: 2105835361}
   m_Layer: 5
-  m_Name: TaS Panel
+  m_Name: TS Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
