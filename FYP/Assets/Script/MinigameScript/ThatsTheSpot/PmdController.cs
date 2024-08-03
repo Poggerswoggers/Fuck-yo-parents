@@ -38,7 +38,6 @@ public class PmdController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         SetInput();
         Moving();
         Traction();

@@ -40,7 +40,7 @@ public class TakeASeatGm : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        Debug.Log("Game end");
+        UnloadedAndUpdateScore(1);
     }
 
     public override void StartGame()

@@ -75,7 +75,7 @@ public class ScoreManager : MonoBehaviour
     public void UpdateScore(int points)
     {       
         levelScore -= points;
-        scoreText.text = "SCORE:" + levelScore.ToString();
+        scoreText.text = levelScore.ToString();
     }
 
     public void Updatetargets(Transform target )

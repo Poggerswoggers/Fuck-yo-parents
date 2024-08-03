@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Pathfinder.unity
     guid: 5b3af1d9e138bee44bd67bf9765c17cf
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Take A Seat.unity
+    guid: 9bd64f9bd068c0a43bf31bff5484f216
   m_configObjects: {}

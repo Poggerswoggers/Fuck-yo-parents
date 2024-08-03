@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using System;
 
 public class DialogueManager : GameBaseState
 {
@@ -23,11 +24,6 @@ public class DialogueManager : GameBaseState
     [Header("UI Panel")]
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] EventTrigger _backButton;
-    //[SerializeField] RectTransform promptBox;
-    //[SerializeField] float promptBoxYPos;
-    //[SerializeField] RectTransform infoBox;
-    //[SerializeField] float infoBoxXPos;
-    //[SerializeField] float phaseInSpeed;
 
     bool canContinueToNextLine = false;
     private Coroutine displayLineCoroutine;
@@ -108,6 +104,11 @@ public class DialogueManager : GameBaseState
                 StopCoroutine(displayLineCoroutine);
             }
             string infoText = inkStory.Continue();
+            while (Helper.IsNullOrWhiteSpace(infoText))
+            {
+                infoText = inkStory.Continue();
+            }
+
             infoText = infoText?.Trim();
             correctOption = (int)inkStory.variablesState["correctAnswer"];
 
@@ -210,10 +211,8 @@ public class DialogueManager : GameBaseState
 
     void OnPromptClick(Choice choice, bool correctPrompt)
     {
-        if (AudioManager.instance != null)
-        {
-            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
-        }
+
+        AudioManager.instance?.PlaySFX(AudioManager.instance.buttonClick);
 
         if (!canContinueToNextLine) return;
         inkStory.ChooseChoiceIndex(choice.index);
@@ -242,10 +241,7 @@ public class DialogueManager : GameBaseState
 
     public void backButton()
     {
-        if (AudioManager.instance != null)
-        {
-            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
-        }
+        AudioManager.instance?.PlaySFX(AudioManager.instance.buttonClick);
         RefreshChoiceView();
         gSm.ChangeStat(gSm.snapState);
     }

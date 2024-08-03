@@ -100,8 +100,7 @@ public class PathFinder : BaseMiniGameClass
         yield return new WaitForSeconds(delayTime);
         foreach (Tile p in gm.CorrectTiles)
         {
-            if (AudioManager.instance != null)
-            {
+            if (AudioManager.instance != null){
                 AudioManager.instance.PlaySFX(AudioManager.instance.correctGrid);
             }
             p.ChangeColor(tileFlashColor);
@@ -133,8 +132,7 @@ public class PathFinder : BaseMiniGameClass
 
     public void OnTileClicked(Tile tile)
     {
-        if (AudioManager.instance != null)
-        {
+        if (AudioManager.instance != null){
             AudioManager.instance.PlaySFX(AudioManager.instance.correctGrid);
         }
 

@@ -2198,8 +2198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc1abce951c43d4e84ecf566198db7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameSceneIndex: Pathfinder
-  levelScale: 2
+  minigameSceneIndex: ThatsTheSpot
+  levelScale: 1
 --- !u!1001 &1881000721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2375,6 +2375,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManagerPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1210985882}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 178909360}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.data[2]
+      value: 
+      objectReference: {fileID: 2085481439}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.data[3]
+      value: 
+      objectReference: {fileID: 1493089230}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.data[4]
+      value: 
+      objectReference: {fileID: 1724710022}
     - target: {fileID: 9174089994335287046, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3827288

@@ -714,7 +714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 0}
-  clickSound: {fileID: 0}
 --- !u!1 &5649127564799611684
 GameObject:
   m_ObjectHideFlags: 0

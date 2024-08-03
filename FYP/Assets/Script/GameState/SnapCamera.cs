@@ -175,7 +175,6 @@ public class SnapCamera : GameBaseState
     {
         if (Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
         {
-            //audioManager.PlaySFX(audioManager.camSnap);
             if (AudioManager.instance != null)
             {
                 AudioManager.instance.PlaySFX(AudioManager.instance.camSnap);

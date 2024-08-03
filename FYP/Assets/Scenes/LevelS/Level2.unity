@@ -1515,6 +1515,10 @@ PrefabInstance:
       propertyPath: inkStoryJson
       value: 
       objectReference: {fileID: 4900000, guid: 70f932827c536004d88242cbb9d88c24, type: 3}
+    - target: {fileID: 4105973495679283585, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4278040115797463210, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: m_Name
       value: DialoguePrefab
@@ -2578,6 +2582,10 @@ PrefabInstance:
       propertyPath: minigameState
       value: 
       objectReference: {fileID: 1174607802}
+    - target: {fileID: 1374353173632007651, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2414274868738636757, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level3
@@ -2590,6 +2598,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1595357863}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 4460217574604532980}
     - target: {fileID: 9174089994335287046, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3827288
@@ -3468,7 +3484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1117823221079569269, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
       propertyPath: minigameSceneIndex
-      value: ThatsTheSpot
+      value: CrowdControl
       objectReference: {fileID: 0}
     - target: {fileID: 2001167517824048993, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3873,11 +3889,11 @@ PrefabInstance:
       objectReference: {fileID: 2145099565}
     - target: {fileID: 4179628711907072905, guid: 24776654011637248a62de5e9068620f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.610344
+      value: 8.11
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: 24776654011637248a62de5e9068620f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5052525
+      value: -2.22
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: 24776654011637248a62de5e9068620f, type: 3}
       propertyPath: m_LocalPosition.z
