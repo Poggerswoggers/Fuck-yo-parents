@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class TakeASeatGm : BaseMiniGameClass
 {
-    [SerializeField] float speed;
-
     [SerializeField] Transform grabbedCommuter;
     Vector3 offset;
 
+    [Header("Seats")]
+    [SerializeField] List<Seat> seats;
+    [SerializeField] float sittingDur;
+
+
     [Header("Object Pool")]
-    public static TakeASeatGm SharedInstance;
+    [SerializeField] Transform commuterParent;
     public List<GameObject> pooledCommunters { get; set; }
-    public GameObject objectToPool;
-    public int amountToPool;
+    [SerializeField] GameObject objectToPool;
+    [SerializeField] List<RoundsConfig> levels;
+    RoundsConfig thisLevel;
 
     [Header("Start/End Pos")]
     [SerializeField] Transform startPos;
@@ -22,22 +26,27 @@ public class TakeASeatGm : BaseMiniGameClass
     [Header("Config")]
     [SerializeField] float timeBetweenCommuters;
     float _timeBetweenCommuters;
+    int vulnerable = 3;
+
+    [Header("Minigame cam")]
+    [SerializeField] Camera minigameCam;
 
     //Reference
     CommunterQueue communterQueue;
 
     public override void EndSequenceMethod()
     {
-        
+        Debug.Log("Game end");
     }
 
     public override void StartGame()
     {
+        SetDifficulty();
+        PoolObject();
         LeanTween.reset();
         _timeBetweenCommuters = timeBetweenCommuters;
 
         communterQueue = new CommunterQueue(startPos.position, endPos.position, this);
-        isGameActive = true;
     }
 
     public override void UpdateGame()
@@ -47,30 +56,47 @@ public class TakeASeatGm : BaseMiniGameClass
     }
     void PlayerInput()
     {
+        Vector3 mousePos = minigameCam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-            Debug.Log(hit.transform);
+            if (!hit.transform) return;
             if (hit.transform.GetComponent<Commuter>())
             {
                 grabbedCommuter = hit.transform;
                 LeanTween.cancel(grabbedCommuter.gameObject);
-                offset = grabbedCommuter.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                offset = grabbedCommuter.position - mousePos;
             }
         }
 
         if (Input.GetMouseButtonUp(0) && grabbedCommuter)
         {
+            if (!OccupySeat())
+            {
+                communterQueue.MoveCommuter(grabbedCommuter);
+            }
             grabbedCommuter = null;
         }
 
         if (grabbedCommuter)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos += offset;
             grabbedCommuter.position = mousePos;
         }
+    }
+
+    bool OccupySeat()
+    {
+        foreach(Seat seat in seats)
+        {
+            if (seat.occupied) continue;
+            if(Vector2.Distance(grabbedCommuter.position, seat.transform.position) < 1.5f)
+            {
+                seat.SitCommuter(grabbedCommuter);
+                return true;
+            }
+        }
+        return false;
     }
 
     void SpawnCommuter()
@@ -79,9 +105,33 @@ public class TakeASeatGm : BaseMiniGameClass
         if (_timeBetweenCommuters < 0)
         {
             _timeBetweenCommuters = timeBetweenCommuters;
-            communterQueue.InitialiseCommuter(GetPooledObject());
+            if (StillHaveCommuters()){
+                communterQueue.InitialiseCommuter(pooledCommunters[0]);
+            }
+            else
+            {
+                RoundCheck();
+            }
         }
     }
+
+    void RoundCheck()
+    {
+      
+        if (commuterParent.childCount != 0) return;
+        isGameActive = false;        
+        for(int i =0; i<seats.Count; i++)
+        {
+            communterQueue.MoveCommuter(seats[i].GetSeatedCommuter());
+        }
+        LeanTween.delayedCall(3f, (thisLevel.rounds > 0) ? PoolObject : gameManager.OnGameOver);
+    }
+
+    bool StillHaveCommuters()
+    {
+        return (pooledCommunters.Count > 0);
+    }
+
 
     protected override IEnumerator InstructionCo()
     {
@@ -89,34 +139,48 @@ public class TakeASeatGm : BaseMiniGameClass
         yield return null;
     }
 
-    void Awake()
+    void PoolObject()
     {
-        SharedInstance = this;
+        var list = thisLevel.commuterAsset.commuter();
+        int amountToPool = list.Count;
 
+        thisLevel.rounds--;
         pooledCommunters = new List<GameObject>();
         GameObject tmp;
         for (int i = 0; i < amountToPool; i++)
         {
-            tmp = Instantiate(objectToPool);
+            tmp = Instantiate(objectToPool, commuterParent);
+            tmp.GetComponent<SpriteRenderer>().sprite = list[i];
+            tmp.GetComponent<Commuter>().isVulnerable = CommuterInitialise(i);           
             tmp.SetActive(false);
             pooledCommunters.Add(tmp);
         }
+        isGameActive = true;
     }
 
-    public GameObject GetPooledObject()
+    bool CommuterInitialise(int i)
     {
-        for (int i = 0; i < amountToPool; i++)
-        {
-            if (!pooledCommunters[i].activeInHierarchy)
-            {
-                return pooledCommunters[i];
-            }
-        }
-        return null;
+        bool isVulnerable = (i < vulnerable) ? true : false;
+        return isVulnerable;
     }
 
     protected override void SetDifficulty()
     {
+        switch (GetDifficulty())
+        {
+            case difficulty.One:
+                thisLevel = levels[0];
+                break;
+            case difficulty.Two:
+                thisLevel = levels[1];
+                break;
 
+        }
     }
+}
+[System.Serializable]
+internal struct RoundsConfig
+{
+    public int rounds;
+    public NpcAsset commuterAsset;
 }
