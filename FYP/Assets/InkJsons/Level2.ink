@@ -1,5 +1,3 @@
-
-
 VAR correctAnswer = ""
 
 ==YuYuan==
@@ -100,7 +98,6 @@ Urm, hi there! Do you need help?
         The legend in my heart - Lebron James.
             -> DONE
             
-            
 ==Jayden==
 ~correctAnswer = 0
 Hello There!
@@ -117,7 +114,6 @@ Hello There!
         Wow that’s rude.
         ->DONE
 
-        
 ==UncleTan==
 ~correctAnswer = 0
 Aw man! Why should we take public transport?
