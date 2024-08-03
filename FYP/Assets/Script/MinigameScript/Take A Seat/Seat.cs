@@ -17,9 +17,14 @@ public class Seat : MonoBehaviour
 
     public Transform GetSeatedCommuter()
     {
+        if(seatedCommuter == null)
+        {
+            return null;
+        }
         Transform t = seatedCommuter;
         occupied = false;
         seatedCommuter = null;
+
         return t;
     }
 }

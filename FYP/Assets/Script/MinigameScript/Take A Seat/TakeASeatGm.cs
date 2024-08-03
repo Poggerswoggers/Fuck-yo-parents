@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TakeASeatGm : BaseMiniGameClass
 {
+    public static Action<int> vulnerableMatch;
+
     [SerializeField] Transform grabbedCommuter;
     Vector3 offset;
 
@@ -27,6 +30,8 @@ public class TakeASeatGm : BaseMiniGameClass
     [SerializeField] float timeBetweenCommuters;
     float _timeBetweenCommuters;
     int vulnerable = 3;
+    int maxVulnerable;
+    int count = 0;
 
     [Header("Minigame cam")]
     [SerializeField] Camera minigameCam;
@@ -93,6 +98,10 @@ public class TakeASeatGm : BaseMiniGameClass
             if(Vector2.Distance(grabbedCommuter.position, seat.transform.position) < 1.5f)
             {
                 seat.SitCommuter(grabbedCommuter);
+                if (grabbedCommuter.GetComponent<Commuter>().isVulnerable)
+                {
+                    vulnerableMatch?.Invoke(count+=1); 
+                }
                 return true;
             }
         }
@@ -122,7 +131,11 @@ public class TakeASeatGm : BaseMiniGameClass
         isGameActive = false;        
         for(int i =0; i<seats.Count; i++)
         {
-            communterQueue.MoveCommuter(seats[i].GetSeatedCommuter());
+            Transform commuter = seats[i].GetSeatedCommuter();
+            if (commuter != null)
+            {
+                communterQueue.MoveCommuter(commuter);
+            }
         }
         LeanTween.delayedCall(3f, (thisLevel.rounds > 0) ? PoolObject : gameManager.OnGameOver);
     }
@@ -155,6 +168,7 @@ public class TakeASeatGm : BaseMiniGameClass
             tmp.SetActive(false);
             pooledCommunters.Add(tmp);
         }
+        pooledCommunters = Helper.Shuffle(pooledCommunters);
         isGameActive = true;
     }
 
@@ -176,6 +190,7 @@ public class TakeASeatGm : BaseMiniGameClass
                 break;
 
         }
+        maxVulnerable = vulnerable * thisLevel.rounds;
     }
 }
 [System.Serializable]
