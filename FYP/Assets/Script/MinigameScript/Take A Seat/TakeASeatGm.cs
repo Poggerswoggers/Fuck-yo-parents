@@ -30,7 +30,6 @@ public class TakeASeatGm : BaseMiniGameClass
     [SerializeField] float timeBetweenCommuters;
     float _timeBetweenCommuters;
     int vulnerable = 3;
-    int maxVulnerable;
     int count = 0;
 
     [Header("Minigame cam")]
@@ -66,8 +65,9 @@ public class TakeASeatGm : BaseMiniGameClass
         {
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (!hit.transform) return;
-            if (hit.transform.GetComponent<Commuter>())
+            if (hit.transform.TryGetComponent(out Commuter com))
             {
+                com.isMoving(false);
                 grabbedCommuter = hit.transform;
                 LeanTween.cancel(grabbedCommuter.gameObject);
                 offset = grabbedCommuter.position - mousePos;
@@ -163,7 +163,7 @@ public class TakeASeatGm : BaseMiniGameClass
         for (int i = 0; i < amountToPool; i++)
         {
             tmp = Instantiate(objectToPool, commuterParent);
-            tmp.GetComponent<SpriteRenderer>().sprite = list[i];
+            tmp.GetComponentInChildren<SpriteRenderer>().sprite = list[i];
             tmp.GetComponent<Commuter>().isVulnerable = CommuterInitialise(i);           
             tmp.SetActive(false);
             pooledCommunters.Add(tmp);
@@ -190,7 +190,6 @@ public class TakeASeatGm : BaseMiniGameClass
                 break;
 
         }
-        maxVulnerable = vulnerable * thisLevel.rounds;
     }
 }
 [System.Serializable]

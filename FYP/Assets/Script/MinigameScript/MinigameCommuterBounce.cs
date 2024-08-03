@@ -9,8 +9,8 @@ public class MinigameCommuterBounce : MonoBehaviour
     [Header("Bounce")]
     [SerializeField] float bounce;
     float bounceVel;
-    [SerializeField] float bounceAccel;
-    [SerializeField] float bounceDamp;
+    private float bounceAccel = 0.2f;
+    private float bounceDamp = 0.7f;
 
     //Hops
     float hop;
