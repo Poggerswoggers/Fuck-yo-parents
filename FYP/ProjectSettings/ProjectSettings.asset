@@ -18,7 +18,7 @@ PlayerSettings:
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 1
+  m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 0
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
@@ -40,12 +40,14 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
+  - logo: {fileID: 21300000, guid: d5f25fb236b2b0645a8b7b53139a85fd, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: dea28db03582c1743a445bd66dcc637a, type: 3}
+  - logo: {fileID: 21300000, guid: 302557d17cf54b046b985e1ec00e1e28, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: 1fa7779561e8f7646b7763b476d1e69e, type: 3}
-    duration: 2.5
+  - logo: {fileID: 21300000, guid: b2e1cfcf5ee80ef46ad11ffe27693352, type: 3}
+    duration: 2
+  - logo: {fileID: 21300000, guid: 4dbf0780435de8d46a264743e453d043, type: 3}
+    duration: 2
   - logo: {fileID: 21300000, guid: 062a064cece0b58429c57c76fb98af15, type: 3}
     duration: 2
   - logo: {fileID: 21300000, guid: 4ee18d013c4e2f641b15300b34e4d493, type: 3}
