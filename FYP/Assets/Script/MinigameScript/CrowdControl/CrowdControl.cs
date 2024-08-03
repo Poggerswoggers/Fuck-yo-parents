@@ -162,6 +162,11 @@ public class CrowdControl : BaseMiniGameClass
     
         if (frontNpc.activeCard.tappable)
         {
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX(AudioManager.instance.cardTap);
+            }
+
             rS.ScreenReader(true);  //Changes screen reader color
             npcQueue.RelocateAllNpc(frontNpc); 
             if (frontNpc != null)
@@ -179,6 +184,10 @@ public class CrowdControl : BaseMiniGameClass
         }
         else
         {
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX(AudioManager.instance.wrongCardTap);
+            }
             rS.ScreenReader(false); 
             _tapDelay = tapDelay;
         }

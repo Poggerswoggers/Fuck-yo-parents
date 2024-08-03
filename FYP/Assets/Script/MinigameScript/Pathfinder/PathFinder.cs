@@ -100,6 +100,10 @@ public class PathFinder : BaseMiniGameClass
         yield return new WaitForSeconds(delayTime);
         foreach (Tile p in gm.CorrectTiles)
         {
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX(AudioManager.instance.correctGrid);
+            }
             p.ChangeColor(tileFlashColor);
             yield return new WaitForSeconds(0.5f);
         }        
@@ -129,6 +133,11 @@ public class PathFinder : BaseMiniGameClass
 
     public void OnTileClicked(Tile tile)
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.correctGrid);
+        }
+
         //This is to check that the clicked tile is adjacent to the previous tile
         if ((currentplayerTile - tile.getCoord()).sqrMagnitude > 1) return;          
         currentplayerTile = tile.getCoord();

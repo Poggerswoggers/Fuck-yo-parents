@@ -210,6 +210,11 @@ public class DialogueManager : GameBaseState
 
     void OnPromptClick(Choice choice, bool correctPrompt)
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
+        }
+
         if (!canContinueToNextLine) return;
         inkStory.ChooseChoiceIndex(choice.index);
         DisplayNewLine();
@@ -237,6 +242,10 @@ public class DialogueManager : GameBaseState
 
     public void backButton()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
+        }
         RefreshChoiceView();
         gSm.ChangeStat(gSm.snapState);
     }

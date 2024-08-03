@@ -178,10 +178,24 @@ MonoBehaviour:
   musicSource: {fileID: 1095388085172583686}
   sfxSource: {fileID: 9144594987473573874}
   menuBGM: {fileID: 8300000, guid: c0cd5e96d5901bb42bcbba721ffdae62, type: 3}
-  camSnap: {fileID: 8300000, guid: 8cfbb05056081454b99e792b031e1605, type: 3}
-  cardTap: {fileID: 8300000, guid: f9611a55d623b4a44a70a7dda9298ce0, type: 3}
-  wrongCardTap: {fileID: 8300000, guid: 7ae77a1a2081c46f2b1dbc2ed9159554, type: 3}
-  buttonClick: {fileID: 8300000, guid: 405d7f8629eb14a2491f1e4a491827dd, type: 3}
+  camSnap: {fileID: 8300000, guid: 2468c33e75e43ce4da255de280a33b52, type: 3}
+  buttonClick: {fileID: 8300000, guid: 9ebf76cbbbe98664fbaeb82c8fcec42a, type: 3}
+  npcSad: {fileID: 8300000, guid: d9f08ef98ba180d4c9a920a58b89ffc4, type: 3}
+  npcHappy: {fileID: 8300000, guid: 6dfcb3f97731a8b47bb2675a8824dcb8, type: 3}
+  mrtPass: {fileID: 8300000, guid: b2870a168c3e29e44bb2f3013a236967, type: 3}
+  mrtMove: {fileID: 8300000, guid: d6af0ecc4a4ed6a468a24006964d2aeb, type: 3}
+  lvlDone: {fileID: 8300000, guid: 3bce4b22b803dcf438f7bb3d6d693b15, type: 3}
+  mgDone: {fileID: 8300000, guid: 301d916f444bd174f8ad2ed637a7f3c4, type: 3}
+  cardTap: {fileID: 8300000, guid: e287f45e3fbfd6549b597fc6e031830a, type: 3}
+  wrongCardTap: {fileID: 8300000, guid: a4af241e5f95f4b44b076d3dc70fab7f, type: 3}
+  cardSwoosh: {fileID: 8300000, guid: a344e872d71ccb147b29aa1c6fff3ed2, type: 3}
+  pmdDrift: {fileID: 8300000, guid: f419e6d454d5b7947b5d63a531372291, type: 3}
+  percentageCalc: {fileID: 8300000, guid: 7e74437fc76d36e4ba95804e4d10d5a4, type: 3}
+  wrongGrid: {fileID: 8300000, guid: 453521893bb4a6f47ac2f6131d8df521, type: 3}
+  correctGrid: {fileID: 8300000, guid: 8b2f73236d8cd9a44adf8c5e65a8924b, type: 3}
+  attachJig: {fileID: 8300000, guid: f790e17a254eefe4ea70ec3b3a2b576c, type: 3}
+  dettachJig: {fileID: 8300000, guid: 94d43bc1122906f44b90aa2bc85fe777, type: 3}
+  npcHmm: {fileID: 8300000, guid: 22bad9f36cbbf6e458981d262589a87a, type: 3}
 --- !u!1 &4839036803929637884
 GameObject:
   m_ObjectHideFlags: 0

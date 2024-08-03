@@ -14,9 +14,32 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX source")]
     public AudioClip camSnap;
+    public AudioClip buttonClick;
+
+    public AudioClip npcSad;
+    public AudioClip npcHappy;
+
+    public AudioClip mrtPass;
+    public AudioClip mrtMove;
+
+    public AudioClip lvlDone;
+    public AudioClip mgDone;
+
     public AudioClip cardTap;
     public AudioClip wrongCardTap;
-    public AudioClip buttonClick;
+    public AudioClip cardSwoosh;
+
+    public AudioClip pmdDrift;
+
+    public AudioClip percentageCalc;
+
+    public AudioClip wrongGrid;
+    public AudioClip correctGrid;
+
+    public AudioClip attachJig;
+    public AudioClip dettachJig;
+
+    public AudioClip npcHmm;
 
     public static AudioManager instance;
 

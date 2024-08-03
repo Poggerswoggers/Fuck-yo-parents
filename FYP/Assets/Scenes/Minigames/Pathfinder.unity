@@ -747,8 +747,6 @@ MonoBehaviour:
   initialYHeight: 0
   heightMultiplier: 0.1
   bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
   flip: 0.6
   multiplier: 1.1
   _bounce: 1.1
@@ -2309,7 +2307,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4d28b0dd25268a4c8c9652686e24e97, type: 2}
   currentplayerTile: {x: 0, y: -1}
   currentSequenceVec2: []
-  index: 0
   delayTime: 0.5
   tileMap: {fileID: 1883383644}
   defaultTile: {fileID: 11400000, guid: b0d1deee0b7705249becef9a1884a356, type: 2}

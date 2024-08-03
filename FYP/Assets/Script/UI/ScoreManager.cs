@@ -131,6 +131,10 @@ public class ScoreManager : MonoBehaviour
     }
     void EndLevel()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.lvlDone);
+        }
         levelEndPanel.SetActive(true);
     }
 }

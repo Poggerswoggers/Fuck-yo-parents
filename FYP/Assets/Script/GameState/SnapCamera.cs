@@ -174,8 +174,12 @@ public class SnapCamera : GameBaseState
     void SnapSystem()
     {
         if (Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
-        {         
+        {
             //audioManager.PlaySFX(audioManager.camSnap);
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX(AudioManager.instance.camSnap);
+            }
             ZoomToTarget();
             camMode = true;
             
