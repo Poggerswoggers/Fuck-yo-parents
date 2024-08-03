@@ -22,9 +22,18 @@ public class CommunterQueue
 
     public void InitialiseCommuter(GameObject commuter)
     {
+        gm.pooledCommunters.Remove(commuter);
         commuter.SetActive(true);
         commuter.transform.position = startPos;
         commuter.GetComponent<Commuter>().Move(endPos, distance);
     }
 
+    public void MoveCommuter(Transform commuter)
+    {
+        float distance = (endPos - (Vector2)commuter.position).magnitude;
+        commuter.GetComponent<Commuter>().Move(endPos, distance);
+    }
+
+
+    
 }
