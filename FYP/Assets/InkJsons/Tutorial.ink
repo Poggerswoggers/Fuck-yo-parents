@@ -2,7 +2,7 @@
 VAR correctAnswer = ""
 ==Tutorial==
 ~correctAnswer = 0
-Welcome commuters champion.
+Welcome commuter champion.
     *[What is this place?]
        You have entered the COMMUTING ZONE, where the commuters that did not receive assistance are sent here.
             -> Tutorial 
@@ -16,5 +16,5 @@ Welcome commuters champion.
         Do not talk to them when they are talking, and always ask if they need help before helping them.
             -> Tutorial
 *->
-All the best commuters champion.
+All the best commuter champion.
     -> DONE
