@@ -885,7 +885,7 @@ MonoBehaviour:
   - rounds: 2
     commuterAsset: {fileID: 11400000, guid: 2a30a064db097e242b567ea94e2c7f50, type: 2}
   - rounds: 2
-    commuterAsset: {fileID: 0}
+    commuterAsset: {fileID: 11400000, guid: cf6ef67b556fbeb4ca65b8b304640cae, type: 2}
   startPos: {fileID: 931612102}
   endPos: {fileID: 415818785}
   timeBetweenCommuters: 1
