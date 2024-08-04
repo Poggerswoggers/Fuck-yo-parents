@@ -2844,7 +2844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ffind a commuter to snap to learn more
+  m_text: Find a commuter to snap to learn more
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc2069f4ca7ed4c01ad903db1c9a46a9, type: 2}
   m_sharedMaterial: {fileID: 3706865471480105655, guid: cc2069f4ca7ed4c01ad903db1c9a46a9, type: 2}

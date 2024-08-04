@@ -760,7 +760,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ce202e32855bfd741bf29073e142b6d3, type: 2}
     - {fileID: 11400000, guid: 09749f69e19804a4b9ebf2bf03729344, type: 2}
     - {fileID: 11400000, guid: 846e84ba6493e8b48bc5ce252f7599e0, type: 2}
-    - {fileID: 11400000, guid: 2ca4637147185f44f921a3e7fbee309d, type: 2}
+    - {fileID: 11400000, guid: 0b45f91a8f5b44949a11de311bb3cb51, type: 2}
     - {fileID: 11400000, guid: 3291d54c03528be4e8bd1fd4f7a824b6, type: 2}
     - {fileID: 11400000, guid: ce202e32855bfd741bf29073e142b6d3, type: 2}
     - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
@@ -769,26 +769,26 @@ MonoBehaviour:
   - gameTime: 60
     commutersToClear: 20
     npcScriptableList:
-    - {fileID: 11400000, guid: ce202e32855bfd741bf29073e142b6d3, type: 2}
+    - {fileID: 11400000, guid: 51fcf72bdbd791c46ac2c36eb528d077, type: 2}
     - {fileID: 11400000, guid: 2ca4637147185f44f921a3e7fbee309d, type: 2}
     - {fileID: 11400000, guid: 846e84ba6493e8b48bc5ce252f7599e0, type: 2}
     - {fileID: 11400000, guid: 09749f69e19804a4b9ebf2bf03729344, type: 2}
+    - {fileID: 11400000, guid: b0ac389ce1eb9184686963dbaa294409, type: 2}
+    - {fileID: 11400000, guid: faf8138595d8c084aa1051555f675a53, type: 2}
+    - {fileID: 11400000, guid: efa14d35bac45974b86a74df55ca2a7e, type: 2}
+    - {fileID: 11400000, guid: 3291d54c03528be4e8bd1fd4f7a824b6, type: 2}
+    - {fileID: 11400000, guid: 5a5491587b3b29b49aaa147d142dc51a, type: 2}
+    - {fileID: 11400000, guid: e7a595915206db44580dd06adbb923a8, type: 2}
+    - {fileID: 11400000, guid: 5506238d4902c774d822430d784c02be, type: 2}
+    - {fileID: 11400000, guid: 86b9c61afc4d9d1468c3b9b60f5a385e, type: 2}
+    - {fileID: 11400000, guid: 502366d210a36f240ad611010d689974, type: 2}
+    - {fileID: 11400000, guid: 39cce3f4dad18e844b129db7f7778a5b, type: 2}
+    - {fileID: 11400000, guid: 56d466774cd52de459595795d06a8679, type: 2}
+    - {fileID: 11400000, guid: 9c7a5c67043a4484d9e092adb6d97db6, type: 2}
+    - {fileID: 11400000, guid: 0eff439293ce340408afa781fcc79ddd, type: 2}
+    - {fileID: 11400000, guid: 64acbdf59b507b74a97b9fdc16d4b1f2, type: 2}
     - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
-    - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
+    - {fileID: 11400000, guid: 61bd4df8708e3df4d917d4d429317bb7, type: 2}
   ahmaScriptable: {fileID: 11400000, guid: e624516469d0b30479f52de290781122, type: 2}
   npcPrefab: {fileID: 1999079495521488809, guid: 295265919bd017249a93a13078f81787, type: 3}
   timer: {fileID: 1423356634}

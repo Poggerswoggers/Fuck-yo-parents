@@ -75,6 +75,10 @@ public class RouteAssister : BaseMiniGameClass
         map.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         mapCam.gameObject.SetActive(true);
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.npcHmm);
+        }
         yield return new WaitForSeconds(peakTime);
         cam.m_Lens.OrthographicSize = 6;
         mapCam.gameObject.SetActive(false);

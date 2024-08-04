@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
-  m_Name: Ahma
+  m_Name: UncleTan
   m_EditorClassIdentifier: 
-  npcSprite: {fileID: 21300000, guid: 6f88ffd26b1737b4fae0dfbaf7565187, type: 3}
+  npcSprite: {fileID: 21300000, guid: ab16ac933f90a0a40a09d1ce775b6e56, type: 3}
   cardObjects:
   - {fileID: 2507325723622912160, guid: 9afb1f00a7cf3c2458c3b7d1586f18d9, type: 3}
+  - {fileID: 3621498026535673055, guid: fd577088d6f01064fa1282fb414388a3, type: 3}
   - {fileID: 3784849116849419251, guid: 231edeae89e86a6498b8c0cdc8979e01, type: 3}
