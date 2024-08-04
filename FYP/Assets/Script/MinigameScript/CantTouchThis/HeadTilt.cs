@@ -42,7 +42,7 @@ public class HeadTilt : BaseMiniGameClass
     protected override IEnumerator InstructionCo()
     {
         instructionPanel.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(instructionTime);
         instructionPanel.SetActive(false);
 
         StartGame();

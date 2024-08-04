@@ -130,13 +130,6 @@ public class RouteAssister : BaseMiniGameClass
 
     }
 
-    protected override IEnumerator InstructionCo()
-    {
-        //throw new System.NotImplementedException();
-        StartGame();
-        yield return null;
-    }
-
     public void OnClickBusNumber(Destinations.MRTRoutes buttonRoute)
     {
         clear = (currentDes.route[index] == buttonRoute && clear == index) ? clear + 1 : clear;   //Clear goes up when selected button int matches the current route index int

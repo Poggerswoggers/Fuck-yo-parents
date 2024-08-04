@@ -1507,7 +1507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameActive: 0
   gameOverPanel: {fileID: 0}
-  instructionPanel: {fileID: 0}
+  instructionPanel: {fileID: 19499948}
+  instructionTime: 2.5
   map: {fileID: 89836072}
   peakTime: 2.5
   busOptionPanels: {fileID: 727007360}

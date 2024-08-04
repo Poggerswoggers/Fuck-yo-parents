@@ -111,6 +111,7 @@ public class TutorialManager : MonoBehaviour
     void Talk()
     {
         StrikeAndCheck();
+        clickTest = null;
     }
 
 

@@ -2140,6 +2140,7 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 1306455331}
+  instructionTime: 2
   Strikes: 3
   forceAmount: 35
   fallThreshold: 2

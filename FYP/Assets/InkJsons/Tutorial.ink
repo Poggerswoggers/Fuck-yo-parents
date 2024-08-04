@@ -18,6 +18,5 @@ Welcome commuter champion.
             -> Tutorial
 *->
 Lets put what you just learn into practice. 
-Look around and find someone who may need help.
 All the best commuter champion.
     -> DONE

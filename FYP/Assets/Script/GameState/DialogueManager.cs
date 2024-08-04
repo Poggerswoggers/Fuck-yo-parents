@@ -34,7 +34,6 @@ public class DialogueManager : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
-        LeanTween.reset();
         Cursor.visible = true;
         gSm = gameStateManager;
         Initialise();

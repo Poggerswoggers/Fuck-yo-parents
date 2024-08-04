@@ -420,7 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameActive: 0
   gameOverPanel: {fileID: 0}
-  instructionPanel: {fileID: 0}
+  instructionPanel: {fileID: 273888250}
+  instructionTime: 2
   tries: 1
   triesObject:
   - {fileID: 764372239}

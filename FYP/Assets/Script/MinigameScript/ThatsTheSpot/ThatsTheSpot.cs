@@ -33,16 +33,8 @@ public class ThatsTheSpot : BaseMiniGameClass
         overlapAreaRef = new overlapArea();
     }
 
-
-    protected override IEnumerator InstructionCo()
-    {
-        yield return null;
-        StartGame();
-    }
-
     public override void StartGame()
     {
-        //Debug.Log(overlapAreaRef.GetOverlapArea(targetTransform, pmdTransform));
         isGameActive = true;
     }
 

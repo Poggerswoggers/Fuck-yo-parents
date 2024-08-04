@@ -148,8 +148,10 @@ public class TakeASeatGm : BaseMiniGameClass
 
     protected override IEnumerator InstructionCo()
     {
-        StartGame();
-        yield return null;
+        instructionPanel.SetActive(true);
+        yield return new WaitForSeconds(instructionTime);
+        instructionPanel.SetActive(false);
+        StartGame();       
     }
 
     void PoolObject()

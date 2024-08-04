@@ -6,6 +6,7 @@ using TMPro;
 public class CrowdControl : BaseMiniGameClass
 {    
     //Initial Queue
+    [Header("Game Config")]
     [SerializeField] int startNpc;
     int commutersToClear;
 
@@ -59,12 +60,6 @@ public class CrowdControl : BaseMiniGameClass
     public Transform GetCardPos()
     {
         return cardPos;
-    }
-
-    protected override IEnumerator InstructionCo()
-    {
-        StartGame();
-        yield return null;
     }
 
     //Initialise game values

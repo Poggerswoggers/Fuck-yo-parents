@@ -64,12 +64,6 @@ public class PathFinder : BaseMiniGameClass
         }
     }
 
-    protected override IEnumerator InstructionCo()
-    {
-        yield return null;
-        StartGame();
-    }
-
     void IncreaseGridSize()
     {
         resetButton.gameObject.SetActive(true);

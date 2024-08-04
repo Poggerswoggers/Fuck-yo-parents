@@ -28,11 +28,20 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     
     protected MinigameManager gameManager;
 
-    protected abstract IEnumerator InstructionCo();
+    protected virtual IEnumerator InstructionCo()
+    {
+        instructionPanel.SetActive(true);
+        yield return new WaitForSeconds(instructionTime);
+        instructionPanel.SetActive(false);
+
+        StartGame();
+    }
 
     [Header("Instruction Panel")]
-    [SerializeField] GameObject gameOverPanel;
-    public GameObject instructionPanel;
+    [SerializeField] GameObject gameOverPanel;    
+    [SerializeField] protected GameObject instructionPanel;
+    [SerializeField] protected float instructionTime;
+
 
     protected virtual void Start()
     {
