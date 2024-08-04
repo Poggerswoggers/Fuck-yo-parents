@@ -6,11 +6,13 @@ public class CommunterQueue
 {
     readonly Vector2 startPos;
     readonly Vector2 endPos;
+    readonly float distance;
 
-    float distance;
+    public float Speed { get; set; }
 
     //Reference
-    TakeASeatGm gm;
+    readonly TakeASeatGm gm;
+
    public CommunterQueue(Vector2 startPos, Vector2 endPos, TakeASeatGm gm)
     {
         this.startPos = startPos;
@@ -25,13 +27,17 @@ public class CommunterQueue
         gm.pooledCommunters.Remove(commuter);
         commuter.SetActive(true);
         commuter.transform.position = startPos;
-        commuter.GetComponent<Commuter>().Move(endPos, distance);
+
+        float dur = distance / Speed;
+        commuter.GetComponent<Commuter>().Move(endPos, dur);
     }
 
     public void MoveCommuter(Transform commuter)
     {
         float distance = (endPos - (Vector2)commuter.position).magnitude;
-        commuter.GetComponent<Commuter>().Move(endPos, distance);
+
+        float dur = distance / Speed;
+        commuter.GetComponent<Commuter>().Move(endPos, dur);
     }
 
 

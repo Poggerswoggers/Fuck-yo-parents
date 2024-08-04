@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
   m_Name: Garreth
   m_EditorClassIdentifier: 
-  npcSprite: {fileID: 21300000, guid: f3dddd10082f90344b738e67938d5a7b, type: 3}
+  npcSprite: {fileID: 21300000, guid: be17eb6d2a8a9f44abf3ff069433ea91, type: 3}
   cardObjects:
   - {fileID: 1675230227678738884, guid: 3fa8484114f32494d81cc853d0734fc3, type: 3}
   - {fileID: 2062560050738402833, guid: 9c2fe53f0ae84f146b88b49b41a82e8d, type: 3}

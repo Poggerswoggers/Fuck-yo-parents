@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using System.Linq;
-using System;
 
 public class PathFinder : BaseMiniGameClass
 {
@@ -41,6 +40,7 @@ public class PathFinder : BaseMiniGameClass
     public override void EndSequenceMethod()
     {
         Debug.Log("Game");
+        score = (state) ? 1500 : 0;
         UnloadedAndUpdateScore(score);
     }
 
@@ -154,6 +154,8 @@ public class PathFinder : BaseMiniGameClass
             isGameActive = false;
             resetButton.gameObject.SetActive(false);
             gm.RunPathCo(index, state);
+
+            score += (state) ? 0 : 1000;
         }
     }
     public void paintTile(Vector3 pos)

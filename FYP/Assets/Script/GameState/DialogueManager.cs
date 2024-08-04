@@ -66,8 +66,8 @@ public class DialogueManager : GameBaseState
 
     public override void ExitState(GameStateManager gameStateManager)
     {
-        gSm.snapState.BackToOutCam();
         dialoguePanel.SetActive(false);
+        gSm.snapState.BackToOutCam();
     }
     public void Initialise()
     {

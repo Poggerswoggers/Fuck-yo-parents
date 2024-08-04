@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3202857801427637529, guid: 9c2fe53f0ae84f146b88b49b41a82e8d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4186627613589022342, guid: 9c2fe53f0ae84f146b88b49b41a82e8d, type: 3}
       propertyPath: m_Name
       value: Uno reverse Card Variant

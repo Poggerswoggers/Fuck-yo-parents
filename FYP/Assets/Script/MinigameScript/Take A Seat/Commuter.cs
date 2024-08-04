@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Commuter : MonoBehaviour
 {
-    [SerializeField] float speed;
     public bool isVulnerable { get; set; }
 
-    public void Move(Vector2 endPos, float dist)
+    public void Move(Vector2 endPos, float dur)
     {
         isMoving(true);
-        float dur = dist / speed;
         LeanTween.move(gameObject, endPos, dur).setOnComplete(()=> Destroy(gameObject));
     }
 

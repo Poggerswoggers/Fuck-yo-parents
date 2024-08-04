@@ -37,8 +37,8 @@ public class PieceLover : BaseMiniGameClass
     [SerializeField] GameObject snapParticle;
     public override void EndSequenceMethod()
     {
-        Debug.Log("Game");
-        UnloadedAndUpdateScore(1);
+        score = 2000 - 500 * piecesToMatch;
+        UnloadedAndUpdateScore(score);
     }
 
     private void Awake()

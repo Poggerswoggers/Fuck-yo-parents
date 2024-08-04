@@ -22,7 +22,7 @@ public class RouteAssister : BaseMiniGameClass
 
     //The player's direction
     [SerializeField] GameObject directorPanel;
-    List<string> numberAlpha = new List<string> { "1st", "2nd", "3rd", "4th"}; //A list to store string
+    List<string> numberAlpha = new() { "1st", "2nd", "3rd", "4th"}; //A list to store string
     public int clear = 0; //Number of correct option to match with scriptable
     
     [Header("Scriptable Object List")]
@@ -44,7 +44,7 @@ public class RouteAssister : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        base.UnloadedAndUpdateScore(score);
+        UnloadedAndUpdateScore(score);
     }
 
     public override void StartGame()

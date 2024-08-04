@@ -19,6 +19,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI minigameScoreText;
 
+    [Header("Vulnerable Commuter Count")]
+    [SerializeField] TextMeshProUGUI vulnerableComCountText;
+    int vulnerableComCount;
+
     GameObject scoreParent;
 
     string addictiveScene;
@@ -66,6 +70,8 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        vulnerableComCount = levelTargets.Count;
+        vulnerableComCountText.text = vulnerableComCount.ToString();
         minigameCount = levelTargets.Count;
         scoreParent = scoreText.transform.parent.gameObject;
         UpdateScore(-maxScore);
@@ -83,6 +89,8 @@ public class ScoreManager : MonoBehaviour
         if(levelTargets.Contains(target))
         {
             levelTargets.Remove(target);
+            vulnerableComCount--;
+            vulnerableComCountText.text = vulnerableComCount.ToString();
         }
     }
 
@@ -129,7 +137,7 @@ public class ScoreManager : MonoBehaviour
 
         if(minigameCount == 0) { EndLevel(); }  //End level
     }
-    void EndLevel()
+    public void EndLevel()
     {
         if (AudioManager.instance != null)
         {

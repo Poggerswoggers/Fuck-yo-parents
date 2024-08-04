@@ -85,7 +85,8 @@ public class TutorialManager : MonoBehaviour
 
     void StrikeAndCheck()
     {
-        if (index > tutorialSequence.Count) return;
+        Debug.Log("Ale");
+        if (index > tutorialSequence.Count-1) return;
         canPerformAction = false;
 
         LTSeq sequence = LeanTween.sequence();
@@ -93,24 +94,23 @@ public class TutorialManager : MonoBehaviour
         tutorialSequence[index].GetComponentInChildren<Image>().sprite = checkedBox;
         index++;
         sequence.append(LeanTween.moveX(tweenObject.GetComponent<RectTransform>(), 600, 1.5f).setEaseInBack().setOnComplete(SetActiveSprite));
-        sequence.append(LeanTween.moveX(tweenObject.GetComponent<RectTransform>(), -23, 0.8f));
+        sequence.append(LeanTween.moveX(tweenObject.GetComponent<RectTransform>(), -23, 0.8f).setOnComplete(() => canPerformAction = true));
     }
 
     void SetActiveSprite()
     {
-        Debug.Log("set sprite");
         for(int i =0; i < tutorialSequence.Count; i++)
         {
             tutorialSequence[i].SetActive((i == index));
         }
-        canPerformAction = true;
     }
 
-    void Talk(){
+    void Talk()
+    {
         StrikeAndCheck();
+        SnapCamera.SnapAction -= Talk;
+        SnapCamera.SnapAction += ()=> ScoreManager.Instance.EndLevel();
     }
-
-
     private void OnEnable()
     {
         SnapCamera.SnapAction += Talk;
@@ -118,6 +118,6 @@ public class TutorialManager : MonoBehaviour
 
     private void OnDisable()
     {
-        SnapCamera.SnapAction -= Talk;
+        SnapCamera.SnapAction = null;
     }
 }

@@ -2658,6 +2658,10 @@ PrefabInstance:
       propertyPath: boundaryObj
       value: 
       objectReference: {fileID: 727759400}
+    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
+      propertyPath: visualCueOffset.y
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 713981520068245737, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: m_Name
       value: CameraPrefab
@@ -2808,6 +2812,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2852112037012187186, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: inkStoryJson
+      value: 
+      objectReference: {fileID: 4900000, guid: d1f373de2cbae1d4b91bd8a4e4285c84, type: 3}
     - target: {fileID: 4278040115797463210, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: m_Name
       value: DialoguePrefab

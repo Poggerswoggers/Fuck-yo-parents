@@ -18,7 +18,7 @@ public class CrowdNpc: MonoBehaviour
         set
         {
             _thisNpc = value;
-            sr = GetComponent<SpriteRenderer>();
+            sr = GetComponentInChildren<SpriteRenderer>();
             sr.sprite = thisNpc.npcSprite;
         }
     }

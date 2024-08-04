@@ -40,7 +40,8 @@ public class TakeASeatGm : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        UnloadedAndUpdateScore(1);
+        score = 2000 - 500*(2 * vulnerable - count);
+        UnloadedAndUpdateScore(score);
     }
 
     public override void StartGame()
@@ -51,6 +52,7 @@ public class TakeASeatGm : BaseMiniGameClass
         _timeBetweenCommuters = timeBetweenCommuters;
 
         communterQueue = new CommunterQueue(startPos.position, endPos.position, this);
+        communterQueue.Speed = thisLevel.commuterSpeed;
     }
 
     public override void UpdateGame()
@@ -198,5 +200,6 @@ public class TakeASeatGm : BaseMiniGameClass
 internal struct RoundsConfig
 {
     public int rounds;
+    public int commuterSpeed;
     public NpcAsset commuterAsset;
 }

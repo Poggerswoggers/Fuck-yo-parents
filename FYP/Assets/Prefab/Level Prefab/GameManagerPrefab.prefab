@@ -48,6 +48,7 @@ MonoBehaviour:
   levelScore: 0
   scoreText: {fileID: 3058008690882415423}
   minigameScoreText: {fileID: 5895076001184819798}
+  vulnerableComCountText: {fileID: 2673724218171993705}
   levelTargets:
   - {fileID: 0}
   - {fileID: 0}
@@ -1001,6 +1002,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8037349324107215040, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+      propertyPath: m_fontSize
+      value: 137.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037349324107215040, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037349324107215040, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1012,6 +1025,17 @@ PrefabInstance:
       addedObject: {fileID: 8617168418756487660}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+--- !u!114 &2673724218171993705 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6980762014381004182, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+  m_PrefabInstance: {fileID: 5042443972341431295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3058008690882415423 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8037349324107215040, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}

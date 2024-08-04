@@ -175,7 +175,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -883,8 +883,10 @@ MonoBehaviour:
   objectToPool: {fileID: 7618560070110847955, guid: fd337f04aba6ea841b89ca3dce02cc78, type: 3}
   levels:
   - rounds: 2
+    commuterSpeed: 4
     commuterAsset: {fileID: 11400000, guid: 2a30a064db097e242b567ea94e2c7f50, type: 2}
   - rounds: 2
+    commuterSpeed: 5
     commuterAsset: {fileID: 11400000, guid: cf6ef67b556fbeb4ca65b8b304640cae, type: 2}
   startPos: {fileID: 931612102}
   endPos: {fileID: 415818785}
@@ -1173,7 +1175,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1490,7 +1492,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
