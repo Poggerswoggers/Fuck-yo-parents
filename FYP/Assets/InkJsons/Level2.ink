@@ -238,6 +238,7 @@ I’m Batman.
 ~correctAnswer = 0
 Um…hi? Sorry I’m in a rush.
     *[Sorry to bother!]
+      It's okay.
         ->DONE
         
 ==Terence== 
