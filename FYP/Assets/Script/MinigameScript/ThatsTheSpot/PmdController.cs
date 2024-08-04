@@ -52,6 +52,10 @@ public class PmdController : MonoBehaviour
             canDrive = false;
             moveY =1;
             moveX = TurnTowardsTarget();
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX(AudioManager.instance.pmdDrift);
+            }
         }
     }
     float TurnTowardsTarget()
@@ -84,6 +88,7 @@ public class PmdController : MonoBehaviour
     {
         MoveForce += -transform.up * moveSpeed * moveY * Time.deltaTime;
         transform.position += MoveForce * Time.deltaTime;
+        
     }
 
     public void Traction()
@@ -98,7 +103,6 @@ public class PmdController : MonoBehaviour
         Vector3 _rotateAngle = Vector3.forward * moveX * steeringAngle; //turnAssist;
         rotateAngle = _rotateAngle * Time.deltaTime;
         transform.Rotate(rotateAngle);
-
     }
     
 

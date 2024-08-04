@@ -146,8 +146,12 @@ public class PieceLover : BaseMiniGameClass
         {
             int index = slotsPos.IndexOf((Vector2Int)pos);
             draggingPiece.transform.position = pos;
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX(AudioManager.instance.attachJig);
+            }
 
-            if(index == draggingPiece.GetComponent<JigSawPiece>().index)
+            if (index == draggingPiece.GetComponent<JigSawPiece>().index)
             {
                 piecesToMatch--;
                 draggingPiece.GetComponent<BoxCollider2D>().enabled = false;
