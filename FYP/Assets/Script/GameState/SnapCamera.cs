@@ -1,8 +1,6 @@
 using Cinemachine;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
-
 
 public class SnapCamera : GameBaseState
 {
@@ -80,16 +78,10 @@ public class SnapCamera : GameBaseState
         }
 
 
-        if (!camMode && !EventSystem.current.IsPointerOverGameObject())
-        {
+        if (!camMode){
             CameraPan();
             WhenMouseIsMoving();
             SnapSystem();
-        }
-        else
-        {
-            Cursor.visible = true;
-            CameraReticle.gameObject.SetActive(false);
         }
     }
     public override void ExitState(GameStateManager gameStateManager)

@@ -1865,7 +1865,7 @@ PrefabInstance:
     - target: {fileID: 6409871669932344966, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: question
       value: 
-      objectReference: {fileID: 11400000, guid: fe1e74d3c8ac72b4bae9090b64fdbf55, type: 2}
+      objectReference: {fileID: 11400000, guid: e4288b7bffe8de047b3641b625108de9, type: 2}
     - target: {fileID: 6409871669932344966, guid: 20ea821b9024bd34fa967fab99686b34, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
@@ -2234,8 +2234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc1abce951c43d4e84ecf566198db7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameSceneIndex: ThatsTheSpot
-  levelScale: 1
+  minigameSceneIndex: Take A Seat
+  levelScale: 2
 --- !u!1001 &1881000721
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -214,10 +214,7 @@ public class DialogueManager : GameBaseState
         DisplayNewLine();
         RefreshChoiceView();
 
-        if (!correctPrompt)
-        {
-            ScoreManager.Instance.OnScoreChange?.Invoke(500);
-        }
+        ScoreManager.Instance.OnScoreChange?.Invoke((correctPrompt)? -200: 200);      
     }
 
     void RefreshChoiceView()
