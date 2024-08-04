@@ -23,7 +23,7 @@ public class McqManager : GameBaseState
     [SerializeField] Color defaultColor;
 
     [SerializeField] List<int> playerChoice;
-    List<AnswerChoice> answerChoiceList = new List<AnswerChoice>();
+    readonly List<AnswerChoice> answerChoiceList = new List<AnswerChoice>();
 
     MCQ questionScriptable;
     int mcqCount;
@@ -57,7 +57,7 @@ public class McqManager : GameBaseState
 
             bool isCorrect = false;
             isCorrect = (questionScriptable.correctOptions.Contains(i + 1));    //Determine if choice is correct based on scriptable object
-            AnswerChoice _buttonOption = new AnswerChoice(button, isCorrect, i + 1);    //Create new answerchoice which is map to each button    
+            AnswerChoice _buttonOption = new(button, isCorrect, i + 1);    //Create new answerchoice which is map to each button    
             button.onClick.AddListener(() => onPromptClick(_buttonOption));         
 
             //Add answerChoice instance to the list
@@ -113,10 +113,12 @@ public class McqManager : GameBaseState
         if (questionScriptable.correctOptions.SequenceEqual(playerChoice))
         {
             answerStatementText.text = "CORRECT";
+            ScoreManager.Instance.OnScoreChange?.Invoke(-200);
         }
         else
         {
             answerStatementText.text = "INCORRECT";
+            ScoreManager.Instance.OnScoreChange?.Invoke(300);
         }
         DestroyAnswers();
         NextButton.onClick.RemoveAllListeners();
