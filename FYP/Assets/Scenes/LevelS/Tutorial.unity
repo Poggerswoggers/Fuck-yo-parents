@@ -2412,7 +2412,7 @@ MonoBehaviour:
   tutorialPanel: {fileID: 0}
   tutorialCommuter: {fileID: 1982292486}
   reticle: {fileID: 540583051}
-  minDragTime: 0.5
+  minDragTime: 1
 --- !u!4 &1769701642
 Transform:
   m_ObjectHideFlags: 0
@@ -2451,6 +2451,10 @@ PrefabInstance:
     - target: {fileID: 4161071166007126719, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_Name
       value: GameManagerPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: levelTargets.Array.data[0]

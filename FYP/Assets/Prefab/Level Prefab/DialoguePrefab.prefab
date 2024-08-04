@@ -279,10 +279,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7581412369166454325}
     - target: {fileID: 3939539752701761815, guid: debadd9a5541dc841bb1abe6d7bd3e7d, type: 3}
-      propertyPath: inkStoryJson
-      value: 
-      objectReference: {fileID: 4900000, guid: d1f373de2cbae1d4b91bd8a4e4285c84, type: 3}
-    - target: {fileID: 3939539752701761815, guid: debadd9a5541dc841bb1abe6d7bd3e7d, type: 3}
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 2194620650843340416}
