@@ -17,7 +17,7 @@ Excuse me.
         Anyone can outrun me, move.
             -> DONE
 ==Gary==
-~correctAnswer = 1
+~correctAnswer = 3
 Hello.
     *[Let me help you.] 
          I can handle myself.
@@ -47,7 +47,7 @@ I hate peak hours.
             -> DONE
 
 ==Naomi==
-~correctAnswer = 0
+~correctAnswer = 2
 Do all pregnant ladies have big baby bumps?
     *[Yes]
         I don’t think so. You may not be able to tell if someone is pregnant as her baby bump may not be visible or she may be wearing loose clothing.
@@ -86,7 +86,7 @@ Yes?
             -> DONE
 
 ==Garreth==  
-~correctAnswer = 0
+~correctAnswer = 1
 What should you do if you see someone who needs help using Heartwheels @ Linkway wheelchairs?          
     *[Ask an adult if they can help]        
         That’s right! The wheelchairs are also available for vulnerable commuters to use.
