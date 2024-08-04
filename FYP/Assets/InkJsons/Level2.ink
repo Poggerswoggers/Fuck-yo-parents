@@ -223,7 +223,7 @@ I’m Batman.
         
 ==Edmund== 
 ~correctAnswer = 0
-I’m Batman.
+Hey! What’s up?
     *[Have you seen anyone who might need help?]
         I saw someone that looks LOST , maybe she might need some help?
         ->DONE
