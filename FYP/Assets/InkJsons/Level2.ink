@@ -18,7 +18,7 @@ VAR correctAnswer = ""
             -> DONE
             
 ==Dave==
-~correctAnswer = 1
+~correctAnswer = 2
 (Sign language)
     *[(Thumbs up)]
         (Confused look) 
@@ -34,7 +34,7 @@ VAR correctAnswer = ""
             -> DONE
             
   ==Fatimah==
-~correctAnswer = 1
+~correctAnswer = 4
 (Seems shaken)
     *[(Stare at her and say nothing)]
         (Confused look) 
@@ -51,7 +51,7 @@ VAR correctAnswer = ""
             -> DONE
             
 ==Grace==
-~correctAnswer = 0
+~correctAnswer = 2
 What should you do when you see someone put their bags on the seats?
     *[Ignore them !]
         Doesn’t feel right to me though. We should free up the seat for those who need it!
@@ -115,7 +115,7 @@ Hello There!
         ->DONE
 
 ==UncleTan==
-~correctAnswer = 0
+~correctAnswer = 1
 Aw man! Why should we take public transport?
     *[So we can be more environmentally friendly]
         Nice one! Public Transport is a more environmentally friendly travel option than private cars and ride-hailing.
@@ -190,7 +190,7 @@ Skibidi.
         ->DONE
         
 ==Jiayan==
-~correctAnswer = 0
+~correctAnswer = 4
 What should you NOT do when you see a commuter in need e.g, commuter with physical disability, pregnant etc?
     *[Stare at them]
         That’s one thing to NOT do, however all the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.

@@ -1,7 +1,7 @@
 VAR correctAnswer = ""
 
 ==Bobby==
-~correctAnswer = 0
+~correctAnswer = 1
 Yes?
     *[Do you need my help?]
          That’ll be great! I appreciate it. 
@@ -19,7 +19,7 @@ Yes?
             -> DONE
  
  ==Brock==
-~correctAnswer = 0
+~correctAnswer = 1
 Yes?
     *[Do you need any help?]
         That’ll be great! 
@@ -36,7 +36,7 @@ Yes?
             -> DONE
 
  ==Raj ==
-~correctAnswer = 0
+~correctAnswer = 4
 Where am I headed again?
     *[No clue.]
         Hmm. (He seems frustrated)
@@ -52,7 +52,7 @@ Where am I headed again?
         (You guided him to the station staff)
             -> DONE
  ==Fred ==
-~correctAnswer = 0
+~correctAnswer = 2
 There’s so many people here…
     *[Hi!]
         (He ignores you.)
@@ -68,7 +68,7 @@ There’s so many people here…
         Uh, no…
             -> DONE
  ==Ben ==
-~correctAnswer = 0
+~correctAnswer = 3
 Arg it hurts, I just want to go home.
     *[What hurts?]
         It’s okay, I am just talking to myself…
@@ -99,7 +99,7 @@ English or Chinese?
             -> DONE
 
 ==Terry ==
-~correctAnswer = 0
+~correctAnswer = 1
 What should you do when you see young children (below 6 years old) on the train?
     *[Ask the caregiver/children if they need a seat]
         Nice one lah! Young children may not be able to balance well in a moving bus or train or might feel tired more easily
