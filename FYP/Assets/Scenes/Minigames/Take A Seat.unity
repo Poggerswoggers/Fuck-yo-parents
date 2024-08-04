@@ -788,7 +788,7 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 1309623724}
-  instructionTime: 5
+  instructionTime: 4
   grabbedCommuter: {fileID: 0}
   seats:
   - {fileID: 619594168}
