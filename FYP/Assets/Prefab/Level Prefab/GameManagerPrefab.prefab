@@ -44,12 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585aec58c5e5435479f79af661c58e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScore: 5000
-  levelScore: 0
+  levelUIPanel: {fileID: 1374353173632007651}
   scoreText: {fileID: 3058008690882415423}
   minigameScoreText: {fileID: 5895076001184819798}
+  maxScore: 5000
+  levelScore: 0
   vulnerableComCountText: {fileID: 2673724218171993705}
   levelTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   gSm: {fileID: 1284608441080620031}
@@ -1025,6 +1029,11 @@ PrefabInstance:
       addedObject: {fileID: 8617168418756487660}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+--- !u!1 &1374353173632007651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6262522453209925148, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+  m_PrefabInstance: {fileID: 5042443972341431295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2673724218171993705 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6980762014381004182, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}

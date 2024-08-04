@@ -15,6 +15,8 @@ public class TutorialManager : MonoBehaviour
     }
     private TutorialStep currentStep;
 
+    [SerializeField] GameObject gm;
+
     [SerializeField] Sprite checkedBox;
     [SerializeField] List<GameObject> tutorialSequence;
     [SerializeField] GameObject tweenObject;
@@ -109,7 +111,15 @@ public class TutorialManager : MonoBehaviour
     {
         StrikeAndCheck();
         SnapCamera.SnapAction -= Talk;
-        SnapCamera.SnapAction += ()=> ScoreManager.Instance.EndLevel();
+        SnapCamera.SnapAction += Finish;
+    }
+
+    void Finish()
+    {
+        ScoreManager.Instance.EndLevel();
+        gm.SetActive(false);
+        Cursor.visible = true;
+        reticle.gameObject.SetActive(false);
     }
     private void OnEnable()
     {
@@ -118,6 +128,6 @@ public class TutorialManager : MonoBehaviour
 
     private void OnDisable()
     {
-        SnapCamera.SnapAction = null;
+        SnapCamera.SnapAction -= Finish;
     }
 }

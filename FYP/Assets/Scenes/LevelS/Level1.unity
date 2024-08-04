@@ -2258,6 +2258,10 @@ PrefabInstance:
       value: GameManagerPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: levelTargets.Array.data[0]
       value: 
       objectReference: {fileID: 1460308224}
@@ -2320,15 +2324,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3688010732575751968, guid: 6dcb2d9e5e713ec448b459c76290781c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 528.90826
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3688010732575751968, guid: 6dcb2d9e5e713ec448b459c76290781c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 399.7542
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3688010732575751968, guid: 6dcb2d9e5e713ec448b459c76290781c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.9281554
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3688010732575751968, guid: 6dcb2d9e5e713ec448b459c76290781c, type: 3}
       propertyPath: m_LocalRotation.w

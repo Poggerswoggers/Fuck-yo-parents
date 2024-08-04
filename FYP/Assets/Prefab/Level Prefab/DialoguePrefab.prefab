@@ -488,6 +488,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -525,11 +533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 888
+      value: 246
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -225
+      value: -74
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_ConstrainProportionsScale

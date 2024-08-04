@@ -39,8 +39,7 @@ public class PathFinder : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        Debug.Log("Game");
-        score = (state) ? 1500 : 0;
+        Debug.Log(score);
         UnloadedAndUpdateScore(score);
     }
 
@@ -126,10 +125,6 @@ public class PathFinder : BaseMiniGameClass
 
     public void OnTileClicked(Tile tile)
     {
-        if (AudioManager.instance != null){
-            AudioManager.instance.PlaySFX(AudioManager.instance.correctGrid);
-        }
-
         //This is to check that the clicked tile is adjacent to the previous tile
         if ((currentplayerTile - tile.getCoord()).sqrMagnitude > 1) return;          
         currentplayerTile = tile.getCoord();
@@ -155,7 +150,12 @@ public class PathFinder : BaseMiniGameClass
             resetButton.gameObject.SetActive(false);
             gm.RunPathCo(index, state);
 
-            score += (state) ? 0 : 1000;
+            score += (!state) ? 0 : 1000;
+        }
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.correctGrid);
         }
     }
     public void paintTile(Vector3 pos)

@@ -12,18 +12,19 @@ public class ScoreManager : MonoBehaviour
     public static int selectedMinigameDifficulty =1;
     public Action<int> OnScoreChange;
 
-    [SerializeField] int maxScore;
-    [SerializeField] int levelScore;
+    [SerializeField] GameObject levelUIPanel;
 
     [Header("Scores")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI minigameScoreText;
 
+    [SerializeField] int maxScore;
+    [SerializeField] int levelScore;
+
     [Header("Vulnerable Commuter Count")]
     [SerializeField] TextMeshProUGUI vulnerableComCountText;
     int vulnerableComCount;
 
-    GameObject scoreParent;
 
     string addictiveScene;
 
@@ -73,7 +74,6 @@ public class ScoreManager : MonoBehaviour
         vulnerableComCount = levelTargets.Count;
         vulnerableComCountText.text = vulnerableComCount.ToString();
         minigameCount = levelTargets.Count;
-        scoreParent = scoreText.transform.parent.gameObject;
         UpdateScore(-maxScore);
     }
 
@@ -109,7 +109,7 @@ public class ScoreManager : MonoBehaviour
 
     public void loadAddictiveScene(string sceneName, int minigameDifficulty)
     {
-        scoreParent.SetActive(false);
+        levelUIPanel.SetActive(false);
         addictiveScene = sceneName;
         selectedMinigameDifficulty = minigameDifficulty;
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
@@ -119,7 +119,7 @@ public class ScoreManager : MonoBehaviour
     {
         levelScore += scoreDiff;
 
-        scoreParent.SetActive(true);
+        levelUIPanel.SetActive(true);
         minigameScoreText.gameObject.SetActive(true);
         float elapsedLerp = 0;
         float _pointsGained = 0;

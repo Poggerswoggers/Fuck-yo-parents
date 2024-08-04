@@ -627,6 +627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c94751c04babb468966a1a8a672d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &220149594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8259169143235981654, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+  m_PrefabInstance: {fileID: 1796301823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &266262870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -716,6 +721,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+--- !u!1 &294723397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7493240849062040741, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
+  m_PrefabInstance: {fileID: 868530135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &392075644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,7 +838,7 @@ PrefabInstance:
     - target: {fileID: 7404491343342965655, guid: ae621596fb1d3624b85dbadbd5998f58, type: 3}
       propertyPath: normalNpcParent
       value: 
-      objectReference: {fileID: 1705203439}
+      objectReference: {fileID: 294723397}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2450,37 +2460,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &1705203439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1705203440}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1705203440
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705203439}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 161.15587, y: 104.111496, z: 3.2771297}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1769701640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aaa11a253f16ed4ea51068b6fc93fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 220149594}
   checkedBox: {fileID: 21300000, guid: 976ee81878ebd2640a8849590bb7a737, type: 3}
   tutorialSequence:
   - {fileID: 1619341875}
@@ -2891,6 +2871,10 @@ PrefabInstance:
     - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: zoomSens
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: zoomSpeed
@@ -3348,4 +3332,3 @@ SceneRoots:
   - {fileID: 25003306}
   - {fileID: 1769701642}
   - {fileID: 393949500}
-  - {fileID: 1705203440}

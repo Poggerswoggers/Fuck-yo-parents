@@ -2480,10 +2480,6 @@ PrefabInstance:
       value: GameManagerPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-      propertyPath: levelTargets.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: levelTargets.Array.data[0]
       value: 
       objectReference: {fileID: 1210985882}
@@ -2982,7 +2978,6 @@ SceneRoots:
   - {fileID: 1881000721}
   - {fileID: 463485016}
   - {fileID: 930578169}
-  - {fileID: 1994215782}
   - {fileID: 1707860135}
   - {fileID: 2099535578}
   - {fileID: 666130980}
@@ -2991,3 +2986,4 @@ SceneRoots:
   - {fileID: 1644552219}
   - {fileID: 279277102}
   - {fileID: 273309940}
+  - {fileID: 1994215782}

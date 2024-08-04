@@ -142,14 +142,7 @@ public class RouteAssister : BaseMiniGameClass
         if(index == currentDes.route.Count-1)   //if index = 2 means filled out route choices
         {
             CheckIfMatch();
-            if (destinationsScriptable.Count>0)
-            {
-                StartCoroutine(RoundOver());
-            }
-            else
-            {
-                gameManager.OnGameOver();
-            }
+            StartCoroutine(RoundOver());           
         }
         index++;
     }
@@ -169,7 +162,15 @@ public class RouteAssister : BaseMiniGameClass
         map.GetComponent<SpriteRenderer>().sprite = null;
         map.SetActive(true);
         map.transform.GetChild(0).GetComponent<SpriteRenderer>().color = (complete) ? Color.green : Color.red;
-        LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(2f).setOnComplete(StartSequence);
+
+        if (destinationsScriptable.Count > 0)
+        {
+            LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(2f).setOnComplete(StartSequence);
+        }
+        else
+        {
+            LeanTween.delayedCall(1f, gameManager.OnGameOver);
+        }
     }
 
 
