@@ -281,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 3939539752701761815, guid: debadd9a5541dc841bb1abe6d7bd3e7d, type: 3}
       propertyPath: inkStoryJson
       value: 
-      objectReference: {fileID: 4900000, guid: ecedd6c7d726359418b22786040905cb, type: 3}
+      objectReference: {fileID: 4900000, guid: d1f373de2cbae1d4b91bd8a4e4285c84, type: 3}
     - target: {fileID: 3939539752701761815, guid: debadd9a5541dc841bb1abe6d7bd3e7d, type: 3}
       propertyPath: dialoguePanel
       value: 
@@ -448,12 +448,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 110
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 110
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_LocalScale.x
@@ -469,15 +481,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -803
+      value: -808
       objectReference: {fileID: 0}
     - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 408
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 7136489947066072321, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -485,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 338.8848
+      value: 338.88477
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_LocalScale.x
@@ -501,11 +529,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -72
+      value: 888
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 315
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -715,7 +743,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: EventTriggerHandler, Assembly-CSharp
+          m_MethodName: PointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: EventTriggerHandler, Assembly-CSharp
+          m_MethodName: PointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &3455389866865909254 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8045874692383054601, guid: 435126323d37e384eb5743f1e73cada4, type: 3}

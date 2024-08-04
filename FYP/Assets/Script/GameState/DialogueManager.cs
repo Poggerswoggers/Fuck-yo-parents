@@ -19,11 +19,10 @@ public class DialogueManager : GameBaseState
     [SerializeField] Button buttonPrefab;
 
     [SerializeField] TextMeshProUGUI infoTextField;
-    [SerializeField] char[] textArray;
+    char[] textArray;
 
     [Header("UI Panel")]
     [SerializeField] GameObject dialoguePanel;
-    [SerializeField] EventTrigger _backButton;
 
     bool canContinueToNextLine = false;
     private Coroutine displayLineCoroutine;
@@ -75,9 +74,6 @@ public class DialogueManager : GameBaseState
     {
         questionScriptable = gSm.nSm.question;
         dialogueKnotName = gSm.nSm.DialogueKnotName;
-
-        _backButton.AddListener(EventTriggerType.PointerEnter, EnterHover);
-        _backButton.AddListener(EventTriggerType.PointerExit, ExitHover);
     }
 
     //Loads and tweens the dialogue boxes;

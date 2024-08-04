@@ -1138,6 +1138,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: McqPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 782219570186591260, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 782219570186591260, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.78301877
+      objectReference: {fileID: 0}
+    - target: {fileID: 782219570186591260, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 782219570186591260, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 782219570186591260, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 782219570186591260, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 782219570186591260, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4291362815
+      objectReference: {fileID: 0}
     - target: {fileID: 1710356284501211130, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3827288
@@ -1176,6 +1204,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1710356284501211130, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596451448182966017, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2149,6 +2181,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2966723450145879341, guid: 47f2f28a3b1e9f843b308932e73b059c, type: 3}
+      propertyPath: question
+      value: 
+      objectReference: {fileID: 11400000, guid: 48b46269d12876e459e06ab2c3bd1f8b, type: 2}
+    - target: {fileID: 2966723450145879341, guid: 47f2f28a3b1e9f843b308932e73b059c, type: 3}
       propertyPath: managedReferences[2641615680123699208].sc
       value: 
       objectReference: {fileID: 275726041}
@@ -2216,6 +2252,14 @@ PrefabInstance:
       propertyPath: typingSpeed
       value: 0.035
       objectReference: {fileID: 0}
+    - target: {fileID: 2852112037012187186, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: inkStoryJson
+      value: 
+      objectReference: {fileID: 4900000, guid: ecedd6c7d726359418b22786040905cb, type: 3}
+    - target: {fileID: 3438034360642877943, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4278040115797463210, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: m_Name
       value: DialoguePrefab
@@ -2259,6 +2303,14 @@ PrefabInstance:
     - target: {fileID: 5267661908456238453, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763778449032252290, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: m_text
+      value: texttext
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763778449032252290, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: m_fontSize
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
