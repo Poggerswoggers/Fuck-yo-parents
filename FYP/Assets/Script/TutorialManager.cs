@@ -22,9 +22,6 @@ public class TutorialManager : MonoBehaviour
     bool canPerformAction = true;
     [SerializeField] GameObject tutorialPanel;
 
-    [Header("Left click test")]
-    public static Action clickTest;
-
     [Header("Pan Test")]
     [SerializeField] Collider2D tutorialCommuter;
     [SerializeField] Transform reticle;
@@ -108,20 +105,18 @@ public class TutorialManager : MonoBehaviour
         canPerformAction = true;
     }
 
-    void Talk()
-    {
+    void Talk(){
         StrikeAndCheck();
-        clickTest = null;
     }
 
 
     private void OnEnable()
     {
-        clickTest += Talk;
+        SnapCamera.SnapAction += Talk;
     }
 
     private void OnDisable()
     {
-        clickTest -= Talk;
+        SnapCamera.SnapAction -= Talk;
     }
 }

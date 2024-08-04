@@ -1,11 +1,10 @@
 using Cinemachine;
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class SnapCamera : GameBaseState
 {
-    [SerializeField] int snapTries;
-
     //UI stuff
     [SerializeField] Transform CameraReticle;
     [SerializeField] Vector2 camSize;
@@ -19,8 +18,6 @@ public class SnapCamera : GameBaseState
     [SerializeField] CinemachineVirtualCamera outCam;
     [SerializeField] CinemachineVirtualCamera zoomCam;
     [SerializeField] GameObject outCamGameObject;
-
-    //AudioManager audioManager;
 
     bool camMode;
 
@@ -45,6 +42,8 @@ public class SnapCamera : GameBaseState
     [Header("Dialogue indicator")]
     [SerializeField] Transform visualCue;
     [SerializeField] Vector3 visualCueOffset;
+
+    public static Action SnapAction;
 
     private void Start()
     {
@@ -227,7 +226,7 @@ public class SnapCamera : GameBaseState
             closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset,
             0.5f).setOnComplete(()=>gSm.ChangeStat(gSm.dialogueStat));
 
-        TutorialManager.clickTest?.Invoke();
+        SnapAction?.Invoke();
     }
 
 

@@ -125,7 +125,7 @@ public class ScoreManager : MonoBehaviour
             yield return null;
         }
         minigameScoreText.gameObject.SetActive(false);
-        scoreText.text = "SCORE:" + levelScore.ToString();
+        scoreText.text = levelScore.ToString();
 
         if(minigameCount == 0) { EndLevel(); }  //End level
     }

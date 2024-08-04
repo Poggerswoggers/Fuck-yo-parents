@@ -206,14 +206,17 @@ public class DialogueManager : GameBaseState
 
     void OnPromptClick(Choice choice, bool correctPrompt)
     {
-
-        AudioManager.instance?.PlaySFX(AudioManager.instance.buttonClick);
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
+        }
 
         if (!canContinueToNextLine) return;
         inkStory.ChooseChoiceIndex(choice.index);
         DisplayNewLine();
         RefreshChoiceView();
 
+        if (correctOption == 0) return;
         ScoreManager.Instance.OnScoreChange?.Invoke((correctPrompt)? -200: 200);      
     }
 
