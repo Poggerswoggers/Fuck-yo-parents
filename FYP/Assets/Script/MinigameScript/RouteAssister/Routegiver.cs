@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Threading.Tasks;
 
 public class Routegiver : MonoBehaviour
 {
@@ -29,12 +28,12 @@ public class Routegiver : MonoBehaviour
         startPos = transform.position;
     }
 
-    public async Task PostAssistance()
+    public IEnumerator PostAssistance()
     {
         int randResponse = Random.Range(0, responses.Count - 1);
         askPanel.GetComponentInChildren<TextMeshProUGUI>().text = responses[randResponse];
         responses.RemoveAt(randResponse);
-        await Task.Delay(1000);
+        yield return new WaitForSeconds(1f);
         askPanel.SetActive(false);
 
         sr.flipX = !sr.flipX;

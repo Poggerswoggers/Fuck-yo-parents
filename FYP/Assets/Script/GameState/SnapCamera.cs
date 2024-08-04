@@ -31,7 +31,7 @@ public class SnapCamera : GameBaseState
     //[SerializeField] float zoomSens;
     //[SerializeField] private float minCamSize = 2f;
     //[SerializeField] private float maxCamSize = 5f;
-    float newZoomLevel;
+    //float newZoomLevel;
 
     Vector3 origin;
     Vector3 difference;
@@ -173,15 +173,16 @@ public class SnapCamera : GameBaseState
 
     void SnapSystem()
     {
-        if (Input.GetMouseButtonDown(0) && taggedGameObject.Length >0)
+        if (Input.GetMouseButtonDown(0))
         {
             if (AudioManager.instance != null)
             {
                 AudioManager.instance.PlaySFX(AudioManager.instance.camSnap);
             }
-            ZoomToTarget();
-            camMode = true;
-            
+            if (taggedGameObject.Length > 0) {
+                ZoomToTarget();
+                camMode = true;
+            }         
         }
     }
 
@@ -229,6 +230,8 @@ public class SnapCamera : GameBaseState
         LeanTween.move(CameraReticle.gameObject,
             closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset,
             0.5f).setOnComplete(()=>gSm.ChangeStat(gSm.dialogueStat));
+
+        TutorialManager.clickTest?.Invoke();
     }
 
 

@@ -147,7 +147,7 @@ public class RouteAssister : BaseMiniGameClass
             CheckIfMatch();
             if (destinationsScriptable.Count>0)
             {
-                RoundOver();
+                StartCoroutine(RoundOver());
             }
             else
             {
@@ -156,17 +156,14 @@ public class RouteAssister : BaseMiniGameClass
         }
         index++;
     }
-    async void RoundOver()
+    IEnumerator RoundOver()
     {
         busOptionPanels.SetActive(false);
-        await npc.PostAssistance();
+        StartCoroutine(npc.PostAssistance());
+        yield return new WaitForSeconds(2f);
         directorPanel.SetActive(false);
 
-
-        //LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(1f);
-        //Reset button listener
-
-        bool pass = (clear == 3) ? true : false;
+        bool pass = (clear == 3);
         ResetButton();
         RoundOverSequence(pass);
     }
