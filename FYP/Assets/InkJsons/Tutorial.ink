@@ -13,7 +13,7 @@ Welcome commuter champion.
         There will be mini-games that appear everytime you practice the 3As (Assess,Ask and Assist). Do it 10 times and you will return.
             -> Tutorial
     *[What should I take note of, when talking to the commuters?]
-        Do not talk to them when they are talking, and always ask if they need help before helping them.
+        Do not talk to them when they are talking, and always ask if they need help before helping them. Last but not least, click to continue or stop talking to them.
             -> Tutorial
 *->
 All the best commuter champion.
