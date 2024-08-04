@@ -85,6 +85,7 @@ public class TutorialManager : MonoBehaviour
 
     void StrikeAndCheck()
     {
+        if (index > tutorialSequence.Count) return;
         canPerformAction = false;
 
         LTSeq sequence = LeanTween.sequence();

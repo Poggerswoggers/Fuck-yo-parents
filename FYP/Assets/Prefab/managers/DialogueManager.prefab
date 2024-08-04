@@ -44,15 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c94751c04babb468966a1a8a672d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typingSpeed: 0.05
-  inkStoryJson: {fileID: 4900000, guid: d1f373de2cbae1d4b91bd8a4e4285c84, type: 3}
+  typingSpeed: 0.035
+  inkStoryJson: {fileID: 4900000, guid: ecedd6c7d726359418b22786040905cb, type: 3}
   optionContainer: {fileID: 0}
   buttonPrefab: {fileID: 595000945781610882, guid: 5352d942b1cd9f4438c2b80078c43736, type: 3}
   infoTextField: {fileID: 0}
-  nameField: {fileID: 0}
   dialoguePanel: {fileID: 0}
-  promptBox: {fileID: 0}
-  promptBoxYPos: 110
-  infoBox: {fileID: 0}
-  infoBoxXPos: -110
-  phaseInSpeed: 0.4

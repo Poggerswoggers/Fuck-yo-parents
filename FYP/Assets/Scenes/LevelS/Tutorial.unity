@@ -2412,7 +2412,7 @@ MonoBehaviour:
   tutorialPanel: {fileID: 0}
   tutorialCommuter: {fileID: 1982292486}
   reticle: {fileID: 540583051}
-  minDragTime: 0.5
+  minDragTime: 1
 --- !u!4 &1769701642
 Transform:
   m_ObjectHideFlags: 0

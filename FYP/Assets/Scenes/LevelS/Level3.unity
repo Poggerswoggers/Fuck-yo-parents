@@ -2248,14 +2248,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2852112037012187186, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
-      propertyPath: typingSpeed
-      value: 0.035
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852112037012187186, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
-      propertyPath: inkStoryJson
-      value: 
-      objectReference: {fileID: 4900000, guid: ecedd6c7d726359418b22786040905cb, type: 3}
     - target: {fileID: 3438034360642877943, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: m_IsActive
       value: 0
