@@ -421,7 +421,7 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 273888250}
-  instructionTime: 2
+  instructionTime: 3
   tries: 1
   triesObject:
   - {fileID: 764372239}

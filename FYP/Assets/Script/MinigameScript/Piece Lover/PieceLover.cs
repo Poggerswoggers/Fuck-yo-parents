@@ -44,12 +44,12 @@ public class PieceLover : BaseMiniGameClass
     private void Awake()
     {
         CreateSlots();
-        CreateJigSaw();
     }
 
     public override void StartGame()
     {
         LeanTween.reset();
+        CreateJigSaw();
     }
 
     void CreateSlots()
@@ -158,12 +158,6 @@ public class PieceLover : BaseMiniGameClass
             }
         }
         return (slotsPos.Contains((Vector2Int)pos));
-    }
-
-    protected override IEnumerator InstructionCo()
-    {
-        yield return null;
-        StartGame();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
