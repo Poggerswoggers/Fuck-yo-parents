@@ -41,6 +41,6 @@ public class SliderTimer : MonoBehaviour
 
     public bool isTimesUp()
     {
-        return gameTime <= 0f;
+        return gameTime < 0f;
     }
 }

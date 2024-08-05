@@ -193,7 +193,7 @@ public class CrowdControl : BaseMiniGameClass
     public override void EndSequenceMethod()
     {
         score = 2000 - (commutersToClear - npcCleared) * 100 - ahMaLeft * 200;
-        base.UnloadedAndUpdateScore(score);
+        UnloadedAndUpdateScore(score);
     }
 
     public NpcQueue GetQueue(){

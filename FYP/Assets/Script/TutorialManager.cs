@@ -29,7 +29,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] Transform reticle;
     [SerializeField] float minDragTime;
 
-    
+
     float currentDragTime;
     Vector3 lastMousePosition;
 
@@ -88,7 +88,7 @@ public class TutorialManager : MonoBehaviour
     void StrikeAndCheck()
     {
         Debug.Log("Ale");
-        if (index > tutorialSequence.Count-1) return;
+        if (index > tutorialSequence.Count - 1) return;
         canPerformAction = false;
 
         LTSeq sequence = LeanTween.sequence();
@@ -101,7 +101,7 @@ public class TutorialManager : MonoBehaviour
 
     void SetActiveSprite()
     {
-        for(int i =0; i < tutorialSequence.Count; i++)
+        for (int i = 0; i < tutorialSequence.Count; i++)
         {
             tutorialSequence[i].SetActive((i == index));
         }
@@ -117,15 +117,11 @@ public class TutorialManager : MonoBehaviour
     void Finish()
     {
         ScoreManager.Instance.EndLevel();
+        SnapCamera.SnapAction = null;
         //gm.SetActive(false);
     }
     private void OnEnable()
     {
         SnapCamera.SnapAction += Talk;
-    }
-
-    private void OnDisable()
-    {
-        SnapCamera.SnapAction -= Finish;
     }
 }
