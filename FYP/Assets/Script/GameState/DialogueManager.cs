@@ -34,6 +34,7 @@ public class DialogueManager : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
+        ScoreManager.Instance.DisableUI(false);
         Cursor.visible = true;
         gSm = gameStateManager;
         Initialise();
@@ -117,7 +118,12 @@ public class DialogueManager : GameBaseState
             }
             else
             {
-                backButton();
+                if (SnapCamera.SnapAction == null){
+                    backButton();
+                }
+                else{
+                    SnapCamera.SnapAction?.Invoke();
+                }
             }
         }
     }

@@ -117,9 +117,7 @@ public class TutorialManager : MonoBehaviour
     void Finish()
     {
         ScoreManager.Instance.EndLevel();
-        gm.SetActive(false);
-        Cursor.visible = true;
-        reticle.gameObject.SetActive(false);
+        //gm.SetActive(false);
     }
     private void OnEnable()
     {

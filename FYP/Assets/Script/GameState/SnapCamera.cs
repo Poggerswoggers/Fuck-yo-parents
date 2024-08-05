@@ -61,6 +61,7 @@ public class SnapCamera : GameBaseState
     {
         Cursor.visible = false;
         CameraReticle.gameObject.SetActive(true);
+        ScoreManager.Instance.DisableUI(true);
         gSm = gameStateManager;
         LeanTween.reset();
     }
@@ -251,8 +252,6 @@ public class SnapCamera : GameBaseState
 
     public void BackToOutCam()
     {
-
-
         zoomCam.Priority = 1;
         zoomCam.Follow = null;
         camMode = false;
@@ -262,8 +261,6 @@ public class SnapCamera : GameBaseState
 
         NpcStateManager nSm = closestGameObject.GetComponent<NpcStateManager>();
         nSm.SwitchState(nSm.roamState);
-
-        SnapAction?.Invoke();
     }
 
 }

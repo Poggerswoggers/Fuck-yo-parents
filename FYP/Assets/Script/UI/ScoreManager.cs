@@ -77,6 +77,10 @@ public class ScoreManager : MonoBehaviour
         UpdateScore(-maxScore);
     }
 
+    public void DisableUI(bool state)
+    {
+        levelUIPanel.SetActive(state);
+    }
 
     public void UpdateScore(int points)
     {       
@@ -144,5 +148,8 @@ public class ScoreManager : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.lvlDone);
         }
         levelEndPanel.SetActive(true);
+        gSm.ChangeStat(gSm.minigameState);
     }
+
+
 }
