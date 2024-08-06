@@ -149,7 +149,8 @@ Yo yo yo yo!
  ==Claire==
 ~correctAnswer = 0
 … (She quietly looks at you) 
-    *[Sorry to disturb you! (You awkwardly walk away)]
+    *[Sorry to disturb you!]
+    ...
             -> DONE
 
  ==Peng==
