@@ -13,7 +13,7 @@ public class TutorialManager : MonoBehaviour
         Snap,
         Talk,
     }
-    private TutorialStep currentStep;
+    public TutorialStep currentStep;
 
     [SerializeField] GameObject gm;
 
@@ -50,6 +50,7 @@ public class TutorialManager : MonoBehaviour
                 Snap();
                 break;
             case TutorialStep.Talk:
+                tutorialCommuter.enabled = true;
                 break;
         }
 
@@ -68,7 +69,7 @@ public class TutorialManager : MonoBehaviour
                 else
                 {
                     StrikeAndCheck();
-                    currentStep = TutorialStep.Snap;
+                    currentStep = TutorialStep.Talk;
                 }
             }
             lastMousePosition = reticle.position;
@@ -80,8 +81,7 @@ public class TutorialManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             StrikeAndCheck();
-            tutorialCommuter.enabled = true;
-            currentStep = TutorialStep.Talk;
+            currentStep = TutorialStep.Pan;
         }
     }
 
@@ -118,7 +118,6 @@ public class TutorialManager : MonoBehaviour
     {
         ScoreManager.Instance.EndLevel();
         SnapCamera.SnapAction = null;
-        //gm.SetActive(false);
     }
     private void OnEnable()
     {

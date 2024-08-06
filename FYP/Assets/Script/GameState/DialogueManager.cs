@@ -118,12 +118,7 @@ public class DialogueManager : GameBaseState
             }
             else
             {
-                if (SnapCamera.SnapAction == null){
-                    backButton();
-                }
-                else{
-                    SnapCamera.SnapAction?.Invoke();
-                }
+                (SnapCamera.SnapAction ?? backButton).Invoke();
             }
         }
     }
