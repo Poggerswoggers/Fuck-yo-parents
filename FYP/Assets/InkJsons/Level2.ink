@@ -79,7 +79,7 @@ Urm, hi there! Do you need help?
         I always plan ahead for my travel time, so I leave my house early to avoid being late.
             -> DONE
     *[Have you seen someone who could use a helping hand?] 
-        I saw someone walking around with a HEARING AID, he could use some help.
+        I saw someone walking around with a <color=yellow>HEARING AID</color>, he could use some help.
             -> DONE
               
 ==Davian==
@@ -229,7 +229,7 @@ I’m Batman.
 ~correctAnswer = 0
 Hey! What’s up?
     *[Have you seen anyone who might need help?]
-        I saw someone that looks LOST , maybe she might need some help?
+        I saw someone that looks <color=yellow>LOST</color> , maybe she might need some help?
         ->DONE
     *[Name one game off the top of your head!]
         Mario Odyssey!  
