@@ -193,16 +193,20 @@ Skibidi.
 ~correctAnswer = 4
 What should you NOT do when you see a commuter in need e.g, commuter with physical disability, pregnant etc?
     *[Stare at them]
-        That’s one thing to NOT do, however all the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
+        That’s one thing to NOT do, however all the behaviors listed are rude. 
+        We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
         ->DONE
     *[Laugh at them]
-        That’s one thing to NOT do, however all the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
+        That’s one thing to NOT do, however all the behaviors listed are rude. 
+        We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
         ->DONE
     *[Speak to them very loudly]
-        That’s one thing to NOT do, however all the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
+        That’s one thing to NOT do, however all the behaviors listed are rude. 
+        We should not be quick to judge or laugh at others, and should be caring to commuters in need instead.
         ->DONE
     *[All of the above]
-        Great job! All the behaviors listed are rude. We should not be quick to judge or laugh at others, and should be caring to commuters in need instead. Together, we can be Caring Commuters!
+        Great job! All the behaviors listed are rude. 
+        We should not be quick to judge or laugh at others, and should be caring to commuters in need instead. Together, we can be Caring Commuters!
         ->DONE
         
 ==OungOung== 

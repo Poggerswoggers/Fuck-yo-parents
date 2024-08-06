@@ -95,7 +95,7 @@ What should you do if you see someone who needs help using Heartwheels @ Linkway
         I don’t think that is right. We should not ignore them! The wheelchairs are also available for vulnerable commuters to use.
             -> DONE
 
-==Beta==
+==Linus==
 ~correctAnswer = 0
 He seems to be into his phone...
     -> DONE
