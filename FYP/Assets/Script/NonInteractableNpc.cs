@@ -43,7 +43,7 @@ public class NonInteractableNpc:MonoBehaviour
         rb.velocity = targetVel;
 
 
-        if (Mathf.Abs(transform.position.x) > sc.CalculateBounds().x - borderMargin && !crossBoundX)
+        if (Mathf.Abs(transform.position.x) > MapBound.Bound.x - borderMargin && !crossBoundX)
         {
             crossBoundX = true;
             //dir = new Vector2(-Mathf.Sign(transform.position.x) * Mathf.Sin(Random.Range(0.1f,1)), Random.insideUnitCircle.y);
@@ -51,19 +51,19 @@ public class NonInteractableNpc:MonoBehaviour
 
             _walkDur += 1;
         }
-        else if (Mathf.Abs(transform.position.x) < sc.CalculateBounds().x)
+        else if (Mathf.Abs(transform.position.x) < MapBound.Bound.x)
         {
             crossBoundX = false;
         }
 
-        if (Mathf.Abs(transform.position.y) > sc.CalculateBounds().y - borderMargin && !crossBoundY)
+        if (Mathf.Abs(transform.position.y) > MapBound.Bound.y - borderMargin && !crossBoundY)
         {
             crossBoundY = true;
             dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(transform.position.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
 
             _walkDur += 1;
         }
-        else if (Mathf.Abs(transform.position.y) < sc.CalculateBounds().y)
+        else if (Mathf.Abs(transform.position.y) < MapBound.Bound.y)
         {
             crossBoundY = false;
         }

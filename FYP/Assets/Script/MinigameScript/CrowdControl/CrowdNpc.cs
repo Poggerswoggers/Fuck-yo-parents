@@ -78,7 +78,7 @@ public class CrowdNpc: MonoBehaviour
 
             cardList.Add(cardObj.GetComponent<CardObject>());
         }
-        cardIndex = (int)Random.Range(0, cardList.Count);
+        cardIndex = Random.Range(0, cardList.Count);
         activeCard = cardList[cardIndex].card;
 
         SetActiveCardSprite();
@@ -117,11 +117,14 @@ public class CrowdNpc: MonoBehaviour
     {
         
         Destroy(gameObject, time);
+        foreach(CardObject card in cardList)
+        {
+            Destroy(card.gameObject, 0.2f);
+        }
     }
 
     public void TapCard()
     {
-        LeanTween.reset();
         LeanTween.rotateLocal(activeCardGameObject, new Vector3(0,0,-55), 0.2f);
         LeanTween.rotateLocal(activeCardGameObject, new Vector3(0, 0, 0), 0.2f).setDelay(0.8f);
     }

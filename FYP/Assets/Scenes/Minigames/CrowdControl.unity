@@ -683,7 +683,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7d406801c1060ea488520edfd0c132de, type: 2}
     - {fileID: 11400000, guid: 09749f69e19804a4b9ebf2bf03729344, type: 2}
     - {fileID: 11400000, guid: 846e84ba6493e8b48bc5ce252f7599e0, type: 2}
-  - gameTime: 45
+  - gameTime: 50
     commutersToClear: 20
     npcScriptableList:
     - {fileID: 11400000, guid: 51fcf72bdbd791c46ac2c36eb528d077, type: 2}

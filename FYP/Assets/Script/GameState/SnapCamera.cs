@@ -35,8 +35,6 @@ public class SnapCamera : GameBaseState
     [SerializeField] float xBound;
     [SerializeField] float yBound;
     Vector2 CamOrigin;
-    //Boundary Object
-    [SerializeField] Transform boundaryObj;
 
     [Header("Dialogue indicator")]
     [SerializeField] Transform visualCue;
@@ -47,15 +45,8 @@ public class SnapCamera : GameBaseState
     private void Start()
     {
         CamOrigin = outCamGameObject.transform.position;
-        //newZoomLevel = outCam.m_Lens.OrthographicSize;
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    public Vector2 CalculateBounds()
-    {
-        var bound = boundaryObj.GetComponent<SpriteRenderer>().bounds;
-        return bound.extents;
-    }
     public override void EnterState(GameStateManager gameStateManager)
     {
         Cursor.visible = false;

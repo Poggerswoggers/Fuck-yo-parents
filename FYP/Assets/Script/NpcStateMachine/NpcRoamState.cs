@@ -19,9 +19,6 @@ public class NpcRoamState : NpcBaseState
 
     [SerializeField] float borderMargin = 0.5f;
 
-    //reference
-    [SerializeField] SnapCamera sc;
-
     //Roam cross border bound check
     bool crossBoundX;
     bool crossBoundY;
@@ -98,7 +95,7 @@ public class NpcRoamState : NpcBaseState
         }
           
        
-        if (Mathf.Abs(npcThis.position.x) > sc.CalculateBounds().x-borderMargin && !crossBoundX)
+        if (Mathf.Abs(npcThis.position.x) > MapBound.Bound.x-borderMargin && !crossBoundX)
         {
             crossBoundX = true;
             //dir = new Vector2(-Mathf.Sign(transform.position.x) * Mathf.Sin(Random.Range(0.1f,1)), Random.insideUnitCircle.y);
@@ -106,19 +103,19 @@ public class NpcRoamState : NpcBaseState
 
             _walkDur += 1;
         }
-        else if (Mathf.Abs(npcThis.position.x) < sc.CalculateBounds().x)
+        else if (Mathf.Abs(npcThis.position.x) < MapBound.Bound.x)
         {
             crossBoundX = false;
         }
 
-        if (Mathf.Abs(npcThis.position.y) > sc.CalculateBounds().y-borderMargin && !crossBoundY)
+        if (Mathf.Abs(npcThis.position.y) > MapBound.Bound.y-borderMargin && !crossBoundY)
         {
             crossBoundY = true;
             dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(npcThis.position.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
 
             _walkDur += 1;
         }
-        else if (Mathf.Abs(npcThis.position.y) < sc.CalculateBounds().y)
+        else if (Mathf.Abs(npcThis.position.y) < MapBound.Bound.y)
         {
             crossBoundY = false;
         }

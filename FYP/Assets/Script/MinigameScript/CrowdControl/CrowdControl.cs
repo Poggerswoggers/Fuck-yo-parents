@@ -79,6 +79,7 @@ public class CrowdControl : BaseMiniGameClass
     //Start to control when the instruction ends
     public override void StartGame()
     {
+        LeanTween.reset();
         StartCoroutine(StartGameCo());
         clearText.text = $"<color=#800000ff>0</color>/{commutersToClear}";
         timer.SetTImer(gameTime, () => gameManager.OnGameOver());
@@ -170,11 +171,8 @@ public class CrowdControl : BaseMiniGameClass
                 npcCleared++;
                 addDelay *= 0.9f;
                 clearText.text = $"<color=#800000ff>{npcCleared}</color>/{commutersToClear}";
-                frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen
-
-                yield return new WaitForSeconds(0.2f);
-                for (int i = 0; i < cardPos.childCount; i++) { Destroy(cardPos.GetChild(i).gameObject); } //Destroy the child cards under the carpos 
-              
+                frontNpc.MoveInQueue(entrancePos + Vector3.left * -10);  //Moves the npc off screen   
+                _tapDelay = tapDelay-1;
             }
         }
         else

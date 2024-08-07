@@ -19,11 +19,13 @@ public class SliderTimer : MonoBehaviour
         if(gameTime>0f)
         {
             gameTime -= Time.deltaTime;
-
-            if(isTimesUp()){
-                timerCallback?.Invoke();
-            }
             timerSlider.value = gameTime;
+        }
+        if (isTimesUp())
+        {
+            timerSlider.value = 0;
+            Debug.Log("Time is up");
+            timerCallback?.Invoke();
         }
     }
 
