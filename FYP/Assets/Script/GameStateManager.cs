@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {    
-    public NpcStateManager nSm { get; set; }
+    public NpcStateManager NSm { get; set; }
 
     
     GameBaseState currentState;
@@ -14,6 +14,7 @@ public class GameStateManager : MonoBehaviour
     public DialogueManager dialogueStat;
     public McqManager mcqState;
     public MinigameState minigameState;
+    public PauseState pauseState;
 
     [Header("Audio")]
     [SerializeField] AudioClip levelMusic;
@@ -46,6 +47,6 @@ public class GameStateManager : MonoBehaviour
 
     public void ClearNpc()
     {
-        Destroy(nSm.gameObject);
+        Destroy(NSm.gameObject);
     }
 }

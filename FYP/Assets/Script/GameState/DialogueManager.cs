@@ -72,8 +72,8 @@ public class DialogueManager : GameBaseState
     }
     public void Initialise()
     {
-        questionScriptable = gSm.nSm.question;
-        dialogueKnotName = gSm.nSm.DialogueKnotName;
+        questionScriptable = gSm.NSm.question;
+        dialogueKnotName = gSm.NSm.DialogueKnotName;
     }
 
     //Loads and tweens the dialogue boxes;
@@ -87,7 +87,6 @@ public class DialogueManager : GameBaseState
     {
         inkStory = new Story(inkStoryJson.text);
         inkStory.ChoosePathString(knotName);
-        //BindExternalFunctions();
         DisplayNewLine();
     }
 
@@ -237,7 +236,10 @@ public class DialogueManager : GameBaseState
 
     public void backButton()
     {
-        AudioManager.instance?.PlaySFX(AudioManager.instance.buttonClick);
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
+        }
         RefreshChoiceView();
         gSm.ChangeStat(gSm.snapState);
     }

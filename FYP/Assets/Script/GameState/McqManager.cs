@@ -33,7 +33,7 @@ public class McqManager : GameBaseState
     {
         gSm = gameStateManager;
             
-        questionScriptable = gSm.nSm.question;  //Get the mcq scriptable object
+        questionScriptable = gSm.NSm.question;  //Get the mcq scriptable object
 
         //Sets the question, sprite and get question count
         mcqCount = questionScriptable.answerText.Length;    
@@ -129,7 +129,7 @@ public class McqManager : GameBaseState
     {
         NextButton.onClick.RemoveAllListeners();
         mcqPanel.SetActive(false);
-        gSm.nSm.GetComponent<MinigameNpcs>().GetMinigameValue();
+        gSm.NSm.GetComponent<MinigameNpcs>().GetMinigameValue();
         gSm.ChangeStat(gSm.minigameState);
     }
     void DestroyAnswers()

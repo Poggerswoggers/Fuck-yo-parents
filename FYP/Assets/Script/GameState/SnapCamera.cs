@@ -1,6 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 public class SnapCamera : GameBaseState
 {
@@ -67,12 +68,17 @@ public class SnapCamera : GameBaseState
             taggedGameObject = new GameObject[0];
         }
 
-
-        if (!camMode){
+        if (!camMode && !EventSystem.current.IsPointerOverGameObject())
+        {
             CameraPan();
             WhenMouseIsMoving();
             SnapSystem();
         }
+
+        CameraReticle.gameObject.SetActive(!EventSystem.current.IsPointerOverGameObject());
+        Cursor.visible = EventSystem.current.IsPointerOverGameObject();
+
+
     }
     public override void ExitState(GameStateManager gameStateManager)
     {
@@ -120,13 +126,9 @@ public class SnapCamera : GameBaseState
     }
     public void RayToCollider()
     {
-        //contact = Physics2D.BoxCastAll(CameraReticle.position, new Vector2(2, 2), 0, Vector2.zero);
-
         taggedGameObject = new GameObject[contact.Length];
 
-        for(int i=0; i<contact.Length; i++)
-        {
-            //Debug.Log(contact[i].collider);
+        for(int i=0; i<contact.Length; i++){
             taggedGameObject[i] = contact[i].collider.gameObject;
         }
     }
@@ -212,7 +214,7 @@ public class SnapCamera : GameBaseState
         nSm.SwitchState(nSm.promptState);
    
         //Set dialogue stuff to be active and pass npc parameters
-        gSm.nSm = nSm;
+        gSm.NSm = nSm;
         LeanTween.move(CameraReticle.gameObject,
             closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset,
             0.5f).setOnComplete(()=>gSm.ChangeStat(gSm.dialogueStat));

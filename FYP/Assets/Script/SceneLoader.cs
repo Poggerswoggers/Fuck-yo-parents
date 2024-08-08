@@ -32,7 +32,9 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Settings");
     }
 
-    public void BackToMain() {
+    public void BackToMain()
+    {
+        Time.timeScale = 1;
         audioManager?.PlaySFX(audioManager.buttonClick);
         SceneManager.LoadScene("MainMenu");
     }
