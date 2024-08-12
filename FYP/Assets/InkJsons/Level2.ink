@@ -7,11 +7,11 @@ VAR correctAnswer = ""
         Yes ,thank you. 
         (You slowly guide her to a nearby station staff)
             -> DONE
-    *[(Judge them by looking)] 
+    *[(Judge them by staring)] 
         (Stresses out)
             -> DONE
-    *[Hi ! I can help you.] 
-        It’s ok!
+    *[(Shouts loudly) Hi! I can help you.] 
+        (Stresses out) It’s ok…
             -> DONE
     *[Is something wrong?] 
         ...
@@ -39,11 +39,11 @@ VAR correctAnswer = ""
     *[(Stare at her and say nothing)]
         (Confused look) 
             -> DONE
-    *[You look like you need help.] 
-        No, I think I can manage.
+    *[You look like a lost kid, do you need my help?] 
+        I am not a kid! Please leave me alone!
             -> DONE
     *[You look lost, I can help.] 
-        (She shakes her head and moves past you)
+        I am not lost ! I will find my way.
             -> DONE
     *[Hello, do you need my help?] 
         I am a little lost, thanks for helping. 
@@ -116,7 +116,7 @@ Hello There!
 
 ==UncleTan==
 ~correctAnswer = 1
-Aw man! Why should we take public transport?
+Why should we take public transport?
     *[So we can be more environmentally friendly]
         Nice one! Public Transport is a more environmentally friendly travel option than private cars and ride-hailing.
         ->DONE
@@ -219,7 +219,7 @@ I’m Batman.
         Gotham needs me.
         ->DONE
     *[Where is your batmobile?]
-        I sold it, since taking public transport is more environmentally friendly. 
+        I left it at home, since taking public transport is more environmentally friendly. 
         ->DONE
     *[Ok noted.]
         Justice never sleeps!

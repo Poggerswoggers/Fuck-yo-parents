@@ -14,7 +14,7 @@ Excuse me.
         Get out of my way.
             -> DONE
     *[Bet I could outrun you.]
-        Anyone can outrun me, move.
+        Anyone can outrun me.
             -> DONE
 ==Gary==
 ~correctAnswer = 3
@@ -22,11 +22,11 @@ Hello.
     *[Let me help you.] 
          I can handle myself.
             -> DONE
-    *[I’ll lead the way.]
-        No need to help, I got it.
+    *[I’ll lead the way. (Grabs his stick without waiting)]
+        No need to help, I got it. Please do not grab my stick.
             -> DONE
     *[Would you like me to help you?]
-        That’ll be nice.  
+        That’ll be nice. Thank you!  
         (You match his walking pace as you guide him to the station gantry)
             -> DONE
     *[How many fingers am I holding up?]
@@ -81,7 +81,7 @@ Yes?
     *[Where are you headed to?]        
         I am heading to work. 
             -> DONE
-    *[Is there someone that could use some help?]
+    *[Is there someone who could use a helping hand?]
          There’s someone that is walking with a <color=yellow>GUIDE CANE</color>, he might need some help?  
             -> DONE
 

@@ -23,7 +23,7 @@ Yes?
 Yes?
     *[Do you need any help?]
         That’ll be great! 
-        (you wait for him to explain and guided him to a nearby bus interchange staff)
+        (you wait for him to explain and guide him to a nearby bus interchange staff)
             -> DONE
     *[Huh?] 
         (He stares at you blankly)
@@ -49,13 +49,13 @@ Where am I headed again?
             -> DONE
     *[Can I help you in any way mister?] 
         Yes please. 
-        (You guided him to the station staff)
+        (You guided him to the bus interchange staff)
             -> DONE
  ==Fred ==
 ~correctAnswer = 2
 There’s so many people here…
-    *[Hi!]
-        (He ignores you.)
+    *[(Pretend not to notice)]
+        (He ignores you)
             -> DONE
     *[Do you need any help?] 
        Yes, thank you. 
@@ -64,17 +64,17 @@ There’s so many people here…
     *[Let me help!] 
       No… (He walks past you)
             -> DONE
-    *[Is there anyone you are looking for?] 
+    *[Are you looking for that person? (points at random stranger)] 
         Uh, no…
             -> DONE
  ==Ben ==
 ~correctAnswer = 3
 Arg it hurts, I just want to go home.
-    *[What hurts?]
+    *[What hurts? Can I help?]
         It’s okay, I am just talking to myself…
             -> DONE
-    *[I can help!] 
-      I appreciate it but I don’t want to trouble you. 
+    *[Are you suffering? Can I help you?] 
+      I appreciate your concern, but I don’t want to trouble you. 
       (he moves past you)
             -> DONE
     *[May I help you?] 
