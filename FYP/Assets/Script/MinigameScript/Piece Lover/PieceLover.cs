@@ -80,7 +80,7 @@ public class PieceLover : BaseMiniGameClass
                 Transform jigsawPiece = Instantiate(piecePrefab, transform.parent);               //Instaniate prefab
                 jigsawPiece.position = (Vector3Int)slotsPos[index];
                 jigsawPiece.GetComponent<SpriteRenderer>().sprite = sprite;     //Set the prefab sprite to created sprite               
-                jigsawPiece.GetComponent<JigSawPiece>().index = index;
+                jigsawPiece.GetComponent<JigSawPiece>().Index = index;
                 index++;
 
                 pieces.Add(jigsawPiece);
@@ -125,7 +125,7 @@ public class PieceLover : BaseMiniGameClass
         //Let go of jigsaw
         if(draggingPiece && Input.GetMouseButtonUp(0))
         {
-            draggingPiece.GetComponent<Rigidbody2D>().isKinematic = (SetBoardPiece()) ? true : false;
+            draggingPiece.GetComponent<Rigidbody2D>().isKinematic = (SetBoardPiece());
             draggingPiece.position += Vector3.forward;
             draggingPiece = null;
         }
@@ -151,7 +151,7 @@ public class PieceLover : BaseMiniGameClass
                 AudioManager.instance.PlaySFX(AudioManager.instance.attachJig);
             }
 
-            if (index == draggingPiece.GetComponent<JigSawPiece>().index)
+            if (index == draggingPiece.GetComponent<JigSawPiece>().Index)
             {
                 piecesToMatch--;
                 draggingPiece.GetComponent<BoxCollider2D>().enabled = false;

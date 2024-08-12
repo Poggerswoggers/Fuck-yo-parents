@@ -18,11 +18,12 @@ public class RouteAssister : BaseMiniGameClass
 
     //Bus sequence button
     [SerializeField] GameObject busOptionPanels;
-    List<TextMeshProUGUI> busTexts = new List<TextMeshProUGUI>();
+
 
     //The player's direction
     [SerializeField] GameObject directorPanel;
     List<string> numberAlpha = new() { "1st", "2nd", "3rd", "4th"}; //A list to store string
+    private List<Image> routeSprite = new();
     public int clear = 0; //Number of correct option to match with scriptable
     
     [Header("Scriptable Object List")]
@@ -97,10 +98,8 @@ public class RouteAssister : BaseMiniGameClass
             GameObject _text = directorPanel.transform.GetChild(i).gameObject;
             _text.SetActive(true);
             _text.GetComponent<TextMeshProUGUI>().text = numberAlpha[i];
-             TextMeshProUGUI busText = _text.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            busText.text = ":<u>         .</u>";
 
-            busTexts.Add(busText);
+            routeSprite.Add(_text.GetComponentInChildren<Image>());
         }
         directorPanel.SetActive(true);
         busOptionPanels.SetActive(true);
@@ -114,7 +113,10 @@ public class RouteAssister : BaseMiniGameClass
         {
             //Set int to string and int to the onclick
             Destinations.MRTRoutes buttonRoute = allRoutes[index];
-            button.GetComponent<Button>().onClick.AddListener(() => OnClickBusNumber(buttonRoute));
+            Button thisButton = button.GetComponent<Button>();
+            thisButton.onClick.AddListener(() => OnClickBusNumber(buttonRoute, thisButton.image));
+
+            //set event trigger
             EventTrigger buttonEvent = button.GetComponent<EventTrigger>();
             buttonEvent.AddListener(EventTriggerType.PointerEnter, EnterHover);
             buttonEvent.AddListener(EventTriggerType.PointerExit, ExitHover);
@@ -134,10 +136,10 @@ public class RouteAssister : BaseMiniGameClass
 
     }
 
-    public void OnClickBusNumber(Destinations.MRTRoutes buttonRoute)
+    public void OnClickBusNumber(Destinations.MRTRoutes buttonRoute, Image buttonImage)
     {
         clear = (currentDes.route[index] == buttonRoute && clear == index) ? clear + 1 : clear;   //Clear goes up when selected button int matches the current route index int
-        busTexts[index].text = $": <u><color=red>{buttonRoute}</color></u>";       //Set rich text color
+        routeSprite[index].sprite = buttonImage.sprite;      //Set rich text color
 
         if(index == currentDes.route.Count-1)   //if index = 2 means filled out route choices
         {
@@ -173,9 +175,6 @@ public class RouteAssister : BaseMiniGameClass
         }
     }
 
-
-
-
     void CheckIfMatch()
     { 
         if(clear == currentDes.route.Count){
@@ -192,7 +191,6 @@ public class RouteAssister : BaseMiniGameClass
     }
     void ExitHover(PointerEventData eventData)
     {
-        float facing = eventData.pointerEnter.transform.lossyScale.x;
         LeanTween.scale(eventData.pointerEnter, Vector3.one*0.9f, 0.2f);
     }
 
@@ -201,11 +199,11 @@ public class RouteAssister : BaseMiniGameClass
         switch (GetDifficulty())
         {
             case difficulty.One:
-                this.destinationsScriptable = roundsConfig[0].destinationsScriptable;
+                destinationsScriptable = roundsConfig[0].destinationsScriptable;
                 break;
 
             case difficulty.Two:
-                this.destinationsScriptable = roundsConfig[1].destinationsScriptable;
+                destinationsScriptable = roundsConfig[1].destinationsScriptable;
                 break;
             default:
                 Debug.Log("Not found");
@@ -213,7 +211,7 @@ public class RouteAssister : BaseMiniGameClass
         }
     }
 
-    [System.Serializable]
+    [Serializable]
     internal class RoundsConfig
     {
         public List<Destinations> destinationsScriptable;

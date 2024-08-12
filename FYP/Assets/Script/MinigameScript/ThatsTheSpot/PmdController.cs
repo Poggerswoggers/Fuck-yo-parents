@@ -38,6 +38,7 @@ public class PmdController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!minigameRef.isGameActive) return;
         SetInput();
         Moving();
         Traction();

@@ -39,4 +39,20 @@ public static class Helper
         }
         return true;
     }
+
+    public static string GetCompleteRichTextTag(ref int index, char[] textArray)
+    {
+        string completeTag = string.Empty;
+
+        while (index < textArray.Length)
+        {
+            completeTag += textArray[index];
+
+            if (textArray[index].Equals('>'))
+                return completeTag;
+
+            index++;
+        }
+        return string.Empty;
+    }
 }

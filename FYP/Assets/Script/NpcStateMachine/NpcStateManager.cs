@@ -17,7 +17,6 @@ public class NpcStateManager: MonoBehaviour
     }
 
     public NpcAnimation npcAnim;
-    public MCQ question;
 
     NpcBaseState currentState;
     [SerializeReference] public NpcRoamState roamState = new NpcRoamState();

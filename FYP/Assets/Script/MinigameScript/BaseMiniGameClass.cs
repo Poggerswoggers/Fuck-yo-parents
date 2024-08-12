@@ -31,7 +31,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     protected virtual IEnumerator InstructionCo()
     {
         instructionPanel.SetActive(true);
-        yield return new WaitForSeconds(instructionTime);
+        yield return new WaitForSeconds(10f);
         instructionPanel.SetActive(false);
 
         StartGame();
@@ -40,7 +40,6 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     [Header("Instruction Panel")]
     [SerializeField] GameObject gameOverPanel;    
     [SerializeField] protected GameObject instructionPanel;
-    [SerializeField] protected float instructionTime;
 
 
     protected virtual void Start()

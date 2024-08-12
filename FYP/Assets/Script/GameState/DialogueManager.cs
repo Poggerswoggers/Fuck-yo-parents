@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
-using System;
 
 public class DialogueManager : GameBaseState
 {
@@ -19,7 +18,6 @@ public class DialogueManager : GameBaseState
     [SerializeField] Button buttonPrefab;
 
     [SerializeField] TextMeshProUGUI infoTextField;
-    char[] textArray;
 
     [Header("UI Panel")]
     [SerializeField] GameObject dialoguePanel;
@@ -72,8 +70,8 @@ public class DialogueManager : GameBaseState
     }
     public void Initialise()
     {
-        questionScriptable = gSm.NSm.question;
-        dialogueKnotName = gSm.NSm.DialogueKnotName;
+        //questionScriptable = gSm.NSm.question;
+        //dialogueKnotName = gSm.NSm.DialogueKnotName;
     }
 
     //Loads and tweens the dialogue boxes;
@@ -127,14 +125,14 @@ public class DialogueManager : GameBaseState
         infoTextField.text = "";
         canContinueToNextLine = false;
 
-        textArray = infoText.ToCharArray();
+        char[] textArray = infoText.ToCharArray();
 
         yield return new WaitForSeconds(0.3f);
         for(int i =0; i < infoText.Length; i++)
         {
             if (textArray[i].Equals('<'))
             {
-                infoTextField.text += GetCompleteRichTextTag(ref i);
+                infoTextField.text += Helper.GetCompleteRichTextTag(ref i, textArray);
             }
             else
             {
@@ -142,22 +140,6 @@ public class DialogueManager : GameBaseState
             }
             yield return new WaitForSeconds(typingSpeed);
         } 
-    }
-
-    string GetCompleteRichTextTag(ref int index)
-    {
-        string completeTag = string.Empty;
-
-        while(index < textArray.Length)
-        {
-                completeTag += textArray[index];
-
-                if (textArray[index].Equals('>'))
-                    return completeTag;
-
-                index++;
-        }
-        return string.Empty;
     }
 
     void DisplayChoices()
