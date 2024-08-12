@@ -147,15 +147,6 @@ public class TakeASeatGm : BaseMiniGameClass
         return (pooledCommunters.Count > 0);
     }
 
-
-    protected override IEnumerator InstructionCo()
-    {
-        instructionPanel.SetActive(true);
-        yield return new WaitForSeconds(instructionTime);
-        instructionPanel.SetActive(false);
-        StartGame();       
-    }
-
     void PoolObject()
     {
         var list = thisLevel.commuterAsset.commuter();

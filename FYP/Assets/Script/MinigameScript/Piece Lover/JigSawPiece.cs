@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class JigSawPiece : MonoBehaviour
 {
-    public int index { get; set; }
+    public int Index { get; set; }
 }

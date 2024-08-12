@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a9be04a6fa34154e89a73cae972511a, type: 3}
-  m_Name: Changi
+  m_Name: Expo
   m_EditorClassIdentifier: 
-  destinationName: Changi Airport
+  destinationName: Expo
   map: {fileID: 21300000, guid: 66f5f4d6f9d45084b9f32a9d99dd631d, type: 3}
   route: 000000000300000004000000

@@ -39,15 +39,6 @@ public class HeadTilt : BaseMiniGameClass
     [SerializeField] float gameTIme;
 
 
-    protected override IEnumerator InstructionCo()
-    {
-        instructionPanel.SetActive(true);
-        yield return new WaitForSeconds(instructionTime);
-        instructionPanel.SetActive(false);
-
-        StartGame();
-    }
-
     public override void StartGame()
     {
         _awakeTime = awakeTime;

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 public class McqManager : GameBaseState
 {
@@ -33,7 +34,7 @@ public class McqManager : GameBaseState
     {
         gSm = gameStateManager;
             
-        questionScriptable = gSm.NSm.question;  //Get the mcq scriptable object
+        //questionScriptable = gSm.NSm.question;  //Get the mcq scriptable object
 
         //Sets the question, sprite and get question count
         mcqCount = questionScriptable.answerText.Length;    
@@ -141,9 +142,32 @@ public class McqManager : GameBaseState
                 Destroy(button.gameObject);
             }
         }
-        questionText.text = questionScriptable.ExplanationText;
+        StartCoroutine(DisplayNextLineEffect(questionScriptable.ExplanationText));
         answerStatementText.gameObject.SetActive(true);
     }
+
+    IEnumerator DisplayNextLineEffect(string infoText)
+    {
+        questionText.text = "";
+        char[] textArray = infoText.ToCharArray();
+
+        yield return new WaitForSeconds(0.3f);
+        for (int i = 0; i < infoText.Length; i++)
+        {
+            if (textArray[i].Equals('<'))
+            {
+                questionText.text += Helper.GetCompleteRichTextTag(ref i, textArray);
+            }
+            else
+            {
+                questionText.text += textArray[i];
+            }
+            yield return new WaitForSeconds(0.025f);
+        }
+    }
+
+
+
     public override void UpdateState(GameStateManager gameStateManager)
     {
         
