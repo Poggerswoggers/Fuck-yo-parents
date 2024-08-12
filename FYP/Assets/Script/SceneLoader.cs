@@ -9,17 +9,39 @@ public class SceneLoader : MonoBehaviour
     public Image confirmScreen;
 
     AudioManager audioManager;
+    public Animator animator;
+    public Animator disabledAnimator;
 
     public void Awake(){
         if (AudioManager.instance)
         {
             audioManager = AudioManager.instance;
         }
+
+
     }
 
-    public void LevelSelect() {
+    public void LevelSelect()
+    {
         audioManager?.PlaySFX(audioManager.buttonClick);
-        SceneManager.LoadScene("LevelSelect");
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            if (animator != null)
+            {
+                animator.SetTrigger("out");
+            }
+            if (disabledAnimator != null)
+            {
+                disabledAnimator.enabled = false;
+            }
+            StartCoroutine(WaitForScene());
+        }
+        else
+        {
+            SceneManager.LoadScene("LevelSelect");
+        }
+
+
     }
 
     public void Credits() {
@@ -68,5 +90,11 @@ public class SceneLoader : MonoBehaviour
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator WaitForScene()
+    {
+        yield return new WaitForSeconds(3.5f);
+        SceneManager.LoadScene("LevelSelect");
     }
 }
