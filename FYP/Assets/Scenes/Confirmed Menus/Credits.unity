@@ -220,9 +220,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "(Team Lead / Game Designer)  Lua Boon Yi   \n\n(Level Designer / UIUX)
-    Tan Wei Ting Jolin  \n\n(2D Art Lead/ Programmer / VFX Designer)  Darren Lim
-    De Ren \n\n(Programmer / VFX Designer)  Jason Soh Hui Hong  \n\n(Sound & Music)\nLai
-    Yuet\r\nChen Zai Shane Matthew\r\nEsta Luis Gerard Esporlas\r\n\n\n\n"
+    Tan Wei Ting Jolin  \n\n(Art Lead / VFX Designer)  Darren Lim De Ren \n\n(Programmer
+    / VFX Designer)  Jason Soh Hui Hong  \n\n(Sound & Music)\nLai Yuet\r\nChen Zai
+    Shane Matthew\r\nEsta Luis Gerard Esporlas\r\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1688db27b04594532870328314633a98, type: 2}
   m_sharedMaterial: {fileID: -6439388274807012715, guid: 1688db27b04594532870328314633a98, type: 2}
