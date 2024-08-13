@@ -77,7 +77,7 @@ public class NpcRoamState : NpcBaseState
             //npcThis.Translate(targetVel);
             rb.velocity = targetVel;
 
-            nSm.npcAnim.WalkAnim(multiplier, bounce, nSm.hasBounce);
+            nSm.npcAnim.WalkAnim(multiplier, bounce, nSm.HasBounce);
 
         }
         else

@@ -1708,6 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameSceneIndex: Take A Seat
   levelScale: 1
+  thisQuestionType: 2
 --- !u!1 &1527142687
 GameObject:
   m_ObjectHideFlags: 0

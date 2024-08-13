@@ -1,14 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MCQ categories")]
-public class McqCategories : ScriptableObject
+
+public class McqCategories : MonoBehaviour
 {
-    public string pathName;
-    public MCQ[] CategoryList
+    public void PullQuestion()
     {
-        get
-        {
-            return Resources.LoadAll<MCQ>(pathName);
-        }
-    } 
+
+    }
 }

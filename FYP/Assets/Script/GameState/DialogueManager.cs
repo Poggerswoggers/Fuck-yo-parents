@@ -26,17 +26,18 @@ public class DialogueManager : GameBaseState
     private Coroutine displayLineCoroutine;
 
     //Npc data
-    string dialogueKnotName;
-    MCQ questionScriptable;
+
     int correctOption;
 
     public override void EnterState(GameStateManager gameStateManager)
     {
+        Debug.Log("started");
+
         ScoreManager.Instance.DisableUI(false);
         Cursor.visible = true;
         gSm = gameStateManager;
         Initialise();
-        LoadDialooguePanel(dialogueKnotName);
+        LoadDialooguePanel(gSm.NSm.DialogueKnotName);
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
@@ -109,7 +110,7 @@ public class DialogueManager : GameBaseState
         }
         else if(inkStory.currentChoices.Count ==0)
         {
-            if(questionScriptable !=null)
+            if(gSm.NSm.GetComponent<MinigameNpcs>())
             {
                 gSm.ChangeStat(gSm.mcqState);
             }
