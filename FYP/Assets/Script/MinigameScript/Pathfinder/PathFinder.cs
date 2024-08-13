@@ -37,6 +37,17 @@ public class PathFinder : BaseMiniGameClass
     [Header("Pass/Fail UI Panel")]
     [SerializeField] Image panel;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip levelMusic;
+
+    private void Awake()
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
+    }
+
     public override void EndSequenceMethod()
     {
         Debug.Log(score);

@@ -2493,7 +2493,6 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 514845783}
-  instructionTime: 4
   minigameCam: {fileID: 549013353}
   tileDefaultColor: {r: 1, g: 1, b: 1, a: 1}
   tileFlashColor: {r: 0, g: 1, b: 0.19592357, a: 1}
@@ -2508,6 +2507,7 @@ MonoBehaviour:
   defaultTile: {fileID: 11400000, guid: b0d1deee0b7705249becef9a1884a356, type: 2}
   resetButton: {fileID: 702742754}
   panel: {fileID: 204895857}
+  levelMusic: {fileID: 8300000, guid: 29703c9419da9417e8c3bcc65bb0bf94, type: 3}
 --- !u!114 &1646991496
 MonoBehaviour:
   m_ObjectHideFlags: 0

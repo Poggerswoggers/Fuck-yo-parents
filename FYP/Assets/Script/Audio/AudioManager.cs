@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -62,8 +63,12 @@ public class AudioManager : MonoBehaviour
         myMixer.SetFloat("sfx", Mathf.Log10(sfx) * 20); // Change the min volume to 0.0001
 
         // Play bgm once app launches
-        musicSource.clip = menuBGM;
-        musicSource.Play();
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            musicSource.clip = menuBGM;
+            musicSource.Play();
+        }
+        
         }
 
     public void PlaySFX(AudioClip clip) 

@@ -654,7 +654,6 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 1245564480}
-  instructionTime: 3
   startNpc: 5
   clearText: {fileID: 925106147}
   addDelay: 5
@@ -710,6 +709,7 @@ MonoBehaviour:
   npcPrefab: {fileID: 1999079495521488809, guid: 295265919bd017249a93a13078f81787, type: 3}
   timer: {fileID: 1423356634}
   gameTime: 50
+  levelMusic: {fileID: 8300000, guid: 5dfff6d9ddfae4f0cbfd2d2ba9c2c8ef, type: 3}
 --- !u!4 &1205992683
 Transform:
   m_ObjectHideFlags: 0

@@ -1385,7 +1385,6 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 1135825796}
-  instructionTime: 4
   lm:
     serializedVersion: 2
     m_Bits: 1073741824
@@ -1400,6 +1399,7 @@ MonoBehaviour:
   gameTime: 45
   minigameCam: {fileID: 1317692008}
   snapParticle: {fileID: 4285689336451197325, guid: 0b1e609c9b5ed76409785f41649e1a4a, type: 3}
+  levelMusic: {fileID: 8300000, guid: 8442e47fa14f64582b3f0351268dda91, type: 3}
 --- !u!61 &1329929246
 BoxCollider2D:
   m_ObjectHideFlags: 0

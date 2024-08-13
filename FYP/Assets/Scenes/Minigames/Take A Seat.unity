@@ -790,7 +790,6 @@ MonoBehaviour:
   isGameActive: 0
   gameOverPanel: {fileID: 0}
   instructionPanel: {fileID: 1309623724}
-  instructionTime: 4
   grabbedCommuter: {fileID: 0}
   seats:
   - {fileID: 619594168}
@@ -810,6 +809,7 @@ MonoBehaviour:
   endPos: {fileID: 415818785}
   timeBetweenCommuters: 1
   minigameCam: {fileID: 632240831}
+  levelMusic: {fileID: 8300000, guid: 5978069ae89b74d29b5ea811345f43b2, type: 3}
 --- !u!4 &1068648188
 Transform:
   m_ObjectHideFlags: 0

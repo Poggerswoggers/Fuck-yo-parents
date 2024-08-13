@@ -43,6 +43,17 @@ public class RouteAssister : BaseMiniGameClass
     [SerializeField] CinemachineVirtualCamera cam;   //2 cinemachine cam for smooth transition
     [SerializeField] CinemachineVirtualCamera mapCam;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip levelMusic;
+
+    private void Awake()
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
+    }
+
     public override void EndSequenceMethod()
     {
         UnloadedAndUpdateScore(score);

@@ -35,6 +35,9 @@ public class TakeASeatGm : BaseMiniGameClass
     [Header("Minigame cam")]
     [SerializeField] Camera minigameCam;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip levelMusic;
+
     //Reference
     CommunterQueue communterQueue;
 
@@ -46,6 +49,10 @@ public class TakeASeatGm : BaseMiniGameClass
 
     public override void StartGame()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
         SetDifficulty();
         PoolObject();
         LeanTween.reset();

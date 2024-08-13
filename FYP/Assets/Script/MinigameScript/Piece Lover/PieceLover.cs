@@ -35,6 +35,10 @@ public class PieceLover : BaseMiniGameClass
 
     [Header("Particle")]
     [SerializeField] GameObject snapParticle;
+
+    [Header("Audio")]
+    [SerializeField] AudioClip levelMusic;
+
     public override void EndSequenceMethod()
     {
         score = 2000 - 500 * piecesToMatch;
@@ -43,6 +47,10 @@ public class PieceLover : BaseMiniGameClass
 
     private void Awake()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
         CreateSlots();
     }
 

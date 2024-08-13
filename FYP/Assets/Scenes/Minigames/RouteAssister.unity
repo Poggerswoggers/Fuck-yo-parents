@@ -1708,6 +1708,7 @@ MonoBehaviour:
   npc: {fileID: 365187663}
   cam: {fileID: 1498328715}
   mapCam: {fileID: 686114412}
+  levelMusic: {fileID: 8300000, guid: dffaebd30d8524c62b7b8d32d4bfe30e, type: 3}
 --- !u!4 &1230121962
 Transform:
   m_ObjectHideFlags: 0
