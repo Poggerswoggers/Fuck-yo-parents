@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Intel_35
   m_EditorClassIdentifier: 
   questionText: 'What should you do if you see a commuter with Intellectual Disability
-    who is lost? Select all that apply.
+    who is lost? <color=yellow>Select all that apply.
 
 '
   answerText:
@@ -22,8 +22,8 @@ MonoBehaviour:
   - 'Ask if they need help and help them if you can '
   - Laugh at them
   correctOptions: 0100000003000000
-  ExplanationText: 'Ask if they need help and help them if you know the directions.
-    If not, it may be better to ask an adult for help with the commuter.
+  ExplanationText: '<color=yellow>Ask if they need help and help them if you know
+    the directions. If not, it may be better to ask an adult for help with the commuter.
 
 '
   characterSprite: {fileID: 21300000, guid: f01fb803466139f4b9949b7cf8e70a31, type: 3}

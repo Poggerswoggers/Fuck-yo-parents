@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d7e34aadb86204a88fa81a305c1288, type: 3}
+  m_Name: Physical_3
+  m_EditorClassIdentifier: 
+  questionText: "What should you do when you see a commuter with physical disabilty
+    e.g., using crutches, on a wheelchair?\r"
+  answerText:
+  - "Help to hold the lift and press the lift buttons for them\r"
+  - 'Allow them to board the bus or train first
+
+'
+  - "Ignore them \r"
+  - "Laugh about their disability\r"
+  correctOptions: 0100000002000000
+  ExplanationText: "<color=yellow>Commuters with physical disabilities have challenges
+    in moving about and should do our part to help them\r\r"
+  characterSprite: {fileID: 21300000, guid: ebb1aa4c9901d12489131f4491b3adbd, type: 3}
+  questionType: 1

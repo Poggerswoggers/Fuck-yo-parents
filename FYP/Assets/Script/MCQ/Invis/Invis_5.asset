@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7d7e34aadb86204a88fa81a305c1288, type: 3}
-  m_Name: Invis_1
+  m_Name: Invis_5
   m_EditorClassIdentifier: 
-  questionText: "Are all medical conditions visible?\r"
+  questionText: "\"Only senior commuters have health issues.\" True or False?\r\r\n"
   answerText:
-  - Yes
-  - No
+  - True
+  - "False\r"
   correctOptions: 02000000
-  ExplanationText: <color=yellow>There are some invisible medical conditions as well
+  ExplanationText: '<color=yellow>Young commuters may experience symptoms such as
+    giddiness, nausea, imbalance and other hidden symptoms as well
+
+'
   characterSprite: {fileID: 21300000, guid: ac20ac7859186914d9a198f2affd04b1, type: 3}
   questionType: 0
