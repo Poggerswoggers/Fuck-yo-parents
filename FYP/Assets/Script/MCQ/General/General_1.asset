@@ -21,9 +21,10 @@ MonoBehaviour:
 '
   - Play with them
   - "Stare at them\r"
-  CorrectOption: 1
-  ExplanationText: 'Young children may not be able to balance well in a moving bus
-    or train  or might feel tired more easily
+  correctOptions: 
+  ExplanationText: '<color=yellow>Young children may not be able to balance well
+    in a moving bus or train  or might feel tired more easily
 
 '
   characterSprite: {fileID: 21300000, guid: f01fb803466139f4b9949b7cf8e70a31, type: 3}
+  questionType: 0

@@ -23,11 +23,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LevelSelect()
     {
-        audioManager?.PlaySFX(audioManager.buttonClick);
+        
         if(SceneManager.GetActiveScene().name == "MainMenu")
         {
+            audioManager?.PlaySFX(audioManager.camSnap);
             if (animator != null)
             {
+                animator.enabled = true;
                 animator.SetTrigger("out");
             }
             if (disabledAnimator != null)
@@ -38,6 +40,7 @@ public class SceneLoader : MonoBehaviour
         }
         else
         {
+            audioManager?.PlaySFX(audioManager.buttonClick);
             SceneManager.LoadScene("LevelSelect");
         }
 
@@ -97,4 +100,5 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene("LevelSelect");
     }
+
 }

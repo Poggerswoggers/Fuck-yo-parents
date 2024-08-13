@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d7e34aadb86204a88fa81a305c1288, type: 3}
   m_Name: Senior_44
   m_EditorClassIdentifier: 
-  questionText: 'How do you know if someone has dementia? Select all that apply
+  questionText: 'How do you know if someone has dementia? <color=yellow>Select all
+    that apply
 
 '
   answerText:
@@ -23,7 +24,8 @@ MonoBehaviour:
 '
   - Unkempt (untidy) appearance
   correctOptions: 01000000020000000300000004000000
-  ExplanationText: 'All the symptoms are indicators that a commuter has dementia
+  ExplanationText: '<color=yellow>All the symptoms are indicators that a commuter
+    has dementia
 
 '
   characterSprite: {fileID: 21300000, guid: 97cba416fba0e694bad6cff0f2bf5eaf, type: 3}
