@@ -33,7 +33,7 @@ public class NpcInteractState : NpcBaseState
         if (!isWandering)
         {
             npcSm.npcAnim.npcAnimation();
-            npcSm.npcAnim.WalkAnim(multiplier, yBounce, nSm.hasBounce);
+            npcSm.npcAnim.WalkAnim(multiplier, yBounce, nSm.HasBounce);
         }
 
         if (!target) return;

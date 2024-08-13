@@ -5,16 +5,10 @@ using UnityEngine;
 public class NpcStateManager: MonoBehaviour
 {
     [SerializeField] bool _hasBounce;
-    public bool hasBounce
-    {
-        get { return _hasBounce; }
-    }
+    public bool HasBounce => _hasBounce;
     public bool isWalking { get; set; }
 
-    public string DialogueKnotName
-    {
-        get { return gameObject.name; }
-    }
+    public string DialogueKnotName => gameObject.name;
 
     public NpcAnimation npcAnim;
 
@@ -47,11 +41,6 @@ public class NpcStateManager: MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         currentState.OnCollisionEnter2D(this, collision);
-    }
-
-    public void blud(IEnumerator coroutineMethod)
-    {
-        StartCoroutine(coroutineMethod);
     }
 
     public NpcBaseState GetCurrentState()

@@ -36,7 +36,7 @@ public class NpcInteractingState : NpcBaseState
     public override void UpdateState(NpcStateManager npcSm)
     {
         npcSm.npcAnim.npcAnimation();
-        npcSm.npcAnim.BounceAnim(multiplier, yBounce, nSm.hasBounce, 0.2f);
+        npcSm.npcAnim.BounceAnim(multiplier, yBounce, nSm.HasBounce, 0.2f);
 
 
         //When Interact duration ends return to roam
