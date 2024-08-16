@@ -47,4 +47,7 @@ public class NpcStateManager: MonoBehaviour
     {
         return currentState;
     }
+
+    public MinigameNpcs MinigameNpc => GetComponent<MinigameNpcs>();
+
 }

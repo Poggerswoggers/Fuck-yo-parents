@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MultipleChoiceQuestion")]
+[CreateAssetMenu(menuName = "McqScriptable/MultipleChoiceQuestion")]
 public class MCQ : ScriptableObject
 {
     [TextArea(3, 5)]
@@ -14,8 +14,6 @@ public class MCQ : ScriptableObject
     public List<int> correctOptions;    //Multiple choice
     [TextArea(3, 5)]
     public string ExplanationText;
-
-    public Sprite characterSprite;
 
     public enum questionTypes
     {

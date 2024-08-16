@@ -110,7 +110,7 @@ public class DialogueManager : GameBaseState
         }
         else if(inkStory.currentChoices.Count ==0)
         {
-            if(gSm.NSm.GetComponent<MinigameNpcs>())
+            if(gSm.NSm.MinigameNpc)
             {
                 gSm.ChangeStat(gSm.mcqState);
             }

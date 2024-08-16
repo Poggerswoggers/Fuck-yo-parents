@@ -23,23 +23,30 @@ public class McqManager : GameBaseState
     [SerializeField] Color selectedColor;
     [SerializeField] Color defaultColor;
 
-    [SerializeField] List<int> playerChoice;
+    private List<int> playerChoice = new();
     readonly List<AnswerChoice> answerChoiceList = new List<AnswerChoice>();
 
+    [Header("MCQ Categories")]
+    [SerializeField] List<McqCategories> questionCategories;
+
     MCQ questionScriptable;
-    int mcqCount;
-    
+    QuestionPuller qp;
+
+    private void Awake()
+    {
+        qp = new QuestionPuller(questionCategories);
+    }
 
     public override void EnterState(GameStateManager gameStateManager)
     {
         gSm = gameStateManager;
-            
-        //questionScriptable = gSm.NSm.question;  //Get the mcq scriptable object
 
-        //Sets the question, sprite and get question count
-        mcqCount = questionScriptable.answerText.Length;    
+        QuestionTypes storeType = gSm.NSm.MinigameNpc.GetQuestionType();
+        questionScriptable = qp.PullQuestion(storeType);
+        spriteHolder.sprite = gSm.NSm.GetComponentInChildren<SpriteRenderer>().sprite;
+
+        //Sets the question, sprite and get question count   
         questionText.text = questionScriptable.questionText;
-        spriteHolder.GetComponent<Image>().sprite = questionScriptable.characterSprite;
         answerStatementText.gameObject.SetActive(false);
 
         DisplayChoices();
@@ -48,6 +55,7 @@ public class McqManager : GameBaseState
 
     void DisplayChoices()
     {
+        int mcqCount = questionScriptable.answerText.Length;
         if (mcqCount < 0) return;
         if (buttonContainer.GetComponentsInChildren<Button>().Length > 0) return;
 

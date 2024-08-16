@@ -1708,7 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameSceneIndex: Take A Seat
   levelScale: 1
-  thisQuestionType: 2
+  thisQuestionType: 0
 --- !u!1 &1527142687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,6 +2736,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1826977385121958934, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: questionCategories.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826977385121958934, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: questionCategories.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e5264be2afbad5d4fbe316c783cac0ed, type: 2}
     - target: {fileID: 6590535860657399693, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

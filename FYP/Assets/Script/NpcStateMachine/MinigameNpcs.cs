@@ -11,12 +11,10 @@ public class MinigameNpcs : MonoBehaviour
         ScoreManager.Instance.loadAddictiveScene(minigameSceneIndex, levelScale);
     }
 
-    public enum QuestionTypes
-    {
-        Deaf,
-        Blind,
-        Physical
-    }
-    public QuestionTypes thisQuestionType;
+    [SerializeField] QuestionTypes thisQuestionType;
 
+    public QuestionTypes GetQuestionType()
+    {
+        return thisQuestionType;
+    }
 }
