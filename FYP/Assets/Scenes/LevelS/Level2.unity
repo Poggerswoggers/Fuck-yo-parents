@@ -2148,6 +2148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameSceneIndex: ThatsTheSpot
   levelScale: 1
+  thisQuestionType: 3
 --- !u!1 &892018520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +3686,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1117823221079569269, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
+      propertyPath: thisQuestionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117823221079569269, guid: 31bcf2965a5619b4ca4e59c6d90647f6, type: 3}
       propertyPath: minigameSceneIndex
       value: CrowdControl
       objectReference: {fileID: 0}
@@ -4402,22 +4407,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1826977385121958934, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: defaultColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826977385121958934, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: defaultColor.b
-      value: 0.34363744
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826977385121958934, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: defaultColor.g
-      value: 0.6728523
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826977385121958934, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: defaultColor.r
-      value: 0.8742138
-      objectReference: {fileID: 0}
     - target: {fileID: 2256595228605742866, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4470,6 +4459,10 @@ PrefabInstance:
     - target: {fileID: 519045723907088005, guid: 6c6628d687de40d46874c530ec58fe93, type: 3}
       propertyPath: levelScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519045723907088005, guid: 6c6628d687de40d46874c530ec58fe93, type: 3}
+      propertyPath: thisQuestionType
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 519045723907088005, guid: 6c6628d687de40d46874c530ec58fe93, type: 3}
       propertyPath: minigameSceneIndex

@@ -86,7 +86,7 @@ MonoBehaviour:
   buttonContainer: {fileID: 6697309089747536193}
   selectedColor: {r: 0.59748423, g: 0.59748423, b: 0.59748423, a: 1}
   defaultColor: {r: 0.8742138, g: 0.6728523, b: 0.34363744, a: 1}
-  playerChoice: 
+  questionCategories: {fileID: 11400000, guid: 0cb4cc0d68519cc49b92ecc4ba380721, type: 2}
 --- !u!1 &4135029532557327187
 GameObject:
   m_ObjectHideFlags: 0

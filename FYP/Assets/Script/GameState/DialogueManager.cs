@@ -31,8 +31,6 @@ public class DialogueManager : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
-        Debug.Log("started");
-
         ScoreManager.Instance.DisableUI(false);
         Cursor.visible = true;
         gSm = gameStateManager;

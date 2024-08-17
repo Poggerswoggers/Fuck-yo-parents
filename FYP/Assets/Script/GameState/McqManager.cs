@@ -27,7 +27,7 @@ public class McqManager : GameBaseState
     readonly List<AnswerChoice> answerChoiceList = new List<AnswerChoice>();
 
     [Header("MCQ Categories")]
-    [SerializeField] List<McqCategories> questionCategories;
+    [SerializeField] McqCategories questionCategories;
 
     MCQ questionScriptable;
     QuestionPuller qp;
@@ -170,7 +170,7 @@ public class McqManager : GameBaseState
             {
                 questionText.text += textArray[i];
             }
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.03f);
         }
     }
 

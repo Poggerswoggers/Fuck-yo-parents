@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class QuestionPuller
 {
-    Dictionary<QuestionTypes, List<MCQ>> questionDictionary = new();
+    readonly Dictionary<QuestionTypes, List<MCQ>> questionDictionary = new();
 
-    public QuestionPuller(List<McqCategories> categories)
+    public QuestionPuller(McqCategories categories)
     {
         int index = 0;
-        foreach(McqCategories category in categories)
+        foreach(QuestionCategory category in categories.questionCategory)
         {
             questionDictionary[category.thisQuestionType] = category.questionList;
             index++;
@@ -22,9 +22,9 @@ public class QuestionPuller
 
         List<MCQ> questionSet = questionDictionary[npcQuestionType];
         int randomInt = Random.Range(0, questionSet.Count);
-
+        MCQ question = questionSet[randomInt];
         questionDictionary[npcQuestionType].RemoveAt(randomInt);
-        return questionSet[randomInt];
+        return question;
     }
 }
 [System.Serializable]
@@ -32,4 +32,9 @@ public enum QuestionTypes
 {
     blind,
     deaf,
+    physical,
+    elderly,
+    invis,
+    general,
+    intellecual
 }
