@@ -1343,6 +1343,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1022428849}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: Settings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &579961193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2741,6 +2753,7 @@ GameObject:
   - component: {fileID: 1022428845}
   - component: {fileID: 1022428849}
   - component: {fileID: 1022428850}
+  - component: {fileID: 1022428851}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2863,6 +2876,18 @@ MonoBehaviour:
   myMixer: {fileID: 24100000, guid: 9b83eb12143dc4d87892d3e7a3cf411f, type: 2}
   bgmSlider: {fileID: 1507897473}
   sfxSlider: {fileID: 498698434}
+--- !u!114 &1022428851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022428844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca02923ff3c34daa84a814cc3cab07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1023607785
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,6 +4352,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1022428849}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: Settings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

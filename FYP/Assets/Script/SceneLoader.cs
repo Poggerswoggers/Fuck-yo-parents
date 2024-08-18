@@ -54,7 +54,6 @@ public class SceneLoader : MonoBehaviour
 
     public void Settings() {
         audioManager?.PlaySFX(audioManager.buttonClick);
-        SceneManager.LoadScene("Settings");
     }
 
     public void BackToMain()

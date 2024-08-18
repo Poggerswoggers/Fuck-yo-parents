@@ -43,6 +43,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip npcHmm;
 
     public static AudioManager instance;
+    private bool isPaused = false;
 
     public void Awake() {
         if (instance == null) {
@@ -63,21 +64,47 @@ public class AudioManager : MonoBehaviour
         myMixer.SetFloat("sfx", Mathf.Log10(sfx) * 20); // Change the min volume to 0.0001
 
         // Play bgm once app launches
+        /*
         if(SceneManager.GetActiveScene().name == "MainMenu")
         {
             musicSource.clip = menuBGM;
             musicSource.Play();
         }
-        
+        */
         }
 
+    public void PlayMenuBGM()
+    {
+        if (musicSource.clip != menuBGM || !musicSource.isPlaying)
+        {
+            musicSource.clip = menuBGM;
+            musicSource.Play();
+        }
+    }
+
     public void PlaySFX(AudioClip clip) 
-    {        
-        sfxSource.PlayOneShot(clip);
+    {
+        if (!isPaused)
+        {
+            sfxSource.PlayOneShot(clip);
+        }
     }
 
     public void PlayMusic(AudioClip clip){
         musicSource.clip = clip;
         musicSource.Play();
+    }
+
+    public void SetPauseState(bool paused)
+    {
+        isPaused = paused;
+        if (isPaused)
+        {
+            sfxSource.Pause();
+        }
+        else
+        {
+            sfxSource.UnPause();
+        }
     }
 }

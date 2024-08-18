@@ -1890,6 +1890,7 @@ GameObject:
   - component: {fileID: 1881607660}
   - component: {fileID: 1881607659}
   - component: {fileID: 1881607658}
+  - component: {fileID: 1881607661}
   m_Layer: 0
   m_Name: MRT
   m_TagString: Untagged
@@ -1987,6 +1988,18 @@ Transform:
   - {fileID: 523563762}
   m_Father: {fileID: 1429557017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881607661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881607657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446f01b86af5e4924b10b976c92ad729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899520618
 GameObject:
   m_ObjectHideFlags: 0
