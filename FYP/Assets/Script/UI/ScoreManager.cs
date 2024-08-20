@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
-    public static int selectedMinigameDifficulty =1;
+    public static int selectedMinigameDifficulty = 1;
     public Action<int> OnScoreChange;
 
     [SerializeField] GameObject levelUIPanel;
@@ -31,6 +31,15 @@ public class ScoreManager : MonoBehaviour
     //target Ref
     [SerializeField] List<Transform> levelTargets;
     [SerializeField] GameStateManager gSm;
+
+    //hi jason i added this
+    //Scoring Feedback
+    [SerializeField] GameObject scorePrefab;
+    [SerializeField] Transform spawningPoint;
+    [SerializeField] float spawnDelay = 0.1f;
+    [SerializeField] float offsetAmount = 0.1f;
+    //
+
     public List<Transform> _levelTarget
     {
         get
@@ -83,14 +92,14 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void UpdateScore(int points)
-    {       
+    {
         levelScore -= points;
         scoreText.text = levelScore.ToString();
     }
 
-    public void Updatetargets(Transform target )
+    public void Updatetargets(Transform target)
     {
-        if(levelTargets.Contains(target))
+        if (levelTargets.Contains(target))
         {
             levelTargets.Remove(target);
             vulnerableComCount--;
@@ -99,16 +108,21 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void UnloadAddictiveScene(int score)
-    {       
+    {
         SceneManager.UnloadSceneAsync(addictiveScene);
 
         minigameCount--;
+
+        //hi jason i added this
+        int numberOfPrefabs = score / 100;
+        StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs));
         StartCoroutine(UpdateScoreMinigameCo(score));
+        //
         if (minigameCount > 0)
         {
             gSm.ChangeStat(gSm.snapState);
         }
-        gSm.ClearNpc();        
+        gSm.ClearNpc();
     }
 
     public void loadAddictiveScene(string sceneName, int minigameDifficulty)
@@ -139,7 +153,7 @@ public class ScoreManager : MonoBehaviour
         minigameScoreText.gameObject.SetActive(false);
         scoreText.text = levelScore.ToString();
 
-        if(minigameCount == 0) { EndLevel(); }  //End level
+        if (minigameCount == 0) { EndLevel(); }  //End level
     }
     public void EndLevel()
     {
@@ -151,5 +165,17 @@ public class ScoreManager : MonoBehaviour
         gSm.ChangeStat(gSm.minigameState);
     }
 
+    //hi jason i added this
+    IEnumerator InstantiateScorePrefabsCo(int count)
+    {
+        Vector3 currentSpawnPoint = spawningPoint.position;
+        for (int i = 0; i < count; i++)
+        {
+            Instantiate(scorePrefab, currentSpawnPoint, Quaternion.identity);
+            currentSpawnPoint.y -= offsetAmount;  
+            yield return new WaitForSeconds(spawnDelay);
+        }
+    }
+    //
 
 }
