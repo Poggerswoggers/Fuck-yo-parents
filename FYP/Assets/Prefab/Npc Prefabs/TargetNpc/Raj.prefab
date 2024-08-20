@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Raj
       objectReference: {fileID: 0}
+    - target: {fileID: 5627755414616531739, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
+      propertyPath: managedReferences[2641615680123699208].minSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5844213243948591523, guid: 44b36dad75f08c6429313466b98b1da2, type: 3}
       propertyPath: m_FlipX
       value: 1

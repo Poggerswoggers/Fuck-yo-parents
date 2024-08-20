@@ -112,9 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasBounce: 1
-  _dialogueKnotName: Grace
   npcAnim: {fileID: 8686431809043388173}
-  question: {fileID: 0}
   roamState:
     rid: 2641615680123699208
   interactState:
@@ -129,11 +127,10 @@ MonoBehaviour:
     - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        minSpeed: 10
-        maxSpeed: 20
+        minSpeed: 25
+        maxSpeed: 35
         walkDuration: 10
         borderMargin: 1.5
-        sc: {fileID: 0}
         bounce: 1.05
         multiplier: 1.15
     - rid: 2641615680123699209
@@ -168,12 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.1
-  bounceDamp: 0.9
   wanderTime: 5
   flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
 --- !u!1 &5208989351937999270
 GameObject:
   m_ObjectHideFlags: 0

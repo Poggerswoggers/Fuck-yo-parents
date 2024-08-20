@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: _dialogueKnotName
       value: Bobby
       objectReference: {fileID: 0}
+    - target: {fileID: 2186776258072271419, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
+      propertyPath: managedReferences[2641615680123699208].maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2186776258072271419, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
+      propertyPath: managedReferences[2641615680123699208].minSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.313264
@@ -87,3 +95,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameSceneIndex: 0
   levelScale: 1
+  thisQuestionType: 0

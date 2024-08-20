@@ -197,7 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasBounce: 1
   npcAnim: {fileID: 4548630070755564869}
-  question: {fileID: 0}
   roamState:
     rid: 2641615680123699208
   interactState:
@@ -212,11 +211,10 @@ MonoBehaviour:
     - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        minSpeed: 40
+        minSpeed: 20
         maxSpeed: 45
         walkDuration: 25
         borderMargin: 1.5
-        sc: {fileID: 0}
         bounce: 1.1
         multiplier: 1.4
     - rid: 2641615680123699209
@@ -251,9 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
   wanderTime: 2
   flip: 0
 --- !u!1001 &5528780929324594229

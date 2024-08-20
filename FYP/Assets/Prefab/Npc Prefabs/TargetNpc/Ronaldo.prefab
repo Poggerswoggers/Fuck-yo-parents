@@ -112,9 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasBounce: 1
-  _dialogueKnotName: Ronaldo
   npcAnim: {fileID: 943749807377658346}
-  question: {fileID: 11400000, guid: 7bee4f81eab9e014a99b95c5c60ee6f5, type: 2}
   roamState:
     rid: 2104765949873487876
   interactState:
@@ -130,10 +128,9 @@ MonoBehaviour:
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
         minSpeed: 10
-        maxSpeed: 15
+        maxSpeed: 10
         walkDuration: 8
         borderMargin: 1.5
-        sc: {fileID: 0}
         bounce: 1
         multiplier: 0.8
     - rid: 2104765949873487877
@@ -168,12 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
   wanderTime: 0.5
   flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
 --- !u!1 &7403183876867950876
 GameObject:
   m_ObjectHideFlags: 0

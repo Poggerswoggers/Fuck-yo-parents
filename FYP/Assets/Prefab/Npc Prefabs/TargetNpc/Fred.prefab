@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3995561663001784086
+--- !u!1001 &4582040647648831494
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,26 +11,30 @@ PrefabInstance:
     - target: {fileID: 97918292448530563, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7fc236aec4271574781ef7c7cb81a42a, type: 3}
+      objectReference: {fileID: 21300000, guid: e03427148eabd034f90d84e99fab178e, type: 3}
     - target: {fileID: 581042543063667439, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2186776258072271419, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
+      propertyPath: question
+      value: 
+      objectReference: {fileID: 11400000, guid: 48b46269d12876e459e06ab2c3bd1f8b, type: 2}
+    - target: {fileID: 2186776258072271419, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: managedReferences[2641615680123699208].maxSpeed
-      value: 40
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2186776258072271419, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: managedReferences[2641615680123699208].minSpeed
-      value: 35
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.97
+      value: -2.09
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53
+      value: 7.84
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42,15 +46,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4179628711907072905, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -66,10 +70,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7493240849062040741, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
       propertyPath: m_Name
-      value: Terry
+      value: Fred
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7493240849062040741, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 364965125813470131}
   m_SourcePrefab: {fileID: 100100000, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
+--- !u!1 &6371462525384948899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7493240849062040741, guid: c501f0fc28eb6a043bd049e119007485, type: 3}
+  m_PrefabInstance: {fileID: 4582040647648831494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &364965125813470131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371462525384948899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc1abce951c43d4e84ecf566198db7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameSceneIndex: Take A Seat
+  levelScale: 2
+  thisQuestionType: 4

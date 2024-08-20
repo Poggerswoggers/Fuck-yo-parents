@@ -196,9 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasBounce: 1
-  _dialogueKnotName: Jaylen
   npcAnim: {fileID: 6884474074235132584}
-  question: {fileID: 0}
   roamState:
     rid: 2641615680123699208
   interactState:
@@ -213,11 +211,10 @@ MonoBehaviour:
     - rid: 2641615680123699208
       type: {class: NpcRoamState, ns: , asm: Assembly-CSharp}
       data:
-        minSpeed: 50
-        maxSpeed: 70
+        minSpeed: 25
+        maxSpeed: 50
         walkDuration: 10
         borderMargin: 1.5
-        sc: {fileID: 0}
         bounce: 1.2
         multiplier: 1
     - rid: 2641615680123699209
@@ -252,12 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
   wanderTime: 0.5
   flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
 --- !u!1001 &4033640729392720259
 PrefabInstance:
   m_ObjectHideFlags: 0
