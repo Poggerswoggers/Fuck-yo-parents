@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &167894760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1607,6 +1607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 0}
+  animator: {fileID: 0}
+  disabledAnimator: {fileID: 0}
 --- !u!1 &1071622712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,6 +2475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmScreen: {fileID: 0}
+  animator: {fileID: 0}
+  disabledAnimator: {fileID: 0}
 --- !u!114 &1327349858
 MonoBehaviour:
   m_ObjectHideFlags: 0
