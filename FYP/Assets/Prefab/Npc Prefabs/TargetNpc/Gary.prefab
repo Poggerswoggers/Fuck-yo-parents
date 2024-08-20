@@ -113,9 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasBounce: 1
-  _dialogueKnotName: Gary
   npcAnim: {fileID: 283505027425431268}
-  question: {fileID: 11400000, guid: 6018ec0f000cc6549b56e4c50f1e7b3c, type: 2}
   roamState:
     rid: 2641615680123699208
   interactState:
@@ -134,7 +132,6 @@ MonoBehaviour:
         maxSpeed: 25
         walkDuration: 10
         borderMargin: 1.5
-        sc: {fileID: 0}
         bounce: 1.1
         multiplier: 0.9
     - rid: 2641615680123699209
@@ -169,12 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
   wanderTime: 0.5
   flip: 0
-  chatBubblePrefab: {fileID: 2707898777229527671, guid: d4cb415cbd8e0524a8edd9aa3a05e67a, type: 3}
 --- !u!114 &1117823221079569269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigameSceneIndex: 9
+  levelScale: 1
+  thisQuestionType: 0
 --- !u!1 &8396549485271946495
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +256,7 @@ SpriteRenderer:
   m_SortingLayerID: 376750993
   m_SortingLayer: -5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 62fbc89b7de03314b8c03531f72cd914, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67a91bb103a2e90459b83b01889d8ad0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
