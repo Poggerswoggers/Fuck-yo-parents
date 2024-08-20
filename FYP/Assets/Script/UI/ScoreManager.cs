@@ -114,10 +114,13 @@ public class ScoreManager : MonoBehaviour
         minigameCount--;
 
         //hi jason i added this
-        if (scorePrefab != null) { }
-        int numberOfPrefabs = score / 1000;
-        StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs));
-        StartCoroutine(UpdateScoreMinigameCo(score));
+        if (scorePrefab != null) {
+            int numberOfPrefabs = score / 1000;
+            StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs));
+            StartCoroutine(UpdateScoreMinigameCo(score));
+        }
+
+
         //
         if (minigameCount > 0)
         {
