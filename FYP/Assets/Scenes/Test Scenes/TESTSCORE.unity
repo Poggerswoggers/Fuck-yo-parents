@@ -2754,10 +2754,10 @@ PrefabInstance:
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: scorePrefab
       value: 
-      objectReference: {fileID: 321839993731361415, guid: f7cb0e313e47fb243ad4c733432437e9, type: 3}
+      objectReference: {fileID: 2603442878548589962, guid: 080ca0f7d6df9ae46b5409314bbb19ad, type: 3}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: offsetAmount
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: spawningPoint
