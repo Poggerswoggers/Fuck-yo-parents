@@ -15,6 +15,7 @@ public class GameStateManager : MonoBehaviour
     public McqManager mcqState;
     public MinigameState minigameState;
     public PauseState pauseState;
+    public LevelEndState endState;
 
     [Header("Audio")]
     [SerializeField] AudioClip levelMusic;
@@ -36,7 +37,7 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    public void ChangeStat(GameBaseState state)
+    public void ChangeState(GameBaseState state)
     {
         currentState.ExitState(this);
         currentState.gameObject.SetActive(false);

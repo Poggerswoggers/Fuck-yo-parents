@@ -9,9 +9,9 @@ public class QuestionPuller
     public QuestionPuller(McqCategories categories)
     {
         int index = 0;
-        foreach(QuestionCategory category in categories.questionCategory)
+        foreach(QuestionCategory category in categories.QuestionCategoryRef)
         {
-            questionDictionary[category.thisQuestionType] = category.questionList;
+            questionDictionary[category.thisQuestionType] = new List<MCQ>(category.questionList);
             index++;
         }
     }

@@ -11,7 +11,7 @@ public class PauseState : GameBaseState
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
 
-        AudioManager.instance.SetPauseState(true);
+        AudioManager.instance?.SetPauseState(true);
     }
 
     public override void ExitState(GameStateManager gameStateManager)
@@ -20,7 +20,7 @@ public class PauseState : GameBaseState
         pauseMenu.SetActive(false);
         Cursor.visible = false;
 
-        AudioManager.instance.SetPauseState(false);
+        AudioManager.instance?.SetPauseState(false);
     }
 
     public override void UpdateState(GameStateManager gameStateManager)

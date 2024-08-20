@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "McqScriptable/McqCategories")]
 public class McqCategories : ScriptableObject
 {
-    public List<QuestionCategory> questionCategory;
+    [SerializeField] List<QuestionCategory> questionCategory;
+    public List<QuestionCategory> QuestionCategoryRef => questionCategory;
 }
 
 [System.Serializable]

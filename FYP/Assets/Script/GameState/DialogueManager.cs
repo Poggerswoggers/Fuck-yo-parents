@@ -110,7 +110,7 @@ public class DialogueManager : GameBaseState
         {
             if(gSm.NSm.MinigameNpc)
             {
-                gSm.ChangeStat(gSm.mcqState);
+                gSm.ChangeState(gSm.mcqState);
             }
             else
             {
@@ -222,7 +222,7 @@ public class DialogueManager : GameBaseState
             AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
         }
         RefreshChoiceView();
-        gSm.ChangeStat(gSm.snapState);
+        gSm.ChangeState(gSm.snapState);
     }
 
     void EnterHover(PointerEventData eventData)

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -49,9 +48,6 @@ public class ScoreManager : MonoBehaviour
     }
 
     int minigameCount;
-
-    [Header("Level End Panel")]
-    [SerializeField] GameObject levelEndPanel;
 
     private void Awake()
     {
@@ -124,13 +120,14 @@ public class ScoreManager : MonoBehaviour
         //
         if (minigameCount > 0)
         {
-            gSm.ChangeStat(gSm.snapState);
+            gSm.ChangeState(gSm.snapState);
         }
         gSm.ClearNpc();
     }
 
-    public void loadAddictiveScene(string sceneName, int minigameDifficulty)
+    public void LoadAddictiveScene(string sceneName, int minigameDifficulty)
     {
+        gSm.ChangeState(gSm.minigameState);
         levelUIPanel.SetActive(false);
         addictiveScene = sceneName;
         selectedMinigameDifficulty = minigameDifficulty;
@@ -165,8 +162,8 @@ public class ScoreManager : MonoBehaviour
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.lvlDone);
         }
-        levelEndPanel.SetActive(true);
-        gSm.ChangeStat(gSm.minigameState);
+        Debug.Log("End Game");
+        gSm.ChangeState(gSm.endState);
     }
 
     //hi jason i added this

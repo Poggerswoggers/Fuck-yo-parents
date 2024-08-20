@@ -217,7 +217,7 @@ public class SnapCamera : GameBaseState
         gSm.NSm = nSm;
         LeanTween.move(CameraReticle.gameObject,
             closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset,
-            0.5f).setOnComplete(()=>gSm.ChangeStat(gSm.dialogueStat));
+            0.5f).setOnComplete(()=>gSm.ChangeState(gSm.dialogueStat));
 
         SnapAction?.Invoke();
     }

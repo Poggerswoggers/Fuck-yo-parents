@@ -8,7 +8,7 @@ public class MinigameNpcs : MonoBehaviour
 
     public void GetMinigameValue()
     {        
-        ScoreManager.Instance.loadAddictiveScene(minigameSceneIndex, levelScale);
+        ScoreManager.Instance.LoadAddictiveScene(minigameSceneIndex, levelScale);
     }
 
     [SerializeField] QuestionTypes thisQuestionType;
