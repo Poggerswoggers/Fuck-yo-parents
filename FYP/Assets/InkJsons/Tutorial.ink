@@ -2,24 +2,25 @@
 VAR correctAnswer = ""
 ==Tutorial==
 ~correctAnswer = 0
-Welcome commuter champion.
+Welcome to the Commuting Area.
     *[What is this place?]
-       You have entered the COMMUTING ZONE. 
-       Where the commuters that did not receive assistance are sent here.
+       You have entered the Commuting Area, where you’ll learn to be a Commuter Champion.
             -> Tutorial 
     *[Why am I here?] 
-       You were chosen to assist commuters that need your help.
-       Click on the commuters that could give you hints to find commuters who you can help. 
+       You didn’t give up your seat to someone who needed it.
+       So you’ll learn the 3As to help other commuters. 
             -> Tutorial
     *[How do I get back to my world?] 
-        There will be mini-games that appear everytime you practice the 3As (Assess,Ask and Assist).
-        Do it 10 times and you will return.
+        There are mini-games that show up every time you practice the 3As: Assess, Ask, and Assist. 
+        Do this 10 times, and you'll return.
             -> Tutorial
     *[What should I take note of, when talking to the commuters?]
-        Do not talk to them when they are talking, and always ask if they need help before helping them. 
-        Last but not least, click to continue or the <color=red>red arrow</color> to stop talking to them.
+        Click on the commuters to talk to them. 
+        They <color=yellow>MIGHT</color> give you hints to find those who need help.
+        Remember, don’t interrupt when they’re talking, and always ask if they need help before you assist. 
+        Click to continue or on the <color=red>Red Arrow</color> to stop talking.
             -> Tutorial
 *->
 Lets put what you just learn into practice. 
-All the best commuter champion.
+All the best Commuter Champion. 
     -> DONE
