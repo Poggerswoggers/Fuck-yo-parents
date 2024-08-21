@@ -5,25 +5,26 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="LevelData/Save System")]
 public class SaveSystem : ScriptableObject
 {
-    [SerializeField] string jsonFilePath = "/LevelData.json";
     public LevelDataScriptable levelData;
 
     public void SaveLevelData()
     {
         string saveData = JsonUtility.ToJson(levelData, true);
-        string filepath = Application.persistentDataPath + jsonFilePath;
-        System.IO.File.WriteAllText(filepath, saveData);
+        PlayerPrefs.SetString("LevelDataKey", saveData);
+        PlayerPrefs.Save(); // Make sure the data is saved to IndexedDB
         Debug.Log("level data saved");
     }
 
     public void RetrieveLevelData()
     {
-        string filePath = Application.persistentDataPath + jsonFilePath;
-        string _levelData = System.IO.File.ReadAllText(filePath);
-
-        // Populate the existing ScriptableObject instance with the data
-        JsonUtility.FromJsonOverwrite(_levelData, levelData);
-        Debug.Log("Data loaded");
+        if (PlayerPrefs.HasKey("LevelDataKey"))
+        {
+            // Retrieve the JSON string from PlayerPrefs
+            string jsonData = PlayerPrefs.GetString("LevelDataKey");
+            // Deserialize the JSON string back into the LevelData object
+            JsonUtility.FromJsonOverwrite(jsonData, levelData);
+            Debug.Log("Data loaded from IndexedDB.");
+        }
     }
 
     public void ResetData()

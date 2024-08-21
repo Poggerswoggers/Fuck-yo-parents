@@ -20,7 +20,9 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     
     protected MinigameManager gameManager;
 
-    protected virtual IEnumerator InstructionCo()
+    private Coroutine instructionCoroutine;
+
+    IEnumerator InstructionCo()
     {
         instructionPanel.SetActive(true);
         yield return new WaitForSeconds(10f);
@@ -55,7 +57,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
 
     protected void Instruction()
     {
-        StartCoroutine(InstructionCo());
+        instructionCoroutine = StartCoroutine(InstructionCo());
     }
 
     public abstract void EndSequenceMethod();
@@ -73,7 +75,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
 
     public void SkipInstructions()
     {
-        StopCoroutine(InstructionCo());
+        StopCoroutine(instructionCoroutine);
         instructionPanel.SetActive(false);
         StartGame();
     }
