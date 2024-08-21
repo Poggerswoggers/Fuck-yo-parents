@@ -135,7 +135,7 @@ public class TakeASeatGm : BaseMiniGameClass
 
     void RoundCheck()
     {
-      
+        Debug.Log("ww");
         if (commuterParent.childCount != 0) return;
         isGameActive = false;        
         for(int i =0; i<seats.Count; i++)

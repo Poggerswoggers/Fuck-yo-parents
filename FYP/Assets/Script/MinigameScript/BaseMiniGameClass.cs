@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 
 public abstract class BaseMiniGameClass : MonoBehaviour
 {
@@ -13,14 +11,8 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     }
     public difficulty GetDifficulty()
     {
-        if (Enum.IsDefined(typeof(difficulty), ScoreManager.selectedMinigameDifficulty))    
-        {
-            return (difficulty)ScoreManager.selectedMinigameDifficulty;
-        }
-        else
-        {
-            return difficulty.One;
-        }
+        return Enum.IsDefined(typeof(difficulty), ScoreManager.selectedMinigameDifficulty)? 
+            (difficulty)ScoreManager.selectedMinigameDifficulty : difficulty.One;
     }
 
     protected int score;
@@ -33,7 +25,6 @@ public abstract class BaseMiniGameClass : MonoBehaviour
         instructionPanel.SetActive(true);
         yield return new WaitForSeconds(10f);
         instructionPanel.SetActive(false);
-
         StartGame();
     }
 
@@ -78,9 +69,13 @@ public abstract class BaseMiniGameClass : MonoBehaviour
         gameManager.EndSequence -= EndSequenceMethod;
     }
 
-    protected virtual void SetDifficulty()
-    {
+    protected virtual void SetDifficulty() { }
 
+    public void SkipInstructions()
+    {
+        StopCoroutine(InstructionCo());
+        instructionPanel.SetActive(false);
+        StartGame();
     }
 }
 

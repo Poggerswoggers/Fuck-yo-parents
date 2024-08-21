@@ -8,11 +8,11 @@ public class QuestionPuller
 
     public QuestionPuller(McqCategories categories)
     {
-        int index = 0;
-        foreach(QuestionCategory category in categories.QuestionCategoryRef)
+        //int index = 0;
+        //foreach(QuestionCategory category in categories.QuestionCategoryRef)
         {
-            questionDictionary[category.thisQuestionType] = new List<MCQ>(category.questionList);
-            index++;
+           // questionDictionary[category.thisQuestionType] = new List<MCQ>(category.questionList);
+            //index++;
         }
     }
 
@@ -26,15 +26,4 @@ public class QuestionPuller
         questionDictionary[npcQuestionType].RemoveAt(randomInt);
         return question;
     }
-}
-[System.Serializable]
-public enum QuestionTypes
-{
-    blind,
-    deaf,
-    physical,
-    elderly,
-    invis,
-    general,
-    intellecual
 }

@@ -28,21 +28,14 @@ public class McqManager : GameBaseState
 
     [Header("MCQ Categories")]
     [SerializeField] McqCategories questionCategories;
-
     MCQ questionScriptable;
-    QuestionPuller qp;
-
-    private void Awake()
-    {
-        qp = new QuestionPuller(questionCategories);
-    }
 
     public override void EnterState(GameStateManager gameStateManager)
     {
         gSm = gameStateManager;
 
         QuestionTypes storeType = gSm.NSm.MinigameNpc.GetQuestionType();
-        questionScriptable = qp.PullQuestion(storeType);
+        questionScriptable = questionCategories.PullQuestion(storeType);
         spriteHolder.sprite = gSm.NSm.GetComponentInChildren<SpriteRenderer>().sprite;
 
         //Sets the question, sprite and get question count   
@@ -126,11 +119,19 @@ public class McqManager : GameBaseState
         }
         else
         {
-            answerStatementText.text = "INCORRECT";
+            answerStatementText.text = "NICE TRY";
             ScoreManager.Instance.OnScoreChange?.Invoke(300);
         }
         DestroyAnswers();
         NextButton.onClick.RemoveAllListeners();
+        NextButton.gameObject.SetActive(false);
+        //Delay move on button
+        LeanTween.delayedCall(3, Cooldown);
+    }
+
+    void Cooldown()
+    {
+        NextButton.gameObject.SetActive(true);
         NextButton.onClick.AddListener(() => GoToMiniGame());
     }
 
@@ -199,4 +200,16 @@ internal class AnswerChoice
         this.isCorrect = isCorrect;
         this.index = index;
     }
+}
+
+[System.Serializable]
+public enum QuestionTypes
+{
+    blind,
+    deaf,
+    physical,
+    elderly,
+    invis,
+    general,
+    intellecual
 }
