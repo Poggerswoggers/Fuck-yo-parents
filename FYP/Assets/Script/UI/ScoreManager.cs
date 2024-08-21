@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI minigameScoreText;
 
     [SerializeField] int maxScore;
-    [SerializeField] int levelScore;
+    public int levelScore { get; private set; }
 
     [Header("Vulnerable Commuter Count")]
     [SerializeField] TextMeshProUGUI vulnerableComCountText;

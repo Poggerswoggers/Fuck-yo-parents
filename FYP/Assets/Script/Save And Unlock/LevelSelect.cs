@@ -6,28 +6,22 @@ using UnityEngine.UI;
 public class LevelSelect : MonoBehaviour
 {
     [SerializeField] List<Button> levels;
-    [SerializeField] LevelDataScriptable[] levelScriptables;
+    [SerializeField] LevelDataScriptable levelScriptable;
 
-    void Start()
+    [Header("Save System Ref")]
+    [SerializeField] SaveSystem saveManager;
+
+    void Awake()
     {
+        saveManager.RetrieveLevelData();
         SetUnlockedLevels();
     }
 
     void SetUnlockedLevels()
     {
-        foreach(LevelDataScriptable levelData in levelScriptables)
+        for(int i=0; i < levels.Count; i++)
         {
-            if (levelData.unlocked)
-            {
-                Debug.Log("unlock");
-                levels[levelData.levelIndex - 1].interactable = true;
-            }
-            else
-            {
-                Debug.Log("Lock");
-                levels[levelData.levelIndex - 1].interactable = false;
-                Debug.Log(levels[levelData.levelIndex-1].gameObject);
-            }
+            levels[i].interactable = levelScriptable.levelDataArray[i].unlocked;
         }
     }
 }

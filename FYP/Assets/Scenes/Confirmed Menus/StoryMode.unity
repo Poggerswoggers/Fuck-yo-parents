@@ -963,7 +963,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135085248}
-  - component: {fileID: 1135085247}
   - component: {fileID: 1135085249}
   m_Layer: 0
   m_Name: Level Select Manager
@@ -972,19 +971,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1135085247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135085246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2aa7fd4e488a14da5c5a0fd7f65de6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jsonFilePath: /LevelData.json
 --- !u!4 &1135085248
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,8 +1000,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 92982059}
-  levelScriptables:
-  - {fileID: 11400000, guid: 6367411661a70674ea9cbd3ab5462253, type: 2}
+  - {fileID: 191187434}
+  - {fileID: 274498691}
+  levelScriptable: {fileID: 11400000, guid: 6367411661a70674ea9cbd3ab5462253, type: 2}
+  saveManager: {fileID: 0}
 --- !u!1 &1174469940
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,8 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="LevelData")]
 public class LevelDataScriptable : ScriptableObject
 {
-    public  int levelIndex;
+    public LevelData[] levelDataArray;
+}
 
+[System.Serializable]
+public class LevelData
+{
     public bool unlocked;
-    public float scoreToUnlock;
+    public float Score;
 }

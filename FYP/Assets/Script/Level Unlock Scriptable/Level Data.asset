@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33a17536058b3984482ee2d8563085ad, type: 3}
-  m_Name: TestData
+  m_Name: Level Data
   m_EditorClassIdentifier: 
-  levelIndex: 1
-  unlocked: 0
-  scoreToUnlock: 0
+  levelDataArray:
+  - unlocked: 1
+    Score: 0
+  - unlocked: 0
+    Score: 0
+  - unlocked: 0
+    Score: 0
+  levelsUnlocked: 1
