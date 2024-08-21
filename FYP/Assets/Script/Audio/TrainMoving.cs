@@ -20,7 +20,7 @@ public class TrainMoving : MonoBehaviour
     {
         if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlaySFX(AudioManager.instance.mrtPass);
+            AudioManager.instance.PlaySFX(AudioManager.instance.mrtPass, 0.3f);
         }
     }
 }

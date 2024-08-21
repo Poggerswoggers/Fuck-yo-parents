@@ -82,11 +82,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(AudioClip clip) 
+    public void PlaySFX(AudioClip clip, float volume = 1f) 
     {
         if (!isPaused)
         {
-            sfxSource.PlayOneShot(clip);
+            sfxSource.PlayOneShot(clip, volume);
         }
     }
 
