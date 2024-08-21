@@ -78,9 +78,9 @@ public class SceneLoader : MonoBehaviour
         confirmScreen.gameObject.SetActive(false);
     }
 
-    public void ClearLevels() {
-        //PlayerPrefs.DeleteAll();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    public void ClearLevels(SaveSystem saveScriptable)
+    {
+        saveScriptable.ResetData();
         confirmScreen.gameObject.SetActive(false);
     }
 

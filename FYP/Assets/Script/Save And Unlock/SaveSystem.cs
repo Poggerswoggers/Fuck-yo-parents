@@ -20,9 +20,20 @@ public class SaveSystem : ScriptableObject
     {
         string filePath = Application.persistentDataPath + jsonFilePath;
         string _levelData = System.IO.File.ReadAllText(filePath);
+
         // Populate the existing ScriptableObject instance with the data
         JsonUtility.FromJsonOverwrite(_levelData, levelData);
         Debug.Log("Data loaded");
+    }
+
+    public void ResetData()
+    {
+        foreach(LevelData ld in levelData.levelDataArray)
+        {
+            ld.unlocked = false;
+            ld.Score = 0;
+        }
+        SaveLevelData();
     }
 }
 

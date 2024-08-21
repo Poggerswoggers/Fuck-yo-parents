@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Level Data
   m_EditorClassIdentifier: 
   levelDataArray:
-  - unlocked: 1
-    Score: 0
   - unlocked: 0
     Score: 0
   - unlocked: 0
     Score: 0
-  levelsUnlocked: 1
+  - unlocked: 0
+    Score: 0

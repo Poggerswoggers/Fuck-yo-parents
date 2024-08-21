@@ -7,13 +7,17 @@ public class LevelSelect : MonoBehaviour
 {
     [SerializeField] List<Button> levels;
     [SerializeField] LevelDataScriptable levelScriptable;
+    static bool onFirstLaunch = false;
 
     [Header("Save System Ref")]
     [SerializeField] SaveSystem saveManager;
 
     void Awake()
     {
-        saveManager.RetrieveLevelData();
+        if (!onFirstLaunch){
+            onFirstLaunch = true;
+            saveManager.RetrieveLevelData();
+        }
         SetUnlockedLevels();
     }
 

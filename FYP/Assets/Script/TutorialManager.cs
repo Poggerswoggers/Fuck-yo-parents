@@ -87,7 +87,6 @@ public class TutorialManager : MonoBehaviour
 
     void StrikeAndCheck()
     {
-        Debug.Log("Ale");
         if (index > tutorialSequence.Count - 1) return;
         canPerformAction = false;
 
