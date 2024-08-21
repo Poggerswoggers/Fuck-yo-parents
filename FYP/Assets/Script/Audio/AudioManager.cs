@@ -46,14 +46,16 @@ public class AudioManager : MonoBehaviour
     private bool isPaused = false;
 
     public void Awake() {
-        if (instance == null) {
+        if (instance == null)
+        {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            }
-        else {
-            Destroy(gameObject);
-            }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -63,6 +65,8 @@ public class AudioManager : MonoBehaviour
         myMixer.SetFloat("bgm", Mathf.Log10(music) * 20); // Change the min volume to 0.0001
         myMixer.SetFloat("sfx", Mathf.Log10(sfx) * 20); // Change the min volume to 0.0001
 
+        SceneManager.activeSceneChanged += OnSceneChanged;
+
         // Play bgm once app launches
         /*
         if(SceneManager.GetActiveScene().name == "MainMenu")
@@ -71,7 +75,7 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
         */
-        }
+    }
 
     public void PlayMenuBGM()
     {
@@ -90,9 +94,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopSFX(AudioClip clip)
+    {
+        if (!isPaused)
+        {
+            sfxSource.Stop();
+            sfxSource.clip = clip;
+        }
+    }
+
     public void PlayMusic(AudioClip clip){
         musicSource.clip = clip;
         musicSource.Play();
+    }
+
+    private void OnSceneChanged(Scene oldScene, Scene newScene)
+    {
+        // Reset the pause state when the scene changes
+        SetPauseState(false);
+        StopSFX(mrtPass);
     }
 
     public void SetPauseState(bool paused)
