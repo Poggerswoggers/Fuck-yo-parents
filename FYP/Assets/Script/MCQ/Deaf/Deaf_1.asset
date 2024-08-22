@@ -18,9 +18,9 @@ MonoBehaviour:
   - 'No
 
 '
-  CorrectOption: 2
+  correctOptions: 02000000
   ExplanationText: 'Not all deaf commuters know sign language. Some may have only
     some level of hearing loss or loss their hearing at an older age
 
 '
-  characterSprite: {fileID: 21300000, guid: 7ec497d3d2af135488ff651c7f05021a, type: 3}
+  questionType: 0
