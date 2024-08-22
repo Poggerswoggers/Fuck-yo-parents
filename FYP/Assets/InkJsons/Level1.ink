@@ -95,6 +95,25 @@ What should you do if you see someone who needs help using Heartwheels @ Linkway
         I don’t think that is right. We should not ignore them! The wheelchairs are also available for vulnerable commuters to use.
             -> DONE
 
+==Russell== 
+~correctAnswer = 0
+I’m sure you will get a hang of this, I can answer any questions you have.          
+    *[Why can’t I talk to commuters that are chatting?]        
+        Well, you’re not supposed to interrupt others when they are chatting. 
+        If you see a speech bubble, wait for it to disappear before talking to them. 
+            -> DONE
+    *[Why are you here?]        
+        Just checking on you, and make sure that you have a smooth journey to becoming a Commuter Champion!
+            -> DONE
+    *[What do I actually look out for?]
+         Click on Pause, then you will see a <color=yellow>(?) BUTTON</color>. 
+         Click on it to check what to look out for.   
+            -> DONE
+    *[Are the commuters from my world?]
+         They are memories from daily commuters. 
+         So they are not real, please treat them with respect too. 
+            -> DONE
+            
 ==Linus==
 ~correctAnswer = 0
 He seems to be into his phone...

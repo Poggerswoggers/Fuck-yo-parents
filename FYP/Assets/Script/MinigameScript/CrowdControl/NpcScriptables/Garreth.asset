@@ -16,4 +16,3 @@ MonoBehaviour:
   cardObjects:
   - {fileID: 1675230227678738884, guid: 3fa8484114f32494d81cc853d0734fc3, type: 3}
   - {fileID: 2062560050738402833, guid: 9c2fe53f0ae84f146b88b49b41a82e8d, type: 3}
-  - {fileID: 8469896416037950454, guid: b7e6d79d7b7519e42972dd1443ce136d, type: 3}

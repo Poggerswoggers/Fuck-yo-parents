@@ -24,7 +24,7 @@ public class Routegiver : MonoBehaviour
     public void AskForDirection(string destinationName)
     {
         askPanel.SetActive(true);
-        askPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"How can I get to <u><color=green>{destinationName}</u></color>?";
+        askPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"How can I get to <u><color=orange>{destinationName}</u></color>?";
         startPos = transform.position;
     }
 
