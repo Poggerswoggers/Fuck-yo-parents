@@ -263,20 +263,18 @@ What’s up?.
         
 ==Russell== 
 ~correctAnswer = 0
-I’m sure you will get a hang of this, I can answer any questions you have.          
-    *[Why can’t I talk to commuters that are chatting?]        
-        Well, you’re not supposed to interrupt others when they are chatting. 
-        If you see a speech bubble, wait for it to disappear before talking to them. 
+You’ve made it to the next Commuting Area, do you need my help?
+    *[How do I continue or stop talking to commuters?]        
+        Click anywhere to continue talking. 
+        Click on the <color=red>Red Arrow</color> to stop talking. 
             -> DONE
-    *[Why are you here?]        
-        Just checking on you, and make sure that you have a smooth journey to becoming a Commuter Champion!
+    *[Nope, this is too easy for me!]        
+        That’s the spirit! I knew you were a Commuter Champion!
             -> DONE
-    *[What do I actually look out for?]
-         Click on Pause, then you will see a <color=yellow>(?) BUTTON</color>. 
-         Click on it to check what to look out for.   
+    *[Uhm, how do I move the camera again?]
+         It’s easy, just <color=yellow>RIGHT CLICK</color> and move around.  
             -> DONE
-    *[Are the commuters from my world?]
-         They are memories from daily commuters. 
-         So they are not real, please treat them with respect too. 
+    *[Wait, are you copying me?]
+         Yes, also a reminder you should <color=yellow>ASK</color> before you <color=yellow>ASSIST</color> a fellow commuter. 
             -> DONE        
                  

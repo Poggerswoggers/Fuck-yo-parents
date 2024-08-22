@@ -167,3 +167,16 @@ Yo yo yo yo!
   ~correctAnswer = 0
     (She is currently texting, better not disturb her!)
      -> DONE
+     
+ ==Russell==
+~correctAnswer = 0
+You have made it this far, this will test everything you have learnt so far are you ready?
+    *[Will I see you again?]
+       Miss me already? Don’t worry we’ll meet someday again.
+            -> DONE
+    *[I am ready!] 
+        That’s right champ, believe in yourself!
+            -> DONE
+    *[Thanks for guiding me.] 
+    No worries champ, it is what I do.
+            -> DONE

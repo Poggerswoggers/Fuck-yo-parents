@@ -19,8 +19,8 @@ MonoBehaviour:
 
 '
   correctOptions: 02000000
-  ExplanationText: 'Not all deaf commuters know sign language. Some may have only
-    some level of hearing loss or loss their hearing at an older age
+  ExplanationText: '<color=yellow>Not all deaf commuters know sign language. Some
+    may have only some level of hearing loss or loss their hearing at an older age
 
 '
   questionType: 0
