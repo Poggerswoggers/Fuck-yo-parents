@@ -19,6 +19,10 @@ public class DialogueManager : GameBaseState
 
     [SerializeField] TextMeshProUGUI infoTextField;
 
+    public GameObject pictureFrame;
+    public GameObject picture;
+    public Sprite[] pictures;
+
     [Header("UI Panel")]
     [SerializeField] GameObject dialoguePanel;
 
@@ -195,12 +199,36 @@ public class DialogueManager : GameBaseState
         if (!canContinueToNextLine) return;
         inkStory.ChooseChoiceIndex(choice.index);
         DisplayNewLine();
-        RefreshChoiceView();
 
+        //hi jason i added this
+        if (correctPrompt)
+        {
+            Debug.Log("I edited");
+            pictureFrame.SetActive(true);
+            ChoosingNPCPicture(gSm.NSm.DialogueKnotName);
+        }
+        //
+
+        RefreshChoiceView();
         if (correctOption == 0) return;
         ScoreManager.Instance.OnScoreChange?.Invoke((correctPrompt)? -200: 200);      
     }
 
+    //hi jason i added this
+    void ChoosingNPCPicture(string knotName)
+    {
+        Debug.Log(knotName);
+        foreach(var img in pictures)
+        {
+            if (img.name == knotName)
+            {
+                Debug.Log("true");
+                picture.GetComponent<Image>().sprite = img;
+                break;
+            }
+        }
+    }
+    //
     void RefreshChoiceView()
     {
         if(optionContainer != null)
