@@ -22,7 +22,7 @@ MonoBehaviour:
   - Play with them
   - "Stare at them\r"
   correctOptions: 01000000
-  ExplanationText: '<color=yellow>Young children may not be able to balance well
+  ExplanationText: '<color=#F6FF2E>Young children may not be able to balance well
     in a moving bus or train  or might feel tired more easily
 
 '

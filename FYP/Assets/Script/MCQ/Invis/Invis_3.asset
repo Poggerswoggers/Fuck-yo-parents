@@ -19,7 +19,6 @@ MonoBehaviour:
   - "Notify the nearest adult and the Passenger Service Office\r"
   - "Ignore them and walk away\r"
   correctOptions: 0100000002000000
-  ExplanationText: "<color=yellow>Help the commuter get a seat, and ask adults or
+  ExplanationText: "<color=#F6FF2E>Help the commuter get a seat, and ask adults or
     the Passenger Service Office for help\r\n\r"
-  characterSprite: {fileID: 21300000, guid: ac20ac7859186914d9a198f2affd04b1, type: 3}
   questionType: 1

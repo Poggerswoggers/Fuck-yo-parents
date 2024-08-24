@@ -22,6 +22,6 @@ MonoBehaviour:
   - "Ignore them \r"
   - "Laugh about their disability\r"
   correctOptions: 0100000002000000
-  ExplanationText: "<color=yellow>Commuters with physical disabilities have challenges
+  ExplanationText: "<color=#F6FF2E>Commuters with physical disabilities have challenges
     in moving about and should do our part to help them\r\r"
   questionType: 1

@@ -26,10 +26,9 @@ MonoBehaviour:
 
 '
   correctOptions: 03000000
-  ExplanationText: '<color=yellow>A visually impaired commuter may need help finding
+  ExplanationText: '<color=#F6FF2E>A visually impaired commuter may need help finding
     their destination.  We must not pet or play with the guide dog as it distracts
     them from their duty
 
 '
-  characterSprite: {fileID: 21300000, guid: 7c41f16c8289dee49b445d6114b19b02, type: 3}
   questionType: 0

@@ -19,9 +19,8 @@ MonoBehaviour:
   - "Dementia\r"
   - "Immune System Disorders\r"
   correctOptions: 010000000200000003000000
-  ExplanationText: '<color=yellow>All the above are some examples of invisible medical
+  ExplanationText: '<color=#F6FF2E>All the above are some examples of invisible medical
     conditions - others include headache, fever and mental disorders
 
 '
-  characterSprite: {fileID: 21300000, guid: ac20ac7859186914d9a198f2affd04b1, type: 3}
   questionType: 1

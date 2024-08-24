@@ -26,9 +26,8 @@ MonoBehaviour:
 
 '
   correctOptions: 03000000
-  ExplanationText: '<color=yellow>A white and red striped cane means that the user
+  ExplanationText: '<color=#F6FF2E>A white and red striped cane means that the user
     is completely blind and deaf
 
 '
-  characterSprite: {fileID: 21300000, guid: 62fbc89b7de03314b8c03531f72cd914, type: 3}
   questionType: 0
