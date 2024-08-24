@@ -200,6 +200,11 @@ public class DialogueManager : GameBaseState
         inkStory.ChooseChoiceIndex(choice.index);
         DisplayNewLine();
 
+
+
+        RefreshChoiceView();
+        if (correctOption == 0) return;
+        ScoreManager.Instance.OnScoreChange?.Invoke((correctPrompt) ? -200 : 200);
         //hi jason i added this
         if (correctPrompt)
         {
@@ -208,10 +213,6 @@ public class DialogueManager : GameBaseState
             ChoosingNPCPicture(gSm.NSm.DialogueKnotName);
         }
         //
-
-        RefreshChoiceView();
-        if (correctOption == 0) return;
-        ScoreManager.Instance.OnScoreChange?.Invoke((correctPrompt)? -200: 200);      
     }
 
     //hi jason i added this
