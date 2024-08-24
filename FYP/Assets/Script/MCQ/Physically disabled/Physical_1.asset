@@ -17,7 +17,7 @@ MonoBehaviour:
   - Yes
   - No
   correctOptions: 02000000
-  ExplanationText: <color=yellow>Not all commuters with physical disabilities use
+  ExplanationText: <color=#F6FF2E>Not all commuters with physical disabilities use
     a wheelchair and may use other mobility aids like crutches and walking frames. 
     Some disabilities may not be so easily visible
   questionType: 0

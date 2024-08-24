@@ -17,9 +17,8 @@ MonoBehaviour:
   - True
   - "False\r"
   correctOptions: 02000000
-  ExplanationText: '<color=yellow>Young commuters may experience symptoms such as
+  ExplanationText: '<color=#F6FF2E>Young commuters may experience symptoms such as
     giddiness, nausea, imbalance and other hidden symptoms as well
 
 '
-  characterSprite: {fileID: 21300000, guid: ac20ac7859186914d9a198f2affd04b1, type: 3}
   questionType: 0

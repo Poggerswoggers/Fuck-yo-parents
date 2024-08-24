@@ -20,6 +20,6 @@ MonoBehaviour:
   - Yes
   - No
   correctOptions: 02000000
-  ExplanationText: "<color=yellow>A wheelchair is a person's personal belongings
+  ExplanationText: "<color=#F6FF2E>A wheelchair is a person's personal belongings
     and should not be touched without permission.\r"
   questionType: 0
