@@ -21,14 +21,6 @@ public class SnapCamera : GameBaseState
 
     bool camMode;
 
-    [Header("Camera Zooming")]
-    //[SerializeField] private Camera cam;
-    //[SerializeField] private float zoomSpeed = 20f;
-    //[SerializeField] float zoomSens;
-    //[SerializeField] private float minCamSize = 2f;
-    //[SerializeField] private float maxCamSize = 5f;
-    //float newZoomLevel;
-
     Vector3 origin;
     Vector3 difference;
     bool drag;
@@ -41,7 +33,12 @@ public class SnapCamera : GameBaseState
     [SerializeField] Transform visualCue;
     [SerializeField] Vector3 visualCueOffset;
 
+
+
     public static Action SnapAction;
+
+    [Header("Camera Flash")]
+    [SerializeField] CameraFlash camFlash;
 
     private void Start()
     {
@@ -85,45 +82,7 @@ public class SnapCamera : GameBaseState
         CameraReticle.gameObject.SetActive(false);
     }
 
-    public void Zoom()
-    {
-        // Get MouseWheel-Value and calculate new Orthographic-Size
-        // (while using Zoom-Speed-Multiplier)
-        //SnewZoomLevel -= Input.GetAxis("Mouse ScrollWheel") * zoomSens;
-        //newZoomLevel = cam.orthographicSize - mouseScrollWheel;
-
-        //newZoomLevel = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
-        //float camSize = Mathf.MoveTowards(outCam.m_Lens.OrthographicSize, newZoomLevel, zoomSpeed * Time.deltaTime);
-        //outCam.m_Lens.OrthographicSize = newZoomLevel;
-
-
-        /*if(mouseScrollWheel !=0)
-        {
-
-            outCamGameObject.SetActive(false);
-
-            // Get Position before and after zooming
-            Vector3 mouseOnWorld = cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.orthographicSize = Mathf.Clamp(newZoomLevel, minCamSize, maxCamSize);
-            Vector3 mouseOnWorld1 = cam.ScreenToWorldPoint(Input.mousePosition);
-
-            Debug.Log(mouseOnWorld + "  " + mouseOnWorld1);
-
-            // Calculate Difference between Positions before and after Zooming
-            Vector3 posDiff = mouseOnWorld - mouseOnWorld1;
-
-            // Add Difference to Camera Position
-            Vector3 camPos = cam.transform.position;
-            Vector3 targetPos = new Vector3(
-                camPos.x + posDiff.x,
-                camPos.y + posDiff.y,
-                camPos.z);
-
-            // Apply Target-Position to Camera
-            cam.transform.position = targetPos;
-        }*/
-
-    }
+   
     public void RayToCollider()
     {
         taggedGameObject = new GameObject[contact.Length];
@@ -133,10 +92,6 @@ public class SnapCamera : GameBaseState
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(CameraReticle.position,camSize);
-    }
     void PositionVisualCue()
     {
         if (closestGameObject)
@@ -163,14 +118,15 @@ public class SnapCamera : GameBaseState
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (AudioManager.instance != null)
-            {
+            if (AudioManager.instance != null){
                 AudioManager.instance.PlaySFX(AudioManager.instance.camSnap);
             }
+
+            camFlash.FlashCamera();
             if (taggedGameObject.Length > 0) {
-                ZoomToTarget();
+                LeanTween.delayedCall(0.3f,ZoomToTarget);
                 camMode = true;
-            }         
+            }
         }
     }
 
