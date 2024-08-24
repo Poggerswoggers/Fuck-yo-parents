@@ -14,4 +14,6 @@ public class NpcAsset : ScriptableObject
         list.AddRange(new List<Sprite>(normalCommuter));
         return list;
     }
+
+    public int VulnerableCount => vulnerableCommuter.Length;
 }

@@ -72,10 +72,11 @@ public class SnapCamera : GameBaseState
             SnapSystem();
         }
 
+        //Position visual cue
+        PositionVisualCue();
+
         CameraReticle.gameObject.SetActive(!EventSystem.current.IsPointerOverGameObject());
         Cursor.visible = EventSystem.current.IsPointerOverGameObject();
-
-
     }
     public override void ExitState(GameStateManager gameStateManager)
     {
@@ -94,7 +95,7 @@ public class SnapCamera : GameBaseState
 
     void PositionVisualCue()
     {
-        if (closestGameObject)
+        if (closestGameObject && !camMode)
         {
             visualCue.gameObject.SetActive(true);
             visualCue.position = closestGameObject.position+visualCueOffset;
@@ -107,8 +108,7 @@ public class SnapCamera : GameBaseState
 
     void WhenMouseIsMoving()
     {
-        closestGameObject = GetClosestEnemy(taggedGameObject);
-        PositionVisualCue();     
+        closestGameObject = GetClosestEnemy(taggedGameObject);    
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         CameraReticle.position = mousePosition;
     }
@@ -123,9 +123,10 @@ public class SnapCamera : GameBaseState
             }
 
             camFlash.FlashCamera();
-            if (taggedGameObject.Length > 0) {
-                LeanTween.delayedCall(0.3f,ZoomToTarget);
+            if (taggedGameObject.Length > 0)
+            {
                 camMode = true;
+                LeanTween.delayedCall(0.5f,ZoomToTarget);
             }
         }
     }

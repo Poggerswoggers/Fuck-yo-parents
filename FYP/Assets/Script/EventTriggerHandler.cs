@@ -18,4 +18,11 @@ public class EventTriggerHandler : MonoBehaviour
         float facing = pointerData.pointerEnter.transform.localScale.x;
         LeanTween.scale(pointerData.pointerEnter, new Vector3(Mathf.Sign(facing), 1, 1), 0.2f);
     }
+
+    public void PointerSelect(BaseEventData eventData)
+    {
+        PointerEventData pointerData = eventData as PointerEventData;
+        float facing = pointerData.pointerEnter.transform.localScale.x;
+        pointerData.pointerEnter.transform.localScale = new Vector3(Mathf.Sign(facing), 1, 1);
+    }
 }

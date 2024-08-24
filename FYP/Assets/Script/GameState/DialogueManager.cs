@@ -38,8 +38,7 @@ public class DialogueManager : GameBaseState
         ScoreManager.Instance.DisableUI(false);
         Cursor.visible = true;
         gSm = gameStateManager;
-        Initialise();
-        LoadDialooguePanel(gSm.NSm.DialogueKnotName);
+        LoadDialooguePanel(gSm.NSm.name);
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
@@ -71,11 +70,6 @@ public class DialogueManager : GameBaseState
         dialoguePanel.SetActive(false);
         gSm.snapState.BackToOutCam();
     }
-    public void Initialise()
-    {
-        //questionScriptable = gSm.NSm.question;
-        //dialogueKnotName = gSm.NSm.DialogueKnotName;
-    }
 
     //Loads and tweens the dialogue boxes;
     void LoadDialooguePanel(string knotName) 
@@ -93,12 +87,12 @@ public class DialogueManager : GameBaseState
 
     void DisplayNewLine()
     {
+        pictureFrame.SetActive(false);
         if (inkStory.canContinue)
         {
             if (displayLineCoroutine != null)
-            {
-                StopCoroutine(displayLineCoroutine);
-            }
+            StopCoroutine(displayLineCoroutine);
+            
             string infoText = inkStory.Continue();
             while (Helper.IsNullOrWhiteSpace(infoText))
             {
@@ -210,7 +204,7 @@ public class DialogueManager : GameBaseState
         {
             Debug.Log("I edited");
             pictureFrame.SetActive(true);
-            ChoosingNPCPicture(gSm.NSm.DialogueKnotName);
+            ChoosingNPCPicture(gSm.NSm.name);
         }
         //
     }

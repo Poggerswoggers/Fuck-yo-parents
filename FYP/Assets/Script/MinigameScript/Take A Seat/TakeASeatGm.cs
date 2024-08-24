@@ -29,7 +29,6 @@ public class TakeASeatGm : BaseMiniGameClass
     [Header("Config")]
     [SerializeField] float timeBetweenCommuters;
     float _timeBetweenCommuters;
-    int vulnerable = 3;
     int count = 0;
 
     [Header("Minigame cam")]
@@ -43,23 +42,22 @@ public class TakeASeatGm : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        score = 2000 - 500*(2 * vulnerable - count);
+        score = 2000 - 250*(2 * thisLevel.commuterAsset.VulnerableCount - count);
         UnloadedAndUpdateScore(score);
     }
 
     public override void StartGame()
     {
+        communterQueue = new CommunterQueue(startPos.position, endPos.position, this);
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlayMusic(levelMusic);
         }
         SetDifficulty();
         PoolObject();
+        communterQueue.InitialiseSeats(seats, thisLevel.commuterAsset.VulnerableCount);
         LeanTween.reset();
         _timeBetweenCommuters = timeBetweenCommuters;
-
-        communterQueue = new CommunterQueue(startPos.position, endPos.position, this);
-        communterQueue.Speed = thisLevel.commuterSpeed;
     }
 
     public override void UpdateGame()
@@ -139,7 +137,6 @@ public class TakeASeatGm : BaseMiniGameClass
 
     void RoundCheck()
     {
-        Debug.Log("ww");
         if (commuterParent.childCount != 0) return;
         isGameActive = false;        
         for(int i =0; i<seats.Count; i++)
@@ -150,6 +147,7 @@ public class TakeASeatGm : BaseMiniGameClass
                 communterQueue.MoveCommuter(commuter);
             }
         }
+        timeBetweenCommuters *= 0.85f;
         LeanTween.delayedCall(3f, (thisLevel.rounds > 0) ? PoolObject : gameManager.OnGameOver);
     }
 
@@ -163,7 +161,6 @@ public class TakeASeatGm : BaseMiniGameClass
         var list = thisLevel.commuterAsset.commuter();
         int amountToPool = list.Count;
 
-        thisLevel.rounds--;
         pooledCommunters = new List<GameObject>();
         GameObject tmp;
         for (int i = 0; i < amountToPool; i++)
@@ -175,12 +172,19 @@ public class TakeASeatGm : BaseMiniGameClass
             pooledCommunters.Add(tmp);
         }
         pooledCommunters = Helper.Shuffle(pooledCommunters);
+        InitialiseRound();
+    }
+
+    void InitialiseRound()
+    {
+        thisLevel.rounds--;
+        communterQueue.Speed = thisLevel.commuterSpeed;
         isGameActive = true;
     }
 
     bool CommuterInitialise(int i)
     {
-        bool isVulnerable = (i < vulnerable) ? true : false;
+        bool isVulnerable = (i < thisLevel.commuterAsset.VulnerableCount);
         return isVulnerable;
     }
 
@@ -202,6 +206,6 @@ public class TakeASeatGm : BaseMiniGameClass
 internal struct RoundsConfig
 {
     public int rounds;
-    public int commuterSpeed;
+    public float commuterSpeed;
     public NpcAsset commuterAsset;
 }

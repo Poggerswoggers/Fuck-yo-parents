@@ -45,12 +45,13 @@ public class CameraFlash : MonoBehaviour
 
     public void FlashCamera()
     {
+        LeanTween.cancel(cameraFlash);
         cameraFlash.SetActive(true);
         //Set flash sprite renderer back to transparent
         flashSR.color = flashColor;
 
         // Fade out the flash and disable it after
-        LeanTween.alpha(cameraFlash, 0, 0.4f).setEaseOutCirc().setOnComplete(() => cameraFlash.SetActive(false));
+        LeanTween.alpha(cameraFlash, 0, 0.5f).setEaseOutCirc().setOnComplete(() => cameraFlash.SetActive(false));
 
         // Delay the screenshot until after the frame ends
         //TakeScreenShot();

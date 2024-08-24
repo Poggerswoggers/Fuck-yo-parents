@@ -40,6 +40,12 @@ public class CommunterQueue
         commuter.GetComponent<Commuter>().Move(endPos, dur);
     }
 
-
+    public void InitialiseSeats(List<Seat> seatList, int vulnerbaleCount)
+    {
+        for (int i = 0; i < seatList.Count; i++)
+        {
+            seatList[i].gameObject.SetActive((i < vulnerbaleCount));
+        }
+    }
     
 }

@@ -8,8 +8,6 @@ public class NpcStateManager: MonoBehaviour
     public bool HasBounce => _hasBounce;
     public bool isWalking { get; set; }
 
-    public string DialogueKnotName => gameObject.name;
-
     public NpcAnimation npcAnim;
 
     NpcBaseState currentState;

@@ -108,6 +108,7 @@ public class TutorialManager : MonoBehaviour
 
     void Talk()
     {
+        Debug.Log("strike check talk");
         StrikeAndCheck();
         SnapCamera.SnapAction -= Talk;
         SnapCamera.SnapAction += Finish;
@@ -115,11 +116,16 @@ public class TutorialManager : MonoBehaviour
 
     void Finish()
     {
+        Debug.Log("strike check finish");
         ScoreManager.Instance.EndLevel();
-        SnapCamera.SnapAction = null;
     }
     private void OnEnable()
     {
         SnapCamera.SnapAction += Talk;
+    }
+
+    private void OnDisable()
+    {
+        SnapCamera.SnapAction = null;
     }
 }
