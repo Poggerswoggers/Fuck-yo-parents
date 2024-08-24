@@ -238,6 +238,21 @@ Hey! What’s up?
         I am currently heading to school to teach!
         ->DONE
         
+==KaiLun== 
+~correctAnswer = 0
+Eh hello!
+    *[Any food recommendations?]
+         Butter sugar toast set is the best!
+        ->DONE
+    *[You look dashing!]
+       Thank you! You too!  
+        ->DONE
+    *[When commuting, how can I help people without making them angry?]
+        Ask politely if they need help first. 
+        If they reject your help, be understanding and give way to them. 
+        It is nice that you reached out to help!
+        ->DONE
+        
 ==Fries== 
 ~correctAnswer = 0
 Um…hi? Sorry I’m in a rush.
