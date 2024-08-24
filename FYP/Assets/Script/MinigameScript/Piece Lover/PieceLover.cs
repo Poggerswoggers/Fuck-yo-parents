@@ -163,6 +163,10 @@ public class PieceLover : BaseMiniGameClass
             {
                 piecesToMatch--;
                 draggingPiece.GetComponent<BoxCollider2D>().enabled = false;
+                if (AudioManager.instance != null)
+                {
+                    AudioManager.instance.PlaySFX(AudioManager.instance.correctJig);
+                }
                 //Set particle
                 GameObject particle = Instantiate(snapParticle);
                 particle.transform.position = (Vector3Int)slotsPos[index];  //It self destructs

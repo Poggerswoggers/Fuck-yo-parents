@@ -39,6 +39,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip attachJig;
     public AudioClip dettachJig;
+    public AudioClip correctJig;
 
     public AudioClip npcHmm;
 
@@ -103,7 +104,8 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(AudioClip clip){
+    public void PlayMusic(AudioClip clip, float volume = 1f)
+    {
         musicSource.clip = clip;
         musicSource.Play();
     }

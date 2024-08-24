@@ -44,7 +44,7 @@ public class PathFinder : BaseMiniGameClass
     {
         if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlayMusic(levelMusic);
+            AudioManager.instance.PlayMusic(levelMusic, 0.8f);
         }
     }
 
@@ -86,6 +86,10 @@ public class PathFinder : BaseMiniGameClass
     }
     public void Retry()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
+        }
         currentplayerTile = currentSequenceVec2[0] - Vector2Int.up;  //Sets the first tile as the first tile in the created path
         StopAllCoroutines();
         tileMap.ClearAllTiles();

@@ -107,6 +107,10 @@ public class TakeASeatGm : BaseMiniGameClass
             if(Vector2.Distance(grabbedCommuter.position, seat.transform.position) < 1.5f)
             {
                 seat.SitCommuter(grabbedCommuter);
+                if (AudioManager.instance != null)
+                {
+                    AudioManager.instance.PlaySFX(AudioManager.instance.dettachJig);
+                }
                 if (grabbedCommuter.GetComponent<Commuter>().isVulnerable)
                 {
                     vulnerableMatch?.Invoke(count+=1); 

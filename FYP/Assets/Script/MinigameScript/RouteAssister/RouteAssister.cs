@@ -89,7 +89,7 @@ public class RouteAssister : BaseMiniGameClass
         mapCam.gameObject.SetActive(true);
         if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlaySFX(AudioManager.instance.npcHmm);
+            AudioManager.instance.PlaySFX(AudioManager.instance.npcHmm, 1.5f);
         }
         yield return new WaitForSeconds(peakTime);
         cam.m_Lens.OrthographicSize = 6;
@@ -152,7 +152,12 @@ public class RouteAssister : BaseMiniGameClass
         clear = (currentDes.route[index] == buttonRoute && clear == index) ? clear + 1 : clear;   //Clear goes up when selected button int matches the current route index int
         routeSprite[index].sprite = buttonImage.sprite;      //Set rich text color
 
-        if(index == currentDes.route.Count-1)   //if index = 2 means filled out route choices
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
+        }
+
+        if (index == currentDes.route.Count-1)   //if index = 2 means filled out route choices
         {
             CheckIfMatch();
             StartCoroutine(RoundOver());           
