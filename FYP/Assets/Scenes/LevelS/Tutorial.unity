@@ -3513,7 +3513,7 @@ GameObject:
   - component: {fileID: 7484001718615999842}
   - component: {fileID: 2601564936920407304}
   m_Layer: 6
-  m_Name: Russell
+  m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
