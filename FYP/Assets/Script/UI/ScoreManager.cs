@@ -170,6 +170,7 @@ public class ScoreManager : MonoBehaviour
     IEnumerator InstantiateScorePrefabsCo(int count)
     {
         Vector3 currentSpawnPoint = spawningPoint.position;
+        currentSpawnPoint.z = 0;
         for (int i = 0; i < count; i++)
         {
             Instantiate(scorePrefab, currentSpawnPoint, Quaternion.identity);
