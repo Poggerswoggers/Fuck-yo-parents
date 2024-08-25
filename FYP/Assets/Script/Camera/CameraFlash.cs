@@ -19,7 +19,6 @@ public class CameraFlash : MonoBehaviour
 
     private void Start()
     {
-        LeanTween.reset();
         snapShotCam = GetComponent<Camera>();
         flashSR = cameraFlash.GetComponent<SpriteRenderer>();
 

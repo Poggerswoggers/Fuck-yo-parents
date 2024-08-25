@@ -961,7 +961,7 @@ MonoBehaviour:
     commuterAsset: {fileID: 11400000, guid: cf6ef67b556fbeb4ca65b8b304640cae, type: 2}
   startPos: {fileID: 931612102}
   endPos: {fileID: 415818785}
-  timeBetweenCommuters: 1
+  timeBetweenCommuters: 1.2
   minigameCam: {fileID: 632240831}
   levelMusic: {fileID: 8300000, guid: 5978069ae89b74d29b5ea811345f43b2, type: 3}
 --- !u!4 &1068648188

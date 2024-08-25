@@ -15,6 +15,7 @@ public class FpsCounter : MonoBehaviour
     private int _averageCounter = 0;
     private int _currentAveraged;
 
+
     void Awake()
     {
         // Cache strings and create array
@@ -25,6 +26,8 @@ public class FpsCounter : MonoBehaviour
             }
             _frameRateSamples = new int[_averageFromAmount];
         }
+        Text.gameObject.SetActive(false);
+
     }
     void Update()
     {
@@ -56,6 +59,13 @@ public class FpsCounter : MonoBehaviour
                 var x when x < 0 => "< 0",
                 _ => "?"
             };
+        }
+
+
+        //Key input
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Text.gameObject.SetActive(!Text.gameObject.activeSelf);
         }
     }
 }

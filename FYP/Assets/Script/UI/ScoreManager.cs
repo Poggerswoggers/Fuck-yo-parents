@@ -21,11 +21,11 @@ public class ScoreManager : MonoBehaviour
     public int levelScore { get; private set; }
 
     [Header("Vulnerable Commuter Count")]
-    [SerializeField] TextMeshProUGUI vulnerableComCountText;
+    [SerializeField] TextMeshProUGUI vulnerableComCountText;        //Vulnerable count in the level text
     int vulnerableComCount;
 
 
-    string addictiveScene;
+    string addictiveScene;      //String name of addictive scene
 
     //target Ref
     [SerializeField] List<Transform> levelTargets;
@@ -82,10 +82,9 @@ public class ScoreManager : MonoBehaviour
         UpdateScore(-maxScore);
     }
 
-    public void DisableUI(bool state)
-    {
-        levelUIPanel.SetActive(state);
-    }
+    //Toggle UI to be in view or not
+    public void EnableLevelUI() => LeanTween.move(levelUIPanel.GetComponent<RectTransform>(), Vector2.zero, 0.8f).setEaseInCubic();
+    public void DisableLevelUI() => LeanTween.move(levelUIPanel.GetComponent<RectTransform>(), Vector2.up * 150, 1).setEaseInBack();
 
     public void UpdateScore(int points)
     {
@@ -178,6 +177,5 @@ public class ScoreManager : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
         }
     }
-    //
-
+    
 }

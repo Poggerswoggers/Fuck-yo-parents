@@ -21,6 +21,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] AudioClip levelMusic;
     private void Start()
     {
+        LeanTween.reset();
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlayMusic(levelMusic);

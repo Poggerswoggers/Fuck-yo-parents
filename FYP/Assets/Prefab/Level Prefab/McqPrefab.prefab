@@ -162,6 +162,7 @@ MonoBehaviour:
   selectedColor: {r: 0.59748423, g: 0.59748423, b: 0.59748423, a: 1}
   defaultColor: {r: 0.8742138, g: 0.6728523, b: 0.34363744, a: 1}
   questionCategories: {fileID: 11400000, guid: 0cb4cc0d68519cc49b92ecc4ba380721, type: 2}
+  radialTimer: {fileID: 4294603725559002957}
 --- !u!1 &4135029532557327187
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +610,111 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6822581764124913432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3192835433385125740}
+  - component: {fileID: 2511234703711049732}
+  - component: {fileID: 4294603725559002957}
+  - component: {fileID: 5089309710075492447}
+  - component: {fileID: 8965924974676604061}
+  m_Layer: 5
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3192835433385125740
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822581764124913432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8769638901527163304}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 825, y: -407}
+  m_SizeDelta: {x: 500, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2511234703711049732
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822581764124913432}
+  m_CullTransparentMesh: 1
+--- !u!114 &4294603725559002957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822581764124913432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ac634a78a5a034947addde721ad7bff6, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5089309710075492447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822581764124913432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21bb8f15e505364baa400b26b4ace63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerSlider: {fileID: 0}
+--- !u!114 &8965924974676604061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822581764124913432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 10, y: -10}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &4592303682078480811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,6 +1004,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4798419522204833778, guid: 97d85444638ac844db31bd45df6ccdc8, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5048297413613758467, guid: 97d85444638ac844db31bd45df6ccdc8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3192835433385125740}
     - targetCorrespondingSourceObject: {fileID: 3887807457493420028, guid: 97d85444638ac844db31bd45df6ccdc8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2717250601793156520}
@@ -977,6 +1086,22 @@ MonoBehaviour:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: EventTriggerHandler, Assembly-CSharp
           m_MethodName: PointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: EventTriggerHandler, Assembly-CSharp
+          m_MethodName: PointerSelect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

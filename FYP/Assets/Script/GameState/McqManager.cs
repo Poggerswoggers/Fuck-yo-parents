@@ -30,6 +30,9 @@ public class McqManager : GameBaseState
     [SerializeField] McqCategories questionCategories;
     MCQ questionScriptable;
 
+    [Header("Radial Timer")]
+    [SerializeField] Image radialTimer;
+
     public override void EnterState(GameStateManager gameStateManager)
     {
         gSm = gameStateManager;
@@ -123,14 +126,22 @@ public class McqManager : GameBaseState
             ScoreManager.Instance.OnScoreChange?.Invoke(300);
         }
         DestroyAnswers();
+
+        //This whole part is just a timer
         NextButton.onClick.RemoveAllListeners();
         NextButton.gameObject.SetActive(false);
-        //Delay move on button
-        LeanTween.delayedCall(3, Cooldown);
+        radialTimer.gameObject.SetActive(true);
+        LeanTween.value(radialTimer.gameObject, 1, 0, 5f).setOnUpdate((value) =>
+        {
+            radialTimer.fillAmount = value;
+        })
+        .setOnComplete(Cooldown);
     }
 
     void Cooldown()
     {
+        radialTimer.gameObject.SetActive(false);
+        radialTimer.fillAmount = 1;
         NextButton.gameObject.SetActive(true);
         NextButton.onClick.AddListener(() => GoToMiniGame());
     }

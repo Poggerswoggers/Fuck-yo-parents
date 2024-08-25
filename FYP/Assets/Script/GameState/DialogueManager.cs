@@ -35,7 +35,6 @@ public class DialogueManager : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
-        ScoreManager.Instance.DisableUI(false);
         Cursor.visible = true;
         gSm = gameStateManager;
         LoadDialooguePanel(gSm.NSm.name);

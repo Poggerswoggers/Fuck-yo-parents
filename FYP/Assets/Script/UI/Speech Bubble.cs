@@ -19,7 +19,6 @@ public class SpeechBubble : MonoBehaviour
 
     IEnumerator dotAnimCo()
     {
-        LeanTween.reset();
         for(int i =0; i< dots.Count; i++)
         {
             LeanTween.moveLocalY(dots[i], 0.3f, 1f).setEase(easeType);

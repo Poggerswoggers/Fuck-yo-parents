@@ -49,9 +49,7 @@ public class SnapCamera : GameBaseState
     {
         Cursor.visible = false;
         CameraReticle.gameObject.SetActive(true);
-        ScoreManager.Instance.DisableUI(true);
         gSm = gameStateManager;
-        LeanTween.reset();
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
@@ -126,6 +124,8 @@ public class SnapCamera : GameBaseState
             if (taggedGameObject.Length > 0)
             {
                 camMode = true;
+                SnapAction?.Invoke();
+                ScoreManager.Instance.DisableLevelUI();
                 LeanTween.delayedCall(0.5f,ZoomToTarget);
             }
         }
@@ -175,8 +175,6 @@ public class SnapCamera : GameBaseState
         LeanTween.move(CameraReticle.gameObject,
             closestGameObject.position + zoomCam.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset,
             0.5f).setOnComplete(()=>gSm.ChangeState(gSm.dialogueStat));
-
-        SnapAction?.Invoke();
     }
 
 
@@ -201,6 +199,8 @@ public class SnapCamera : GameBaseState
 
     public void BackToOutCam()
     {
+        ScoreManager.Instance.EnableLevelUI();
+
         zoomCam.Priority = 1;
         zoomCam.Follow = null;
         camMode = false;
