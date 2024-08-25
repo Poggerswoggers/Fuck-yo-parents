@@ -199,8 +199,6 @@ public class SnapCamera : GameBaseState
 
     public void BackToOutCam()
     {
-        ScoreManager.Instance.EnableLevelUI();
-
         zoomCam.Priority = 1;
         zoomCam.Follow = null;
         camMode = false;

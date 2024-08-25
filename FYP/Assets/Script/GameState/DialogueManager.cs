@@ -112,7 +112,7 @@ public class DialogueManager : GameBaseState
             }
             else
             {
-                (SnapCamera.SnapAction ?? backButton).Invoke();
+                (SnapCamera.SnapAction ?? BackButton).Invoke();
             }
         }
     }
@@ -238,12 +238,13 @@ public class DialogueManager : GameBaseState
 
     // Update is called once per frame
 
-    public void backButton()
+    public void BackButton()
     {
         if(AudioManager.instance != null)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
         }
+        ScoreManager.Instance.EnableLevelUI();
         RefreshChoiceView();
         gSm.ChangeState(gSm.snapState);
     }
