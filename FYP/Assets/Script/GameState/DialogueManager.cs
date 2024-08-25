@@ -67,6 +67,7 @@ public class DialogueManager : GameBaseState
 
     public override void ExitState(GameStateManager gameStateManager)
     {
+        pictureFrame.SetActive(false);
         dialoguePanel.SetActive(false);
         gSm.snapState.BackToOutCam();
     }
@@ -87,7 +88,7 @@ public class DialogueManager : GameBaseState
 
     void DisplayNewLine()
     {
-        pictureFrame.SetActive(false);
+        //pictureFrame.SetActive(false);
         if (inkStory.canContinue)
         {
             if (displayLineCoroutine != null)
