@@ -203,7 +203,6 @@ public class DialogueManager : GameBaseState
         if (correctPrompt)
         {
             Debug.Log("I edited");
-            pictureFrame.SetActive(true);
             ChoosingNPCPicture(gSm.NSm.name);
         }
         //
@@ -218,6 +217,7 @@ public class DialogueManager : GameBaseState
             if (img.name == knotName)
             {
                 Debug.Log("true");
+                pictureFrame.SetActive(true);
                 picture.GetComponent<Image>().sprite = img;
                 break;
             }
