@@ -66,6 +66,7 @@ public class DialogueManager : GameBaseState
 
     public override void ExitState(GameStateManager gameStateManager)
     {
+        pictureFrame.SetActive(false);
         dialoguePanel.SetActive(false);
         gSm.snapState.BackToOutCam();
     }
@@ -86,7 +87,7 @@ public class DialogueManager : GameBaseState
 
     void DisplayNewLine()
     {
-        pictureFrame.SetActive(false);
+        //pictureFrame.SetActive(false);
         if (inkStory.canContinue)
         {
             if (displayLineCoroutine != null)
@@ -202,7 +203,6 @@ public class DialogueManager : GameBaseState
         if (correctPrompt)
         {
             Debug.Log("I edited");
-            pictureFrame.SetActive(true);
             ChoosingNPCPicture(gSm.NSm.name);
         }
         //
@@ -217,6 +217,7 @@ public class DialogueManager : GameBaseState
             if (img.name == knotName)
             {
                 Debug.Log("true");
+                pictureFrame.SetActive(true);
                 picture.GetComponent<Image>().sprite = img;
                 break;
             }
