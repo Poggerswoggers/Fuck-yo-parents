@@ -2633,6 +2633,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: McqPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 549526013101985302, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontSize
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 549526013101985302, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 549526013101985302, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1710356284501211130, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3827288
@@ -2673,6 +2685,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4135029532557327187, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6590535860657399693, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2685,6 +2701,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 217719309}
+    - target: {fileID: 7596451448182966017, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2953,6 +2973,10 @@ PrefabInstance:
     - target: {fileID: 5267661908456238453, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780117167275628445, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 7581412369166454325, guid: ee4c6a392f53e3245be44e8c6b729512, type: 3}
       propertyPath: m_Delegates.Array.size

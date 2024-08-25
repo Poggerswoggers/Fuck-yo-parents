@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     {
         Pan,
         Snap,
+        UI,
         Talk,
     }
     public TutorialStep currentStep;
@@ -28,6 +30,10 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] Collider2D tutorialCommuter;
     [SerializeField] Transform reticle;
     [SerializeField] float minDragTime;
+
+    [Header("UI Test")]
+    [SerializeField] GameObject uiTestParent;
+    int uiTestCount;
 
 
     float currentDragTime;
@@ -63,19 +69,30 @@ public class TutorialManager : MonoBehaviour
             if (reticle.position != lastMousePosition)
             {
                 if (currentDragTime < minDragTime)
-                {
-                    currentDragTime += Time.deltaTime;
-                }
+                    currentDragTime += Time.deltaTime;             
                 else
                 {
                     StrikeAndCheck();
-                    currentStep = TutorialStep.Talk;
+                    UICheck();
+                    currentStep = TutorialStep.UI;
                 }
             }
             lastMousePosition = reticle.position;
         }
     }
 
+    void UICheck()
+    {
+        ScoreManager.Instance.EnableLevelUI();
+        LeanTween.delayedCall(1,()=> uiTestParent.SetActive(true));
+    }
+
+    public void CheckUI()
+    {
+        StrikeAndCheck();
+        uiTestParent.SetActive(false);
+        currentStep = TutorialStep.Talk;
+    }
     void Snap()
     {
         if (Input.GetMouseButtonDown(0))
