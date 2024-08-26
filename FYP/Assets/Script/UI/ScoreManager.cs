@@ -114,12 +114,9 @@ public class ScoreManager : MonoBehaviour, IQuestionable
         }
 
 
-        //
-        if (minigameCount > 0)
-        {
-            gSm.ChangeState(gSm.snapState);
-        }
         gSm.ClearNpc();
+        if (minigameCount > 0)
+        gSm.ChangeState(gSm.snapState);     //go back to snap state
     }
 
     public void LoadAddictiveScene(string sceneName, int minigameDifficulty)
@@ -191,7 +188,8 @@ public class ScoreManager : MonoBehaviour, IQuestionable
             if(mcqPopupTimer < 0)
             {
                 mcqPopupTimer = mcqPopUpTime;
-                PopupQuestion();
+                russellPopup.SetActive(true);
+                LeanTween.delayedCall(3, PopupQuestion);
             }
         }
     }
@@ -199,12 +197,14 @@ public class ScoreManager : MonoBehaviour, IQuestionable
     void PopupQuestion()
     {
         DisableLevelUI();
+        russellPopup.SetActive(false);
         gSm.mcqState.SetQuestionVariables(GetQuestionType(), guideSprite);
         gSm.ChangeState(gSm.mcqState);
     }
 
     [Header("Pop up question fields")]
     [SerializeField] Sprite guideSprite;
+    [SerializeField] GameObject russellPopup;
     QuestionTypes QuestionType
     {
         get
