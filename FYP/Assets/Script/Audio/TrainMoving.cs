@@ -8,7 +8,7 @@ public class TrainMoving : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -29,11 +29,19 @@ public class TrainMoving : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.mrtPass, 0.2f);
         }
     }
-    /*
+
+    public void WhistleBlow()
+    {
+        if (Time.timeScale > 0 && AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.whistle);
+        }
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Stop playing the sound when a new scene is loaded
         AudioManager.instance?.StopSFX(AudioManager.instance.mrtPass);
+        AudioManager.instance?.StopSFX(AudioManager.instance.whistle);
     }
-    */
 }
