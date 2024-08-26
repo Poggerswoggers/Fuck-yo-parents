@@ -40,6 +40,14 @@ public class TakeASeatGm : BaseMiniGameClass
     //Reference
     CommunterQueue communterQueue;
 
+    private void Awake()
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
+    }
+
     public override void EndSequenceMethod()
     {
         score = 2000 - 250*(2 * thisLevel.commuterAsset.VulnerableCount - count);
@@ -49,10 +57,6 @@ public class TakeASeatGm : BaseMiniGameClass
     public override void StartGame()
     {
         communterQueue = new CommunterQueue(startPos.position, endPos.position, this);
-        if (AudioManager.instance != null)
-        {
-            AudioManager.instance.PlayMusic(levelMusic);
-        }
         SetDifficulty();
         PoolObject();
         communterQueue.InitialiseSeats(seats, thisLevel.commuterAsset.VulnerableCount);
