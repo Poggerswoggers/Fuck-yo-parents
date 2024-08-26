@@ -2455,6 +2455,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3316834346821130546}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: scorePrefab100
+      value: 
+      objectReference: {fileID: 2603442878548589962, guid: 600c9875a24b8684f807eb650b2bbb6d, type: 3}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: levelTargets.Array.data[0]
       value: 
       objectReference: {fileID: 6586496841620466397}

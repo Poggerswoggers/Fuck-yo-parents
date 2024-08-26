@@ -33,7 +33,9 @@ public class LevelManager : MonoBehaviour, IQuestionable
 
     //hi jason i added this
     //Scoring Feedback
-    [SerializeField] GameObject scorePrefab;
+    [SerializeField] GameObject scorePrefab1000;
+    [SerializeField] GameObject scorePrefab500;
+    [SerializeField] GameObject scorePrefab100;
     [SerializeField] Transform spawningPoint;
     [SerializeField] float spawnDelay = 0.1f;
     [SerializeField] float offsetAmount = 0.1f;
@@ -113,9 +115,13 @@ public class LevelManager : MonoBehaviour, IQuestionable
         minigameCount--;
 
         //hi jason i added this
-        if (scorePrefab != null) {
-            int numberOfPrefabs = score / 1000;
-            StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs));
+        if (scorePrefab1000 != null && scorePrefab500 != null && scorePrefab100 != null) {
+            int numberOfPrefabs1000 = score / 1000;
+            int numberOfPrefabs500 = score % 1000 / 500;
+            int numberOfPrefabs100 = score % 500 / 100;
+
+            StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs1000, numberOfPrefabs500, numberOfPrefabs100));
+            Debug.Log("debugging" + numberOfPrefabs1000 + numberOfPrefabs500 + numberOfPrefabs100);
             StartCoroutine(UpdateScoreMinigameCo(score));
         }
 
@@ -166,16 +172,31 @@ public class LevelManager : MonoBehaviour, IQuestionable
     }
 
     //hi jason i added this
-    IEnumerator InstantiateScorePrefabsCo(int count)
+    IEnumerator InstantiateScorePrefabsCo(int count, int count2, int count3)
     {
         Vector3 currentSpawnPoint = spawningPoint.position;
         currentSpawnPoint.z = 0;
         for (int i = 0; i < count; i++)
         {
-            Instantiate(scorePrefab, currentSpawnPoint, Quaternion.identity);
-            currentSpawnPoint.y -= offsetAmount;  
+            Instantiate(scorePrefab1000, currentSpawnPoint, Quaternion.identity);
+            currentSpawnPoint.y -= offsetAmount;
             yield return new WaitForSeconds(spawnDelay);
         }
+        for (int i = 0; i < count2; i++)
+        {
+            Instantiate(scorePrefab500, currentSpawnPoint, Quaternion.identity);
+            currentSpawnPoint.y -= offsetAmount;
+            yield return new WaitForSeconds(spawnDelay);
+        }
+
+        for (int i = 0; i < count3; i++)
+        {
+            Instantiate(scorePrefab100, currentSpawnPoint, Quaternion.identity);
+            currentSpawnPoint.y -= offsetAmount;
+            yield return new WaitForSeconds(spawnDelay);
+        }
+
+
     }
 
     private void Update()

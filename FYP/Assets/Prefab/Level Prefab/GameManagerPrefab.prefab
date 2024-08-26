@@ -751,7 +751,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gSm: {fileID: 1284608441080620031}
-  scorePrefab: {fileID: 2603442878548589962, guid: 080ca0f7d6df9ae46b5409314bbb19ad, type: 3}
+  scorePrefab1000: {fileID: 2603442878548589962, guid: 080ca0f7d6df9ae46b5409314bbb19ad, type: 3}
+  scorePrefab500: {fileID: 2603442878548589962, guid: d701f19b2e3c8f7428080f87bbd5b89e, type: 3}
+  scorePrefab100: {fileID: 2603442878548589962, guid: 600c9875a24b8684f807eb650b2bbb6d, type: 3}
   spawningPoint: {fileID: 0}
   spawnDelay: 0.1
   offsetAmount: 0.1
