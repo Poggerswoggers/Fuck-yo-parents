@@ -123,7 +123,6 @@ public class McqManager : GameBaseState
 
     public void LockChoices()
     {
-        Debug.Log("Lock choice");
         playerChoice.Sort();             
         if (questionScriptable.correctOptions.SequenceEqual(playerChoice))
         {
@@ -158,12 +157,10 @@ public class McqManager : GameBaseState
     {
         if (gSm.NSm != null)
         {
-            Debug.Log("went to minigame");
             GoToMiniGame();
         }
         else
         {
-            Debug.Log("went to snap");
             gSm.ChangeState(gSm.snapState);
         }
     }
@@ -217,6 +214,11 @@ public class McqManager : GameBaseState
         mcqPanel.SetActive(false);
         answerChoiceList.Clear();
         playerChoice.Clear();
+
+        if(gSm.NSm == null)
+        {
+            ScoreManager.Instance.ShowFrustratedNpc(); 
+        }
     }
 }
 internal class AnswerChoice

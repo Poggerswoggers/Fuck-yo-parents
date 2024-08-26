@@ -38,10 +38,6 @@ public class ScoreManager : MonoBehaviour, IQuestionable
     [SerializeField] float spawnDelay = 0.1f;
     [SerializeField] float offsetAmount = 0.1f;
 
-    [Header("Runtime MCQ Popup")]
-        float mcqPopupTimer;
-    [SerializeField] float mcqPopUpTime;
-
     int minigameCount;
 
     private void Awake()
@@ -197,10 +193,22 @@ public class ScoreManager : MonoBehaviour, IQuestionable
         gSm.mcqState.SetQuestionVariables(GetQuestionType(), guideSprite);
         gSm.ChangeState(gSm.mcqState);
     }
+    
+    public void ShowFrustratedNpc()
+    {
+        Debug.Log("hehe");
+        foreach(var commuter in levelTargets)
+        {
+            StartCoroutine(commuter.GetComponent<NpcAnimation>().Frustrated(4.5f));
+        }
+    }
 
     [Header("Pop up question fields")]
     [SerializeField] Sprite guideSprite;
     [SerializeField] GameObject russellPopup;
+    [SerializeField] float mcqPopUpTime;
+    float mcqPopupTimer;
+
     QuestionTypes QuestionType
     {
         get
