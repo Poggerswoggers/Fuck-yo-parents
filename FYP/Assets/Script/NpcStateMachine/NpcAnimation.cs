@@ -134,4 +134,11 @@ public class NpcAnimation : MonoBehaviour
         yield return new WaitForSeconds(dur);
         transform.GetChild(1).gameObject.SetActive(false);
     }
+
+    public IEnumerator Frustrated(float dur)
+    {
+        spriteTransform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(dur);
+        spriteTransform.GetChild(0).gameObject.SetActive(false);
+    }
 }
