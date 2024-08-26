@@ -173,8 +173,6 @@ public class ScoreManager : MonoBehaviour, IQuestionable
         }
     }
 
-
-
     private void Update()
     {
         PopupTimer();
@@ -189,6 +187,7 @@ public class ScoreManager : MonoBehaviour, IQuestionable
             {
                 mcqPopupTimer = mcqPopUpTime;
                 russellPopup.SetActive(true);
+                DisableLevelUI();
                 LeanTween.delayedCall(3, PopupQuestion);
             }
         }
@@ -196,7 +195,6 @@ public class ScoreManager : MonoBehaviour, IQuestionable
 
     void PopupQuestion()
     {
-        DisableLevelUI();
         russellPopup.SetActive(false);
         gSm.mcqState.SetQuestionVariables(GetQuestionType(), guideSprite);
         gSm.ChangeState(gSm.mcqState);

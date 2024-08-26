@@ -925,7 +925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraFlash: {fileID: 3935959768061749414}
   snapShotTexture: {fileID: 0}
-  flashColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &4111441676008122078
 PrefabInstance:
   m_ObjectHideFlags: 0

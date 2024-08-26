@@ -822,6 +822,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2852112037012187186}
+    - target: {fileID: 2182946221213553298, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2820632909803474235, guid: 435126323d37e384eb5743f1e73cada4, type: 3}
       propertyPath: m_SizeDelta.y
       value: -39.0316
