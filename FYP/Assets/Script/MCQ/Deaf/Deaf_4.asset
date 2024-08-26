@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d7e34aadb86204a88fa81a305c1288, type: 3}
+  m_Name: Deaf_4
+  m_EditorClassIdentifier: 
+  questionText: What should you do when you see a commuter wearing a hearing aid
+    who looks distressed?
+  answerText:
+  - Ignore them
+  - "Ask if they need help if they look lost and help inform them if there is any
+    important announcement made via the intercom\r"
+  - "Shout at them because they cannot hear\r"
+  correctOptions: 02000000
+  ExplanationText: "<color=#F6FF2E>Commuters who are deaf may not be able to hear
+    important announcements - We can do our part to help them when they need it via
+    our mobile phones or writing.\r"
+  questionType: 0

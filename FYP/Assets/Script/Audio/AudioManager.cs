@@ -43,6 +43,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip npcHmm;
 
+    public AudioClip whistle;
+
     public static AudioManager instance;
     private bool isPaused = false;
 
@@ -115,6 +117,7 @@ public class AudioManager : MonoBehaviour
         // Reset the pause state when the scene changes
         SetPauseState(false);
         StopSFX(mrtPass);
+        StopSFX(whistle);
     }
 
     public void SetPauseState(bool paused)
