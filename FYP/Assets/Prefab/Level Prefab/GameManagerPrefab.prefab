@@ -755,9 +755,9 @@ MonoBehaviour:
   spawningPoint: {fileID: 0}
   spawnDelay: 0.1
   offsetAmount: 0.1
-  mcqPopUpTime: 30
   guideSprite: {fileID: 21300000, guid: 18fb3e657c3eec04581f71166e1a8f62, type: 3}
   russellPopup: {fileID: 9206936207291438711}
+  mcqPopUpTime: 30
 --- !u!1 &1509679141301266540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,8 +4007,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9d95ed777134b4d70b5333cfe46be9de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
