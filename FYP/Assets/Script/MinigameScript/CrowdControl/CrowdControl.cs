@@ -56,9 +56,6 @@ public class CrowdControl : BaseMiniGameClass
     [SerializeField] SliderTimer timer;
     [SerializeField] float gameTime;
 
-    [Header("Audio")]
-    [SerializeField] AudioClip levelMusic;
-
     public Transform GetCardPos()
     {
         return cardPos;
@@ -67,11 +64,6 @@ public class CrowdControl : BaseMiniGameClass
     //Initialise game values
     private void Awake()
     {
-        if (AudioManager.instance != null)
-        {
-            AudioManager.instance.PlayMusic(levelMusic);
-        }
-
         SetDifficulty();
         _addDelay = addDelay;
         npcScriptableList = Helper.Shuffle(npcScriptableList); //Set the shuffled list

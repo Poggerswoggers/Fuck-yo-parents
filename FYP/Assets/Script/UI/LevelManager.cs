@@ -5,9 +5,9 @@ using System;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class ScoreManager : MonoBehaviour, IQuestionable
+public class LevelManager : MonoBehaviour, IQuestionable
 {
-    public static ScoreManager Instance { get; private set; }
+    public static LevelManager Instance { get; private set; }
     public static int selectedMinigameDifficulty = 1;
     public Action<int> OnScoreChange;
 
@@ -40,10 +40,13 @@ public class ScoreManager : MonoBehaviour, IQuestionable
 
     int minigameCount;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip levelMusic;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
-
+        //Singleton yea
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -52,6 +55,13 @@ public class ScoreManager : MonoBehaviour, IQuestionable
         {
             Instance = this;
         }
+        PlayLevelAudio();
+    }
+
+    public void PlayLevelAudio()
+    {
+        if (AudioManager.instance != null)
+        AudioManager.instance.PlayMusic(levelMusic, 0.8f);
     }
 
     private void OnEnable()
@@ -76,7 +86,7 @@ public class ScoreManager : MonoBehaviour, IQuestionable
     }
 
     //Toggle UI to be in view or not
-    public void EnableLevelUI() => LeanTween.move(levelUIPanel.GetComponent<RectTransform>(), Vector2.zero, 0.8f).setEaseInCubic();
+    public void EnableLevelUI() => LeanTween.move(levelUIPanel.GetComponent<RectTransform>(), Vector2.zero, 0.8f).setEaseInCubic(); 
     public void DisableLevelUI() => LeanTween.move(levelUIPanel.GetComponent<RectTransform>(), Vector2.up * 150, 1).setEaseInBack();
 
     public void UpdateScore(int points)
@@ -87,6 +97,7 @@ public class ScoreManager : MonoBehaviour, IQuestionable
 
     public void Updatetargets(Transform target)
     {
+        //Update target this stuff is ancient
         if (levelTargets.Contains(target))
         {
             vulnerableComCount++;
@@ -172,6 +183,7 @@ public class ScoreManager : MonoBehaviour, IQuestionable
         PopupTimer();
     }
 
+    //Pop up timer to execute popup MCQ
     void PopupTimer()
     {
         if (gSm.GetCurrentGameState() == gSm.snapState)

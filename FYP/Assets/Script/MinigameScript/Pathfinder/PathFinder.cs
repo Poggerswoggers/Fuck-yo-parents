@@ -40,14 +40,6 @@ public class PathFinder : BaseMiniGameClass
     [Header("Audio")]
     [SerializeField] AudioClip levelMusic;
 
-    private void Awake()
-    {
-        if (AudioManager.instance != null)
-        {
-            AudioManager.instance.PlayMusic(levelMusic, 0.8f);
-        }
-    }
-
     public override void EndSequenceMethod()
     {
         Debug.Log(score);

@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 8910394811385619819}
   - component: {fileID: 4759653151297736069}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -755,9 +755,10 @@ MonoBehaviour:
   spawningPoint: {fileID: 0}
   spawnDelay: 0.1
   offsetAmount: 0.1
-  mcqPopUpTime: 30
+  levelMusic: {fileID: 0}
   guideSprite: {fileID: 21300000, guid: 18fb3e657c3eec04581f71166e1a8f62, type: 3}
   russellPopup: {fileID: 9206936207291438711}
+  mcqPopUpTime: 30
 --- !u!1 &1509679141301266540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4146,7 +4147,6 @@ MonoBehaviour:
   minigameState: {fileID: 0}
   pauseState: {fileID: 3596712208685026144}
   endState: {fileID: 1211105555612462036}
-  levelMusic: {fileID: 8300000, guid: ecfbcfe13c4284d62a4dffd50358f30f, type: 3}
 --- !u!114 &8975580651152516467
 MonoBehaviour:
   m_ObjectHideFlags: 0

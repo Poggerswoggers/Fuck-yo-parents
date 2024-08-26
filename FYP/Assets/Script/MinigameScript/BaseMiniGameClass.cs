@@ -11,8 +11,8 @@ public abstract class BaseMiniGameClass : MonoBehaviour
     }
     public difficulty GetDifficulty()
     {
-        return Enum.IsDefined(typeof(difficulty), ScoreManager.selectedMinigameDifficulty)? 
-            (difficulty)ScoreManager.selectedMinigameDifficulty : difficulty.One;
+        return Enum.IsDefined(typeof(difficulty), LevelManager.selectedMinigameDifficulty)? 
+            (difficulty)LevelManager.selectedMinigameDifficulty : difficulty.One;
     }
 
     protected int score;
@@ -64,7 +64,7 @@ public abstract class BaseMiniGameClass : MonoBehaviour
 
     protected void UnloadedAndUpdateScore(int i)
     {
-        ScoreManager.Instance?.UnloadAddictiveScene(i);
+        LevelManager.Instance?.UnloadAddictiveScene(i);
     }
 
     private void OnDisable(){

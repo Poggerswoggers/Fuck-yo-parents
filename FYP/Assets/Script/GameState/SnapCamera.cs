@@ -47,7 +47,7 @@ public class SnapCamera : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
-        ScoreManager.Instance.EnableLevelUI();
+        LevelManager.Instance.EnableLevelUI();
         Cursor.visible = false;
         CameraReticle.gameObject.SetActive(true);
         gSm = gameStateManager;
@@ -127,7 +127,7 @@ public class SnapCamera : GameBaseState
             {
                 camMode = true;
                 SnapAction?.Invoke();
-                ScoreManager.Instance.DisableLevelUI();
+                LevelManager.Instance.DisableLevelUI();
                 LeanTween.delayedCall(0.5f,ZoomToTarget);
             }
         }
@@ -163,7 +163,7 @@ public class SnapCamera : GameBaseState
         zoomCam.Follow = closestGameObject;
         
         //If closest = taret npc, remove the target Npc
-        ScoreManager.Instance.Updatetargets(closestGameObject.transform);
+        LevelManager.Instance.Updatetargets(closestGameObject.transform);
 
         //Set its layer to be infront
         closestGameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;

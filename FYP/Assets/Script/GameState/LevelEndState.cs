@@ -31,7 +31,7 @@ public class LevelEndState : GameBaseState
     {
         if (saveLevel)
         {
-            levelData.levelDataArray[levelIndex].Score = ScoreManager.Instance.levelScore;
+            levelData.levelDataArray[levelIndex].Score = LevelManager.Instance.levelScore;
         }
         levelData.levelDataArray[levelIndex+1].unlocked = true;
         saveSystem.SaveLevelData();

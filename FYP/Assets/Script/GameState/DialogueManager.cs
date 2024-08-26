@@ -199,7 +199,7 @@ public class DialogueManager : GameBaseState
 
         RefreshChoiceView();
         if (correctOption == 0) return;
-        ScoreManager.Instance.OnScoreChange?.Invoke((correctPrompt) ? -200 : 200);
+        LevelManager.Instance.OnScoreChange?.Invoke((correctPrompt) ? -200 : 200);
         //hi jason i added this
         if (correctPrompt)
         {

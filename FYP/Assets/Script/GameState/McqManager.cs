@@ -127,12 +127,12 @@ public class McqManager : GameBaseState
         if (questionScriptable.correctOptions.SequenceEqual(playerChoice))
         {
             answerStatementText.text = "CORRECT";
-            ScoreManager.Instance.OnScoreChange?.Invoke(-200);
+            LevelManager.Instance.OnScoreChange?.Invoke(-200);
         }
         else
         {
             answerStatementText.text = "NICE TRY";
-            ScoreManager.Instance.OnScoreChange?.Invoke(300);
+            LevelManager.Instance.OnScoreChange?.Invoke(300);
         }
         DestroyAnswers();
         StartCoroutine(DisplayNextLineEffect(questionScriptable.ExplanationText));
@@ -217,7 +217,7 @@ public class McqManager : GameBaseState
 
         if(gSm.NSm == null)
         {
-            ScoreManager.Instance.ShowFrustratedNpc(); 
+            LevelManager.Instance.ShowFrustratedNpc(); 
         }
     }
 }

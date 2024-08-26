@@ -41,7 +41,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.Instance.DisableLevelUI();
+        LevelManager.Instance.DisableLevelUI();
         lastMousePosition = reticle.position;
         SetActiveSprite();
     }
@@ -84,7 +84,7 @@ public class TutorialManager : MonoBehaviour
 
     void UICheck()
     {
-        ScoreManager.Instance.EnableLevelUI();
+        LevelManager.Instance.EnableLevelUI();
         LeanTween.delayedCall(1,()=> uiTestParent.SetActive(true));
     }
 
@@ -135,7 +135,7 @@ public class TutorialManager : MonoBehaviour
     void Finish()
     {
         Debug.Log("strike check finish");
-        ScoreManager.Instance.EndLevel();
+        LevelManager.Instance.EndLevel();
     }
     private void OnEnable()
     {

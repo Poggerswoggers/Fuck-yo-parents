@@ -14,16 +14,9 @@ public class GameStateManager : MonoBehaviour
     public MinigameState minigameState;
     public PauseState pauseState;
     public LevelEndState endState;
-
-    [Header("Audio")]
-    [SerializeField] AudioClip levelMusic;
     private void Start()
     {
         LeanTween.reset();
-        if (AudioManager.instance != null)
-        {
-            AudioManager.instance.PlayMusic(levelMusic, 0.8f);
-        }
         currentState = snapState;
         currentState.EnterState(this);
     }
