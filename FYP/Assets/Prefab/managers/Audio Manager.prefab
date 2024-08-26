@@ -197,6 +197,7 @@ MonoBehaviour:
   dettachJig: {fileID: 8300000, guid: 94d43bc1122906f44b90aa2bc85fe777, type: 3}
   correctJig: {fileID: 8300000, guid: 005979fd6033849bdba8586b4c96da3a, type: 3}
   npcHmm: {fileID: 8300000, guid: 4a8320eb0dead9541a4e65d2473b0039, type: 3}
+  whistle: {fileID: 8300000, guid: cb7b36c8c9f14445da9517ccf8c6423c, type: 3}
 --- !u!1 &4839036803929637884
 GameObject:
   m_ObjectHideFlags: 0
