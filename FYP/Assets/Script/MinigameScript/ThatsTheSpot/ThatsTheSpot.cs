@@ -34,15 +34,15 @@ public class ThatsTheSpot : BaseMiniGameClass
     private void Awake()
     {
         overlapAreaRef = new overlapArea();
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
     }
 
     public override void StartGame()
     {
         isGameActive = true;
-        if (AudioManager.instance != null)
-        {
-            AudioManager.instance.PlayMusic(levelMusic);
-        }
     }
 
     

@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:FYP/Assets/Animation/Sprite.controller.meta
 guid: 0d3a57a396a4e3f47a42de8a211adb76
 NativeFormatImporter:
+========
+guid: 6f673350cb6975e4896f5994bd70673c
+DefaultImporter:
+>>>>>>>> 52e9cb23b451d9d5c3a0d3fe81ee04721c06b348:FYP/Assets/Scenes/Prologue.unity.meta
   externalObjects: {}
   mainObjectFileID: 9100000
   userData: 

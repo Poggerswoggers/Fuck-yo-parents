@@ -17,7 +17,6 @@ Welcome commuter champion.
     *[What should I take note of, when talking to the commuters?]
         Click on the commuters to talk to them. 
         They <color=yellow>MIGHT</color> give you hints to find those who need help. always ask if they need help before you assist. 
-        Click to continue or on the <color=red>Red Arrow</color> to stop talking. 
             -> Tutorial
 *->
 Let's put what you just learn into practice. 
