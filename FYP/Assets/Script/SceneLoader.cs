@@ -18,7 +18,9 @@ public class SceneLoader : MonoBehaviour
             audioManager = AudioManager.instance;
         }
 
-
+        if(SceneManager.GetActiveScene().name == "Prologue") {
+            StartCoroutine(WaitForCutscene());
+        }
     }
 
     public void LevelSelect()
@@ -45,6 +47,12 @@ public class SceneLoader : MonoBehaviour
         }
 
 
+    }
+
+    public void Prologue()
+    {
+        audioManager?.PlaySFX(audioManager.buttonClick);
+        SceneManager.LoadScene("Prologue");
     }
 
     public void Credits() {
@@ -100,4 +108,9 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
+    IEnumerator WaitForCutscene()
+    {
+        yield return new WaitForSeconds(25.5f);
+        SceneManager.LoadScene("Tutorial");
+    }
 }
