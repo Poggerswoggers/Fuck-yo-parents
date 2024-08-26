@@ -2407,6 +2407,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1304518200}
     - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 3431c9f15156c4146b013b10e23366a2, type: 3}
+    - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: dialogueStat
       value: 
       objectReference: {fileID: 83328070}

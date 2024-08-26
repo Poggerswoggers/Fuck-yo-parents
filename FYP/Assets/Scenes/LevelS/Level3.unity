@@ -2900,6 +2900,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 275726041}
     - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 36ea3afe48735456aa3420d46b2902f7, type: 3}
+    - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: pauseState
       value: 
       objectReference: {fileID: 973408026}

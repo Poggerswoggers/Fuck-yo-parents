@@ -22,7 +22,7 @@ public class GameStateManager : MonoBehaviour
         LeanTween.reset();
         if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlayMusic(levelMusic);
+            AudioManager.instance.PlayMusic(levelMusic, 0.8f);
         }
         currentState = snapState;
         currentState.EnterState(this);
