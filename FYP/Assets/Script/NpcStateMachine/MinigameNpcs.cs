@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MinigameNpcs : MonoBehaviour
+public class MinigameNpcs : MonoBehaviour, IQuestionable
 {
     [SerializeField] string minigameSceneIndex;
     [Range(1,2)]
@@ -11,10 +11,6 @@ public class MinigameNpcs : MonoBehaviour
         ScoreManager.Instance.LoadAddictiveScene(minigameSceneIndex, levelScale);
     }
 
+    public QuestionTypes GetQuestionType() => thisQuestionType;
     [SerializeField] QuestionTypes thisQuestionType;
-
-    public QuestionTypes GetQuestionType()
-    {
-        return thisQuestionType;
-    }
 }

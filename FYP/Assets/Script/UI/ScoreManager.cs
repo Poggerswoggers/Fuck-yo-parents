@@ -5,7 +5,7 @@ using System;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour, IQuestionable
 {
     public static ScoreManager Instance { get; private set; }
     public static int selectedMinigameDifficulty = 1;
@@ -37,15 +37,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Transform spawningPoint;
     [SerializeField] float spawnDelay = 0.1f;
     [SerializeField] float offsetAmount = 0.1f;
-    //
 
-    public List<Transform> _levelTarget
-    {
-        get
-        {
-            return levelTargets;
-        }
-    }
+    [Header("Runtime MCQ Popup")]
+        float mcqPopupTimer;
+    [SerializeField] float mcqPopUpTime;
 
     int minigameCount;
 
@@ -76,9 +71,12 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        vulnerableComCount = levelTargets.Count;
-        vulnerableComCountText.text = vulnerableComCount.ToString();
+        //Initialise Vulnerable commuter amount text
+        vulnerableComCountText.text = $"{vulnerableComCount}/{levelTargets.Count}";
         minigameCount = levelTargets.Count;
+        //Set popup timer
+        mcqPopupTimer = mcqPopUpTime;
+        //Initialise level score
         UpdateScore(-maxScore);
     }
 
@@ -96,9 +94,9 @@ public class ScoreManager : MonoBehaviour
     {
         if (levelTargets.Contains(target))
         {
-            levelTargets.Remove(target);
-            vulnerableComCount--;
-            vulnerableComCountText.text = vulnerableComCount.ToString();
+            vulnerableComCount++;
+            vulnerableComCountText.text = $"{vulnerableComCount}/{levelTargets.Count}";
+            mcqPopupTimer = mcqPopUpTime;
         }
     }
 
@@ -177,5 +175,47 @@ public class ScoreManager : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
         }
     }
-    
+
+
+
+    private void Update()
+    {
+        PopupTimer();
+    }
+
+    void PopupTimer()
+    {
+        if (gSm.GetCurrentGameState() == gSm.snapState)
+        {
+            mcqPopupTimer-= Time.deltaTime;
+            if(mcqPopupTimer < 0)
+            {
+                mcqPopupTimer = mcqPopUpTime;
+                PopupQuestion();
+            }
+        }
+    }
+
+    void PopupQuestion()
+    {
+        DisableLevelUI();
+        gSm.mcqState.SetQuestionVariables(GetQuestionType(), guideSprite);
+        gSm.ChangeState(gSm.mcqState);
+    }
+
+    [Header("Pop up question fields")]
+    [SerializeField] Sprite guideSprite;
+    QuestionTypes QuestionType
+    {
+        get
+        {
+            Array values = Enum.GetValues(typeof(QuestionTypes));
+            System.Random random = new();
+            return (QuestionTypes)values.GetValue(random.Next(values.Length));
+        }
+    }
+    public QuestionTypes GetQuestionType()
+    {
+        return QuestionType;
+    }
 }

@@ -47,9 +47,11 @@ public class SnapCamera : GameBaseState
 
     public override void EnterState(GameStateManager gameStateManager)
     {
+        ScoreManager.Instance.EnableLevelUI();
         Cursor.visible = false;
         CameraReticle.gameObject.SetActive(true);
         gSm = gameStateManager;
+        gSm.NSm = null;
     }
 
     public override void UpdateState(GameStateManager gameStateManager)

@@ -2,28 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestionPuller
+public class QuestionPuller:MonoBehaviour
 {
-    readonly Dictionary<QuestionTypes, List<MCQ>> questionDictionary = new();
-
-    public QuestionPuller(McqCategories categories)
-    {
-        //int index = 0;
-        //foreach(QuestionCategory category in categories.QuestionCategoryRef)
-        {
-           // questionDictionary[category.thisQuestionType] = new List<MCQ>(category.questionList);
-            //index++;
-        }
-    }
-
-    public MCQ PullQuestion(QuestionTypes npcQuestionType)
-    {
-        if (!questionDictionary.ContainsKey(npcQuestionType)) return null;
-
-        List<MCQ> questionSet = questionDictionary[npcQuestionType];
-        int randomInt = Random.Range(0, questionSet.Count);
-        MCQ question = questionSet[randomInt];
-        questionDictionary[npcQuestionType].RemoveAt(randomInt);
-        return question;
-    }
+    public QuestionTypes QuestionType { get; set; }
 }

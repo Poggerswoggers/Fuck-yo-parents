@@ -5,8 +5,6 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {    
     public NpcStateManager NSm { get; set; }
-
-    
     GameBaseState currentState;
 
     [Header("Game State")]
@@ -50,5 +48,10 @@ public class GameStateManager : MonoBehaviour
     public void ClearNpc()
     {
         Destroy(NSm.gameObject);
+    }
+
+    public GameBaseState GetCurrentGameState()
+    {
+        return currentState;
     }
 }

@@ -743,7 +743,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUIPanel: {fileID: 6060965220411505300}
-  tweenCurve: 26
   scoreText: {fileID: 3058008690882415423}
   minigameScoreText: {fileID: 5895076001184819798}
   maxScore: 5000
@@ -4273,6 +4272,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9174089994335287046}
     m_Modifications:
+    - target: {fileID: 936783749847328604, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 936783749847328604, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -141
+      objectReference: {fileID: 0}
     - target: {fileID: 2487355818820867402, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4356,6 +4363,10 @@ PrefabInstance:
     - target: {fileID: 6262522453209925148, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
       propertyPath: m_Name
       value: Level UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980762014381004182, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
+      propertyPath: m_text
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037349324107215040, guid: 37245ec903a39ff4289c66012aef4e24, type: 3}
       propertyPath: m_fontSize

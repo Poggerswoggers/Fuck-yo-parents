@@ -33,13 +33,20 @@ public class McqManager : GameBaseState
     [Header("Radial Timer")]
     [SerializeField] Image radialTimer;
 
+    QuestionTypes Question;
+
+    public void SetQuestionVariables(QuestionTypes questionType, Sprite questionSprite)
+    {
+        Question = questionType;
+        spriteHolder.sprite = questionSprite;
+    }
+
     public override void EnterState(GameStateManager gameStateManager)
     {
-        gSm = gameStateManager;
+        Cursor.visible = true;
 
-        QuestionTypes storeType = gSm.NSm.MinigameNpc.GetQuestionType();
-        questionScriptable = questionCategories.PullQuestion(storeType);
-        spriteHolder.sprite = gSm.NSm.GetComponentInChildren<SpriteRenderer>().sprite;
+        gSm = gameStateManager;
+        questionScriptable = questionCategories.PullQuestion(Question);
 
         //Sets the question, sprite and get question count   
         questionText.text = questionScriptable.questionText;
@@ -143,13 +150,16 @@ public class McqManager : GameBaseState
         radialTimer.gameObject.SetActive(false);
         radialTimer.fillAmount = 1;
         NextButton.gameObject.SetActive(true);
-        NextButton.onClick.AddListener(() => GoToMiniGame());
+        NextButton.onClick.AddListener(() =>
+        {
+            if (gSm.NSm !=null){ GoToMiniGame(); }
+            else{ gSm.ChangeState(gSm.snapState); }
+        });
     }
 
     public void GoToMiniGame()
     {
         NextButton.onClick.RemoveAllListeners();
-        mcqPanel.SetActive(false);
         gSm.NSm.GetComponent<MinigameNpcs>().GetMinigameValue();
     }
     void DestroyAnswers()
@@ -195,6 +205,7 @@ public class McqManager : GameBaseState
     public override void ExitState(GameStateManager gameStateManager)
     {
         //Clear answerList and player'sChoice for new ones
+        mcqPanel.SetActive(false);
         answerChoiceList.Clear();
         playerChoice.Clear();
     }

@@ -108,6 +108,7 @@ public class DialogueManager : GameBaseState
         {
             if(gSm.NSm.MinigameNpc)
             {
+                gSm.mcqState.SetQuestionVariables(gSm.NSm.GetComponent<IQuestionable>().GetQuestionType(), gSm.NSm.GetComponentInChildren<SpriteRenderer>().sprite);  
                 gSm.ChangeState(gSm.mcqState);
             }
             else
@@ -244,7 +245,6 @@ public class DialogueManager : GameBaseState
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.buttonClick);
         }
-        ScoreManager.Instance.EnableLevelUI();
         RefreshChoiceView();
         gSm.ChangeState(gSm.snapState);
     }
