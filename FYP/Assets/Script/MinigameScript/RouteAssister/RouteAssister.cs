@@ -73,6 +73,11 @@ public class RouteAssister : BaseMiniGameClass
     {
         clear = 0;
         index = 0;
+        foreach(Image i in routeSprite) 
+        { 
+            i.sprite = null;
+        }
+
         currentDes = destinationsScriptable[0];  //Sets current route as the first scriptable in the list
         destinationsScriptable.RemoveAt(0);
    

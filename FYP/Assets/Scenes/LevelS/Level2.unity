@@ -2733,10 +2733,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1211105555612462036, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-      propertyPath: levelIndex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: mcqState
       value: 
@@ -2746,14 +2742,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2145099565}
     - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-      propertyPath: levelMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: ecfbcfe13c4284d62a4dffd50358f30f, type: 3}
-    - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-      propertyPath: pauseState
-      value: 
-      objectReference: {fileID: 2101634381}
-    - target: {fileID: 1284608441080620031, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: dialogueStat
       value: 
       objectReference: {fileID: 19422194}
@@ -2761,14 +2749,6 @@ PrefabInstance:
       propertyPath: minigameState
       value: 
       objectReference: {fileID: 1174607802}
-    - target: {fileID: 1374353173632007651, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414274868738636757, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level3
-      objectReference: {fileID: 0}
     - target: {fileID: 3777545197754846575, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -2776,10 +2756,6 @@ PrefabInstance:
     - target: {fileID: 4161071166007126719, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_Name
       value: GameManagerPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 4626041469585868076, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: spawningPoint
@@ -4489,17 +4465,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
---- !u!114 &2101634381 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3596712208685026144, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
-  m_PrefabInstance: {fileID: 1088003850}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c158fd4048cb8e140a611e6f52a52dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2145099565 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
@@ -4523,6 +4488,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: McqPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1620295878692845623, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1861649432}
+    - target: {fileID: 1620295878692845623, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1861649432}
     - target: {fileID: 1710356284501211130, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3827288
@@ -4563,10 +4536,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2256595228605742866, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6590535860657399693, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4575,30 +4544,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1861649432}
-    - target: {fileID: 6590535860657399693, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PointerEnter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6590535860657399693, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PointerExit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7596451448182966017, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121436329125052620, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121436329125052620, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9121436329125052620, guid: ec26347fb6df6254383e69c4d81550dd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

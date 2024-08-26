@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 public class NpcRoamState : NpcBaseState
@@ -29,11 +30,9 @@ public class NpcRoamState : NpcBaseState
 
     public override void EnterState(NpcStateManager npcSm)
     {
-        _walkDur = walkDuration;    
-
-       nSm = npcSm;
-       npcThis = npcSm.transform;
-
+        _walkDur = walkDuration;
+        nSm = npcSm;
+        npcThis = npcSm.transform;
         startWalking();
     }
 

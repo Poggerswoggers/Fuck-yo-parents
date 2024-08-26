@@ -101,7 +101,7 @@ public class TakeASeatGm : BaseMiniGameClass
     {
         foreach(Seat seat in seats)
         {
-            if (seat.occupied) continue;
+            if (seat.occupied || !seat.gameObject.activeSelf) continue;
             if(Vector2.Distance(grabbedCommuter.position, seat.transform.position) < 1.5f)
             {
                 seat.SitCommuter(grabbedCommuter);

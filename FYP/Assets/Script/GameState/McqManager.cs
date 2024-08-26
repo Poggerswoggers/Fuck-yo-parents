@@ -10,7 +10,8 @@ public class McqManager : GameBaseState
 {
     //UI elements
     [SerializeField] GameObject mcqPanel;
-    [SerializeField] Button NextButton;
+    [SerializeField] Button lockChoiceButton;
+    [SerializeField] Button nextButton;
 
     [Header("Ui elements")]
     [SerializeField] TextMeshProUGUI questionText;
@@ -44,6 +45,8 @@ public class McqManager : GameBaseState
     public override void EnterState(GameStateManager gameStateManager)
     {
         Cursor.visible = true;
+        lockChoiceButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(false);
 
         gSm = gameStateManager;
         questionScriptable = questionCategories.PullQuestion(Question);
@@ -75,7 +78,6 @@ public class McqManager : GameBaseState
             //Add answerChoice instance to the list
             answerChoiceList.Add(_buttonOption);
         }
-        NextButton.onClick.AddListener(() => LockChoices());
     }
     Button CreateButtonOption(string text)
     {
@@ -121,6 +123,7 @@ public class McqManager : GameBaseState
 
     public void LockChoices()
     {
+        Debug.Log("Lock choice");
         playerChoice.Sort();             
         if (questionScriptable.correctOptions.SequenceEqual(playerChoice))
         {
@@ -133,10 +136,10 @@ public class McqManager : GameBaseState
             ScoreManager.Instance.OnScoreChange?.Invoke(300);
         }
         DestroyAnswers();
-
+        StartCoroutine(DisplayNextLineEffect(questionScriptable.ExplanationText));
+        answerStatementText.gameObject.SetActive(true);
         //This whole part is just a timer
-        NextButton.onClick.RemoveAllListeners();
-        NextButton.gameObject.SetActive(false);
+        lockChoiceButton.gameObject.SetActive(false);
         radialTimer.gameObject.SetActive(true);
         LeanTween.value(radialTimer.gameObject, 1, 0, 5f).setOnUpdate((value) =>
         {
@@ -148,18 +151,26 @@ public class McqManager : GameBaseState
     void Cooldown()
     {
         radialTimer.gameObject.SetActive(false);
-        radialTimer.fillAmount = 1;
-        NextButton.gameObject.SetActive(true);
-        NextButton.onClick.AddListener(() =>
-        {
-            if (gSm.NSm !=null){ GoToMiniGame(); }
-            else{ gSm.ChangeState(gSm.snapState); }
-        });
+        nextButton.gameObject.SetActive(true);
     }
 
-    public void GoToMiniGame()
+    public void NextButton()
     {
-        NextButton.onClick.RemoveAllListeners();
+        if (gSm.NSm != null)
+        {
+            Debug.Log("went to minigame");
+            GoToMiniGame();
+        }
+        else
+        {
+            Debug.Log("went to snap");
+            gSm.ChangeState(gSm.snapState);
+        }
+    }
+
+    void GoToMiniGame()
+    {
+        lockChoiceButton.onClick.RemoveAllListeners();
         gSm.NSm.GetComponent<MinigameNpcs>().GetMinigameValue();
     }
     void DestroyAnswers()
@@ -171,8 +182,6 @@ public class McqManager : GameBaseState
                 Destroy(button.gameObject);
             }
         }
-        StartCoroutine(DisplayNextLineEffect(questionScriptable.ExplanationText));
-        answerStatementText.gameObject.SetActive(true);
     }
 
     IEnumerator DisplayNextLineEffect(string infoText)
