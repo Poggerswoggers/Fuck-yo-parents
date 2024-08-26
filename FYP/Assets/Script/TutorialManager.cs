@@ -41,6 +41,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
+        ScoreManager.Instance.DisableLevelUI();
         lastMousePosition = reticle.position;
         SetActiveSprite();
     }
