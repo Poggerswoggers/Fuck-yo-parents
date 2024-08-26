@@ -68,7 +68,6 @@ public class ScoreManager : MonoBehaviour, IQuestionable
         OnScoreChange -= UpdateScore;
     }
 
-
     private void Start()
     {
         //Initialise Vulnerable commuter amount text
@@ -112,7 +111,6 @@ public class ScoreManager : MonoBehaviour, IQuestionable
             StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs));
             StartCoroutine(UpdateScoreMinigameCo(score));
         }
-
 
         gSm.ClearNpc();
         if (minigameCount > 0)
