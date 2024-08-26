@@ -755,8 +755,8 @@ MonoBehaviour:
   scorePrefab500: {fileID: 2603442878548589962, guid: d701f19b2e3c8f7428080f87bbd5b89e, type: 3}
   scorePrefab100: {fileID: 2603442878548589962, guid: 600c9875a24b8684f807eb650b2bbb6d, type: 3}
   spawningPoint: {fileID: 0}
-  spawnDelay: 0.1
-  offsetAmount: 0.1
+  spawnDelay: 0.2
+  offsetAmount: 0.2
   levelMusic: {fileID: 0}
   guideSprite: {fileID: 21300000, guid: 18fb3e657c3eec04581f71166e1a8f62, type: 3}
   russellPopup: {fileID: 9206936207291438711}
