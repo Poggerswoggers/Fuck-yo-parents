@@ -19,7 +19,7 @@ MonoBehaviour:
 '
   - "Lead them by pulling their cane\r"
   - "Let them hold your elbow\r \r"
-  correctOptions: 02000000
+  correctOptions: 03000000
   ExplanationText: '<color=#F6FF2E>Letting blind commuters hold your elbow is the
     right way to guide commuters with visual impairment
 
