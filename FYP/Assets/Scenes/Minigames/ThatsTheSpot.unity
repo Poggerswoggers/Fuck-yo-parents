@@ -679,6 +679,7 @@ MonoBehaviour:
   pmdTransform: {fileID: 1466131970}
   overlapArea: 0
   percentageText: {fileID: 890042919}
+  levelMusic: {fileID: 8300000, guid: ecfbcfe13c4284d62a4dffd50358f30f, type: 3}
 --- !u!114 &498261956
 MonoBehaviour:
   m_ObjectHideFlags: 0

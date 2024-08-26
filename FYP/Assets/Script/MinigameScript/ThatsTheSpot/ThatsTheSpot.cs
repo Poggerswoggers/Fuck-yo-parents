@@ -21,6 +21,9 @@ public class ThatsTheSpot : BaseMiniGameClass
 
     [SerializeField] TextMeshProUGUI percentageText;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip levelMusic;
+
     int liveScore;
 
     public struct points
@@ -36,6 +39,10 @@ public class ThatsTheSpot : BaseMiniGameClass
     public override void StartGame()
     {
         isGameActive = true;
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayMusic(levelMusic);
+        }
     }
 
     
