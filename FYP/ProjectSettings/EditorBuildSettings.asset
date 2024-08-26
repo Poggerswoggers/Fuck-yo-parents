@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Confirmed Menus/StoryMode.unity
     guid: af350931836b24a39beeac98a0726647
   - enabled: 1
-    path: Assets/Scenes/Minigames/HeadTilt.unity
+    path: Assets/Scenes/Minigames/Unused/HeadTilt.unity
     guid: ba331e863f8ff66408a83a914d6ac0c1
   - enabled: 1
     path: Assets/Scenes/Minigames/CrowdControl.unity
