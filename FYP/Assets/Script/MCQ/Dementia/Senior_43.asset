@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Senior_43
   m_EditorClassIdentifier: 
   questionText: "What should you do if you see a commuter with dementia/elderly commuter
-    that is lost?\r"
+    that is lost? <color=yellow>Select all that apply.\r"
   answerText:
   - Notify an adult
   - Seek help at the Passenger Service Control Centre/Dementia Go-To Point
