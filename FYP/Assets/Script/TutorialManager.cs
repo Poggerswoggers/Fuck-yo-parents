@@ -42,8 +42,6 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        LeanTween.cancel(UIPanel);
-        LevelManager.Instance.DisableLevelUI();
         lastMousePosition = reticle.position;
         SetActiveSprite();
     }

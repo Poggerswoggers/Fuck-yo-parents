@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : MinigameLevelManager, IQuestionable
 {
@@ -26,6 +25,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
     //target Ref
     [SerializeField] List<Transform> levelTargets;
     [SerializeField] GameStateManager gSm;
+    [SerializeField] TextMeshProUGUI currentcommuterselect;
 
     int minigameCount;
 
@@ -126,6 +126,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
 
     public void EndLevel()
     {
+        if (minigameCount != 0) return;
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.lvlDone);
@@ -137,6 +138,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
     private void Update()
     {
         PopupTimer();
+        currentcommuterselect.text = gSm.GetCurrentGameState().ToString();
     }
 
     //Pop up timer to execute popup MCQ

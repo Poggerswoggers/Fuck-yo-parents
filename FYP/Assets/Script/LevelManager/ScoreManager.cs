@@ -52,6 +52,8 @@ public class ScoreManager : MonoBehaviour
         }
         minigameScoreText.gameObject.SetActive(false);
         scoreText.text = levelScore.ToString();
+
+        LevelManager.Instance.EndLevel();
     }
 
     //hi jason i added this

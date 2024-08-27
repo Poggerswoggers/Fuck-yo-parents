@@ -117,7 +117,6 @@ public class CrowdNpc: MonoBehaviour
     }
     public void SelfDestruct(float time)
     {
-        
         Destroy(gameObject, time);
         foreach(CardObject card in cardList)
         {
