@@ -1,9 +1,9 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -22,11 +22,14 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Image medalImage;
 
     [Header("Medal Manager")]
-    [SerializeField] MedalManager medalManager;
+    [SerializeField] MedalsUnlock medalUnlockScriptable;
 
-    public void UpdateScore(int levelScore) => scoreText.text = levelScore.ToString();
+    public void UpdateScore(int levelScore, MedalManager medalManager){
+        scoreText.text = levelScore.ToString();
+        UpdateMedalSprite(levelScore, medalManager);
+    }
 
-    public void ScoreEffect(int score, int levelScore)
+    public void ScoreEffect(int score, int levelScore, MedalManager medalManager)
     {
         if (scorePrefab1000 != null && scorePrefab500 != null && scorePrefab100 != null)
         {
@@ -35,11 +38,11 @@ public class ScoreManager : MonoBehaviour
             int numberOfPrefabs100 = score % 500 / 100;
 
             StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs1000, numberOfPrefabs500, numberOfPrefabs100));
-            StartCoroutine(UpdateScoreMinigameCo(score, levelScore));
+            StartCoroutine(UpdateScoreMinigameCo(score, levelScore, medalManager));
         }
     }
 
-    IEnumerator UpdateScoreMinigameCo(int scoreDiff, int levelScore)        //Lerp the score because idk how to show a tween value :(
+    IEnumerator UpdateScoreMinigameCo(int scoreDiff, int levelScore, MedalManager medalManager)        //Lerp the score because idk how to show a tween value :(
     {
         //levelUIPanel.SetActive(true);
         minigameScoreText.gameObject.SetActive(true);
@@ -56,6 +59,7 @@ public class ScoreManager : MonoBehaviour
         }
         minigameScoreText.gameObject.SetActive(false);
         scoreText.text = levelScore.ToString();
+        UpdateMedalSprite(levelScore, medalManager);
 
         LevelManager.Instance.EndLevel();
     }
@@ -84,7 +88,12 @@ public class ScoreManager : MonoBehaviour
             currentSpawnPoint.y -= offsetAmount;
             yield return new WaitForSeconds(spawnDelay);
         }
+    }
 
-
+    void UpdateMedalSprite(int levelScore, MedalManager medalManager)
+    {
+        Debug.Log("Ran");
+        medalImage.sprite = medalUnlockScriptable.ConvertScoreToMedal(medalManager, levelScore);
+        medalImage.gameObject.SetActive((medalImage.sprite != null));
     }
 }

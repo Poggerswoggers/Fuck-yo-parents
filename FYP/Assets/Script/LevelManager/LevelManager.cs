@@ -11,6 +11,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
 
     [SerializeField] GameObject levelUIPanel;
     [SerializeField] int maxScore;
+    [SerializeField] MedalManager medalManager;
 
     [Header("Vulnerable Commuter Count")]
     [SerializeField] TextMeshProUGUI vulnerableComCountText;        //Vulnerable count in the level text
@@ -83,7 +84,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
     public void UpdateScore(int points)
     {
         levelScore -= points;
-        scoreManager.UpdateScore(levelScore);
+        scoreManager.UpdateScore(levelScore, medalManager);
     }
 
     public void Updatetargets(Transform target)
@@ -107,7 +108,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
 
         levelScore += score;
         levelUIPanel.SetActive(true);
-        scoreManager.ScoreEffect(score, levelScore);
+        scoreManager.ScoreEffect(score, levelScore, medalManager);
         
         gSm.ClearNpc();
         if (minigameCount > 0)

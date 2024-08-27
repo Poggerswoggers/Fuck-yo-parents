@@ -2999,6 +2999,18 @@ PrefabInstance:
       propertyPath: levelTargets.Array.data[4]
       value: 
       objectReference: {fileID: 1724710022}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: medalManager.goldMedalScore
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: medalManager.bronzeMedalScore
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: medalManager.silverMedalScore
+      value: 15000
+      objectReference: {fileID: 0}
     - target: {fileID: 5109305545742298204, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

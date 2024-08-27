@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MedalManager : MonoBehaviour
+[System.Serializable]
+public struct MedalManager
 {
-    [SerializeField] int bronzeMedalScore;
-    [SerializeField] int silverMedalScore;
-    [SerializeField] int goldMedalScore;
+    public int bronzeMedalScore;
+    public int silverMedalScore;
+    public int goldMedalScore;
 }
