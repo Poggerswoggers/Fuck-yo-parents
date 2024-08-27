@@ -6,6 +6,9 @@ using UnityEngine;
 public class LevelDataScriptable : ScriptableObject
 {
     public LevelData[] levelDataArray;
+
+    [Header("MinigameMode")]
+    public bool unlocked;
 }
 
 [System.Serializable]
@@ -14,6 +17,8 @@ public class LevelData
     public bool unlocked;
     public int Score;
     public MedalManager medalManager;
+
+
 }
 
 [System.Serializable]

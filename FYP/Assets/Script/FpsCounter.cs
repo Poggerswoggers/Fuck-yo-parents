@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FpsCounter : MonoBehaviour
 {
@@ -66,6 +67,15 @@ public class FpsCounter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             Text.gameObject.SetActive(!Text.gameObject.activeSelf);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
