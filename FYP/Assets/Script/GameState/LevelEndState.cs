@@ -43,7 +43,7 @@ public class LevelEndState : GameBaseState
             medalImage.gameObject.SetActive((medalImage.sprite != null));
         }
         levelData.levelDataArray[levelIndex+1].unlocked = true;
-        if(levelIndex == 2) { levelData.unlocked = true; }
+        //if(levelIndex == 2) { levelData.unlocked = true; }
         saveSystem.SaveLevelData();
     }
 }

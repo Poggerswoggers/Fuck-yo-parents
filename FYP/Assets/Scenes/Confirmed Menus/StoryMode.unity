@@ -1139,7 +1139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7caea83405c22e545a1980453d387234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsButton: []
+  levelsButton:
+  - {fileID: 92982059}
+  - {fileID: 191187434}
+  - {fileID: 274498691}
   levelScriptable: {fileID: 11400000, guid: 6367411661a70674ea9cbd3ab5462253, type: 2}
   medalsUnlockScriptable: {fileID: 11400000, guid: 750172c9eba17a046b7fd4162ec36a96, type: 2}
   minigameButton: {fileID: 0}

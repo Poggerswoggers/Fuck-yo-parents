@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"E:/Unity Projects/Fyp Builds/BuildTest5;E:/Unity Projects/Fyp Builds/BuildTest4;E:/Unity Projects/Fyp Builds/BuildTest3;E:/Unity Projects/Fyp Builds/BuildTest2;E:/Unity Projects/Fyp Builds/BuildTest1;E:/Unity Projects/FYP Webgl Build;C:/Y2S2T2/TestSavingBuild;C:/Y2S2T2/B4;C:/Y2S2T2/B3;C:/Y2S2T2/Build2\"}"
+                "value": "{\"m_Value\":\"E:/Unity Projects/Fyp Builds/BuildTest6;E:/Unity Projects/Fyp Builds/BuildTest5;E:/Unity Projects/Fyp Builds/BuildTest4;E:/Unity Projects/Fyp Builds/BuildTest3;E:/Unity Projects/Fyp Builds/BuildTest2;E:/Unity Projects/Fyp Builds/BuildTest1;E:/Unity Projects/FYP Webgl Build;C:/Y2S2T2/TestSavingBuild;C:/Y2S2T2/B4;C:/Y2S2T2/B3\"}"
             }
         ]
     }
