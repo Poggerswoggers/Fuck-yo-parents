@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class NonInteractableNpc:MonoBehaviour
 {
-    public enum states
-    {
-        roam,
-        Queue,
-        Leave,
-        BoardTrain,
-    }
-    public states currentState;
-
-    [SerializeField] NoninteractableScriptable Noninteractablefields;
+    public NoninteractableScriptable Noninteractablefields { get; set; }
 
     bool crossBoundX;
     bool crossBoundY;
@@ -26,7 +17,6 @@ public class NonInteractableNpc:MonoBehaviour
     NpcAnimation npcAnim;
     private void Start()
     {
-        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Noninteractablefields.GetRandomSprite();
         npcAnim = gameObject.GetComponent<NpcAnimation>();
         rb = GetComponent<Rigidbody2D>();
         float angle = Random.value * Mathf.PI * 2;
