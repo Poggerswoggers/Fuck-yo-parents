@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 55
   borderMargin: 1.5
   possibleSprites:
-  - {fileID: 21300000, guid: d9ae31f91d1967a41943ebbebbbbcc0c, type: 3}
+  - {fileID: 21300000, guid: deae1a0079aa6a042bd3f6c9f0872728, type: 3}
   - {fileID: 21300000, guid: 12e766c9426c6564d82c29a06130143d, type: 3}
   - {fileID: 21300000, guid: 096fa6bf0637c2b46adca06e98ee63ed, type: 3}
   - {fileID: 21300000, guid: ec62e5d766cb2f24c9694ea30338b06c, type: 3}
