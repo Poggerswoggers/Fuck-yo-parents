@@ -15,5 +15,14 @@ MonoBehaviour:
   speed: 55
   borderMargin: 1.5
   possibleSprites:
-  - {fileID: 21300000, guid: d9ae31f91d1967a41943ebbebbbbcc0c, type: 3}
+  - {fileID: 21300000, guid: deae1a0079aa6a042bd3f6c9f0872728, type: 3}
   - {fileID: 21300000, guid: 12e766c9426c6564d82c29a06130143d, type: 3}
+  - {fileID: 21300000, guid: 096fa6bf0637c2b46adca06e98ee63ed, type: 3}
+  - {fileID: 21300000, guid: ec62e5d766cb2f24c9694ea30338b06c, type: 3}
+  - {fileID: 21300000, guid: 06ff3ad767c8c164aac58898dfd54926, type: 3}
+  - {fileID: 21300000, guid: 2505ad4454ed85244ab3cdd18797d701, type: 3}
+  - {fileID: 21300000, guid: 8d7801a3edaca5340b41a6d576cfd0fb, type: 3}
+  - {fileID: 21300000, guid: b6cf953baf0b0c84f82d84775a9957b5, type: 3}
+  - {fileID: 21300000, guid: d7e984f5c173b0b42a9b0d15a8666c25, type: 3}
+  - {fileID: 21300000, guid: 10108bdb88474754c9ee007ea38c34e4, type: 3}
+  - {fileID: 21300000, guid: 42a60dc9dad1bd644926f6f7dcae1c60, type: 3}
