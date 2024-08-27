@@ -204,7 +204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 14528380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 819977153}
+        m_TargetAssemblyTypeName: MinigameButtonHandler, Assembly-CSharp
+        m_MethodName: SetMinigameEnum
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Take A Seat
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &14528380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,7 +814,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 281646511}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 819977153}
+        m_TargetAssemblyTypeName: MinigameButtonHandler, Assembly-CSharp
+        m_MethodName: SetMinigameEnum
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ThatsTheSpot
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &281646511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +946,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 400193010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 819977153}
+        m_TargetAssemblyTypeName: MinigameButtonHandler, Assembly-CSharp
+        m_MethodName: SetMinigameEnum
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PieceLover
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &400193010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1078,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 444469860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 819977153}
+        m_TargetAssemblyTypeName: MinigameButtonHandler, Assembly-CSharp
+        m_MethodName: SetMinigameEnum
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CrowdControl
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &444469860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,6 +1261,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627966359}
   m_CullTransparentMesh: 1
+--- !u!1 &819977150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819977152}
+  - component: {fileID: 819977151}
+  - component: {fileID: 819977153}
+  m_Layer: 0
+  m_Name: Minigame Level Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &819977151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819977150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5baa2ec6184ed45aaa741571ecfc51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameSelectCanvas: {fileID: 28961305}
+--- !u!4 &819977152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819977150}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 886.1682, y: 572.64404, z: 2.2650368}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819977153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819977150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53abbdf06606cba47b442ebe8f0cfa59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameSceneName: 
+  mgLevelManager: {fileID: 819977151}
 --- !u!1 &845016434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1608,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1095332588}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 819977153}
+        m_TargetAssemblyTypeName: MinigameButtonHandler, Assembly-CSharp
+        m_MethodName: SetMinigameEnum
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RouteAssistor
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1095332588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,7 +1965,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1586024522}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 819977153}
+        m_TargetAssemblyTypeName: MinigameButtonHandler, Assembly-CSharp
+        m_MethodName: SetMinigameEnum
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Pathfinder
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1586024522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2288,6 +2420,7 @@ GameObject:
   - component: {fileID: 1815654320}
   - component: {fileID: 1815654319}
   - component: {fileID: 1815654318}
+  - component: {fileID: 1815654321}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2369,6 +2502,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1815654321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815654317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1856968517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,3 +2994,4 @@ SceneRoots:
   - {fileID: 1815654320}
   - {fileID: 28961309}
   - {fileID: 2139634386}
+  - {fileID: 819977152}

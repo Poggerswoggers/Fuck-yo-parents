@@ -212,12 +212,10 @@ public class DialogueManager : GameBaseState
     //hi jason i added this
     void ChoosingNPCPicture(string knotName)
     {
-        Debug.Log(knotName);
         foreach(var img in pictures)
         {
             if (img.name == knotName)
             {
-                Debug.Log("true");
                 pictureFrame.SetActive(true);
                 picture.GetComponent<Image>().sprite = img;
                 break;

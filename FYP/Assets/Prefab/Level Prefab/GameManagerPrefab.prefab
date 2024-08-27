@@ -371,8 +371,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3709240910771576704}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -446,8 +446,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2756906462126031376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -708,6 +708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8910394811385619819}
   - component: {fileID: 4759653151297736069}
+  - component: {fileID: 1551684537547484152}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -743,24 +744,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUIPanel: {fileID: 6060965220411505300}
-  scoreText: {fileID: 3058008690882415423}
-  minigameScoreText: {fileID: 5895076001184819798}
   maxScore: 5000
   vulnerableComCountText: {fileID: 2673724218171993705}
   levelTargets:
   - {fileID: 0}
   - {fileID: 0}
   gSm: {fileID: 1284608441080620031}
+  levelMusic: {fileID: 8300000, guid: 3431c9f15156c4146b013b10e23366a2, type: 3}
+  scoreManager: {fileID: 1551684537547484152}
+  guideSprite: {fileID: 21300000, guid: 18fb3e657c3eec04581f71166e1a8f62, type: 3}
+  russellPopup: {fileID: 9206936207291438711}
+  mcqPopUpTime: 30
+--- !u!114 &1551684537547484152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184151352193916801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e3ad4d2ea742046a08867f014f6376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   scorePrefab1000: {fileID: 2603442878548589962, guid: 080ca0f7d6df9ae46b5409314bbb19ad, type: 3}
   scorePrefab500: {fileID: 2603442878548589962, guid: d701f19b2e3c8f7428080f87bbd5b89e, type: 3}
   scorePrefab100: {fileID: 2603442878548589962, guid: 600c9875a24b8684f807eb650b2bbb6d, type: 3}
   spawningPoint: {fileID: 0}
   spawnDelay: 0.2
   offsetAmount: 0.2
-  levelMusic: {fileID: 0}
-  guideSprite: {fileID: 21300000, guid: 18fb3e657c3eec04581f71166e1a8f62, type: 3}
-  russellPopup: {fileID: 9206936207291438711}
-  mcqPopUpTime: 30
+  scoreText: {fileID: 3058008690882415423}
+  minigameScoreText: {fileID: 5895076001184819798}
 --- !u!1 &1509679141301266540
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,11 +1007,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16339dd86fe386c43945dab350ab22f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 1
+  levelIndex: 0
   levelEndPanel: {fileID: 4626041469585868076}
   levelData: {fileID: 11400000, guid: 6367411661a70674ea9cbd3ab5462253, type: 2}
   saveSystem: {fileID: 11400000, guid: 7a5ed795124f66d4fab90ab2f2d69e2a, type: 2}
-  saveLevel: 0
+  saveLevel: 1
 --- !u!1 &1891827885284976174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,7 +1512,7 @@ RectTransform:
   m_Father: {fileID: 1038370565793435685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3115,7 +3129,7 @@ RectTransform:
   m_Father: {fileID: 901705297898414065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

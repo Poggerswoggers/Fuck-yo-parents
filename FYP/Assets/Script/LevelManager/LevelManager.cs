@@ -5,20 +5,15 @@ using System;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour, IQuestionable
+public class LevelManager : MinigameLevelManager, IQuestionable
 {
-    public static LevelManager Instance { get; private set; }
-    public static int selectedMinigameDifficulty = 1;
+    public static new LevelManager Instance { get; private set; }
     public Action<int> OnScoreChange;
 
     [SerializeField] GameObject levelUIPanel;
 
-    [Header("Scores")]
-    [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI minigameScoreText;
 
     [SerializeField] int maxScore;
-    public int levelScore { get; private set; }
 
     [Header("Vulnerable Commuter Count")]
     [SerializeField] TextMeshProUGUI vulnerableComCountText;        //Vulnerable count in the level text
@@ -32,24 +27,17 @@ public class LevelManager : MonoBehaviour, IQuestionable
     [SerializeField] List<Transform> levelTargets;
     [SerializeField] GameStateManager gSm;
 
-    //hi jason i added this
-    //Scoring Feedback
-    [SerializeField] GameObject scorePrefab1000;
-    [SerializeField] GameObject scorePrefab500;
-    [SerializeField] GameObject scorePrefab100;
-    [SerializeField] Transform spawningPoint;
-    [SerializeField] float spawnDelay = 0.1f;
-    [SerializeField] float offsetAmount = 0.1f;
-
     int minigameCount;
 
     [Header("Audio")]
     [SerializeField] AudioClip levelMusic;
 
-    private void Awake()
+    //Reference Script
+    [Header("References")]
+    [SerializeField] ScoreManager scoreManager;
+
+    public override void Awake()
     {
-        // If there is an instance, and it's not me, delete myself.
-        //Singleton yea
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -59,6 +47,7 @@ public class LevelManager : MonoBehaviour, IQuestionable
             Instance = this;
         }
         PlayLevelAudio();
+        sceneLoader = new MinigameSceneLoader();
     }
 
     public void PlayLevelAudio()
@@ -96,7 +85,7 @@ public class LevelManager : MonoBehaviour, IQuestionable
     public void UpdateScore(int points)
     {
         levelScore -= points;
-        scoreText.text = levelScore.ToString();
+        scoreManager.UpdateScore(levelScore);
     }
 
     public void Updatetargets(Transform target)
@@ -111,59 +100,30 @@ public class LevelManager : MonoBehaviour, IQuestionable
         }
     }
 
-    public void UnloadAddictiveScene(int score)
+    public override void UnloadAddictiveScene(int score)
     {
-        SceneManager.UnloadSceneAsync(addictiveScene);
+        sceneLoader.UnloadAddictiveScene();
+        //Unload scene here
 
         minigameCount--;
 
-        //hi jason i added this
-        if (scorePrefab1000 != null && scorePrefab500 != null && scorePrefab100 != null) {
-            int numberOfPrefabs1000 = score / 1000;
-            int numberOfPrefabs500 = score % 1000 / 500;
-            int numberOfPrefabs100 = score % 500 / 100;
-
-            StartCoroutine(InstantiateScorePrefabsCo(numberOfPrefabs1000, numberOfPrefabs500, numberOfPrefabs100));
-            Debug.Log("debugging" + numberOfPrefabs1000 + numberOfPrefabs500 + numberOfPrefabs100);
-            StartCoroutine(UpdateScoreMinigameCo(score));
-        }
-
+        levelScore += score;
+        levelUIPanel.SetActive(true);
+        scoreManager.ScoreEffect(score, levelScore);
+        
         gSm.ClearNpc();
         if (minigameCount > 0)
         gSm.ChangeState(gSm.snapState);     //go back to snap state
     }
 
-    public void LoadAddictiveScene(string sceneName, int minigameDifficulty)
+    public override void LoadAddictiveScene(string sceneName, int difficulty)
     {
+        selectedMinigameDifficulty = difficulty;
         gSm.ChangeState(gSm.minigameState);
         levelUIPanel.SetActive(false);
-        addictiveScene = sceneName;
-        selectedMinigameDifficulty = minigameDifficulty;
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        sceneLoader.LoadAddictiveScene(sceneName);
     }
 
-    IEnumerator UpdateScoreMinigameCo(int scoreDiff)        //Lerp the score because idk how to show a tween value :(
-    {
-        levelScore += scoreDiff;
-
-        levelUIPanel.SetActive(true);
-        minigameScoreText.gameObject.SetActive(true);
-        float elapsedLerp = 0;
-        float _pointsGained = 0;
-
-        while (elapsedLerp < 1.5f)
-        {
-            _pointsGained = Mathf.Lerp(_pointsGained, scoreDiff, elapsedLerp / 1.5f);
-            minigameScoreText.text = _pointsGained.ToString("00");
-            elapsedLerp += Time.deltaTime;
-
-            yield return null;
-        }
-        minigameScoreText.gameObject.SetActive(false);
-        scoreText.text = levelScore.ToString();
-
-        if (minigameCount == 0) { EndLevel(); }  //End level
-    }
     public void EndLevel()
     {
         if (AudioManager.instance != null)
@@ -172,34 +132,6 @@ public class LevelManager : MonoBehaviour, IQuestionable
         }
         Debug.Log("End Game");
         gSm.ChangeState(gSm.endState);
-    }
-
-    //hi jason i added this
-    IEnumerator InstantiateScorePrefabsCo(int count, int count2, int count3)
-    {
-        Vector3 currentSpawnPoint = spawningPoint.position;
-        currentSpawnPoint.z = 0;
-        for (int i = 0; i < count; i++)
-        {
-            Instantiate(scorePrefab1000, currentSpawnPoint, Quaternion.identity);
-            currentSpawnPoint.y -= offsetAmount;
-            yield return new WaitForSeconds(spawnDelay);
-        }
-        for (int i = 0; i < count2; i++)
-        {
-            Instantiate(scorePrefab500, currentSpawnPoint, Quaternion.identity);
-            currentSpawnPoint.y -= offsetAmount;
-            yield return new WaitForSeconds(spawnDelay);
-        }
-
-        for (int i = 0; i < count3; i++)
-        {
-            Instantiate(scorePrefab100, currentSpawnPoint, Quaternion.identity);
-            currentSpawnPoint.y -= offsetAmount;
-            yield return new WaitForSeconds(spawnDelay);
-        }
-
-
     }
 
     private void Update()

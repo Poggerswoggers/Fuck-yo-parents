@@ -64,6 +64,10 @@ public abstract class BaseMiniGameClass : MonoBehaviour
 
     protected void UnloadedAndUpdateScore(int i)
     {
+        if (MinigameLevelManager.Instance != null)
+        {
+            MinigameLevelManager.Instance?.UnloadAddictiveScene(i);
+        }
         LevelManager.Instance?.UnloadAddictiveScene(i);
     }
 
