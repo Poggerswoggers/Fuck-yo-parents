@@ -2269,6 +2269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438240747}
   - component: {fileID: 1438240748}
+  - component: {fileID: 1438240749}
   m_Layer: 0
   m_Name: Upper map limit
   m_TagString: Untagged
@@ -2343,6 +2344,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1438240749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438240746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0292adf8894dd224687b30528d2ed513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnCount: 15
+  spawnerPrefab: {fileID: 6732967062800949955, guid: b7060b9ee32e14546b18c7c6aa10b133, type: 3}
 --- !u!4 &1493089230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6460317742456387067, guid: 27ee9ff050998f548b85d91553cc8e66, type: 3}

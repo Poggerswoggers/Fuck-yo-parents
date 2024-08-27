@@ -7,7 +7,6 @@ public class NoninteractableSpawner : MonoBehaviour
     [SerializeField] int spawnCount;
     [SerializeField] GameObject spawnerPrefab;
 
-    [SerializeField] Transform parent;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,7 +16,7 @@ public class NoninteractableSpawner : MonoBehaviour
         {
             Vector3 randomPosition = new Vector2(Random.Range(-xExtent+1.5f, xExtent - 1.5f), Random.Range(-yExtent + 1.5f, yExtent - 1.5f));
             GameObject spawned = Instantiate(spawnerPrefab, randomPosition, Quaternion.identity);
-            spawned.transform.SetParent(parent);
+            spawned.transform.SetParent(transform);
         }
     }
 }
