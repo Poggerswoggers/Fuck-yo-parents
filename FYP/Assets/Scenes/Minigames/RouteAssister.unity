@@ -1461,7 +1461,7 @@ PrefabInstance:
     - target: {fileID: 6865731706426757692, guid: f77ba748b58e8fb4b9f017a7aac02094, type: 3}
       propertyPath: levelMusic
       value: 
-      objectReference: {fileID: 8300000, guid: dffaebd30d8524c62b7b8d32d4bfe30e, type: 3}
+      objectReference: {fileID: 8300000, guid: b62526f5bea6a485f90652253d5c4fee, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1749,7 +1749,6 @@ MonoBehaviour:
   peakTime: 2.5
   busOptionPanels: {fileID: 727007360}
   directorPanel: {fileID: 1870192725}
-  clear: 0
   roundsConfig:
   - destinationsScriptable:
     - {fileID: 11400000, guid: 7a4ced3c6b2ac714cad0a5e0eb248e70, type: 2}
