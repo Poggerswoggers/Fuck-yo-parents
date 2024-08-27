@@ -17,6 +17,6 @@ MonoBehaviour:
   - Yes
   - No
   correctOptions: 02000000
-  ExplanationText: <color=#F6FF2E>There are some invisible medical conditions as
-    well
+  ExplanationText: "<color=#F6FF2E>There are some invisible medical conditions as
+    well e.g. Autism, cancer \r"
   questionType: 0
