@@ -16,13 +16,14 @@ namespace Prologue
         [SerializeField] GameObject dialoguePanel;
         [SerializeField] TextMeshProUGUI storyTextField;
 
-        bool canContinueToNextLine = false;
+        [SerializeField] bool canContinueToNextLine = false;
         private Coroutine displayLineCoroutine;
 
+        StreamingExample video;
         // Start is called before the first frame update
         void Start()
         {
-
+            video = FindObjectOfType<StreamingExample>();
         }
 
         // Update is called once per frame
@@ -32,6 +33,7 @@ namespace Prologue
             {
                 if (Input.GetMouseButtonDown(0))
                 {
+                    //Debug.Log("hi");
                     if (canContinueToNextLine)
                     {
                         DisplayNewLine();
@@ -49,7 +51,7 @@ namespace Prologue
             }
         }
 
-        void PlayStory()
+        public void PlayStory()
         {
             dialoguePanel.SetActive(true);
             inkStory = new Story(inkStoryJson.text);
@@ -74,6 +76,8 @@ namespace Prologue
             }
             else
             {
+                dialoguePanel.SetActive(false);
+                video.PlayVideo2();
                 //This area is called when the story has reached its end
             }
         }
