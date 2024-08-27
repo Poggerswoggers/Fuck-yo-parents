@@ -7,18 +7,19 @@ public class LevelSelect : MonoBehaviour
 {
     [SerializeField] List<Button> levels;
     [SerializeField] LevelDataScriptable levelScriptable;
-    static bool onFirstLaunch = false;
+
+    [SerializeField] MedalsUnlock medalsUnlockScriptable;
 
     [Header("Save System Ref")]
     [SerializeField] SaveSystem saveManager;
+    [SerializeField] List<Image> medalsList;
 
     void Awake()
     {
-        if (!onFirstLaunch){
-            onFirstLaunch = true;
-            saveManager.RetrieveLevelData();
-        }
+        saveManager.RetrieveLevelData();
         SetUnlockedLevels();
+
+        
     }
 
     void SetUnlockedLevels()
@@ -26,6 +27,10 @@ public class LevelSelect : MonoBehaviour
         for(int i=0; i < levels.Count; i++)
         {
             levels[i].interactable = levelScriptable.levelDataArray[i].unlocked;
+            medalsList[i].sprite = medalsUnlockScriptable.ConvertScoreToMedal(
+                levelScriptable.levelDataArray[i].medalManager,
+                levelScriptable.levelDataArray[i].Score);
+            medalsList[i].gameObject.SetActive((medalsList[i].sprite != null));
         }
     }
 }
