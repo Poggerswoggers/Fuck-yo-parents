@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,7 +19,10 @@ public class ScoreManager : MonoBehaviour
     [Header("Scores")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI minigameScoreText;
+    [SerializeField] Image medalImage;
 
+    [Header("Medal Manager")]
+    [SerializeField] MedalManager medalManager;
 
     public void UpdateScore(int levelScore) => scoreText.text = levelScore.ToString();
 

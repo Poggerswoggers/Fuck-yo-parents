@@ -10,8 +10,6 @@ public class LevelManager : MinigameLevelManager, IQuestionable
     public Action<int> OnScoreChange;
 
     [SerializeField] GameObject levelUIPanel;
-
-
     [SerializeField] int maxScore;
 
     [Header("Vulnerable Commuter Count")]
@@ -132,6 +130,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
             AudioManager.instance.PlaySFX(AudioManager.instance.lvlDone);
         }
         Debug.Log("End Game");
+
         gSm.ChangeState(gSm.endState);
     }
 

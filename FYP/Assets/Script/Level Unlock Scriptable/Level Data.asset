@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDataArray:
   - unlocked: 1
+    Score: 8400
+  - unlocked: 1
     Score: 0
-  - unlocked: 0
-    Score: 0
-  - unlocked: 0
-    Score: 0
+  - unlocked: 1
+    Score: 13650
