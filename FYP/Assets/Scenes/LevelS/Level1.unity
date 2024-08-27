@@ -2426,6 +2426,14 @@ PrefabInstance:
       propertyPath: levelTargets.Array.data[1]
       value: 
       objectReference: {fileID: 1460308224}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: medalManager.goldMedalScore
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: medalManager.silverMedalScore
+      value: 7000
+      objectReference: {fileID: 0}
     - target: {fileID: 9174089994335287046, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

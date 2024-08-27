@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Level Data
   m_EditorClassIdentifier: 
   levelDataArray:
-  - unlocked: 1
+  - unlocked: 0
     Score: 0
     medalManager:
       bronzeMedalScore: 6000
-      silverMedalScore: 8000
-      goldMedalScore: 9000
+      silverMedalScore: 7000
+      goldMedalScore: 8000
   - unlocked: 0
     Score: 0
     medalManager:
-      bronzeMedalScore: 8000
-      silverMedalScore: 10000
-      goldMedalScore: 14000
+      bronzeMedalScore: 7000
+      silverMedalScore: 9000
+      goldMedalScore: 12000
   - unlocked: 0
     Score: 0
     medalManager:
-      bronzeMedalScore: 10000
-      silverMedalScore: 15000
-      goldMedalScore: 20000
+      bronzeMedalScore: 9000
+      silverMedalScore: 12000
+      goldMedalScore: 15000
