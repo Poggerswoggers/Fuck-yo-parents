@@ -24,10 +24,7 @@ public class ScoreManager : MonoBehaviour
     [Header("Medal Manager")]
     [SerializeField] MedalsUnlock medalUnlockScriptable;
 
-    public void UpdateScore(int levelScore, MedalManager medalManager){
-        scoreText.text = levelScore.ToString();
-        UpdateMedalSprite(levelScore, medalManager);
-    }
+    public void UpdateScore(int levelScore) => scoreText.text = levelScore.ToString();
 
     public void ScoreEffect(int score, int levelScore, MedalManager medalManager)
     {
@@ -90,9 +87,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void UpdateMedalSprite(int levelScore, MedalManager medalManager)
+    public void UpdateMedalSprite(int levelScore, MedalManager medalManager)
     {
-        Debug.Log("Ran");
         medalImage.sprite = medalUnlockScriptable.ConvertScoreToMedal(medalManager, levelScore);
         medalImage.gameObject.SetActive((medalImage.sprite != null));
     }

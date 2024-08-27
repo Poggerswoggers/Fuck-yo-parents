@@ -15,7 +15,19 @@ MonoBehaviour:
   levelDataArray:
   - unlocked: 1
     Score: 8400
+    medalManager:
+      bronzeMedalScore: 6000
+      silverMedalScore: 8000
+      goldMedalScore: 9000
   - unlocked: 1
     Score: 0
+    medalManager:
+      bronzeMedalScore: 8000
+      silverMedalScore: 10000
+      goldMedalScore: 14000
   - unlocked: 1
     Score: 13650
+    medalManager:
+      bronzeMedalScore: 10000
+      silverMedalScore: 15000
+      goldMedalScore: 20000

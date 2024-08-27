@@ -745,7 +745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameSelectCanvas: {fileID: 0}
   levelUIPanel: {fileID: 6060965220411505300}
-  maxScore: 5000
+  maxScore: 12000
   medalManager:
     bronzeMedalScore: 6000
     silverMedalScore: 8000
@@ -757,7 +757,6 @@ MonoBehaviour:
   gSm: {fileID: 1284608441080620031}
   currentcommuterselect: {fileID: 1546824766158376863}
   levelMusic: {fileID: 8300000, guid: 3431c9f15156c4146b013b10e23366a2, type: 3}
-  scoreManager: {fileID: 1551684537547484152}
   guideSprite: {fileID: 21300000, guid: 18fb3e657c3eec04581f71166e1a8f62, type: 3}
   russellPopup: {fileID: 9206936207291438711}
   mcqPopUpTime: 30
@@ -1153,7 +1152,9 @@ MonoBehaviour:
   levelEndPanel: {fileID: 4626041469585868076}
   levelData: {fileID: 11400000, guid: 6367411661a70674ea9cbd3ab5462253, type: 2}
   saveSystem: {fileID: 11400000, guid: 7a5ed795124f66d4fab90ab2f2d69e2a, type: 2}
+  medalImage: {fileID: 2676240226007771618}
   saveLevel: 1
+  medalsUnlockScriptable: {fileID: 11400000, guid: 750172c9eba17a046b7fd4162ec36a96, type: 2}
 --- !u!1 &1891827885284976174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,10 +1730,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1835800842435462007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 76.100006, y: -242.29999}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &956090008425271451
 CanvasRenderer:
@@ -2110,10 +2111,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1835800842435462007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -123.899994, y: -242.29999}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8729942092196669703
 CanvasRenderer:
@@ -2379,6 +2380,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3870271436871400025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8519863626845825184}
+  - component: {fileID: 1044758694104581211}
+  - component: {fileID: 2676240226007771618}
+  m_Layer: 5
+  m_Name: Medal Sprite End Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8519863626845825184
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870271436871400025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8617168418756487660}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 661, y: 223}
+  m_SizeDelta: {x: 417, y: 547}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1044758694104581211
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870271436871400025}
+  m_CullTransparentMesh: 1
+--- !u!114 &2676240226007771618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870271436871400025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1b769c3593503493b9669eac7ae0fafa, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3906700902634412824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,6 +3254,7 @@ RectTransform:
   m_Children:
   - {fileID: 1835800842435462007}
   - {fileID: 7113468312955993992}
+  - {fileID: 8519863626845825184}
   m_Father: {fileID: 9081158787523872918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3657,10 +3734,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1835800842435462007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 276.1, y: -242.29999}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7399782794288023167
 CanvasRenderer:

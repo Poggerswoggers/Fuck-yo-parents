@@ -32,8 +32,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
     [SerializeField] AudioClip levelMusic;
 
     //Reference Script
-    [Header("References")]
-    [SerializeField] ScoreManager scoreManager;
+    ScoreManager scoreManager;
 
     public override void Awake()
     {
@@ -67,6 +66,8 @@ public class LevelManager : MinigameLevelManager, IQuestionable
 
     private void Start()
     {
+        scoreManager = gameObject.GetComponent<ScoreManager>();
+
         //Initialise Vulnerable commuter amount text
         vulnerableComCount = levelTargets.Count;
         vulnerableComCountText.text = $"{vulnerableComFound}/{levelTargets.Count}";
@@ -75,6 +76,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
         mcqPopupTimer = mcqPopUpTime;
         //Initialise level score
         UpdateScore(-maxScore);
+
     }
 
     //Toggle UI to be in view or not
@@ -84,7 +86,8 @@ public class LevelManager : MinigameLevelManager, IQuestionable
     public void UpdateScore(int points)
     {
         levelScore -= points;
-        scoreManager.UpdateScore(levelScore, medalManager);
+        scoreManager.UpdateScore(levelScore);
+        scoreManager.UpdateMedalSprite(levelScore, medalManager);
     }
 
     public void Updatetargets(Transform target)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelEndState : GameBaseState
 {
@@ -8,8 +9,11 @@ public class LevelEndState : GameBaseState
     [SerializeField] GameObject levelEndPanel;
     [SerializeField] LevelDataScriptable levelData;
     [SerializeField] SaveSystem saveSystem;
-
+    [SerializeField] Image medalImage;
     [SerializeField] bool saveLevel = true;
+
+    [Header("Unlock Medal Scriptable")]
+    [SerializeField] MedalsUnlock medalsUnlockScriptable;
 
     public override void EnterState(GameStateManager gameStateManager)
     {
@@ -32,6 +36,10 @@ public class LevelEndState : GameBaseState
         if (saveLevel)
         {
             levelData.levelDataArray[levelIndex].Score = LevelManager.Instance.GetLevelScore();
+            medalImage.sprite = medalsUnlockScriptable.ConvertScoreToMedal(
+                                levelData.levelDataArray[levelIndex].medalManager,
+                                levelData.levelDataArray[levelIndex].Score);
+            medalImage.gameObject.SetActive((medalImage.sprite != null));
         }
         levelData.levelDataArray[levelIndex+1].unlocked = true;
         saveSystem.SaveLevelData();

@@ -12,5 +12,14 @@ public class LevelDataScriptable : ScriptableObject
 public class LevelData
 {
     public bool unlocked;
-    public float Score;
+    public int Score;
+    public MedalManager medalManager;
+}
+
+[System.Serializable]
+public struct MedalManager
+{
+    public int bronzeMedalScore;
+    public int silverMedalScore;
+    public int goldMedalScore;
 }
