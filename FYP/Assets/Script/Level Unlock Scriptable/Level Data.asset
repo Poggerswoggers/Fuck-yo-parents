@@ -29,6 +29,6 @@ MonoBehaviour:
     Score: 0
     medalManager:
       bronzeMedalScore: 10000
-      silverMedalScore: 14000
-      goldMedalScore: 16000
+      silverMedalScore: 16000
+      goldMedalScore: 18000
   unlocked: 0

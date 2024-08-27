@@ -23,6 +23,7 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
 
     private void Awake()
     {
+        LeanTween.reset();
         currentPage = 1;
         targetPos = pagesRect.localPosition;
         dragThreshold = Screen.width / 15;

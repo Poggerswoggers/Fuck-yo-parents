@@ -9,6 +9,6 @@ public class MinigameButtonHandler : MonoBehaviour
     public void SetMinigameEnum(string value)
     {
         minigameSceneName = value;
-        MinigameLevelManager.Instance.LoadAddictiveScene(value, 2); 
+        MinigameLevelManager.Instance.LoadAddictiveScene(value, (int)Random.Range(1,3)); 
     }
 }
