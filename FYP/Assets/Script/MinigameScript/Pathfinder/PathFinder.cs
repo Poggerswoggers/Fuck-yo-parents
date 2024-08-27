@@ -48,7 +48,6 @@ public class PathFinder : BaseMiniGameClass
 
     public override void StartGame()
     {
-        score = 2000;
         SetDifficulty();
         IncreaseGridSize();
     }
@@ -157,7 +156,7 @@ public class PathFinder : BaseMiniGameClass
             resetButton.gameObject.SetActive(false);
             gm.RunPathCo(index, state);
 
-            score += (!state) ? 0 : 1000;
+            score += (!state) ? 500 : 1000;
         }
 
         if (AudioManager.instance != null)

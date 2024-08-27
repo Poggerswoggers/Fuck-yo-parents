@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour, IQuestionable
     [Header("Vulnerable Commuter Count")]
     [SerializeField] TextMeshProUGUI vulnerableComCountText;        //Vulnerable count in the level text
     int vulnerableComCount;
+    int vulnerableComFound = 0;
 
 
     string addictiveScene;      //String name of addictive scene
@@ -79,7 +80,8 @@ public class LevelManager : MonoBehaviour, IQuestionable
     private void Start()
     {
         //Initialise Vulnerable commuter amount text
-        vulnerableComCountText.text = $"{vulnerableComCount}/{levelTargets.Count}";
+        vulnerableComCount = levelTargets.Count;
+        vulnerableComCountText.text = $"{vulnerableComFound}/{levelTargets.Count}";
         minigameCount = levelTargets.Count;
         //Set popup timer
         mcqPopupTimer = mcqPopUpTime;
@@ -102,8 +104,9 @@ public class LevelManager : MonoBehaviour, IQuestionable
         //Update target this stuff is ancient
         if (levelTargets.Contains(target))
         {
-            vulnerableComCount++;
-            vulnerableComCountText.text = $"{vulnerableComCount}/{levelTargets.Count}";
+            levelTargets.Remove(target);
+            vulnerableComFound++;
+            vulnerableComCountText.text = $"{vulnerableComFound}/{vulnerableComCount}";
             mcqPopupTimer = mcqPopUpTime;
         }
     }

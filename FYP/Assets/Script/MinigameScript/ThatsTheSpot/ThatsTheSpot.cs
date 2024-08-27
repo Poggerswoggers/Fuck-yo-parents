@@ -22,6 +22,7 @@ public class ThatsTheSpot : BaseMiniGameClass
     [SerializeField] TextMeshProUGUI percentageText;
 
     int liveScore;
+    int bestScore;
 
     public struct points
     {
@@ -47,9 +48,19 @@ public class ThatsTheSpot : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        score = liveScore*10;
+        score = CalculateScore();
         Debug.Log(score);
         base.UnloadedAndUpdateScore(score);
+    }
+
+    int CalculateScore()
+    {
+        if (bestScore == 100) 
+            return 2000;
+        else if (bestScore >= 50) 
+            return 1000;
+        else 
+            return 500;
     }
 
     public void GetArea(Transform areaTransform, Transform pmdTransform)
@@ -68,7 +79,9 @@ public class ThatsTheSpot : BaseMiniGameClass
     IEnumerator RetrySequenceCo(PmdController pmdC)
     {
         yield return new WaitForSeconds(3f);
-        liveScore += Mathf.RoundToInt(overlapArea * 100);
+        liveScore = Mathf.RoundToInt(overlapArea * 100);
+        if(liveScore > bestScore) { bestScore = liveScore; }
+
         if (tries >0)
         {
             tries--;

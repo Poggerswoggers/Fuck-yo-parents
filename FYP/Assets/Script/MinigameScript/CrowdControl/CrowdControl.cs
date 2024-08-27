@@ -166,6 +166,7 @@ public class CrowdControl : BaseMiniGameClass
             npcQueue.RelocateAllNpc(frontNpc); 
             if (frontNpc != null)
             {
+                StopCoroutine(frontNpc.LeaveStationCo);
                 frontNpc.SelfDestruct(2); //Destroy the npc
                 npcCleared++;
                 addDelay *= 0.9f;
@@ -189,7 +190,7 @@ public class CrowdControl : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        score = 2000 - (commutersToClear - npcCleared) * 100 - ahMaLeft * 200;
+        score = ((commutersToClear == npcCleared)?  3000 : npcCleared*100) - ahMaLeft * 200;
         UnloadedAndUpdateScore(score);
     }
 

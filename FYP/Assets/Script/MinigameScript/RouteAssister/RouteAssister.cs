@@ -24,7 +24,8 @@ public class RouteAssister : BaseMiniGameClass
     [SerializeField] GameObject directorPanel;
     List<string> numberAlpha = new() { "1st", "2nd", "3rd", "4th"}; //A list to store string
     private List<Image> routeSprite = new();
-    public int clear = 0; //Number of correct option to match with scriptable
+    int clear = 0;              //Number of correct option to match with scriptable
+    int clearedRoutes = 0;      //Number of routes cleared
     
     [Header("Scriptable Object List")]
     List<Destinations> destinationsScriptable;  //A list of all routes
@@ -46,6 +47,7 @@ public class RouteAssister : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
+        score = (3 == clearedRoutes) ? 3000 : clearedRoutes * 500;
         UnloadedAndUpdateScore(score);
     }
 
@@ -53,7 +55,6 @@ public class RouteAssister : BaseMiniGameClass
     {
         SetDifficulty();
         destinationsScriptable = Helper.Shuffle(destinationsScriptable);    //Shuffle the list
-        score = 2000;  //suvject to change
 
         StartSequence();
         isGameActive = true;    //Set is game active
@@ -154,7 +155,6 @@ public class RouteAssister : BaseMiniGameClass
 
         if (index == currentDes.route.Count-1)   //if index = 2 means filled out route choices
         {
-            CheckIfMatch();
             StartCoroutine(RoundOver());           
         }
         index++;
@@ -176,6 +176,8 @@ public class RouteAssister : BaseMiniGameClass
         map.SetActive(true);
         map.transform.GetChild(0).GetComponent<SpriteRenderer>().color = (complete) ? Color.green : Color.red;
 
+        if (complete) clearedRoutes++;
+
         if (destinationsScriptable.Count > 0)
         {
             LeanTween.moveX(cam.gameObject, 0f, 0.5f).setDelay(2f).setOnComplete(StartSequence);
@@ -183,16 +185,6 @@ public class RouteAssister : BaseMiniGameClass
         else
         {
             LeanTween.delayedCall(1f, gameManager.OnGameOver);
-        }
-    }
-
-    void CheckIfMatch()
-    { 
-        if(clear == currentDes.route.Count){
-            score += 500;
-        }
-        else{
-            score -= 500;
         }
     }
 

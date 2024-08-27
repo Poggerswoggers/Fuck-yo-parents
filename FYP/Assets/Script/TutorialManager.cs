@@ -32,6 +32,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] float minDragTime;
 
     [Header("UI Test")]
+    [SerializeField] GameObject UIPanel;
     [SerializeField] GameObject uiTestParent;
     int uiTestCount;
 
@@ -41,7 +42,8 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        LeanTween.delayedCall(0.3f,LevelManager.Instance.DisableLevelUI);
+        LeanTween.cancel(UIPanel);
+        LevelManager.Instance.DisableLevelUI();
         lastMousePosition = reticle.position;
         SetActiveSprite();
     }

@@ -7,7 +7,7 @@ using System;
 public class SliderTimer : MonoBehaviour
 {
     [SerializeField] Slider timerSlider;
-    private float gameTime;
+    public float gameTime { get; private set; }
 
     private Action timerCallback;
 

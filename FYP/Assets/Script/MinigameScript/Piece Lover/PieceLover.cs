@@ -38,7 +38,9 @@ public class PieceLover : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        score = 2000 - 500 * piecesToMatch;
+        score = (piecesToMatch == 0) ? 2000 : (9 - piecesToMatch) * 100;
+        if(timer.gameTime>=30) { score += 1000; }
+        Debug.Log(score);
         UnloadedAndUpdateScore(score);
     }
 

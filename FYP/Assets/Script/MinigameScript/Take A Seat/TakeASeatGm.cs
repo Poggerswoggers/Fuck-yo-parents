@@ -29,7 +29,7 @@ public class TakeASeatGm : BaseMiniGameClass
     [Header("Config")]
     [SerializeField] float timeBetweenCommuters;
     float _timeBetweenCommuters;
-    int count = 0;
+    int vulnerableSeated = 0;
 
     [Header("Minigame cam")]
     [SerializeField] Camera minigameCam;
@@ -39,7 +39,8 @@ public class TakeASeatGm : BaseMiniGameClass
 
     public override void EndSequenceMethod()
     {
-        score = 2000 - 250*(2 * thisLevel.commuterAsset.VulnerableCount - count);
+        score = (thisLevel.commuterAsset.VulnerableCount == vulnerableSeated) ? 1500 : 250 * vulnerableSeated;
+        Debug.Log(score);
         UnloadedAndUpdateScore(score);
     }
 
@@ -104,7 +105,7 @@ public class TakeASeatGm : BaseMiniGameClass
                 }
                 if (grabbedCommuter.GetComponent<Commuter>().isVulnerable)
                 {
-                    vulnerableMatch?.Invoke(count+=1); 
+                    vulnerableMatch?.Invoke(vulnerableSeated+=1); 
                 }
                 return true;
             }

@@ -2666,6 +2666,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1399220180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6060965220411505300, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+  m_PrefabInstance: {fileID: 1796301823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1465494597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3306,7 @@ MonoBehaviour:
   tutorialCommuter: {fileID: 8764480782382026577}
   reticle: {fileID: 540583051}
   minDragTime: 0.75
+  UIPanel: {fileID: 1399220180}
   uiTestParent: {fileID: 1914384362}
 --- !u!4 &1769701642
 Transform:

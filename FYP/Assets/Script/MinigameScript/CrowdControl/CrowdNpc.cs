@@ -32,6 +32,8 @@ public class CrowdNpc: MonoBehaviour
     //Reference
     SpriteRenderer sr;
 
+    public Coroutine LeaveStationCo {  get; private set;}
+
     public void Initialise(CrowdControl cc)
     {
         this.cc = cc;
@@ -131,7 +133,7 @@ public class CrowdNpc: MonoBehaviour
 
     public void WaitTime()
     {
-        StartCoroutine(WaitTimeCo());
+        LeaveStationCo = StartCoroutine(WaitTimeCo());
     }
     IEnumerator WaitTimeCo()
     {
@@ -146,7 +148,7 @@ public class CrowdNpc: MonoBehaviour
         transform.localScale = scale;
 
         MoveInQueue(new Vector2(-10, transform.position.y));        //Move off screen
-        SelfDestruct(5);                          //Die
+        SelfDestruct(10);                          //Die
         cc.TimePenalty();
     }
 }
