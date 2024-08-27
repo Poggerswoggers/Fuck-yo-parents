@@ -11,7 +11,7 @@ public class PassengerCollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //ScoreManager.Instance.OnScoreChange?.Invoke(250);        
+        LeanTween.moveLocalY(collision.transform.GetChild(0).gameObject, 0.2f, 0.5f).setEaseShake();
         HeadTilt.HitPassenger();
     }
 }
