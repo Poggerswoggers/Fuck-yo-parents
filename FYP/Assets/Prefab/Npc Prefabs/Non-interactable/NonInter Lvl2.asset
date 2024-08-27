@@ -17,3 +17,11 @@ MonoBehaviour:
   possibleSprites:
   - {fileID: 21300000, guid: d9ae31f91d1967a41943ebbebbbbcc0c, type: 3}
   - {fileID: 21300000, guid: 12e766c9426c6564d82c29a06130143d, type: 3}
+  - {fileID: 21300000, guid: 7fc236aec4271574781ef7c7cb81a42a, type: 3}
+  - {fileID: 21300000, guid: f4d538e6ae18d5d46a7854af1b90f07c, type: 3}
+  - {fileID: 21300000, guid: b444934d701c36549a78765d989722b0, type: 3}
+  - {fileID: 21300000, guid: 6fb7d46b1cc30174f804e086d811d510, type: 3}
+  - {fileID: 21300000, guid: 91941ede21cf9bc408ff6c4631b699d5, type: 3}
+  - {fileID: 21300000, guid: 331f98e0f3e560349a8affb6ca8768a8, type: 3}
+  - {fileID: 21300000, guid: be17eb6d2a8a9f44abf3ff069433ea91, type: 3}
+  - {fileID: 21300000, guid: 852b4651b115f1f4aad191e95971c780, type: 3}

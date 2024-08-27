@@ -1767,8 +1767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0292adf8894dd224687b30528d2ed513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCount: 15
   spawnerPrefab: {fileID: 6732967062800949955, guid: b7060b9ee32e14546b18c7c6aa10b133, type: 3}
+  Noninteractablefields: {fileID: 11400000, guid: 6c5e89449aa79914f8333f339d7c03d3, type: 2}
 --- !u!1001 &698879791
 PrefabInstance:
   m_ObjectHideFlags: 0
