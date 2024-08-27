@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,7 @@ public class LevelEndState : GameBaseState
             medalImage.gameObject.SetActive((medalImage.sprite != null));
         }
         levelData.levelDataArray[levelIndex+1].unlocked = true;
+        if(levelIndex == 2) { levelData.unlocked = true; }
         saveSystem.SaveLevelData();
     }
 }

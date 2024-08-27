@@ -7,6 +7,7 @@ public class NpcStateManager: MonoBehaviour
     [SerializeField] bool _hasBounce;
     public bool HasBounce => _hasBounce;
     public bool isWalking { get; set; }
+    public bool hasBeenTalkTo {  get; set; } = false;
 
     public NpcAnimation npcAnim;
 

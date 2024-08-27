@@ -198,7 +198,7 @@ public class DialogueManager : GameBaseState
 
 
         RefreshChoiceView();
-        if (correctOption == 0) return;
+        if (correctOption == 0 || gSm.NSm.hasBeenTalkTo) return;
         LevelManager.Instance.OnScoreChange?.Invoke((correctPrompt) ? -200 : 200);
         //hi jason i added this
         if (correctPrompt)

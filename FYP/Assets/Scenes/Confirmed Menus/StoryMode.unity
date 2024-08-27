@@ -261,7 +261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &58873748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1139,17 +1139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7caea83405c22e545a1980453d387234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 92982059}
-  - {fileID: 191187434}
-  - {fileID: 274498691}
+  levelsButton: []
   levelScriptable: {fileID: 11400000, guid: 6367411661a70674ea9cbd3ab5462253, type: 2}
   medalsUnlockScriptable: {fileID: 11400000, guid: 750172c9eba17a046b7fd4162ec36a96, type: 2}
+  minigameButton: {fileID: 0}
   saveManager: {fileID: 11400000, guid: 7a5ed795124f66d4fab90ab2f2d69e2a, type: 2}
   medalsList:
   - {fileID: 2077888745}
   - {fileID: 58873749}
   - {fileID: 1232902401}
+  isLevelSelect: 1
 --- !u!1 &1174469940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1232902400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1967,7 +1966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2077888744
 RectTransform:
   m_ObjectHideFlags: 0

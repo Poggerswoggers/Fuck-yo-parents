@@ -162,6 +162,7 @@ public class LevelManager : MinigameLevelManager, IQuestionable
 
     void PopupQuestion()
     {
+        OnScoreChange?.Invoke(200);
         russellPopup.SetActive(false);
         gSm.mcqState.SetQuestionVariables(GetQuestionType(), guideSprite);
         gSm.ChangeState(gSm.mcqState);
