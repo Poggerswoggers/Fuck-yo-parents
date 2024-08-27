@@ -13,20 +13,20 @@ public class NonInteractableNpc:MonoBehaviour
     }
     public states currentState;
 
-    [SerializeField] float speed;
-    [SerializeField] SnapCamera sc;
-    [SerializeField] float borderMargin = 0.5f;
+    [SerializeField] NoninteractableScriptable Noninteractablefields;
+
     bool crossBoundX;
     bool crossBoundY;
 
     //Npc walk dir
     Vector2 dir;
-    float _walkDur;
 
     //reference
     Rigidbody2D rb;
+    NpcAnimation npcAnim;
     private void Start()
     {
+        npcAnim = gameObject.GetComponent<NpcAnimation>();
         rb = GetComponent<Rigidbody2D>();
         float angle = Random.value * Mathf.PI * 2;
         dir = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
@@ -35,35 +35,33 @@ public class NonInteractableNpc:MonoBehaviour
     private void FixedUpdate()
     {
         Roaming();
+        npcAnim.npcAnimation();
+        npcAnim.WalkAnim(1.1f, 1.1f, true);
     }
 
     void Roaming()
     {
-        Vector2 targetVel = dir.normalized * speed * Time.deltaTime;
+        Vector2 targetVel = dir.normalized * Noninteractablefields.speed * Time.deltaTime;
         rb.velocity = targetVel;
 
 
-        if (Mathf.Abs(transform.position.x) > MapBound.Bound.x - borderMargin && !crossBoundX)
+        if (Mathf.Abs(transform.position.x) > MapBound.UpperBound.x - Noninteractablefields.borderMargin && !crossBoundX)
         {
             crossBoundX = true;
             //dir = new Vector2(-Mathf.Sign(transform.position.x) * Mathf.Sin(Random.Range(0.1f,1)), Random.insideUnitCircle.y);
             dir = new Vector2(-Mathf.Sign(transform.position.x) * Mathf.Sin(Random.Range(0, Mathf.PI / 2)), Random.insideUnitCircle.y);
-
-            _walkDur += 1;
         }
-        else if (Mathf.Abs(transform.position.x) < MapBound.Bound.x)
+        else if (Mathf.Abs(transform.position.x) < MapBound.UpperBound.x)
         {
             crossBoundX = false;
         }
 
-        if (Mathf.Abs(transform.position.y) > MapBound.Bound.y - borderMargin && !crossBoundY)
+        if (Mathf.Abs(transform.position.y) > MapBound.UpperBound.y - Noninteractablefields.borderMargin && !crossBoundY)
         {
             crossBoundY = true;
             dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(transform.position.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
-
-            _walkDur += 1;
         }
-        else if (Mathf.Abs(transform.position.y) < MapBound.Bound.y)
+        else if (Mathf.Abs(transform.position.y) < MapBound.UpperBound.y)
         {
             crossBoundY = false;
         }
