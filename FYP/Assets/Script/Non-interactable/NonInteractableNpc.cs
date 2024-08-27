@@ -26,6 +26,7 @@ public class NonInteractableNpc:MonoBehaviour
     NpcAnimation npcAnim;
     private void Start()
     {
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Noninteractablefields.GetRandomSprite();
         npcAnim = gameObject.GetComponent<NpcAnimation>();
         rb = GetComponent<Rigidbody2D>();
         float angle = Random.value * Mathf.PI * 2;
