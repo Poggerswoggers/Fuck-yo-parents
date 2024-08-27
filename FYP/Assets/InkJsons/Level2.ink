@@ -82,22 +82,7 @@ Urm, hi there! Do you need help?
         I saw someone walking around with a <color=yellow>HEARING AID</color>, he could use some help.
             -> DONE
               
-==Davian==
-~correctAnswer = 0
-Urm, hi there! Do you need help?
-    *[You look like you can play Basketball?]
-        Thanks for the compliment.
-            -> DONE
-    *[Nothing.] 
-        Orh ok lor.
-            -> DONE
-    *[Where are you headed?] 
-        Going to play basketball with some friends. being late.
-            -> DONE
-    *[Who is your idol?] 
-        The legend in my heart - Lebron James.
-            -> DONE
-            
+
 ==Jayden==
 ~correctAnswer = 0
 Hello There!
