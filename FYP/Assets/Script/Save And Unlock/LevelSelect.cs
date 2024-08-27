@@ -50,4 +50,12 @@ public class LevelSelect : MonoBehaviour
     {
         minigameButton.interactable = levelScriptable.unlocked;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            saveManager.SaveLevelData();
+        }
+    }
 }

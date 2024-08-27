@@ -115,6 +115,7 @@ public class HeadTilt : BaseMiniGameClass
 
     public void HitPassenger()
     {
+
         Strikes++;
         rb.AddTorque(forceAmount * Mathf.Sign(rotationZ)*30);
     }

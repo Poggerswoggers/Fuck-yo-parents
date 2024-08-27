@@ -34,6 +34,7 @@ public class SaveSystem : ScriptableObject
             ld.unlocked = false;
             ld.Score = 0;
         }
+        levelData.unlocked = false;
         SaveLevelData();
     }
 }
