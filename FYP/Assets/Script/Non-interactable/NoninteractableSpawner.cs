@@ -15,7 +15,7 @@ public class NoninteractableSpawner : MonoBehaviour
         float yExtent = MapBound.UpperBound.y;
         for (int i = 0; i < spawnCount; i++)
         {
-            Vector3 randomPosition = new Vector2(Random.Range(-xExtent, xExtent), Random.Range(-yExtent, yExtent));
+            Vector3 randomPosition = new Vector2(Random.Range(-xExtent+1.5f, xExtent - 1.5f), Random.Range(-yExtent + 1.5f, yExtent - 1.5f));
             GameObject spawned = Instantiate(spawnerPrefab, randomPosition, Quaternion.identity);
             spawned.transform.SetParent(parent);
         }
