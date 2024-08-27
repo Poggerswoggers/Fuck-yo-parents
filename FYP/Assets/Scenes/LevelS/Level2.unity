@@ -2843,6 +2843,10 @@ PrefabInstance:
       propertyPath: minigameState
       value: 
       objectReference: {fileID: 1174607802}
+    - target: {fileID: 2414274868738636757, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 3777545197754846575, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
