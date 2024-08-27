@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Intel_36
   m_EditorClassIdentifier: 
   questionText: "A commuter with intellectual disabilities does not understand what
-    you are saying. What should you do?\r"
+    you are saying. What should you do? <color=yellow>Select all that apply.\r"
   answerText:
   - "Use shorter and simpler sentences\r"
   - "Be patient and understanding \r\n"

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Physical_3
   m_EditorClassIdentifier: 
   questionText: "What should you do when you see a commuter with physical disabilty
-    e.g., using crutches, on a wheelchair?\r"
+    e.g., using crutches, on a wheelchair? <color=yellow>Select all that apply.\r"
   answerText:
   - "Help to hold the lift and press the lift buttons for them\r"
   - 'Allow them to board the bus or train first

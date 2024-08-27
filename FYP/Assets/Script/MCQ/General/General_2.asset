@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: General_2
   m_EditorClassIdentifier: 
   questionText: "What should you do when you see a  commuter in need e.g., Visually-impaired,
-    deaf, senior, pregnant lady?<color=yellow>Select all that apply.\r\r\r"
+    deaf, senior, pregnant lady? <color=yellow>Select all that apply.\r\r\r"
   answerText:
   - "Ask them if they need help\r"
   - "Ask if they need a seat/Give up your seat\r"

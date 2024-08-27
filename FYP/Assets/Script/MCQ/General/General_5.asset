@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d7e34aadb86204a88fa81a305c1288, type: 3}
   m_Name: General_5
   m_EditorClassIdentifier: 
-  questionText: "Why is being caring on public transport important? Select all that
-    apply\r\n<color=yellow>Select all that apply.\r\r\r"
+  questionText: "Why is being caring on public transport important? <color=yellow>Select
+    all that apply.\r\r\r"
   answerText:
   - "Everyone can be caring towards commuters in need\r\r"
   - "We can ignore others and be focused on ourselves only \r\r"
