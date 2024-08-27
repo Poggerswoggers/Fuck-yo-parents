@@ -3231,15 +3231,15 @@ PrefabInstance:
       objectReference: {fileID: 1724710022}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: medalManager.goldMedalScore
-      value: 15000
+      value: 16000
       objectReference: {fileID: 0}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: medalManager.bronzeMedalScore
-      value: 9000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 4759653151297736069, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: medalManager.silverMedalScore
-      value: 12000
+      value: 14000
       objectReference: {fileID: 0}
     - target: {fileID: 5109305545742298204, guid: 3c499739b5bf50543967a01b34b941c6, type: 3}
       propertyPath: m_AnchorMax.x

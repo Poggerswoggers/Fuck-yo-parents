@@ -12,6 +12,7 @@ public class NoninteractableSpawner : MonoBehaviour
     {
         float xExtent = MapBound.UpperBound.x;
         float yExtent = MapBound.UpperBound.y;
+
         for (int i = 0; i < spawnCount; i++)
         {
             Vector3 randomPosition = new Vector2(Random.Range(-xExtent+1.5f, xExtent - 1.5f), Random.Range(-yExtent + 1.5f, yExtent - 1.5f));

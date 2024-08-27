@@ -9,7 +9,7 @@ public class MapBound : MonoBehaviour
     public static Vector2 Bound { get; private set; }
     public static Vector2 UpperBound { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         var bound = boundaryObj.GetComponent<SpriteRenderer>().bounds;
         Bound = bound.extents;
