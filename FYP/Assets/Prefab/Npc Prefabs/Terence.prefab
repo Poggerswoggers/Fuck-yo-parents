@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 376750993
   m_SortingLayer: -5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 42a60dc9dad1bd644926f6f7dcae1c60, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78fadc7cc10ce0048a8697f4a50aeeb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 38.399998, y: 38.399998}
+  m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -197,7 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasBounce: 1
   npcAnim: {fileID: 4548630070755564869}
-  question: {fileID: 0}
   roamState:
     rid: 2641615680123699208
   interactState:
@@ -216,7 +215,6 @@ MonoBehaviour:
         maxSpeed: 45
         walkDuration: 25
         borderMargin: 1.5
-        sc: {fileID: 0}
         bounce: 1.1
         multiplier: 1.4
     - rid: 2641615680123699209
@@ -251,9 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ced8b052c601f42b95482a44ad1b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 0
-  bounceAccel: 0.2
-  bounceDamp: 0.7
   wanderTime: 2
   flip: 0
 --- !u!1001 &5528780929324594229

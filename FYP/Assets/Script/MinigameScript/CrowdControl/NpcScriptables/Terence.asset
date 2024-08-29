@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888e989e0a62efe4abdcd62223279b4c, type: 3}
   m_Name: Terence
   m_EditorClassIdentifier: 
-  npcSprite: {fileID: 21300000, guid: 2cbfc82f9b8cbdb44bf9012815482ea8, type: 3}
+  npcSprite: {fileID: 21300000, guid: 78fadc7cc10ce0048a8697f4a50aeeb1, type: 3}
   cardObjects:
   - {fileID: 2507325723622912160, guid: 9afb1f00a7cf3c2458c3b7d1586f18d9, type: 3}
   - {fileID: 3621498026535673055, guid: fd577088d6f01064fa1282fb414388a3, type: 3}
