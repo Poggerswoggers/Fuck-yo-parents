@@ -17,7 +17,7 @@ TagManager:
   - Npc
   - BusyNpc
   - Reticle
-  - 
+  - Front Obj
   - 
   - 
   - 
@@ -47,11 +47,11 @@ TagManager:
   - name: Background
     uniqueID: 3261130907
     locked: 0
-  - name: Props
-    uniqueID: 4071803531
-    locked: 0
   - name: Floor
     uniqueID: 2827183261
+    locked: 0
+  - name: Props
+    uniqueID: 4071803531
     locked: 0
   - name: Doors
     uniqueID: 509495921

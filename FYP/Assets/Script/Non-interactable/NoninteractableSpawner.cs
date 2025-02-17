@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NoninteractableSpawner : MonoBehaviour
@@ -19,11 +20,32 @@ public class NoninteractableSpawner : MonoBehaviour
 
         for (int i = 0; i < spawnCount; i++)
         {
-            Vector3 randomPosition = new Vector2(Random.Range(-xExtent+1.5f, xExtent - 1.5f), Random.Range(-yExtent + 1.5f, yExtent - 1.5f));
-            Transform spawned = Instantiate(spawnerPrefab, randomPosition, Quaternion.identity).transform;
+            Vector3 spawnPosition = FindValidSpawnPosition(xExtent, yExtent);
+            Transform spawned = Instantiate(spawnerPrefab, spawnPosition, Quaternion.identity).transform;
             spawned.SetParent(transform);
             spawned.GetComponent<NonInteractableNpc>().Noninteractablefields = Noninteractablefields;
             spawned.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Noninteractablefields.possibleSprites[i];
         }
     }
+
+    Vector3 FindValidSpawnPosition(float xExtent, float yExtent)
+    {
+        Vector3 spawnPosition;
+        int attempts = 0;
+        do
+        {
+            spawnPosition = new Vector3(
+                Random.Range(-xExtent, xExtent),
+                Random.Range(-yExtent, yExtent),
+                0
+            );
+
+            attempts++;
+            if (attempts > 20) break; 
+        }
+        while (Physics2D.OverlapCircle(spawnPosition, 0.5f, LayerMask.GetMask("Obstacle")));
+
+        return spawnPosition;
+    }
+
 }

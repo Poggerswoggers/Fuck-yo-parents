@@ -124,13 +124,10 @@ public class NpcRoamState : NpcBaseState
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            if(Mathf.Abs(dir.x) > 0.1){
-                dir = new Vector2(-Mathf.Sign(dir.x) * Mathf.Sin(Random.Range(0, Mathf.PI / 2)), Random.insideUnitCircle.y);
-            }
-            if (Mathf.Abs(dir.y) > 0.1){
-                dir = new Vector2(Random.insideUnitCircle.x, -Mathf.Sign(dir.y) * Mathf.Cos(Random.Range(0, Mathf.PI / 2)));
-            }
+            //Debug.Log("Collision detected with: " + collision.gameObject.name);
+            dir = -dir;
         }
     }
+
 }
 
