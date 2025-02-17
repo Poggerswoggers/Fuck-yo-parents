@@ -4863,7 +4863,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: xBound
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 399931556260849489, guid: f2cc13e15fb81cd4c8ee853b0d3b0a54, type: 3}
       propertyPath: yBound
