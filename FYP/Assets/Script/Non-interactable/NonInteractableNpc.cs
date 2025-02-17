@@ -57,4 +57,13 @@ public class NonInteractableNpc:MonoBehaviour
             crossBoundY = false;
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            dir = -dir;
+        }
+    }
+
 }

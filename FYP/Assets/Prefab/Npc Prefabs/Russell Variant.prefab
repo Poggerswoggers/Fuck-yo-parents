@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Russell Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3391823126434834832, guid: 2240978658894e443bf32678af285cdf, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4743517649468898957, guid: 2240978658894e443bf32678af285cdf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
