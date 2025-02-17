@@ -1949,8 +1949,8 @@ Transform:
   m_GameObject: {fileID: 1595785010}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 10, z: 1}
+  m_LocalPosition: {x: 0, y: -0.1522, z: 0}
+  m_LocalScale: {x: 50, y: 9.696, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2791,6 +2791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4262234490459522465, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1459417fc3c7ee746822dddf8cf3c815, type: 3}
     - target: {fileID: 7824486483479762769, guid: f364c8e8a99ff00429f10b880ae981da, type: 3}
       propertyPath: m_Name
       value: Naomi

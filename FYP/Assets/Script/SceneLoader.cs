@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
     public Animator animator;
     public Animator disabledAnimator;
 
-    public void Awake(){
+    public void Start(){
         if (AudioManager.instance)
         {
             audioManager = AudioManager.instance;

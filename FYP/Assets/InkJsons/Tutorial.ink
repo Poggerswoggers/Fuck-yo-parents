@@ -19,6 +19,6 @@ Welcome commuter champion.
         They <color=yellow>MIGHT</color> give you hints to find those who need help. always ask if they need help before you assist. 
             -> Tutorial
 *->
-Let's put what you just learn into practice. 
+Let's put what you just learnt into practice. 
 All the best commuter champion.
     -> DONE

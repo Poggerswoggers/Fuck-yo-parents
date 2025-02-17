@@ -48,11 +48,13 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     private bool isPaused = false;
 
-    public void Awake() {
+    public void Awake()
+    {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            PreloadAudioClips();
         }
         else
         {
@@ -60,10 +62,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     private void Start()
     {
-        float music = PlayerPrefs.GetFloat("musicVolume");
-        float sfx = PlayerPrefs.GetFloat("sfxVolume");
+        float music = PlayerPrefs.GetFloat("musicVolume", 1);
+        float sfx = PlayerPrefs.GetFloat("sfxVolume", 1);
 
         myMixer.SetFloat("bgm", Mathf.Log10(music) * 20); // Change the min volume to 0.0001
         myMixer.SetFloat("sfx", Mathf.Log10(sfx) * 20); // Change the min volume to 0.0001
@@ -89,11 +92,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(AudioClip clip, float volume = 1f) 
+    public void PlaySFX(AudioClip clip, float volume = 1f)
     {
         if (!isPaused)
         {
+            Debug.Log("Playing SFX: " + clip.name);
             sfxSource.PlayOneShot(clip, volume);
+        }
+        else
+        {
+            Debug.Log("SFX not playing: Paused state active.");
         }
     }
 
@@ -131,5 +139,12 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.UnPause();
         }
+    }
+
+    private void PreloadAudioClips()
+    {
+        camSnap.LoadAudioData();
+        buttonClick.LoadAudioData();
+        menuBGM.LoadAudioData();
     }
 }

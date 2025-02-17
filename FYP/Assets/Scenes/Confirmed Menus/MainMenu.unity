@@ -216,7 +216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7d6fffe81dae01c40b47625433fabb17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 328271bdb4d6e564dbc5042b09261d52, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5039,6 +5039,10 @@ PrefabInstance:
     - target: {fileID: 3552891107676574781, guid: 1d092759e1a962643b2bf06b98a327f9, type: 3}
       propertyPath: m_Name
       value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144594987473573874, guid: 1d092759e1a962643b2bf06b98a327f9, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
