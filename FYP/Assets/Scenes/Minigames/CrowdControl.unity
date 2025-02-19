@@ -1680,8 +1680,8 @@ MonoBehaviour:
   wrongScreen: {fileID: 21300000, guid: f2a99930e15b65743a1fb5628b891a9b, type: 3}
   holdScreen: {fileID: 21300000, guid: 3cd10708209a8834cbdc17542fa0e6ad, type: 3}
   tapScreen: {fileID: 21300000, guid: 787d8ce722b5cf54d96888259c7f4c74, type: 3}
-  correctTap: {fileID: 8300000, guid: f9611a55d623b4a44a70a7dda9298ce0, type: 3}
-  wrongTap: {fileID: 8300000, guid: a344e872d71ccb147b29aa1c6fff3ed2, type: 3}
+  correctTap: {fileID: 8300000, guid: bd0b1c968ecc544ff98da6f7ed5f2caa, type: 3}
+  wrongTap: {fileID: 8300000, guid: c21f4a4a45c0c44c286826474641f580, type: 3}
 --- !u!1 &1737931253
 GameObject:
   m_ObjectHideFlags: 0

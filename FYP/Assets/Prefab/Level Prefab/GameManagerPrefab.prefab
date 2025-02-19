@@ -748,8 +748,8 @@ MonoBehaviour:
   maxScore: 5000
   medalManager:
     bronzeMedalScore: 6000
-    silverMedalScore: 8000
-    goldMedalScore: 9000
+    silverMedalScore: 7000
+    goldMedalScore: 8000
   vulnerableComCountText: {fileID: 2673724218171993705}
   levelTargets:
   - {fileID: 0}
